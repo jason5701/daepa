@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+*{font-family: 'Noto Sans KR', sans-serif; margin:0; padding:0; box-sizig:border-box;}
+h1, h2, h3, h4{text-align:center; }
+
+#detail{margin:0 auto; }
