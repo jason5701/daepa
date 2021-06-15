@@ -20,4 +20,11 @@
 	<select id="notice_code" resultType="int">
 		select max(notice_number) from tbl_notice;
 	</select>
+	<select id="totalCount" resultType="int">
+      select count(*) from tbl_notice
+   	</select>
+   	<update id="updateClick">
+ 		update tbl_notice set notice_click=notice_click + 1
+ 		where notice_number=#{notice_number}
+ 	</update>
 </mapper>

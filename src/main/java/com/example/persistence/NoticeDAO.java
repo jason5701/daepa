@@ -10,4 +10,6 @@ public interface NoticeDAO {
 	public NoticeVO read(int notice_number)throws Exception;
 	public void update(NoticeVO vo) throws Exception;
 	public int notice_code()throws Exception;
+	public int totalCount() throws Exception;
+	public void updateClick (int notice_number) throws Exception;
 }

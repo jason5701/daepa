@@ -2,6 +2,8 @@ package com.example.controller;
 
 import java.util.HashMap;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,13 +16,19 @@ import com.example.domain.NoticeVO;
 import com.example.domain.PageMaker;
 import com.example.persistence.CommonQADAO;
 import com.example.persistence.NoticeDAO;
+import com.example.service.NoticeService;
 
 @Controller
 @RequestMapping("/board/")
 public class BoardController {
+	@Resource(name="uploadPath")
+	String path;
 	
 	@Autowired
 	NoticeDAO notice_dao;
+	
+	@Autowired
+	NoticeService notice_service;
 	
 	@RequestMapping("notice.json")
 	@ResponseBody
@@ -34,6 +42,21 @@ public class BoardController {
 		map.put("cri", cri);
 		map.put("pm", pm);
 		return map;
+	}
+	
+	/*공지사항 list -- 유저용*/
+	@RequestMapping("notice/list")
+	public String list(Model model, Criteria cri) throws Exception{
+		cri.setPerPageNum(3);
+		
+		PageMaker pm=new PageMaker();
+		pm.setCri(cri);
+	    pm.setTotalCount(notice_dao.totalCount());
+		
+	    model.addAttribute("pm", pm);
+	    model.addAttribute("cri", cri);
+		model.addAttribute("list", notice_dao.list(cri));
+		return "/detail/notice/list";
 	}
 	
 	@RequestMapping(value="notice_insert")
@@ -67,6 +90,14 @@ public class BoardController {
 		model.addAttribute("vo", notice_dao.read(notice_number));
 		return "/index";
 	}
+	
+	/*공지사항 read--유저용*/
+	@RequestMapping("notice/read")
+	public String read(Model model, int notice_number) throws Exception {
+		model.addAttribute("vo", notice_service.read(notice_number));
+		return "/detail/notice/read";
+	}
+	
 	
 	@Autowired
 	CommonQADAO commonQA_dao;

@@ -35,6 +35,17 @@ public class NoticeDAOImpl implements NoticeDAO{
 	public int notice_code() throws Exception {
 		return session.selectOne(namespace+".notice_code");
 	}
+
+	@Override
+	public int totalCount() throws Exception {
+		return session.selectOne(namespace + ".totalCount");
+	}
+
+	@Override
+	public void updateClick(int notice_number) throws Exception {
+		session.update(namespace + ".updateClick" ,notice_number);
+		
+	}
 	
 	
 }
