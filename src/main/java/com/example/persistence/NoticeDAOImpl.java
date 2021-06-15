@@ -17,23 +17,33 @@ public class NoticeDAOImpl implements NoticeDAO{
 	SqlSession session;
 
 	@Override
-	public List<NoticeVO> list(Criteria cri) throws Exception {
-		return session.selectList(namespace+".list",cri);
+	public List<NoticeVO> admin_list(Criteria cri) throws Exception {
+		return session.selectList(namespace+".admin_list",cri);
 	}
 
 	@Override
-	public NoticeVO read(int notice_number) throws Exception {
-		return session.selectOne(namespace+".read",notice_number);
+	public NoticeVO admin_read(int notice_number) throws Exception {
+		return session.selectOne(namespace+".admin_read",notice_number);
 	}
 
 	@Override
-	public void update(NoticeVO vo) throws Exception {
-		session.update(namespace+".update",vo);
+	public void admin_update(NoticeVO vo) throws Exception {
+		session.update(namespace+".admin_update",vo);
 	}
 
 	@Override
-	public int notice_code() throws Exception {
-		return session.selectOne(namespace+".notice_code");
+	public int admin_notice_code() throws Exception {
+		return session.selectOne(namespace+".admin_notice_code");
+	}
+
+	@Override
+	public void admin_insert(NoticeVO vo) throws Exception {
+		session.insert(namespace+".admin_insert",vo);
+	}
+
+	@Override
+	public void admin_delete(int notice_number) throws Exception {
+		session.delete(namespace+".admin_delete",notice_number);
 	}
 	
 	

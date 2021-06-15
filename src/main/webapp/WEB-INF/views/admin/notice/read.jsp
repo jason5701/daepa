@@ -25,18 +25,27 @@
 			<td colspan=4><textarea name="notice_contents" style="width:500px; height:200px; resize: none;">${vo.notice_contents}</textarea></td>
 		</tr>
 	</table>
-	<button id="btn_modify">수정</button><input type="button" id="btn_list" value="목록">
+	<div>
+		<button id="btn_modify">수정</button><button id="btn_delete">삭제</button><input type="button" id="btn_list" value="목록">
+	</div>
 </form>
 <script>
 	$("#btn_modify").on("click",function(e){
 		e.preventDefault();
 		if(!confirm("수정하시겠습니까?")) return;
-		frm.action="notice_update";
+		frm.action="admin_notice_update";
 		frm.method="post";
 		frm.submit();
 	});
 	$("#btn_list").on("click",function(e){
 		e.preventDefault();
 		location.href="/admin/main";
+	});
+	$("#btn_delete").on("click",function(e){
+		e.preventDefault();
+		if(!confirm("삭제하시겠습니까?")) return;
+		frm.action="admin_notice_delete";
+		frm.method="post";
+		frm.submit();
 	});
 </script>

@@ -5,7 +5,7 @@
 	<h2 class="tit">공지사항</h2>
 	<c:if test="${admin_id!=null}">
 		<div>
-			<button onClick="location.href='/board/notice_insert'">글쓰기</button>	
+			<button onClick="location.href='/board/admin_notice_insert'">글쓰기</button>	
 		</div>
 	</c:if>
 	<table id="tbl"></table>
@@ -18,7 +18,7 @@
 			<td>조회수</td>
 		</tr>
 		{{#each list}}
-			<tr onClick="location.href='/board/notice_read?notice_number={{notice_number}}'">
+			<tr onClick="location.href='/board/admin_notice_read?notice_number={{notice_number}}'">
 				<td>{{notice_number}}</td>
 				<td>{{notice_title}}</td>
 				<th>{{notice_writer}}</th>
@@ -59,7 +59,7 @@
 		//alert("111");
 		$.ajax({
 			type:"get",
-			url:"/board/notice.json",
+			url:"/board/admin_notice.json",
 			dataType:"json",
 			data:{"page":page,"keyword":keyword,"searchType":type},			
 			success:function(data){
