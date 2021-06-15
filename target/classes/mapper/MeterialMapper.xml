@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.MeterialMapper">
+	<select id="list" resultType="com.example.domain.MeterialVO">
+		select * from tbl_meterial_sales limit #{pageStart}, #{perPageNum}
+	</select>
+	<select id="read" resultType="com.example.domain.MeterialVO">
+		select * from tbl_meterial_sales where meterial_id=#{meterial_id}
+	</select>
+	<insert id="insert">
+		insert into tbl_meterial_sales(meterial_id,meterial_name,meterial_price,meterial_description,meterial_image)
+		values(#{meterial_id},#{meterial_name},#{meterial_price},#{meterial_description},#{meterial_image})
+	</insert>
+	<update id="update">
+		update tbl_meterial_sales set meterial_price=#{meterial_price}, meterial_description=#{meterial_description}, meterial_image=#{meterial_image}, meterial_delivery=#{meterial_delivery} where meterial_id=#{meterial_id}
+	</update>
+	<update id="delete">
+		update tbl_meterial_sales set meterial_drop=1 where meterial_id=#{meterial_id}
+	</update>
+</mapper>
