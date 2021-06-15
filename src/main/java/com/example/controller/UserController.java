@@ -50,9 +50,10 @@ public class UserController {
 				  cookie.setMaxAge(60*60*24*7); //7일간 보관
 				  response.addCookie(cookie);
 			  }
-			  session.setAttribute(user_id, vo.getUser_id());
+			  System.out.println("로그인확인........."+vo.toString());
+			  session.setAttribute("user_id", vo.getUser_id());
 			  String path=(String)session.getAttribute("path");
-			  if(path==null) path="/";
+			  if(path==null) path="/index";
 			  map.put("path", path);
 		  }else{
 			  result=2; //비밀번호 불일치

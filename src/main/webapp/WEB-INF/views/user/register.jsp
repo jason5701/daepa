@@ -114,9 +114,8 @@
 			<!-- 이메일 입력 -->
 			<tr>
 				<th>이메일<span class="ico"> *</span></th>
-				<td><input type="text" class="register_text" name="user_email"
-					placeholder="예:deapazzang@deapa.com">
-					<button  class="register_button2">중복확인</button></td>
+				<td><input type="text" class="register_text" name="user_email"	placeholder="예:deapazzang@deapa.com">
+					<button class="register_button2">중복확인</button></td>
 			</tr>
 			<!-- 전화번호 입력 -->
 			<tr>
@@ -127,13 +126,13 @@
 			<tr>
 				<th>주소<span class="ico"> *</span></th>
 				<td>
-					<input type="text" id="sample4_postcode" class="register_text" placeholder="우편번호">
+					<input type="text" id="sample4_postcode" class="register_text" name="user_post" placeholder="우편번호">
 					<input type="button"  class="register_button2" onclick="sample4_execDaumPostcode()"	value="우편번호 찾기"><br> 
-					<input type="text" id="sample4_roadAddress" placeholder="도로명주소"> 
-					<input type="text" id="sample4_jibunAddress" placeholder="지번주소"> 
+					<input type="text" id="sample4_roadAddress" name="user_road_address" placeholder="도로명주소"> 
+					<input type="text" id="sample4_jibunAddress" name="user_address" placeholder="지번주소"> 
 					<span id="guide" style="color: #999; display: none"></span><br> 
-					<input type="text" id="sample4_detailAddress" class="register_text" placeholder="상세주소">
-					<input type="text" id="sample4_extraAddress" class="register_text" placeholder="상세주소">
+					<input type="text" id="sample4_detailAddress" class="register_text" name="user_address_detail1" placeholder="상세주소">
+					<input type="text" id="sample4_extraAddress" class="register_text" name="user_address_detail2"  placeholder="참고항목">
 					<p>배송지에 따라 상품정보가 달라질 수 있습니다.</p>
 				</td>
 			</tr>
@@ -141,22 +140,22 @@
 			<tr>
 				<th>성별</th>
 				<td>
-					<input type="radio" name="user_sex" value="male">남자
-					<input type="radio" name="user_sex" value="female">여자
-					<input type="radio" name="user_sex" value="none" checked>선택안함
+					<input type="radio" name="user_sex" value="0" checked>선택안함
+					<input type="radio" name="user_sex" value="1">여자
+					<input type="radio" name="user_sex" value="2">남자				
 				</td>
 			</tr>
 			<!-- 생년월일 입력 -->
 			<tr>
 				<th>생년월일</th>	
 				<td>			
-					<select name="year" class="sel_register">
+					<select name="year"  class="sel_register">
 						<%for (int i = 2021; i > 1949; i--) {%>
 						<option value="<%=i%>"><%=i%>년</option>
 						<%}%>
 					</select> 
 					<select name="month" class="sel_register">
-						<%for (int i = 1; i < 13; i++) {%>
+						<%for (int i = 01; i < 13; i++) {%>
 						<option value="<%=i%>"><%=i%>월</option>
 						<%}%>
 					</select> 
@@ -213,6 +212,7 @@
 		var user_id=$(frm.user_id).val();
 		var user_password=$(frm.user_password).val();
 		var user_name=$(frm.user_name).val();
+		var year= $(frm.year).val();
 		if(user_id==""||user_password==""||user_name==""){
 			alert("필수 입력란 확인하세요");
 			return;

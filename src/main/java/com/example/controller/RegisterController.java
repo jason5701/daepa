@@ -26,11 +26,14 @@ public class RegisterController {
 		return "/index";
 	}
 	@RequestMapping(value="register",method=RequestMethod.POST)
-	public String register(UserVO vo)throws Exception{
+	public String register(UserVO vo,int year,int month,int day)throws Exception{
+		System.out.println("year:" + year + "month:" + month + "day:" + day);
+		String birthday=year+"-"+month+"-"+day;
+		vo.setUser_birthday(birthday);
 		String password=passEncoder.encode(vo.getUser_password());
 		vo.setUser_password(password);
 		dao.register(vo);
 		System.out.println(vo.toString());
-		return "/user/login";
+		return "/index";
 	}
 }
