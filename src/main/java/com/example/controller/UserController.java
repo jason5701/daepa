@@ -3,6 +3,7 @@ package com.example.controller;
 import java.util.HashMap;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -13,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.util.WebUtils;
 
 import com.example.domain.UserVO;
 import com.example.persistence.UserDAO;
@@ -59,4 +61,16 @@ public class UserController {
 		  return map;
 	}
 	
+	@RequestMapping("logout")
+	public String logout(Model model,HttpSession session,HttpServletResponse response, HttpServletRequest request){
+		model.addAttribute("pageName","home.jsp");
+		session.invalidate();
+		Cookie cookie = WebUtils.getCookie(request, "user_id");
+		if(cookie != null){
+			cookie.setPath("/");
+			cookie.setMaxAge(0);
+			response.addCookie(cookie);
+		}
+		return "/index";
+	}	
 }

@@ -1,18 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
+	<link rel="stylesheet" href="/resources/css/user.css" />
 <style>
-* {
-	font-family: 'Noto Sans CJK KR'
-}
-
-h1 {
-	font-weight: 900;
-	text-align: center;
-}
-select { width: 130px;
+	select { width: 130px;
             padding: .5em .5em;
             border: 1px solid #999;
             font-family: inherit;
@@ -22,117 +12,8 @@ select { width: 130px;
             -moz-appearance: none;
             appearance: none;
             }               
-select::-ms-expand {display: none;}
-.memberjoin {
-	margin: 0px auto;
-	width: 850px;
-	height: 1316px;
-}
-
-table {
-	width: 80%;
-	margin: 10px auto;
-	text-align: center;
-	border-collapse: collapse;
-}
-
-tr {
-	height: 70px;
-	display: table-row;
-	vertical-align: inherit;
-	border-color: inherit;
-}
-
-table th {
-	width: 20%;
-}
-
-table td {
-	width: 80%;
-	text-align: left
-}
-
-.memberjoin .joinHead .sub {
-	padding: 23px 0 10px;
-	font-size: 12px;
-	color: #666;
-	line-height: 17px;
-	text-align: right;
-}
-
-input[type="checkbox"] {
-	display: inline-block;
-	width: 20px;
-	height: 20px;
-	border: 2px solid #bcbcbc;
-	cursor: pointer;
-}
-
-#sample4_roadAddress, #sample4_jibunAddress {
-	width: 250px;
-	height: 50px;
-	padding: .5em;
-	margin: 5px;
-	font-weight: 600;
-	border: 1px solid #999;
-	background: white;
-	border-radius: 5px 5px 5px;
-	font-size: 12pt;
-	color: -internal-light-dark(black, white);
-	background-color: -internal-light-dark(rgb(255, 255, 255),
-		rgb(59, 59, 59));
-}
-
-input[type="text"], input[type="password"] {
-	width: 350px;
-	height: 50px;
-	padding: .5em;
-	margin: 5px;
-	font-weight: 600;
-	border: 1px solid #999;
-	background: white;
-	border-radius: 5px 5px 5px;
-	font-size: 12pt;
-	color: -internal-light-dark(black, white);
-	background-color: -internal-light-dark(rgb(255, 255, 255),
-		rgb(59, 59, 59));
-}
-
-.memberjoin .ico {
-	color: #ee6a7b;
-}
-
-.btnDupl, input[type="button"] {
-	width: 120px;
-	height: 50px;
-	padding: .5em;
-	border: 1px solid #364967;
-	background: white;
-	border-radius: 5px 5px 5px;
-	color: #364967;
-	margin-left: 10px;
-	font-weight: bold;
-}
-
-input[type="radio"] {
-	content: ' ';
-	display: inline-block;
-	width: 21px;
-	height: 21px;
-	line-height: 21px;
-	margin: -2px 8px 0 0;
-	text-align: center;
-	vertical-align: middle;
-	background: #fafafa;
-	border: 1px solid #cacece;
-	border-radius: 3px;
-	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px
-		rgba(0, 0, 0, 0.05);
-}
+	select::-ms-expand {display: none;}
 </style>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>회원가입</title>
-</head>
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
@@ -197,87 +78,97 @@ input[type="radio"] {
 				}).open();
 	}
 </script>
-<body>
-	<div class="memberjoin">
-		<div class="joinHead">
-			<h1>회 원 가 입</h1>
-			<p class="sub">
-				<span class="ico">*</span> 필수입력사항
-			</p>
-		</div>
-		<hr />
-		<table id="tblInsert">
+<div class="memberjoin">
+	<div class="joinHead">
+		<h1 class="register_H1">회 원 가 입</h1>
+		<p class="sub">
+			<span class="ico">*</span> 필수입력사항
+		</p>
+	</div>
+	<!-- 회원가입 폼 -->
+	<form name="frm">
+		<table id="tbl" class="regtbl_register">
+			<!-- 아이디입력 -->
 			<tr>
 				<th>아이디<span class="ico"> *</span></th>
-				<td><input type="text" name="user_id"
-					placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합">
-					<button class="btnDupl">중복확인</button></td>
-			</tr>
-			<tr>
-				<th>비밀번호<span class="ico"> *</span></th>
-				<td><input type="text" name="user_password"
-					placeholder="비밀번호를 입력하세요"></td>
-			</tr>
-			<tr>
-				<th>비밀번호확인<span class="ico"> *</span></th>
-				<td><input type="text" name="chkpassword"
-					placeholder="비밀번호를 한번 더 입력하세요"></td>
-			</tr>
-			<tr>
-				<th>이름<span class="ico"> *</span></th>
-				<td><input type="text" name="user_name" placeholder="이름을 입력하세요">
+				<td>
+					<input type="text" class="register_text" name="user_id" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합">
+					<button id="btnDupl_id" class="register_button2">중복확인</button>
 				</td>
 			</tr>
+			<!-- 비밀번호 입력 -->
+			<tr>
+				<th>비밀번호<span class="ico"> *</span></th>
+				<td><input type="password" class="register_text" name="user_password" placeholder="비밀번호를 입력하세요"></td>
+			</tr>			
+			<tr>
+				<th>비밀번호확인<span class="ico"> *</span></th>
+				<td><input type="password" class="register_text" name="chkpassword" placeholder="비밀번호를 한번 더 입력하세요"></td>
+			</tr>
+			<!-- 이름 입력 -->
+			<tr>
+				<th>이름<span class="ico"> *</span></th>
+				<td><input type="text" class="register_text" name="user_name" placeholder="이름을 입력하세요">
+				</td>
+			</tr>
+			<!-- 이메일 입력 -->
 			<tr>
 				<th>이메일<span class="ico"> *</span></th>
-				<td><input type="text" name="user_email"
+				<td><input type="text" class="register_text" name="user_email"
 					placeholder="예:deapazzang@deapa.com">
-					<button class="btnDupl">중복확인</button></td>
+					<button  class="register_button2">중복확인</button></td>
 			</tr>
+			<!-- 전화번호 입력 -->
 			<tr>
 				<th>휴대폰<span class="ico"> *</span></th>
-				<td><input type="text" name="user_mobile"
-					placeholder="숫자만 입력해주세요"></td>
+				<td><input type="text" class="register_text" name="user_mobile"	placeholder="숫자만 입력해주세요"></td>
 			</tr>
+			<!-- 주소 입력 -->
 			<tr>
 				<th>주소<span class="ico"> *</span></th>
-				<td><input type="text" id="sample4_postcode" placeholder="우편번호">
-					<input type="button" onclick="sample4_execDaumPostcode()"
-					value="우편번호 찾기"><br> <input type="text"
-					id="sample4_roadAddress" placeholder="도로명주소"> <input
-					type="text" id="sample4_jibunAddress" placeholder="지번주소"> <span
-					id="guide" style="color: #999; display: none"></span> <input
-					type="text" id="sample4_detailAddress" placeholder="상세주소">
-					<input type="text" id="sample4_extraAddress" placeholder="참고항목">
-					<p>배송지에 따라 상품정보가 달라질 수 있습니다.</p></td>
+				<td>
+					<input type="text" id="sample4_postcode" class="register_text" placeholder="우편번호">
+					<input type="button"  class="register_button2" onclick="sample4_execDaumPostcode()"	value="우편번호 찾기"><br> 
+					<input type="text" id="sample4_roadAddress" placeholder="도로명주소"> 
+					<input type="text" id="sample4_jibunAddress" placeholder="지번주소"> 
+					<span id="guide" style="color: #999; display: none"></span><br> 
+					<input type="text" id="sample4_detailAddress" class="register_text" placeholder="상세주소">
+					<input type="text" id="sample4_extraAddress" class="register_text" placeholder="상세주소">
+					<p>배송지에 따라 상품정보가 달라질 수 있습니다.</p>
+				</td>
 			</tr>
+			<!-- 성별 입력 -->
 			<tr>
 				<th>성별</th>
-				<td><input type="radio" name="user_sex" value="male">
-					남자 <input type="radio" name="user_sex" value="female"> 여자 <input
-					type="radio" name="user_sex" value="none" checked> 선택안함</td>
+				<td>
+					<input type="radio" name="user_sex" value="male">남자
+					<input type="radio" name="user_sex" value="female">여자
+					<input type="radio" name="user_sex" value="none" checked>선택안함
+				</td>
 			</tr>
+			<!-- 생년월일 입력 -->
 			<tr>
 				<th>생년월일</th>	
 				<td>			
-					<select name="year">
+					<select name="year" class="sel_register">
 						<%for (int i = 2021; i > 1949; i--) {%>
 						<option value="<%=i%>"><%=i%>년</option>
 						<%}%>
 					</select> 
-					<select name="month">
+					<select name="month" class="sel_register">
 						<%for (int i = 1; i < 13; i++) {%>
 						<option value="<%=i%>"><%=i%>월</option>
 						<%}%>
 					</select> 
-					<select name="day">
-						<%for (int i = 1; i < 31; i++) {%>
+					<select name="day" class="sel_register">
+						<%for (int i = 1; i < 32; i++) {%>
 						<option value="<%=i%>"><%=i%>일</option>
 						<%}%>
 					</select>
 				</td>
 			</tr>
-			<tr>
+			<!-- 약관 동의 폼 -->
+			<tr class="register_agree">
 				<th>이용약관동의<span class="ico"> *</span></th>
 				<td>
 					<div>
@@ -301,9 +192,35 @@ input[type="radio"] {
 						이상입니다(필수)
 					</div>
 				</td>
-
 			</tr>
-		</table>
+		</table>	
+		<br>
+	<!-- 회원가입 버튼 -->
+	<div class="divButton">
+	<input type="submit" id="btnRegister" class="register_button"  value="회원가입">
+	<input type="reset" class="register_button2" value="취소">
+	<input type="button" id="btnLogin" class="register_button2"  value="로그인">
 	</div>
-</body>
-</html>
+	</form>
+</div>
+<script>
+	$("#btnLogin").on("click", function() {
+		location.href = "login";
+	});
+	
+	$(frm).on("submit",function(e){
+		e.preventDefault();
+		var user_id=$(frm.user_id).val();
+		var user_password=$(frm.user_password).val();
+		var user_name=$(frm.user_name).val();
+		if(user_id==""||user_password==""||user_name==""){
+			alert("필수 입력란 확인하세요");
+			return;
+		}
+		if(!confirm("회원가입을 하실래요?")) return;
+		frm.action="register";
+		frm.method="post";
+		frm.submit();
+	});
+
+</script>
