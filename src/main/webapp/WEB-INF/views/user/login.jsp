@@ -1,146 +1,64 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>로그인</title>
-<style>
-* {
-	font-family: 'Noto Sans CJK KR'
-}
-
-h1 {
-	font-weight: 900;
-	text-align: center;
-	font-size: 30px;
-}
-
-.divLogin {
-	margin: 0px auto;
-	width: 800px;
-	height: 1316px;
-}
-
-tr {
-	height: 60px;
-	display: table-row;
-	vertical-align: inherit;
-	border-color: inherit;
-}
-
-table {
-	width: 80%;
-	margin: 0px auto;
-	text-align: center;
-	border-collapse: collapse;
-}
-
-input[type="text"], input[type="password"] {
-	width: 400px;
-	height: 50px;
-	padding: .5em;
-	font-weight: 500;
-	border: 1px solid #364967;
-	background: white;
-	font-size: 12pt;
-	color: black;
-}
-
-#tblInsert th {
-	width: 20%;
-	font-size: 13pt;
-}
-
-#tblInsert td {
-	width: 80%
-}
-
-#divLogin {
-	width: 100%;
-}
-
-input[type="checkbox"] {
-	display: inline-block;
-	width: 20px;
-	height: 20px;
-	border: 2px solid #364967;
-	cursor: pointer;
-}
-
-#btnLogin {
-	width: 400px;
-	height: 50px;
-	padding: .5em;
-	border: 1px solid #364967;
-	background: #364967;
-	color: white;
-	font-weight: bold;
-}
-
-#btnRegister {
-	width: 400px;
-	height: 50px;
-	padding: .5em;
-	border: 1px solid #364967;
-	background: white;
-	color: block;
-	font-weight: bold;
-}
-</style>
-<link rel="stylesheet" href="/resources/css/login.css" />
-</head>
-<body>
-	<h1>로 그 인</h1>
-	<div class="divLogin">
-		<form name="frm">
-			<table id="tbl_login">
-				<tr>
-					<td><input type="text" name="user_id"
-						placeholder="아이디를 입력해주세요"></td>
-				</tr>
-				<tr>
-					<td><input type="password" name="user_password"
-						placeholder="비밀번호를 입력해주세요"></td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" id="chkLogin"> 로그인 저장</td>
-				</tr>
-				<tr>
-					<td><input type="submit" id="btnLogin" value="로그인"></td>
-				</tr>
-				<tr>
-					<td><button id="btnRegister">회원가입</button></td>
-				</tr>
-			</table>
-		</form>
-	</div>
-	<script>
-		$("#btnRegister").on("click", function() {
-			location.href = "register";
-		});
-		$(frm).on("submit", function(e) {
-			e.preventDefault();
-			var user_id = $(frm.user_id).val();
-			var user_password = $(frm.user_password).val();
-			if (user_id == "") {
-				alert("아이디를 입력하세요");
-				return;
-			} else if (user_password == "") {
-				alert("비밀번호를 입력하세요");
-				return;
+<link rel="stylesheet" href="/resources/css/user.css" />
+<h1 class="login_H1">로 그 인</h1>
+<div class="div_Login">
+	<form name="frm">
+		<table class="tbl_login">
+			<tr class="login_id">
+				<td><input type="text" name="user_id" class="id_input" placeholder="아이디를 입력해주세요"></td>
+			</tr>
+			<tr class="login_password">
+				<td><input type="password" name="user_password" class="password_input" placeholder="비밀번호를 입력해주세요"></td>
+			</tr>
+			<tr class="login_chk">
+				<td><input type="checkbox" name="chkLogin"> 로그인 저장</td>
+			</tr>			
+		</table>
+		<div class="btn_login">	
+		<input type="submit" class="login_button" value="로그인"/>		
+		<input type="button" class="login_button2" value="회원가입"/>		
+	</form>		
+	</div>		
+</div>
+<script>		
+	//로그인하기
+	$(frm).on("submit", function(e) {
+		e.preventDefault();
+		var chkLogin=$(frm.chkLogin).is(":checked")?"true":"false"
+		var user_id = $(frm.user_id).val();
+		var user_password = $(frm.user_password).val();
+		if (user_id == "") {
+			alert("아이디를 입력하세요");
+			$(frm.user_id).focus();
+			return;
+		} else if (user_password == "") {
+			alert("비밀번호를 입력하세요");
+			$(frm.user_password).focus();
+			return;
+		}
+		$.ajax({
+			type : "post",
+			url : "login",
+			data : {
+				"user_id" : user_id,
+				"user_password" : user_password,
+				"chkLogin":chkLogin
+			},
+			success : function(data) {
+				console.log(data);
+				if(data.result==0){
+					alert("아이디가 존재하지 않습니다.");
+				}else if(data.result==1){
+					alert("로그인성공");
+					location.href=data.path;
+				}else{
+					alert("비밀번호가 일치하지 않습니다.")
+				}				
 			}
-			$.ajax({
-				type : "post",
-				url : "login",
-				data : {
-					"user_id" : user_id,
-					"user_password" : user_password
-				},
-				success : function(data) {
-					console.log(data);
-				}
-			});
 		});
-	</script>
-</html>
+	});
+	$(".login_button2").on("click", function() {
+		location.href = "register";
+	});
+</script>

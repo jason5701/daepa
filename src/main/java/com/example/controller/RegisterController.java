@@ -30,6 +30,7 @@ public class RegisterController {
 		String password=passEncoder.encode(vo.getUser_password());
 		vo.setUser_password(password);
 		dao.register(vo);
+		System.out.println(vo.toString());
 		return "/user/login";
 	}
 }
