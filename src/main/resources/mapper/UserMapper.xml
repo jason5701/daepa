@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.UserMapper">
+ 	<select id="list" resultType="com.example.domain.UserVO">
+ 		select * from tbl_users
+ 	</select>
+ 	<select id="read" resultType="com.example.domain.UserVO">
+ 		select * from tbl_users where user_id=#{user_id}
+ 	</select>
+ 	<insert id="register">
+ 		insert into tbl_users (user_id,user_password,user_name,user_email,user_mobile,user_address,user_sex,user_birthday,user_register,user_drop,user_point) value (#{user_id},#{user_password},#{user_name},#{user_email},#{user_mobile},#{user_address},#{user_sex},#{user_birthday},#{user_register},#{user_drop},#{user_point}) 
+ 	</insert>
+ 	<update id="update">
+ 		update tbl_users set user_password=#{user_password},user_name=#{user_name},user_email=#{user_email},user_mobile=#{user_mobile},user_address=#{user_address},user_sex=#{user_sex},user_birthday=#{user_birthday} where user_id=#{user_id}
+ 	</update>
+ 	<select id="login" resultType="com.example.domain.UserVO">
+ 		select * from tbl_users where user_id=#{user_id}
+ 	</select>
+</mapper>
