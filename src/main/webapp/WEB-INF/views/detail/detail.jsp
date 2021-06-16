@@ -1,0 +1,119 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<head>
+	<link rel="stylesheet" href="/resources/css/detail.css" />
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+</head>
+<div id="detail">
+	<div id="product_image">
+		<img src="http://placehold.it/320x320" />
+	</div>
+	<div id="product_detail">
+		<div class="product_name" >[바로생활] 유기농 양배추 진액</div>
+		<div class="product_detail">유기농 사과 농축액이 쏙!</div><br>
+		<div class="product_price">50,000원</div><hr>
+		<dl class="list fst">
+			<dt class="tit">판매단위</dt> 
+			<dd class="desc">1박스</dd>
+		</dl>
+		<dl class="list fst">
+			<dt class="tit">중량/용량</dt> 
+			<dd class="desc">90ml X 20포</dd>
+		</dl><hr>
+		<dl class="list fst">
+			<dt class="tit">배송구분</dt> 
+			<dd class="desc">대파배송/택배배송</dd>
+		</dl>
+		<dl class="list fst">
+			<dt class="tit">포장타입</dt> 
+			<dd class="desc">냉장/종이포장</dd>
+		</dl><hr>
+		<dl class="list fst">
+			<dt class="tit">구매수량</dt> 
+			<dd class="qtt">
+			  <a id="qtt_down"><img src="/resources/image/index/minus.png"/></a>
+			  <span id="product_qtt">1</span>
+			  <a id="qtt_up"><img src="/resources/image/index/plus.png"/></a>
+			</dd>
+		</dl><hr>
+		<div id="groupBtn">
+			<button class="btnAlarm">재입고알림</button>
+			<button class="btnSave">늘 사는 것</button>
+			<button class="btnCart">장바구니 담기</button>
+		</div>
+		<div id="price">
+			총 합산금액 :
+			<span>sum</span>
+			<span>원</span>
+		</div>
+	</div>
+</div>
+
+<div class="detailMenu">
+  <p>
+    <a onclick="fnMove('1')">상품설명</a>
+    <a onclick="fnMove('2')">상세정보</a>
+    <a onclick="fnMove('3')">고객후기(count)</a>
+    <a onclick="fnMove('4')">상품문의(count)</a>
+  </p>
+</div>
+<div class="detailContent">
+	<div id="detailContent1" >상품설명</div>
+	<div id="detailContent2" >상세정보</div>
+	<div id="detailContent3" >고객후기</div>
+	<div id="detailContent4" >상품문의</div>
+</div>
+
+<script>
+
+//수량업다운 스크립트
+$(function(){
+	$('#qtt_down').click(function(e){
+		e.preventDefault();
+		var stat = $('#product_qtt').text();
+		var num = parseInt(stat,10);
+		num--;
+		if(num<=0){
+			alert('더 이상 줄일 수 없습니다.');
+			num=1;
+		}
+		$('#product_qtt').text(num);
+	});
+	
+	$('#qtt_up').click(function(e){
+		e.preventDefault();
+		var stat = $('#product_qtt').text();
+		var num = parseInt(stat,10);
+		num++;
+		if(num>100){
+			alert('더 이상 늘릴 수 없습니다.');
+			num=100;
+		}
+		$('#product_qtt').text(num);
+	});
+});
+
+//스크롤 메뉴 스크립트
+$(function() {
+  $(document).ready(function() {
+
+    var scrollOffset = $('.detailMenu').offset();
+
+    $(window).scroll(function() {
+      if ($(document).scrollTop() > scrollOffset.top) {
+        $('.detailMenu').addClass('scroll-fixed');
+      }
+      else {
+        $('.detailMenu').removeClass('scroll-fixed');
+      }
+    });
+  });
+});
+	
+function fnMove(seq){
+	var offset = $("#detailContent" + seq).offset();
+	$('html, body').animate({scrollTop : offset.top}, 400);
+}
+</script>
