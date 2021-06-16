@@ -1,7 +1,4 @@
 @CHARSET "UTF-8";
-
-
-@CHARSET "UTF-8";
 <!-- 로그인 스타일 ------------------------------------------------------------------>
 *{font-family: 'Noto Sans CJK KR'}
 .login_H1 , .register_H1{font-weight:900; text-align:center; font-size: 30px;}
@@ -18,7 +15,7 @@
 	font-size: 12pt;
 	color: black;
 }
-#chkLogin, .agreement {
+#chkLogin, .normal, .Allnormal {
 	display: inline-block;
 	width: 20px;
 	height: 20px;
@@ -46,9 +43,8 @@
 }
 
 <!-- 회원가입 스타일 ------------------------------------------------------------------>
-
 .memberjoin {
-	margin: 10px auto;
+	margin: 50px auto;
 	width: 850px;
 	height: 1316px;
 }
@@ -158,4 +154,4 @@ input[type="radio"] {
 		rgba(0, 0, 0, 0.05);
 }
 #register_agree{border-top: 1px solid #999; margin-top:50px;}
-
+.AllAgree{font-size: 15pt;font-weight: bold;}

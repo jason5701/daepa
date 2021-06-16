@@ -14,7 +14,9 @@ public class UserVO {
 	private String user_address_detail1;
 	private String user_address_detail2;
 	private String user_sex;
-	private String user_birthday;
+	private String user_birthday_year;
+	private String user_birthday_month;
+	private String user_birthday_day;
 	private Date user_register;
 	private int user_drop;
 	private int user_point;
@@ -84,11 +86,23 @@ public class UserVO {
 	public void setUser_sex(String user_sex) {
 		this.user_sex = user_sex;
 	}
-	public String getUser_birthday() {
-		return user_birthday;
+	public String getUser_birthday_year() {
+		return user_birthday_year;
 	}
-	public void setUser_birthday(String user_birthday) {
-		this.user_birthday = user_birthday;
+	public void setUser_birthday_year(String user_birthday_year) {
+		this.user_birthday_year = user_birthday_year;
+	}
+	public String getUser_birthday_month() {
+		return user_birthday_month;
+	}
+	public void setUser_birthday_month(String user_birthday_month) {
+		this.user_birthday_month = user_birthday_month;
+	}
+	public String getUser_birthday_day() {
+		return user_birthday_day;
+	}
+	public void setUser_birthday_day(String user_birthday_day) {
+		this.user_birthday_day = user_birthday_day;
 	}
 	public Date getUser_register() {
 		return user_register;
@@ -108,15 +122,17 @@ public class UserVO {
 	public void setUser_point(int user_point) {
 		this.user_point = user_point;
 	}
-		
+	
 	@Override
 	public String toString() {
 		return "UserVO [user_id=" + user_id + ", user_password=" + user_password + ", user_name=" + user_name
 				+ ", user_email=" + user_email + ", user_mobile=" + user_mobile + ", user_post=" + user_post
 				+ ", user_road_address=" + user_road_address + ", user_address=" + user_address
 				+ ", user_address_detail1=" + user_address_detail1 + ", user_address_detail2=" + user_address_detail2
-				+ ", user_sex=" + user_sex + ", user_birthday=" + user_birthday + ", user_register=" + user_register
+				+ ", user_sex=" + user_sex + ", user_birthday_year=" + user_birthday_year + ", user_birthday_month="
+				+ user_birthday_month + ", user_birthday_day=" + user_birthday_day + ", user_register=" + user_register
 				+ ", user_drop=" + user_drop + ", user_point=" + user_point + "]";
 	}
+	
 
 }

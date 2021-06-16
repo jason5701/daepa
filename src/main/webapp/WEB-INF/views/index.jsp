@@ -25,11 +25,15 @@
 	 					<a href="/user/login">로그인</a>
 	  				</c:if>
 				</div>
-				<div class="menuItem">					
+				<div class="menuItem">	
+					<c:if test="${user_id != null}">
+	  					<a href="/mypage">마이페이지</a>
+	  				</c:if>				
 					<c:if test="${user_id == null}">
 	 					<a href="/user/register">회원가입</a>
-	  				</c:if>
+	  				</c:if>	  				
 				</div>
+				
 			</div>
 			<a href="/index"><img src="/resources/image/Dlogo.jpg" /></a>
 			<div id="category">
