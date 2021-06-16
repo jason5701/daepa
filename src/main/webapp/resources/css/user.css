@@ -1,0 +1,161 @@
+@CHARSET "UTF-8";
+
+
+@CHARSET "UTF-8";
+<!-- 로그인 스타일 ------------------------------------------------------------------>
+*{font-family: 'Noto Sans CJK KR'}
+.login_H1 , .register_H1{font-weight:900; text-align:center; font-size: 30px;}
+.div_Login{margin: 0px auto; width: 800px; height: 1316px;}
+.tbl_login, .btn_login {width: 80%;	margin:0px auto; text-align:center;border-collapse: collapse;}
+.tbl_login tr {height:60px; display:table-row; vertical-align: inherit; border-color: inherit;}
+.id_input, .password_input{
+	width: 400px;
+	height: 50px;
+	padding: .5em;
+	font-weight: 500;
+	border: 1px solid #364967;
+	background: white;
+	font-size: 12pt;
+	color: black;
+}
+#chkLogin, .agreement {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 2px solid #364967;
+	cursor: pointer;
+}
+.login_button {
+	width: 400px;
+	height: 50px;
+	padding: .5em;
+	margin-bottom:10px;
+	border: 1px solid #364967;
+	background: #364967;
+	color: white;
+	font-weight: bold;
+}
+.login_button2 {
+	width: 400px;
+	height: 50px;
+	padding: .5em;
+	border: 1px solid #364967;
+	background: white;
+	color: block;
+	font-weight: bold;
+}
+
+<!-- 회원가입 스타일 ------------------------------------------------------------------>
+
+.memberjoin {
+	margin: 10px auto;
+	width: 850px;
+	height: 1316px;
+}
+.divButton{
+	width: 80%;
+	margin: 10px auto;
+	text-align: center;
+	border-collapse: collapse;
+}
+.regtbl_register {
+	width: 80%;
+	margin: 10px auto;
+	text-align: center;
+	border-collapse: collapse;
+}
+
+.regtbl_register tr {
+	height: 70px;
+	display: table-row;
+	vertical-align: inherit;
+	border-color: inherit;
+}
+
+.regtbl_register th {
+	width: 20%;
+}
+
+.regtbl_register td {
+	width: 80%;
+	text-align: left;
+}
+
+.memberjoin .joinHead .sub {
+	padding: 23px 0 10px;
+	font-size: 12px;
+	color: #666;
+	line-height: 17px;
+	text-align: right;
+}
+#sample4_roadAddress, #sample4_jibunAddress {
+	width: 250px;
+	height: 50px;
+	padding: .5em;
+	margin: 5px;
+	font-weight: 600;
+	border: 1px solid #999;
+	background: white;
+	border-radius: 5px 5px 5px;
+	font-size: 12pt;
+	color: -internal-light-dark(black, white);
+	background-color: -internal-light-dark(rgb(255, 255, 255),
+		rgb(59, 59, 59));
+}
+.register_text {
+	width: 350px;
+	height: 50px;
+	padding: .5em;
+	margin: 5px;
+	font-weight: 600;
+	border: 1px solid #999;
+	background: white;
+	border-radius: 5px 5px 5px;
+	font-size: 12pt;
+	color: -internal-light-dark(black, white);
+	background-color: -internal-light-dark(rgb(255, 255, 255),
+		rgb(59, 59, 59));
+}
+
+.memberjoin .ico {
+	color: #ee6a7b;
+}
+.register_button {
+	width: 120px;
+	height: 50px;
+	padding: .5em;
+	border: 1px solid #364967;
+	background: #364967;
+	border-radius: 5px 5px 5px;
+	color: white;
+	margin-left: 10px;
+}
+.register_button2 {
+	width: 120px;
+	height: 50px;
+	padding: .5em;
+	border: 1px solid #364967;
+	background: white;
+	border-radius: 5px 5px 5px;
+	color: #364967;
+	margin-left: 10px;
+	font-weight: bold;
+}
+
+input[type="radio"] {
+	content: ' ';
+	display: inline-block;
+	width: 21px;
+	height: 21px;
+	line-height: 21px;
+	margin: -2px 8px 0 0;
+	text-align: center;
+	vertical-align: middle;
+	background: #fafafa;
+	border: 1px solid #cacece;
+	border-radius: 3px;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px
+		rgba(0, 0, 0, 0.05);
+}
+#register_agree{border-top: 1px solid #999; margin-top:50px;}
+
