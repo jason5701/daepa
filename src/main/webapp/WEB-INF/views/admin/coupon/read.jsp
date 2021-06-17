@@ -19,7 +19,8 @@
 			<td>발행일</td>
 			<td><input type="text" value="<fmt:formatDate value="${vo.coupon_register}" pattern="yyyy-MM-dd"/>" readonly/></td>
 			<td>마감일</td>
-			<td><input type="text" name="coupon_end" value="${vo.coupon_end}"/></td>
+			<fmt:parseDate var="parsedDate" value="${vo.coupon_end}" pattern="yyyy-MM-dd"/>
+			<td><input type="text" name="coupon_end" value="<fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd"/>"/></td>
 		</tr>
 		<tr>
 			<td>상태</td>

@@ -57,24 +57,27 @@ public class AdminController {
 	public Map<String,Object> admin_login(String admin_id,String admin_password,HttpSession session,boolean chkLogin,HttpServletResponse response)throws Exception{
 		Map<String,Object> map=new HashMap<>();
 		int result=0;
-		AdminVO vo=admin_dao.admin_login(admin_id);
-		if(vo!=null){
-			if(vo.getAdmin_password().equals(admin_password)){
+		AdminVO admin_vo=admin_dao.admin_login(admin_id);
+		if(admin_vo!=null){
+			if(admin_vo.getAdmin_password().equals(admin_password)){
 				result=1;
+				
 			}if(chkLogin){
-				Cookie cookie=new Cookie("admin_id",vo.getAdmin_id());
+				Cookie cookie=new Cookie("admin_id",admin_vo.getAdmin_id());
 				cookie.setPath("/admin/main");
 				cookie.setMaxAge(60*60*24*3);
 				response.addCookie(cookie);
 			}
-			session.setAttribute("admin_id", vo.getAdmin_id());
+			session.setAttribute("admin_id", admin_vo.getAdmin_id());
 			String path=(String) session.getAttribute("path");
-			if(path==null) path="/admin/main";
+			if(path==null) {
+				path="/admin/main";
+			}
 			map.put("path", path);
 		}else{
 			result=2;
 		}
-		map.put("vo", vo);
+		map.put("vo", admin_vo);
 		map.put("result", result);
 		return map;
 	}
