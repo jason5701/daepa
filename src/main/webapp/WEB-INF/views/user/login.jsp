@@ -47,7 +47,7 @@
 			},
 			success : function(data) {
 				console.log(data);
-				if(data.result==0){
+				if(data.result==2){
 					alert("아이디가 존재하지 않습니다.");
 				}else if(data.result==1){
 					alert("로그인성공");

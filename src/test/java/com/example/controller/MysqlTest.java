@@ -7,6 +7,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.example.domain.NoticeVO;
+import com.example.persistence.CouponDAO;
 import com.example.persistence.NoticeDAO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -23,4 +24,5 @@ public class MysqlTest {
 		 vo.setNotice_contents("공지사항 내용 테스트입니다.");
 		 noticeDAO.admin_insert(vo);
 	 }
+	 
 	}

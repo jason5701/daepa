@@ -86,14 +86,14 @@
 		</p>
 	</div>
 	<!-- 회원가입 폼 -->
-	<form name="frm">
+	<form name="frm" action="/user/register" method="post">
 		<table id="tbl" class="regtbl_register">
 			<!-- 아이디입력 -->
 			<tr>
 				<th>아이디<span class="ico"> *</span></th>
 				<td>
-					<input type="text" class="register_text" name="user_id" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합">
-					<button id="btnDupl_id" class="register_button2">중복확인</button>
+					<input type="text" class="register_text" name="user_id" placeholder="6자 이상의 영문 혹은 영문과 숫자를 조합" minlength="6" maxlength="12" size="15" pattern="[a-zA-Z0-9]{4,12}">
+					<button id="idChk" class="register_button2" value="N">중복확인</button>
 				</td>
 			</tr>
 			<!-- 비밀번호 입력 -->
@@ -103,7 +103,10 @@
 			</tr>			
 			<tr>
 				<th>비밀번호확인<span class="ico"> *</span></th>
-				<td><input type="password" class="register_text" name="chkpassword" placeholder="비밀번호를 한번 더 입력하세요"></td>
+				<td>
+					<input type="password" class="register_text" name="pwChk" placeholder="비밀번호를 한번 더 입력하세요">
+					<button id="pwChk" class="register_button2" value="N">비밀번호확인</button>
+				</td>
 			</tr>
 			<!-- 이름 입력 -->
 			<tr>
@@ -114,9 +117,9 @@
 			<!-- 이메일 입력 -->
 			<tr>
 				<th>이메일<span class="ico"> *</span></th>
-				<td><input type="text" class="register_text" name="user_email"
-					placeholder="예:deapazzang@deapa.com">
-					<button  class="register_button2">중복확인</button></td>
+				<td>
+					<input type="text" class="register_text" name="user_email"	placeholder="예:deapazzang@deapa.com">
+				</td>
 			</tr>
 			<!-- 전화번호 입력 -->
 			<tr>
@@ -127,13 +130,13 @@
 			<tr>
 				<th>주소<span class="ico"> *</span></th>
 				<td>
-					<input type="text" id="sample4_postcode" class="register_text" placeholder="우편번호">
+					<input type="text" id="sample4_postcode" class="register_text" name="user_post" placeholder="우편번호">
 					<input type="button"  class="register_button2" onclick="sample4_execDaumPostcode()"	value="우편번호 찾기"><br> 
-					<input type="text" id="sample4_roadAddress" placeholder="도로명주소"> 
-					<input type="text" id="sample4_jibunAddress" placeholder="지번주소"> 
+					<input type="text" id="sample4_roadAddress" name="user_road_address" placeholder="도로명주소"> 
+					<input type="text" id="sample4_jibunAddress" name="user_address" placeholder="지번주소"> 
 					<span id="guide" style="color: #999; display: none"></span><br> 
-					<input type="text" id="sample4_detailAddress" class="register_text" placeholder="상세주소">
-					<input type="text" id="sample4_extraAddress" class="register_text" placeholder="상세주소">
+					<input type="text" id="sample4_detailAddress" class="register_text" name="user_address_detail1" placeholder="상세주소">
+					<input type="text" id="sample4_extraAddress" class="register_text" name="user_address_detail2"  placeholder="참고항목">
 					<p>배송지에 따라 상품정보가 달라질 수 있습니다.</p>
 				</td>
 			</tr>
@@ -141,26 +144,26 @@
 			<tr>
 				<th>성별</th>
 				<td>
-					<input type="radio" name="user_sex" value="male">남자
-					<input type="radio" name="user_sex" value="female">여자
-					<input type="radio" name="user_sex" value="none" checked>선택안함
+					<input type="radio" name="user_sex" value="0" checked>선택안함
+					<input type="radio" name="user_sex" value="1">여자
+					<input type="radio" name="user_sex" value="2">남자				
 				</td>
 			</tr>
 			<!-- 생년월일 입력 -->
 			<tr>
 				<th>생년월일</th>	
 				<td>			
-					<select name="year" class="sel_register">
+					<select name="user_birthday_year"  class="sel_register">
 						<%for (int i = 2021; i > 1949; i--) {%>
 						<option value="<%=i%>"><%=i%>년</option>
 						<%}%>
 					</select> 
-					<select name="month" class="sel_register">
-						<%for (int i = 1; i < 13; i++) {%>
+					<select name="user_birthday_month" class="sel_register">
+						<%for (int i = 01; i < 13; i++) {%>
 						<option value="<%=i%>"><%=i%>월</option>
 						<%}%>
 					</select> 
-					<select name="day" class="sel_register">
+					<select name="user_birthday_day" class="sel_register">
 						<%for (int i = 1; i < 32; i++) {%>
 						<option value="<%=i%>"><%=i%>일</option>
 						<%}%>
@@ -168,38 +171,31 @@
 				</td>
 			</tr>
 			<!-- 약관 동의 폼 -->
-			<tr class="register_agree">
-				<th>이용약관동의<span class="ico"> *</span></th>
-				<td>
-					<div>
-						<input type="checkbox" class="agreement"> 전체 동의합니다. <br />
-						<p class="sub">선택항목에 동의하지 않는 경우도 회원가입 및 일반적인 서비스를 이용할 수 있습니다.
-						</p>
-					</div>
-					<div>
-						<input type="checkbox" class="agreement"> 이용약관 동의(필수)
-					</div>
-					<div>
-						<input type="checkbox" class="agreement"> 개인정보 수집·이용
-						동의(필수)
-					</div>
-					<div>
-						<input type="checkbox" class="agreement"> 무료배송,할인쿠폰 등
-						혜택/정보 수신 동의(선택)
-					</div>
-					<div>
-						<input type="checkbox" class="agreement"> 본인은 만 14세
-						이상입니다(필수)
-					</div>
+			<tr>
+				<th>약관동의</th>
+				<td>					
+					<div class="checkbox_group">
+					  <input type="checkbox" id="check_all" class="Allnormal">
+					  <label for="check_all" class="AllAgree">전체 동의</label>		
+					  <br>  
+					  <input type="checkbox" id="check_1" class="normal" >
+					  <label for="check_1"><span class="ico"> (필수)</span> 개인정보 처리방침 동의</label>		  
+					  <br> 
+					  <input type="checkbox" id="check_2" class="normal" >
+					  <label for="check_2"><span class="ico"> (필수)</span> 서비스 이용약관 동의</label>		 
+					  <br>  
+					  <input type="checkbox" id="check_3" class="normal" >
+					  <label for="check_3"><span> (선택)</span> 마케팅 수신 동의</label>		  
+					</div>	
 				</td>
 			</tr>
-		</table>	
+		</table>		
 		<br>
 	<!-- 회원가입 버튼 -->
 	<div class="divButton">
-	<input type="submit" id="btnRegister" class="register_button"  value="회원가입">
-	<input type="reset" class="register_button2" value="취소">
-	<input type="button" id="btnLogin" class="register_button2"  value="로그인">
+		<input type="submit" id="btnRegister" class="register_button"  value="회원가입">
+		<input type="reset" class="register_button2" value="취소">
+		<input type="button" id="btnLogin" class="register_button2"  value="로그인">
 	</div>
 	</form>
 </div>
@@ -207,20 +203,106 @@
 	$("#btnLogin").on("click", function() {
 		location.href = "login";
 	});
-	
-	$(frm).on("submit",function(e){
+	// 체크박스 전체 선택
+	$("#check_all").on("click", function () {
+	    $(this).parents(".checkbox_group").find('input').prop("checked", $(this).is(":checked"));
+	});
+	// 체크박스 개별 선택
+	$(".checkbox_group").on("click", ".normal", function() {
+	    var is_checked = true;
+	    $(".checkbox_group .normal").each(function(){
+	        is_checked = is_checked && $(this).is(":checked");
+	    });
+	    $("#check_all").prop("checked", is_checked);
+	});
+	//비밀번호 확인 버튼 누를때
+	$("#pwChk").on("click",function(e){
 		e.preventDefault();
-		var user_id=$(frm.user_id).val();
-		var user_password=$(frm.user_password).val();
-		var user_name=$(frm.user_name).val();
-		if(user_id==""||user_password==""||user_name==""){
-			alert("필수 입력란 확인하세요");
-			return;
+		if($(frm.user_password).val()==""){
+			alert("비밀번호를 입력해주세요.");
+			$(frm.user_password).focus();
+			return false;
+		}else if($(frm.pwChk).val()==""){
+			alert("비밀번호를 한번 더 입력해주세요.");
+			$(frm.pwChk).focus();
+			return false;
 		}
-		if(!confirm("회원가입을 하실래요?")) return;
-		frm.action="register";
-		frm.method="post";
-		frm.submit();
+	});
+	//중복확인 버튼 누를때
+	$("#idChk").on("click",function(e){		
+		e.preventDefault();
+		if($(frm.user_id).val()==""){
+			alert("아이디를 입력해주세요.");
+			$(frm.user_id).focus();
+			return false;
+		}else if($(frm.user_id).val().length<5){
+			alert("아이디를 6자 이상의 영문 혹은 영문과 숫자를 조합해주세요.");		
+			return false;
+		}else{
+			fn_idChk();
+		}		
+	});
+	//아이디 중복체크
+	function fn_idChk(){		
+		$.ajax({			
+			url:"/user/idChk",
+			type:"post",
+			dataType:"json",
+			data:{"user_id":$(frm.user_id).val()},
+			success:function(data){	
+				if(data == 1){
+					alert("중복된 아이디가 있습니다.");
+				}else if(data == 0){
+					$("#idChk").attr("value","Y");
+					alert("사용가능한 아이디입니다.");					
+				}				
+			}
+		});
+	}
+	//회원가입 누르기
+	$("#btnRegister").on("click", function(){
+		if($(frm.user_id).val()==""){
+			alert("아이디를 입력해주세요.");
+			$(frm.user_id).focus();
+			return false;
+		}
+		if($(frm.user_password).val()==""){
+			alert("비밀번호를 입력해주세요.");
+			$(frm.user_password).focus();
+			return false;
+		}
+		if($(frm.pwChk).val()==""){
+			alert("비밀번호를 한번 더 입력해주세요.");
+			$(frm.pwChk).focus();
+			return false;
+		}
+		if($(frm.user_name).val()==""){
+			alert("성명을 입력해주세요.");
+			$(frm.user_name).focus();
+			return false;
+		}
+		if($(frm.user_email).val()==""){
+			alert("이메일을 입력해주세요.");
+			$(frm.user_email).focus();
+			return false;
+		}
+		if($(frm.user_mobile).val()==""){
+			alert("휴대폰을 입력해주세요.");
+			$(frm.user_mobile).focus();
+			return false;
+		}
+		if($(frm.user_post).val()==""){
+			alert("주소를 입력해주세요.");
+			$(frm.user_post).focus();
+			return false;
+		}
+		if($("#check_1").is(":checked")==false){
+			alert("필수 약관에 동의하셔야 회원가입이 가능합니다.")
+			return false;
+		}else if($("#check_2").is(":checked")==false){
+			alert("필수 약관에 동의하셔야 회원가입이 가능합니다.")
+			return false;
+		}
 	});
 
 </script>
