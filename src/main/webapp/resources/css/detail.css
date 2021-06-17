@@ -3,4 +3,88 @@
 *{font-family: 'Noto Sans KR', sans-serif; margin:0; padding:0; box-sizig:border-box;}
 h1, h2, h3, h4{text-align:center; }
 
-#detail{margin:0 auto; }
+#detail{width:1000px; margin:0 auto; overflow:hidden; }
+
+#product_image{width:500px; float:left; text-align:center; margin-top:30px; }
+#product_detail{width:500px; float:right; }
+#product_detail hr{margin-bottom:15px; margin-top:20px; 
+				   color: #666; border:0px; border-top:1px dotted #666; }
+
+#product_detail .product_name{font-size:17pt; margin-bottom:5px; margin-top:30px; }
+#product_detail .product_detail{font-size:9pt; margin-bottom:10px; }
+#product_detail .product_price{font-size:17pt; }
+
+.tit{
+    float: left;
+    width: 150px;
+    font-size: 14px;
+    color: #666;
+    line-height: 20px;
+    margin-bottom:10px;
+}
+.desc{
+	font-size: 14px;
+	margin-bottom:10px;
+}
+#product_qtt{
+	margin-left:5px; 
+	margin-right:5px; 
+	vertical-align: top; 
+	font-size:12pt;
+}
+#qtt_down, #qtt_up{
+	cursor:pointer;
+}
+
+#groupBtn{width:500px; float:right; margin-bottom:30px; text-align:right;}
+#groupBtn button{padding:10px; background:white; border:1px solid black; }
+#groupBtn .btnAlarm{width:120px; margin-right:5px; }
+#groupBtn .btnSave{width:120px; margin-right:5px; }
+#groupBtn .btnCart{width:200px; }
+#price{text-align:right; }
+
+/* 메뉴바 스크롤 */
+.detailMenu{
+    text-align: center;
+    width: 1000px;
+    margin:0 auto;
+    overflow:hidden;
+    border-bottom:2px solid black;
+    margin-top:50px;
+}
+    
+.detailMenu a{
+	width: 220px;
+	float:left;
+	padding:15px; 
+    text-align: center;
+    margin:0 auto;
+    background:#D8EDE7;
+    font-size: 14px;
+    cursor:pointer;
+}
+
+.detailContent{
+	width: 1000px;
+    margin:0 auto;
+    margin-bottom:40px;
+}
+
+.detailContent div{
+	width: 998px;
+	height: 500px;
+    text-align: center;
+    margin:0 auto;
+    padding-top:70px;
+    border:1px solid black;
+    margin-top:10px;
+}
+
+.scroll-fixed{
+    position: fixed;
+    top: 0px; 
+    left: 0;
+   	right: 0;
+    width: 1000px;
+    margin:0 auto;
+    background:#D8EDE7; }

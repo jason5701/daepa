@@ -9,13 +9,14 @@ hr{width:100%; margin:0px auto; display:block; border:black 0 none;
 
 /* 맨위로 버튼 */
 .scrollToTop{
-    width:50px; 
-    height:50px;
+	position:fixed;
+    width:40px; 
+    height:40px;
     padding:10px;
-    position:fixed;
-    top:710px;
-    right:15px;
     display:none;
+    bottom: 1rem; 
+    right: 1rem; 
+    cursor: pointer;
 }
 .scrollToTop:hover{
     text-decoration:none;
@@ -39,7 +40,7 @@ hr{width:100%; margin:0px auto; display:block; border:black 0 none;
 .searchIcon{float:right; width:24px; height:24px; cursor:pointer;
       	    background:url("../image/index/search.png") no-repeat; }
 #menu{float:right; }
-.menuCart{float:right; background:url("../image/cart.png") no-repeat;
+.menuCart{float:right; background:url("../image/index/cart.png") no-repeat;
 		  width:25px; height:25px; cursor:pointer; }
 .menuLocation{float:right; background:url("../image/index/location.png") no-repeat;
 		  	  width:25px; height:25px; margin-right:20px; cursor:pointer; }
@@ -135,7 +136,6 @@ label.left{
 	left:20px;
 	background-color:transparent;
 	background-image:url("../image/index/left.png");
-
 	background-position:center center;
 	background-size:50%;
 	background-repeat:no-repeat;
@@ -290,9 +290,9 @@ label.right{
 }
 .all_image{width:320px; height:300px; border:black 1px solid; 
 		   margin-bottom:3px; }
-.all_name{width:320px; border:black 1px solid; margin-bottom:2px; }
-.all_price{width:320px; border:black 1px solid; margin-bottom:2px; }
-.all_detail{width:320px; border:black 1px solid; margin-bottom:2px; }
+.all_name{width:320px; border:black 1px solid; font-size:14pt; margin-bottom:2px; font-weight:bold; }
+.all_price{width:320px; border:black 1px solid; font-size:11pt; margin-bottom:2px; }
+.all_detail{width:320px; border:black 1px solid; font-size:9pt; margin-bottom:2px; }
 
 /* 푸터  */
 #footer{width:1000px; margin:0px auto; margin-top:30px; margin-bottom:20px;}

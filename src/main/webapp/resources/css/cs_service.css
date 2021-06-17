@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+
+#cs_service{width:1000px; overflow:hidden; margin:0 auto; }
+
+/* leftMenu-cs_menu */
+#cs_menu{
+	width:170px; 
+	float:left; 
+	margin-top:20px; 
+	margin-bottom:20px; 
+	font-size:10pt;
+}
+#list_menu{
+	width:170px; 
+	margin-top:20px; 
+	border-top:1px solid black;
+	border-left:1px solid black;
+	border-right:1px solid black;
+}
+.list_menu li{
+	padding:20px; 
+	border-bottom:1px solid black;
+}
+.list_menu li:hover{
+	background:#D8EDE7; 
+	font-weight:bold; 
+	text-decoration:underline; 
+	cursor:pointer;
+}
+

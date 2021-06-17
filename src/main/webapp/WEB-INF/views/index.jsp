@@ -90,13 +90,13 @@
 					<p>운영시간 내 순차적으로 답변드리겠습니다.</p>
 				</div>
 				<div id="company">
-					<b>법인명(상호)</b> : 주식회사 대파 <span class="bar">I</span> <b>사업자등록번호</b> : 123-12-12345
+					<b>법인명(상호)</b> : 주식회사 대파 <span class="bar"> I </span> <b>사업자등록번호</b> : 123-12-12345
 					<br>
-					<b>통신판매업</b> : 제 2021-인천학익-01234 호 <span class="bar">I</span> <b>대파책임자</b> : 김정훈
+					<b>통신판매업</b> : 제 2021-인천학익-01234 호 <span class="bar"> I </span> <b>대파책임자</b> : 김정훈
 					<br>
 					<b>주소</b> : 인천광역시 미추홀구 매소홀로488번길 6-32, 5층(학익동)
 					<br>
-					<b>제휴문의</b> : <a href="#" class="link">business@daepa.com </a><span class="bar">I</span> <b>채용문의</b> : <a href="#" class="link">recruit@daepa.com</a>
+					<b>제휴문의</b> : <a href="#" class="link">business@daepa.com</a><span class="bar"> I </span> <b>채용문의</b> : <a href="#" class="link">recruit@daepa.com</a>
 					<br>
 					<b>팩스</b> : 123 - 4567 - 8910 <span class="bar">I</span> <b>이메일</b> : <a href="" class="link">help@daepa.com</a>
 					<br>
