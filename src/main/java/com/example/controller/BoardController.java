@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.domain.Criteria;
 import com.example.domain.NoticeVO;
 import com.example.domain.PageMaker;
+import com.example.persistence.BoardQADAO;
 import com.example.persistence.CommonQADAO;
 import com.example.persistence.NoticeDAO;
 import com.example.service.NoticeService;
@@ -26,6 +27,11 @@ public class BoardController {
 	
 	@Autowired
 	NoticeDAO notice_dao;
+	
+	/*수정 사항*/
+	@Autowired
+	BoardQADAO boardQA_dao;
+	
 	
 	@Autowired
 	NoticeService notice_service;
@@ -114,4 +120,27 @@ public class BoardController {
 		map.put("pm", pm);
 		return map;
 	}
+
+	/*수정 사항--상품문의목록*/
+	@RequestMapping("boardQA/boardQA_list")
+	public String boardQA_list(Model model, Criteria cri) throws Exception{
+		cri.setPerPageNum(5);
+		PageMaker pm=new PageMaker();
+		pm.setCri(cri);
+	    pm.setTotalCount(boardQA_dao.totalCount());
+		
+	    model.addAttribute("pm", pm);
+	    model.addAttribute("cri", cri);
+	    model.addAttribute("boardQA_list", boardQA_dao.boardQA_list(cri));
+		return "/detail/boardQA/boardQA_list";
+	}
+	
+	/*수정 사항--상품문의 읽어오기*/
+	@RequestMapping("boardQA/boardQA_read")
+	public String boardQA_read(Model model, int boardQA_number) throws Exception {
+		model.addAttribute("vo", boardQA_dao.boardQA_read(boardQA_number));
+		return "/detail/boardQA/boardQA_read";
+	}
+
+	
 }
