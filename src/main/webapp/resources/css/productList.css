@@ -1,0 +1,40 @@
+@CHARSET "UTF-8";
+
+/* 상품목록페이지 */
+#all_list{width:1020px; margin:0 auto; text-align:center; overflow:hidden; 
+		  margin-top:40px; margin-bottom:40px; }
+#allCategoryList h2{margin-bottom:30px; }
+#all_list .all_product{
+	float:left; 
+	width:320px;
+	margin-left:10px; 
+	margin-right:10px; 
+	text-align:center; 
+	margin-bottom:50px;
+}
+.all_image{width:320px; height:300px; border:black 1px solid; 
+		   margin-bottom:3px; }
+.all_name{width:320px; border:black 1px solid; font-size:14pt; margin-bottom:2px; font-weight:bold; }
+.all_price{width:320px; border:black 1px solid; font-size:11pt; margin-bottom:2px; }
+.all_detail{width:320px; border:black 1px solid; font-size:9pt; margin-bottom:2px; }
+#allCategoryList{overflow:hidden; width:1000px; margin:0 auto; text-align:center; }
+#allCategoryList .categoryList li{
+	float:left; 
+	margin-right:20px; 
+	border-bottom:1px dotted black;
+	padding:3px; 
+	font-size:10pt;
+}
+#allCategoryList .categoryList li:hover{
+	background:#364967; 
+	color:white; 
+	cursor:pointer; 
+	border-bottom:1px solid black;
+}
+
+#allCategoryList .categoryList li:active{
+	background:#364967; 
+	color:white; 
+	cursor:pointer; 
+	border-bottom:1px solid black;
+}

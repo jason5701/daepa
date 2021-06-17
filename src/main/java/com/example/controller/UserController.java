@@ -66,7 +66,7 @@ public class UserController {
 	
 	@RequestMapping("logout")
 	public String logout(Model model,HttpSession session,HttpServletResponse response, HttpServletRequest request){
-		model.addAttribute("pageName","home.jsp");
+		model.addAttribute("pageName","indexList.jsp");
 		session.invalidate();
 		Cookie cookie = WebUtils.getCookie(request, "user_id");
 		if(cookie != null){

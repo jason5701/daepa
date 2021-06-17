@@ -22,8 +22,8 @@
 	border-bottom:1px solid black;
 }
 .list_menu li:hover{
-	background:#D8EDE7; 
-	font-weight:bold; 
+	background:#364967;
+	color:white; 
 	text-decoration:underline; 
 	cursor:pointer;
 }
