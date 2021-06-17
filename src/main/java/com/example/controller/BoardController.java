@@ -20,6 +20,8 @@ import com.example.domain.NoticeVO;
 import com.example.domain.PageMaker;
 import com.example.persistence.CommonQADAO;
 import com.example.persistence.NoticeDAO;
+import com.example.persistence.SuggestionDAO;
+import com.example.service.SuggestionService;
 
 @Controller
 @RequestMapping("/board/")
@@ -119,5 +121,34 @@ public class BoardController {
 		
 		commonQA_dao.admin_insert(vo);
 		return "redirect:/admin/commonQA";
+	}
+	
+	@Autowired
+	SuggestionDAO suggestion_dao;
+	
+	@Autowired
+	SuggestionService suggestion_service;
+	
+	@RequestMapping("suggestion")
+	public String suggestion(Model model,Criteria cri)throws Exception{
+		PageMaker pm=new PageMaker();
+		cri.setPerPageNum(3);
+		pm.setCri(cri);
+		pm.setDisplayPageNum(2);
+		pm.setTotalCount(suggestion_dao.suggestion_count());
+		model.addAttribute("pageName", "admin/main.jsp");
+		model.addAttribute("rightPage", "suggestion/list.jsp");
+		model.addAttribute("list", suggestion_dao.list(cri));
+		model.addAttribute("cri", cri);
+		model.addAttribute("pm", pm);
+		return "/index";
+	}
+	
+	@RequestMapping("suggestion_read")
+	public String suggestion_read(Model model,int suggestion_number)throws Exception{
+		model.addAttribute("pageName", "admin/main.jsp");
+		model.addAttribute("rightPage", "suggestion/read.jsp");
+		model.addAttribute("vo", suggestion_service.read_confirm(suggestion_number));
+		return "/index";
 	}
 }

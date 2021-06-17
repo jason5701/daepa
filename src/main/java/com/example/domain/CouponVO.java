@@ -2,15 +2,29 @@ package com.example.domain;
 
 import java.util.Date;
 
-public class CouponVO extends ProductVO{
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+public class CouponVO extends MeterialAndProductVO{
 	private String coupon_id;
 	private String coupon_name;
 	private int coupon_discount;
 	private Date coupon_register;
-	private Date coupon_end;
-	private String user_id;
-	private String product_id;
+	private String coupon_end;
+	private String coupon_image;
+	private int coupon_exp;
 	
+	public int getCoupon_exp() {
+		return coupon_exp;
+	}
+	public void setCoupon_exp(int coupon_exp) {
+		this.coupon_exp = coupon_exp;
+	}
+	public String getCoupon_image() {
+		return coupon_image;
+	}
+	public void setCoupon_image(String coupon_image) {
+		this.coupon_image = coupon_image;
+	}
 	public String getCoupon_id() {
 		return coupon_id;
 	}
@@ -35,29 +49,17 @@ public class CouponVO extends ProductVO{
 	public void setCoupon_register(Date coupon_register) {
 		this.coupon_register = coupon_register;
 	}
-	public Date getCoupon_end() {
+	public String getCoupon_end() {
 		return coupon_end;
 	}
-	public void setCoupon_end(Date coupon_end) {
+	public void setCoupon_end(String coupon_end) {
 		this.coupon_end = coupon_end;
-	}
-	public String getUser_id() {
-		return user_id;
-	}
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
-	}
-	public String getProduct_id() {
-		return product_id;
-	}
-	public void setProduct_id(String product_id) {
-		this.product_id = product_id;
 	}
 	@Override
 	public String toString() {
 		return "CouponVO [coupon_id=" + coupon_id + ", coupon_name=" + coupon_name + ", coupon_discount="
-				+ coupon_discount + ", coupon_register=" + coupon_register + ", coupon_end=" + coupon_end + ", user_id="
-				+ user_id + ", product_id=" + product_id + "]";
+				+ coupon_discount + ", coupon_register=" + coupon_register + ", coupon_end=" + coupon_end
+				+ ", coupon_image=" + coupon_image + ", coupon_exp=" + coupon_exp + "]";
 	}
-	
+
 }
