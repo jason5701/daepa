@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.util.WebUtils;
 
 import com.example.domain.AdminVO;
+import com.example.domain.Criteria;
+import com.example.domain.PageMaker;
 import com.example.persistence.AdminDAO;
+import com.example.persistence.SuggestionDAO;
 
 @Controller
 @RequestMapping("/admin/")
@@ -87,4 +90,6 @@ public class AdminController {
 		}
 		return "redirect:/index";
 	}
+	
+	
 }

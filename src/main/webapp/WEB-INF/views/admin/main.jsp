@@ -24,13 +24,13 @@
 							<a href="#none" onclick="#">1:1채팅</a>
 						</li>
 						<li>
-							<a href="#none" onclick="#">상품제안</a>
+							<a href="#none" onclick="location.href='/board/suggestion'">제안</a>
 						</li>
 						<li>
 							<a href="#none" onclick="#">핫딜</a>
 						</li>
 						<li>
-							<a href="#none" onclick="#">쿠폰</a>
+							<a href="#none" onclick="location.href='/coupon/admin'">쿠폰</a>
 						</li>
 					</ul>
 				</div>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.NoticeMapper">
-	<select id="list" resultType="com.example.domain.NoticeVO">
+	<select id="admin_list" resultType="com.example.domain.NoticeVO">
 		select * from tbl_notice 
 		<if test="searchType=='notice_title'">
 			where notice_title like concat('%',#{keyword},'%')
@@ -11,13 +11,20 @@
 		</if>
 		order by notice_number desc limit #{pageStart}, #{perPageNum}
 	</select>
-	<select id="read" resultType="com.example.domain.NoticeVO">
+	<select id="admin_read" resultType="com.example.domain.NoticeVO">
 		select * from tbl_notice where notice_number=#{notice_number}
 	</select>
-	<update id="update">
+	<update id="admin_update">
 		update tbl_notice set notice_title=#{notice_title}, notice_contents=#{notice_contents}, notice_modify_date=now() where notice_number=#{notice_number}
 	</update>
-	<select id="notice_code" resultType="int">
+	<select id="admin_notice_code" resultType="int">
 		select max(notice_number) from tbl_notice;
 	</select>
+	<insert id="admin_insert">
+		insert into tbl_notice(notice_title,notice_contents,notice_write_date,notice_image) 
+		values (#{notice_title},#{notice_title},now(),#{notice_image});
+	</insert>
+	<delete id="admin_delete">
+		delete from tbl_notice where notice_number=#{notice_number}
+	</delete>
 </mapper>

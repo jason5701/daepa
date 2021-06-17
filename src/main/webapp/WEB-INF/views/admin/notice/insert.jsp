@@ -8,7 +8,6 @@
 %>
 <h2>공지사항 쓰기</h2>
 <form name="frm" encType="multipart/form-data">
-	<input type="hidden" value="${code}"/>
 	<table>
 		<tr>
 			<td>작성자</td>
@@ -16,7 +15,7 @@
 		</tr>
 		<tr>
 			<td>작성일</td>
-			<td><input type="text" name="notice_write_date" value="<%= sf.format(nowTime)%>" readonly/></td>
+			<td><input type="text" value="<%= sf.format(nowTime)%>" readonly/></td>
 		</tr>
 		<tr>
 			<td>제목</td>
@@ -54,8 +53,8 @@
 			return;
 		}
 		if(!confirm("공지사항을 저장하시겠습니까?")) return;
-		frm.action="insert";
-		frm.method="post";
+		frm.action="admin_notice_insert";
+		frm.method="post"; 
 		frm.submit();
 		
 	});
