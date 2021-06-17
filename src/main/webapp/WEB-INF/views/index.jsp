@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,10 +16,9 @@
 	<div id="container">
 		<div id="header">
 			<div id="userMenu">
-				<div class="menuItem"><a href="">고객센터</a></div>
 				<div class="menuItem">
 					<c:if test="${user_id != null}">
-	  					<span style="margin-right:20px;">${user_id} 님</span>
+	  					<span class="userId"> 🥬 ${user_id} 님 </span>
 	 				  	<a href="/user/logout">로그아웃</a>
 	   				</c:if>
    					<c:if test="${user_id == null}">
@@ -52,10 +52,7 @@
 				                <li><a href="/group_product">공동구매</a>
 				                    <ul class="sub">
 				                       	<li><a href="#">1인밀키트/완제품</a></li>
-				                        <li><a href="#">육류</a></li>
-				                        <li><a href="#">해산물</a></li>
-				                        <li><a href="#">채소/과일</a></li>
-				                        <li><a href="#">양념/조미료</a></li>
+				                        <li><a href="#">재료</a></li>
 				                    </ul>
 				                </li>
 				            </ul>

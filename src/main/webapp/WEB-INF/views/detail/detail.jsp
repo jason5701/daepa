@@ -11,16 +11,16 @@
 		<img src="http://placehold.it/320x320" />
 	</div>
 	<div id="product_detail">
-		<div class="product_name" >[바로생활] 유기농 양배추 진액</div>
-		<div class="product_detail">유기농 사과 농축액이 쏙!</div><br>
-		<div class="product_price">50,000원</div><hr>
+		<div class="product_name" >제육볶음 1인분</div>
+		<div class="product_detail">돼지고기를 맛있게 볶음</div><br>
+		<div class="product_price">8,900원</div><hr>
 		<dl class="list fst">
 			<dt class="tit">판매단위</dt> 
-			<dd class="desc">1박스</dd>
+			<dd class="desc">1봉</dd>
 		</dl>
 		<dl class="list fst">
 			<dt class="tit">중량/용량</dt> 
-			<dd class="desc">90ml X 20포</dd>
+			<dd class="desc">600g</dd>
 		</dl><hr>
 		<dl class="list fst">
 			<dt class="tit">배송구분</dt> 
@@ -49,6 +49,23 @@
 			<span>원</span>
 		</div>
 	</div>
+</div>
+
+<div id="snsBox">
+	<h2>▮ RECIPE ITEMS</h2>
+	<div class="slide_wrapper">
+		<ul class="slides">
+			<li><a href=""><img src="/resources/image/index/sns_slide01.jpg" width=150 height=150 /></a></li>
+			<li><a href=""><img src="/resources/image/index/sns_slide02.jpg" width=150 height=150 /></a></li>
+			<li><a href=""><img src="/resources/image/index/sns_slide03.jpg" width=150 height=150 /></a></li>
+			<li><a href=""><img src="/resources/image/index/sns_slide04.jpg" width=150 height=150 /></a></li>
+			<li><a href=""><img src="/resources/image/index/sns_slide05.jpg" width=150 height=150 /></a></li>
+		</ul>
+	</div>
+	<p class="controls">
+		<span class="prev"><img src="/resources/image/index/left.png"/></span>
+		<span class="next"><img src="/resources/image/index/right.png"/></span>
+	</p>
 </div>
 
 <div class="detailMenu">
@@ -115,5 +132,73 @@ $(function() {
 function fnMove(seq){
 	var offset = $("#detailContent" + seq).offset();
 	$('html, body').animate({scrollTop : offset.top}, 400);
+}
+
+/* 레시피재료 슬라이드 */
+var slides=document.querySelector('.slides'),
+	slide=document.querySelectorAll('.slides li'),
+	currentIdx=0,
+	slideCount=slide.length,
+	slideWidth=200,
+	slideMargin=30,
+	prevBtn=document.querySelector('.prev'),
+	nextBtn=document.querySelector('.next')
+
+makeClone();
+
+function makeClone(){
+	for(var i=0; i<slideCount; i++){
+		var cloneSlide=slide[i].cloneNode(true);
+		cloneSlide.classList.add('clone');
+		slides.appendChild(cloneSlide);
+	}
+	for(var i=slideCount -1; i>=0; i--){
+		var cloneSlide=slide[i].cloneNode(true);
+		cloneSlide.classList.add('clone');
+		slides.prepend(cloneSlide);
+	}
+	updateWidth();
+	setInitialPos();
+	
+	setTimeout(function(){
+		slides.classList.add('animated');
+	}, 100);
+}
+
+function updateWidth(){
+	var currentSlides=document.querySelectorAll('.slides li');
+	var newSlideCount=currentSlides.length;
+	
+	var newWidth=(slideWidth+slideMargin)*newSlideCount-slideMargin+'px';
+	slides.style.width=newWidth;
+}
+
+function setInitialPos(){
+	var initialTranslateValue = -(slideWidth+slideMargin)*slideCount;
+	slides.style.transform='translateX(' + initialTranslateValue + 'px)';
+	}
+	
+	nextBtn.addEventListener('click', function(){
+	moveSlide(currentIdx+1);
+	});
+	prevBtn.addEventListener('click', function(){
+	moveSlide(currentIdx-1);
+});
+
+function moveSlide(num){
+	slides.style.left = -num*(slideWidth+slideMargin)+'px';
+	currentIdx=num;
+	
+	if(currentIdx == slideCount || currentIdx == -slideCount){
+		
+		setTimeout(function(){
+			slides.classList.remove('animated');
+			slides.style.left='0px';
+			currentIdx=0;
+		}, 500);		
+		setTimeout(function(){
+			slides.classList.add('animated');
+		}, 600);	
+	}
 }
 </script>

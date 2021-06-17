@@ -25,10 +25,12 @@ hr{width:100%; margin:0px auto; display:block; border:black 0 none;
 /* 헤더  */
 #header{width:1000px; margin:0px auto; }
 #header img{margin-top:20px; margin-bottom:5px; }
-#userMenu{overflow:hidden; padding-top:10px; }
+#userMenu{overflow:hidden; padding-top:20px;}
 #userMenu a{float:right; text-decoration:none; font-size:9pt; color:black; }
 #userMenu a:active{color:black; }
-#userMenu .menuItem a{margin-right:20px;}
+#userMenu .menuItem{float:right; }
+.menuItem .userID{margin-left:20px; font-size:9pt; background:#364967; color:white;}
+#userMenu .menuItem a{margin-left:20px;}
 #category{width:1000px; height:40px; overflow:hidden; margin-top:30px;
 		  margin-bottom:10px; }
 
@@ -275,24 +277,6 @@ label.right{
 }
 .prev{margin-right:20px; cursor:pointer; }
 .next{margin-left:20px; cursor:pointer; }
-
-/* 상품목록페이지 */
-#all_list{width:1020px; margin:0 auto; text-align:center; overflow:hidden; 
-		  margin-top:40px; margin-bottom:40px; }
-#all_list h2{margin-bottom:30px; }
-#all_list .all_product{
-	float:left; 
-	width:320px;
-	margin-left:10px; 
-	margin-right:10px; 
-	text-align:center; 
-	margin-bottom:50px;
-}
-.all_image{width:320px; height:300px; border:black 1px solid; 
-		   margin-bottom:3px; }
-.all_name{width:320px; border:black 1px solid; font-size:14pt; margin-bottom:2px; font-weight:bold; }
-.all_price{width:320px; border:black 1px solid; font-size:11pt; margin-bottom:2px; }
-.all_detail{width:320px; border:black 1px solid; font-size:9pt; margin-bottom:2px; }
 
 /* 푸터  */
 #footer{width:1000px; margin:0px auto; margin-top:30px; margin-bottom:20px;}
