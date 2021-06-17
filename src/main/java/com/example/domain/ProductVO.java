@@ -2,7 +2,7 @@ package com.example.domain;
 
 import java.util.Date;
 
-public class ProductVO extends MeterialAndProductVO{
+public class ProductVO{
 	private String product_id;
 	private String product_name;
 	private int product_price;

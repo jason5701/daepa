@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.example.domain.Criteria;
 import com.example.domain.NoticeVO;
-import com.example.persistence.CouponDAO;
+import com.example.persistence.GroupSalesDAO;
 import com.example.persistence.NoticeDAO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -25,4 +26,12 @@ public class MysqlTest {
 		 noticeDAO.admin_insert(vo);
 	 }
 	 
+	 @Autowired
+	 private GroupSalesDAO group_dao;
+	 	
+	 @Test
+	 public void group_sales_list()throws Exception{
+		 Criteria cri=new Criteria();
+		 group_dao.list(cri);
+	 }
 	}

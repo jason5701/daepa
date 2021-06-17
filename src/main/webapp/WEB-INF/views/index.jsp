@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -14,7 +15,6 @@
 	<div id="container">
 		<div id="header">
 			<div id="userMenu">
-				<div class="menuItem"><a href="/admin/login">관리자</a></div>
 				<div class="menuItem"><a href="">고객센터</a></div>
 				<div class="menuItem">
 					<c:if test="${user_id != null}">
