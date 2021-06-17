@@ -61,6 +61,7 @@ public class UploadController {
    @RequestMapping("/displayFile")
    public byte[] display(String fullName)throws Exception{
       FileInputStream in=new FileInputStream(path + "/" + fullName);
+      //System.out.println("이미지출력 주소확인.......!!"+path+"/"+fullName);
       byte[] image=IOUtils.toByteArray(in);
       in.close();
       return image;
