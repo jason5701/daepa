@@ -39,7 +39,6 @@
 					}else if(data.result==0){
 						alert("비밀번가 일치하지 않습니다.");
 					}else{
-						//alert(data.path);
 						location.href=data.path;
 					}
 				}

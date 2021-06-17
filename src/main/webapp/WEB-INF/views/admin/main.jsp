@@ -27,7 +27,7 @@
 							<a href="#none" onclick="location.href='/board/suggestion'">제안</a>
 						</li>
 						<li>
-							<a href="#none" onclick="#">핫딜</a>
+							<a href="#none" onclick="location.href='/admin/hotDeal'">핫딜</a>
 						</li>
 						<li>
 							<a href="#none" onclick="location.href='/coupon/admin'">쿠폰</a>

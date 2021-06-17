@@ -25,15 +25,16 @@
 			<div>${vo.coupon_id}</div>
 			<div>${vo.coupon_name}</div>
 			<div>할인가 : <fmt:formatNumber value="${vo.coupon_discount}" pattern="#,###원"/></div>
-			<div>마감일 : ${vo.coupon_end}</div>
+			<fmt:parseDate var="parsedDate" value="${vo.coupon_end}" pattern="yyyy-MM-dd"/>
+			<div>마감일 : <fmt:formatDate value="${parsedDate}" pattern="yyyy-MM-dd"/></div>
 			<c:if test="${vo.coupon_exp==0}">
-				<div><b>사용중</b></div>
+				<div>상태 : <b>사용중</b></div>
 			</c:if>
 			<c:if test="${vo.coupon_exp==1}">
-				<div><b>쿠폰만료</b></div>
+				<div>상태 : <b>쿠폰만료</b></div>
 			</c:if>
 			<c:if test="${vo.coupon_exp==2}">
-				<div><b>사용중지</b></div>
+				<div>상태 : <b>사용중지</b></div>
 			</c:if>
 			<div>
 				<button onClick="location.href='/coupon/read_set?coupon_id=${vo.coupon_id}'">쿠폰 설정</button>

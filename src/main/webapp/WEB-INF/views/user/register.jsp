@@ -6,7 +6,7 @@
             padding: .5em .5em;
             border: 1px solid #999;
             font-family: inherit;
-            background: url('/resources/image/arrow.jpg') no-repeat 95% 50%;
+            background: url('/resources/image/index/arrow.jpg') no-repeat 95% 50%;
             border-radius: 0px;
             -webkit-appearance: none;
             -moz-appearance: none;
@@ -130,10 +130,10 @@
 			<tr>
 				<th>주소<span class="ico"> *</span></th>
 				<td>
-					<input type="text" id="sample4_postcode" class="register_text" name="user_post" placeholder="우편번호">
+					<input type="text" id="sample4_postcode" class="register_text" name="user_post" onclick="sample4_execDaumPostcode()" placeholder="우편번호">
 					<input type="button"  class="register_button2" onclick="sample4_execDaumPostcode()"	value="우편번호 찾기"><br> 
-					<input type="text" id="sample4_roadAddress" name="user_road_address" placeholder="도로명주소"> 
-					<input type="text" id="sample4_jibunAddress" name="user_address" placeholder="지번주소"> 
+					<input type="text" id="sample4_roadAddress" name="user_road_address" onclick="sample4_execDaumPostcode()" placeholder="도로명주소"> 
+					<input type="text" id="sample4_jibunAddress" name="user_address" onclick="sample4_execDaumPostcode()" placeholder="지번주소"> 
 					<span id="guide" style="color: #999; display: none"></span><br> 
 					<input type="text" id="sample4_detailAddress" class="register_text" name="user_address_detail1" placeholder="상세주소">
 					<input type="text" id="sample4_extraAddress" class="register_text" name="user_address_detail2"  placeholder="참고항목">
@@ -226,6 +226,11 @@
 			alert("비밀번호를 한번 더 입력해주세요.");
 			$(frm.pwChk).focus();
 			return false;
+		}else if($(frm.user_password).val()!=$(frm.pwChk).val()){
+			alert("비밀번호가 일치하지 않습니다.");
+			return false;
+		}else{
+			$(frm.user_name).focus();
 		}
 	});
 	//중복확인 버튼 누를때
@@ -240,6 +245,7 @@
 			return false;
 		}else{
 			fn_idChk();
+			$(frm.user_password).focus();
 		}		
 	});
 	//아이디 중복체크
