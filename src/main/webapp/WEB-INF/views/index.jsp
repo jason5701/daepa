@@ -27,7 +27,7 @@
 				</div>
 				<div class="menuItem">	
 					<c:if test="${user_id != null}">
-	  					<a href="/mypage">마이페이지</a>
+	  					<a href="/mypage/all">마이페이지</a>
 	  				</c:if>				
 					<c:if test="${user_id == null}">
 	 					<a href="/user/register">회원가입</a>
