@@ -16,6 +16,7 @@
 	<div id="container">
 		<div id="header">
 			<div id="userMenu">
+				<div class="menuItem"><a href="">고객센터</a></div>
 				<div class="menuItem">
 					<c:if test="${user_id != null}">
 	  					<span class="userId"> 🥬 ${user_id} 님 </span>

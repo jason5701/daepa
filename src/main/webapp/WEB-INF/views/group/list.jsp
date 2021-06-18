@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <head>
 	<link rel="stylesheet" href="/resources/css/productList.css" />
 	<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -23,8 +21,7 @@
 	</ul>
 </div>
 <div id="all_list">
-	<h2>공동구매</h2>
-	<div id="group_list_div" class="all_product">
+	<div id="group_list_div" class="all_product"></div>
 	<script id="temp" type="text/x-handlebars-template">
 		{{#each list}}
 			<div class="all_image"><img src="/displayFile?fullName={{meterial_image}}" width=320 height=300/></div>
@@ -40,7 +37,7 @@
 	function getGroup_sales(){
 		$.ajax({
 			type:"get",
-			url:"/group_sell/sales_list.json",
+			url:"/group/sales_list.json",
 			dataType:"json",
 			success:function(data){
 				var temp=Handlebars.compile($("#temp").html());
