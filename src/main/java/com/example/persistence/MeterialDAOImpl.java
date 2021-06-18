@@ -40,4 +40,9 @@ public class MeterialDAOImpl implements MeterialDAO{
 	public void delete(String meterial_id) throws Exception {
 		session.update(namespace+".delete",meterial_id);
 	}
+
+	@Override
+	public int totalCount(Criteria cri) throws Exception {
+		return session.selectOne(namespace+".totalCount",cri);
+	}
 }

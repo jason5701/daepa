@@ -27,4 +27,13 @@
 	<delete id="admin_delete">
 		delete from tbl_notice where notice_number=#{notice_number}
 	</delete>
+	<select id="totCount" resultType="int">
+		select count(*) from tbl_notice 
+		<if test="searchType=='notice_title'">
+			where notice_title like concat('%',#{keyword},'%')
+		</if>
+		<if test="searchType=='notice_contents'">
+			where notice_contents like concat('%',#{keyword},'%')
+		</if>
+	</select>
 </mapper>

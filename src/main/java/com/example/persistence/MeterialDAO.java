@@ -11,4 +11,5 @@ public interface MeterialDAO {
 	public void insert(MeterialVO vo) throws Exception;
 	public void update(MeterialVO vo) throws Exception;
 	public void delete(String meterial_id) throws Exception;
+	public int totalCount(Criteria cri)throws Exception;
 }

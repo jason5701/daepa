@@ -17,20 +17,29 @@
 						<li class="on">
 							<a href="#none" onclick="location.href='/admin/main'">공지사항</a>
 						</li>
-						<li>
+						<li class="on">
 							<a href="#none" onclick="location.href='/admin/commonQA'">자주하는질문</a>
 						</li>
-						<li>
+						<li class="on">
 							<a href="#none" onclick="#">1:1채팅</a>
 						</li>
-						<li>
+						<li class="on">
 							<a href="#none" onclick="location.href='/board/suggestion'">제안</a>
 						</li>
-						<li>
+						<li class="on">
 							<a href="#none" onclick="location.href='/admin/hotDeal'">핫딜</a>
 						</li>
-						<li>
+						<li class="on">
 							<a href="#none" onclick="location.href='/coupon/admin'">쿠폰</a>
+						</li>
+						<li class="on">
+							<a href="#none" onclick="location.href='/admin/product'">완제품 관리</a>
+						</li>
+						<li class="on">
+							<a href="#none" onclick="location.href='/admin/meterial'">재료 관리</a>
+						</li>
+						<li class="on">
+							<a href="#none" onclick="location.href='/admin/analyze'">분석</a>
 						</li>
 					</ul>
 				</div>

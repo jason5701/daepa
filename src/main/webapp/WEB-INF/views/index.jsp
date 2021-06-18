@@ -16,7 +16,7 @@
 	<div id="container">
 		<div id="header">
 			<div id="userMenu">
-				<div class="menuItem"><a href="">고객센터</a></div>
+
 				<div class="menuItem">
 					<c:if test="${user_id == daepa}">
 						<a href="/admin/login">관리자</a>
@@ -27,7 +27,7 @@
 				</div>
 				<div class="menuItem">	
 					<c:if test="${user_id != null}">
-	  					<a href="/mypage">마이페이지</a>
+	  					<a href="/mypage/all">마이페이지</a>
 	  				</c:if>	
   				</div>	
 				<div class="menuItem">

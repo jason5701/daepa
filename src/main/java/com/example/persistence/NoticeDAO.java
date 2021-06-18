@@ -12,4 +12,5 @@ public interface NoticeDAO {
 	public int admin_notice_code()throws Exception;
 	public void admin_insert(NoticeVO vo) throws Exception;
 	public void admin_delete(int notice_number)throws Exception;
+	public int totCount(Criteria cri)throws Exception;
 }

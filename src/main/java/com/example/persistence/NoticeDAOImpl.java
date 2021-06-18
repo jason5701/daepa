@@ -45,6 +45,11 @@ public class NoticeDAOImpl implements NoticeDAO{
 	public void admin_delete(int notice_number) throws Exception {
 		session.delete(namespace+".admin_delete",notice_number);
 	}
+
+	@Override
+	public int totCount(Criteria cri) throws Exception {
+		return session.selectOne(namespace+".totCount",cri);
+	}
 	
 	
 }

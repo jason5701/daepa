@@ -9,6 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.example.domain.Criteria;
 import com.example.domain.NoticeVO;
 import com.example.persistence.GroupSalesDAO;
+import com.example.persistence.MeterialDAO;
 import com.example.persistence.NoticeDAO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -33,5 +34,14 @@ public class MysqlTest {
 	 public void group_sales_list()throws Exception{
 		 Criteria cri=new Criteria();
 		 group_dao.list(cri);
+	 }
+	 
+	 @Autowired
+	 private MeterialDAO meterialDAO;
+	 
+	 @Test
+	 public void list()throws Exception{
+		 Criteria cri=new Criteria();
+		 meterialDAO.list(cri);
 	 }
 	}

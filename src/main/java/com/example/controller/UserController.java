@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import java.net.URLEncoder;
 import java.util.HashMap;
 
 import javax.servlet.http.Cookie;
@@ -46,7 +47,7 @@ public class UserController {
 				  result=1; //로그인성공
 			  }if(chkLogin){
 				  Cookie cookie = new Cookie("user_id",vo.getUser_id()); //쿠키생성
-				  cookie = new Cookie("user_name",vo.getUser_name()); 
+				  cookie = new Cookie("user_name", URLEncoder.encode(vo.getUser_name(),"UTF-8")); 
 				  cookie.setPath("/");
 				  cookie.setMaxAge(60*60*24*7); //7일간 보관
 				  response.addCookie(cookie);
