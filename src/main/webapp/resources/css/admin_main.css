@@ -7,8 +7,8 @@
 	padding-bottom:120px;
 	position:relative;
 }
-.page_aticle.aticle_type2{
-	padding-top:65px;
+.page_aticle.aticle_type2 {
+    padding-top: 85px;
 }
 .page_aticle{
 	width:1050px;
@@ -30,11 +30,11 @@
     color: #333;
     letter-spacing: -.5px;
 }
-#snb{
-	float:left;
-	width:200px;
+#snb {
+    float: left;
+    width: 200px;
 }
-#snb .tit_snb{
+#snb .tit_snb {
     padding: 8px 0 33px 1px;
     font-weight: 700;
     font-size: 30px;
@@ -47,40 +47,37 @@ div{
 	display:block;
 }
 
-#snb .inner_snb{
-	border: 1px solid #f2f2f2;
-	border-bottom:0;
+#snb .inner_snb {
+    border: 1px solid #f2f2f2;
+    border-bottom: 0;
 }
 
 ol,ul{
 	list-style-type:none;
 }
 
-#snb .list_menu li{
-	border-bottom:1px solid #f2f2f2;
+#snb .list_menu li {
+    border-bottom: 1px solid #f2f2f2;
 }
-
-#snb .list-menu a, #snb .list-menu li a:hover{
-	background:#fafafa url(">") no-repeat 174px 52%;
-	background-size: 6px 11px;
-	font-weight:700;
-	color:#5f000;
+#snb .list_menu li a {
+    display: block;
+    overflow: hidden;
+    padding: 15px 0 15px 20px;
+    background: #fff url(https://res.kurly.com/pc/ico/2008/ico_arrow_6x11.svg) no-repeat 174px 52%;
+    background-size: 6px 11px;
+    font-size: 14px;
+    color: #666;
+    line-height: 20px;
+    letter-spacing: -.3px;
 }
-
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
+#snb .list_menu li.on a, #snb .list_menu li a:hover {
+    background: #fafafa url(https://res.kurly.com/pc/ico/2008/ico_arrow_6x11_on.svg) no-repeat 174px 52%;
+    background-size: 6px 11px;
+    font-weight: 700;
+    color: #5f0080;
 }
 
 a{
 	text-decoration:none;
 }
 
-#snb .list-menu li a{
-    display: block;
-    overflow: hidden;
-    padding: 15px 0 15px 20px;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: -.3px;
-}

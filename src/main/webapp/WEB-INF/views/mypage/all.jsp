@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <link rel="stylesheet" href="/resources/css/mypage.css" />
+<link rel="stylesheet" href="/resources/css/mypage.css" />
 <!-- 마이페이지 head -->
 <div class="mypage_top">
 	<div id="mypage_top_user" class="mypagetop_user">
@@ -8,7 +8,7 @@
 			<div class="grade_user">
 				<div class="grade_wrap">
 					<div class="grade_logo">웰컴</div>
-					<strong class="user_name">김수지님</strong>
+					<strong class="user_name">${user_name} 님</strong>
 				</div>
 				<div class="grade_bnenfit">
 					<div class="benefit">
@@ -54,18 +54,5 @@
 		</div>
 	</div>
 </div>
-<!-- 마이페이지 content -->
-<div class="page_aticle.aticle_type2">
-	<div id="snb" class="snb_my">
-		<h2 class="tit_snb">마이 대파</h2>
-		<div class="inner_snb">
-			<ul class="list_menu">
-				<li class="on"><a>주문내역</a></li>
-				<li><a>찜 목록</a></li>
-				<li><a>상품 후기</a></li>
-				<li><a>상품 문의</a></li>
-				<li><a>개인정보수정</a></li>
-			</ul>
-		</div>
-	</div>
-</div>
+<jsp:include page="${rightPage}" />
+<jsp:include page="${leftPage}"/>
