@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.BoardQAMapper">	
+<!-- 수정사항 상품문의  테스트용 #{product_id} 로변경하기 -->
+ 	<select id="boardQA_list" resultType="com.example.domain.BoardQAVO">
+ 		select * from tbl_boardqa
+ 		where  product_id = 'P001'
+ 		order by boardQA_number
+ 		limit #{pageStart}, #{perPageNum}
+ 	</select>
+ 	
+ 	<select id="boardQA_read" resultType="com.example.domain.BoardQAVO">
+ 		select * from tbl_boardqa
+ 		where boardQA_number=#{boardQA_number}
+ 	</select>
+ 	
+ 	<select id="totalCount" resultType="int">
+      select count(*) from tbl_boardqa
+   	</select>
+</mapper>

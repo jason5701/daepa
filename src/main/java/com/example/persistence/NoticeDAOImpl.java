@@ -45,6 +45,36 @@ public class NoticeDAOImpl implements NoticeDAO{
 	public void admin_delete(int notice_number) throws Exception {
 		session.delete(namespace+".admin_delete",notice_number);
 	}
-	
+	/*수정사항*/
+	@Override
+	public List<NoticeVO> list(Criteria cri) throws Exception {
+		return session.selectList(namespace+".list",cri);
+	}
+
+	@Override
+	public NoticeVO read(int notice_number) throws Exception {
+		return session.selectOne(namespace+".read",notice_number);
+	}
+
+	@Override
+	public void update(NoticeVO vo) throws Exception {
+		session.update(namespace+".update",vo);
+	}
+
+	@Override
+	public int notice_code() throws Exception {
+		return session.selectOne(namespace+".notice_code");
+	}
+
+	@Override
+	public int totalCount() throws Exception {
+		return session.selectOne(namespace + ".totalCount");
+	}
+
+	@Override
+	public void updateClick(int notice_number) throws Exception {
+		session.update(namespace + ".updateClick" ,notice_number);
+		
+	}
 	
 }

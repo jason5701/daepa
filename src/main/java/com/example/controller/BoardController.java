@@ -20,10 +20,12 @@ import com.example.domain.NoticeVO;
 import com.example.domain.PageMaker;
 import com.example.domain.ReviewVO;
 import com.example.persistence.BoardDAO;
+import com.example.persistence.BoardQADAO;
 import com.example.persistence.CommonQADAO;
 import com.example.persistence.NoticeDAO;
 import com.example.persistence.SuggestionDAO;
 import com.example.service.BoardService;
+import com.example.service.NoticeService;
 import com.example.service.SuggestionService;
 
 @Controller
@@ -37,6 +39,14 @@ public class BoardController {
 
 	@Autowired
 	BoardDAO review_dao;
+	
+	/*수정 사항*/
+	@Autowired
+	BoardQADAO boardQA_dao;
+	
+	/*수정 사항*/
+	@Autowired
+	NoticeService notice_service;
 	
 	@Autowired
 	BoardService review_service;
@@ -132,6 +142,49 @@ public class BoardController {
 		map.put("cri", cri);
 		map.put("pm", pm);
 		return map;
+	}
+	
+	/*공지사항 list -- 유저용*/
+	@RequestMapping("notice/list")
+	public String list(Model model, Criteria cri) throws Exception{
+		cri.setPerPageNum(3);
+		
+		PageMaker pm=new PageMaker();
+		pm.setCri(cri);
+	    pm.setTotalCount(notice_dao.totalCount());
+		
+	    model.addAttribute("pm", pm);
+	    model.addAttribute("cri", cri);
+		model.addAttribute("list", notice_dao.list(cri));
+		return "/detail/notice/list";
+	}
+	
+	/*공지사항 read--유저용*/
+	@RequestMapping("notice/read")
+	public String read(Model model, int notice_number) throws Exception {
+		model.addAttribute("vo", notice_service.read(notice_number));
+		return "/detail/notice/read";
+	}
+	
+	/*수정 사항--상품문의목록*/
+	@RequestMapping("boardQA/boardQA_list")
+	public String boardQA_list(Model model, Criteria cri) throws Exception{
+		cri.setPerPageNum(5);
+		PageMaker pm=new PageMaker();
+		pm.setCri(cri);
+	    pm.setTotalCount(boardQA_dao.totalCount());
+		
+	    model.addAttribute("pm", pm);
+	    model.addAttribute("cri", cri);
+	    model.addAttribute("boardQA_list", boardQA_dao.boardQA_list(cri));
+		return "/detail/boardQA/boardQA_list";
+	}
+	
+	/*수정 사항--상품문의 읽어오기*/
+	@RequestMapping("boardQA/boardQA_read")
+	public String boardQA_read(Model model, int boardQA_number) throws Exception {
+		model.addAttribute("vo", boardQA_dao.boardQA_read(boardQA_number));
+		return "/detail/boardQA/boardQA_read";
 	}
 	
 	@RequestMapping(value="admin_notice_insert")

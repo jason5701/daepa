@@ -1,6 +1,8 @@
 package com.example.persistence;
 
 import java.util.List;
+
+import com.example.domain.BoardQAVO;
 import com.example.domain.Criteria;
 import com.example.domain.ReviewVO;
 
@@ -13,4 +15,7 @@ public interface BoardDAO {
 	public void review_update(ReviewVO vo) throws Exception;
 	public void updateReview_click(int review_number)throws Exception;
 	public int totalCount()throws Exception;
+	
+	
+	
 }
