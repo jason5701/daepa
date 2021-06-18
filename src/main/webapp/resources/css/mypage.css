@@ -1,0 +1,186 @@
+@CHARSET "UTF-8";
+<!-- 마이페이지 head -->
+.page_aticle {
+    width: 1050px;
+    margin: 0 auto;
+}
+.mypage_top {
+    width: 100%;
+    padding: 50px 0;
+    margin-bottom: -20px;
+    background-color: #f7f7f7;
+}
+.mypage_top .mypagetop_user {
+    overflow: hidden;
+    width: 1050px;
+    margin: 0 auto;
+}
+.mypage_top .inner_mypagetop {
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+}
+
+.mypage_top .grade_user {
+    width: 362px;
+    padding: 30px;
+    background-color: #fff;
+}
+.mypage_top .grade_wrap {
+    display: flex;
+    align-items: center;
+}
+.mypage_top .grade_wrap .grade_logo {
+    border: 1px solid #949296;
+    background-color: #fff;
+    color: #949296;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #fff;
+}
+.mypage_top .grade_wrap .grade_logo {
+    border: 1px solid #949296;
+    background-color: #fff;
+   	font-weight:500;
+   	margin-right:20px;
+    color: #949296;
+}
+.mypage_top .grade_wrap .name {
+    margin-left: 30px;
+    font-size: 20px;
+}
+.mypage_top .name {
+    overflow: hidden;
+    float: left;
+    max-width: 263px;
+    font-weight: 700;
+    font-size: 20px;
+    color: #333;
+    line-height: 28px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.mypage_top .grade_bnenfit {
+    overflow: hidden;
+    margin-top: 16px;
+}
+.mypage_top .grade_user .benefit {
+    padding-top: 4px;
+}
+
+.mypage_top .benefit .tit {
+    color: #5f0080;
+}
+.mypage_top .next {
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    margin-top: 18px;
+}
+.mypage_top .next a {
+    height: 30px;
+    padding-top: 4px;
+    border: 1px solid #f4f4f3;
+    border-radius: 15px;
+    background-color: #f4f4f4;
+    font-size: 12px;
+    color: #333;
+    line-height: 18px;
+    text-align: center;
+}
+.mypage_top .total_grade {
+    width: 121px;
+}
+.mypage_top .next a:not(:first-of-type) {
+    margin-left: 10px;
+}
+.mypage_top .next_month {
+    width: 169px;
+}
+.mypage_top .list_mypage {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    margin-left: 4px;
+}
+.mypage_top .list_mypage .link_wrap .link_title {
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    color: #333;
+    position: relative;
+}
+.mypage_top .list_mypage .link_wrap {
+    width: 168px;
+    background-color: #fff;
+    padding: 26px 0 30px 30px;
+    display: flex;
+    float:left;
+    flex-direction: column;
+}
+.mypage_top .list_mypage .link_wrap:not(:last-of-type) {
+    flex-grow: 1;
+    margin-right: 4px;
+}
+.mypage_top .list_mypage .link_wrap .spacer {
+    flex-grow: 2;
+    padding:56px;
+}
+.mypage_top .list_mypage .link_wrap .info {
+    font-weight: 700;
+    font-size: 20px;
+    color: #5f0080;
+    line-height: 28px;
+    flex-grow: 3;
+    position: relative;
+}
+<!-- 마이페이지 content -->
+.page_aticle.aticle_type2 {
+    padding-top: 85px;
+}
+#snb {
+    float: left;
+    width: 200px;
+}
+#snb .tit_snb {
+    padding: 8px 0 33px 1px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 34px;
+    color: #333;
+    letter-spacing: -.5px;
+}
+#snb .inner_snb {
+    border: 1px solid #f2f2f2;
+    border-bottom: 0;
+}
+ol, ul {
+    list-style-type: none;
+}
+#snb .list_menu li {
+    border-bottom: 1px solid #f2f2f2;
+}
+#snb .list_menu li a {
+    display: block;
+    overflow: hidden;
+    padding: 15px 0 15px 20px;
+    background: #fff url(https://res.kurly.com/pc/ico/2008/ico_arrow_6x11.svg) no-repeat 174px 52%;
+    background-size: 6px 11px;
+    font-size: 14px;
+    color: #666;
+    line-height: 20px;
+    letter-spacing: -.3px;
+}
+#snb .list_menu li.on a, #snb .list_menu li a:hover {
+    background: #fafafa url(https://res.kurly.com/pc/ico/2008/ico_arrow_6x11_on.svg) no-repeat 174px 52%;
+    background-size: 6px 11px;
+    font-weight: 700;
+    color: #5f0080;
+}

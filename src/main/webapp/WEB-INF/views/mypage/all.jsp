@@ -1,0 +1,58 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="/resources/css/mypage.css" />
+<!-- 마이페이지 head -->
+<div class="mypage_top">
+	<div id="mypage_top_user" class="mypagetop_user">
+		<div id="inner_mypagetop" class="inner_mypagetop">
+			<div class="grade_user">
+				<div class="grade_wrap">
+					<div class="grade_logo">웰컴</div>
+					<strong class="user_name">${user_name} 님</strong>
+				</div>
+				<div class="grade_bnenfit">
+					<div class="benefit">
+						<strong class="tit"></strong>
+						적립 5%
+					</div>
+					<div class="benefit">
+						<strong class="tit"></strong>
+						최초 1회 무료배송
+					</div>
+					<div class="benefit"></div>
+				</div>
+				<div class="next">
+					<a class="total_grade">전체등급 보기</a>
+					<a class="next_month">다음달 예상등급 보기</a>
+				</div>
+			</div>
+			<div class="list_mypage">
+				<div class="list">
+					<a class="link_wrap">
+						<div class="link_title">적립금
+							<img src="/resources/image/mypage/arrow_right_gray_56_56.png"/>
+						</div>
+						<div class="spacer"></div>
+						<p class="info">0원</p>						
+					</a>
+					<a class="link_wrap">
+						<div class="link_title">쿠폰
+							<img src="/resources/image/mypage/arrow_right_gray_56_56.png"/>
+						</div>
+						<div class="spacer"></div>
+						<p class="info">1개</p>
+					</a>
+					<a class="link_wrap">
+						<div class="link_title">나눔관리
+							<img src="/resources/image/mypage/arrow_right_gray_56_56.png"/>
+						</div>
+						<div class="spacer"></div>
+						<p class="info">자세히보기</p>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<jsp:include page="${rightPage}" />
+<jsp:include page="${leftPage}"/>
