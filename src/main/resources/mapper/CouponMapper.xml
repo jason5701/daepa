@@ -22,4 +22,7 @@
 	<select id="coupon_id" resultType="int">
 		select count(*) from tbl_coupon
 	</select>
+	<delete id="admin_delete">
+		delete from tbl_coupon where coupon_id=#{coupon_id}
+	</delete>
 </mapper>

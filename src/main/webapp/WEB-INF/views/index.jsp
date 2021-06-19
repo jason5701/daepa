@@ -51,18 +51,23 @@
 					<ul class="all">
 						<li><a href="">전체 카테고리</a>
 				            <ul class="all_sub">
-				                <li><a href="/all_product">전체 상품</a>
+				                <li><a href="/meals">1인밀키트/완제품</a>
 				                    <ul class="sub">
-				                    	<li><a href="/all/meal">1인밀키트/완제품</a></li>
-				                        <li><a href="/all/meat">육류</a></li>
-				                        <li><a href="/all/sea">해산물</a></li>
-				                        <li><a href="/all/vegetable">채소/과일</a></li>
-				                        <li><a href="/all/seasoning">양념/조미료</a></li>
+				                        <li><a href="meat">육류</a></li>
+				                        <li><a href="sea">해산물</a></li>
+				                        <li><a href="noodle">면/밀가루</a></li>
 				                    </ul>
 				                </li>
-				                <li><a href="/group_product">공동구매</a>
+				                <li><a href="/veges">풀</a>
 				                    <ul class="sub">
-				                       	<li><a href="#">1인밀키트/완제품</a></li>
+				                        <li><a href="/veges">녹색채소</a></li>
+				                        <li><a href="/veges">보라색채소</a></li>
+				                        <li><a href="/veges">빨강채소</a></li>
+				                        <li><a href="/veges">흰채소</a></li>
+				                    </ul>
+				                </li>
+				                <li><a href="/group_product">나눔구매</a>
+				                    <ul class="sub">
 				                        <li><a href="#">재료</a></li>
 				                    </ul>
 				                </li>

@@ -73,10 +73,11 @@
 		var type=$("#main_meterial").val();
 		$.ajax({
 			type:"get",
-			url:"/product/product.json",
+			url:"/product/admin_product.json",
 			dataType:"json",
 			data:{"page":page,"keyword":keyword,"searchType":type},
 			success:function(data){
+				console.log(data);
 				var temp=Handlebars.compile($("#temp").html());
 				$("#tbl").html(temp(data));
 				

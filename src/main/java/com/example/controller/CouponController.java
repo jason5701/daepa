@@ -89,4 +89,10 @@ public class CouponController {
 		coupon_dao.admin_insert(vo);
 		return "redirect:/coupon/admin";
 	}
+	
+	@RequestMapping(value="admin_delete",method=RequestMethod.POST)
+	public String admin_delte(String coupon_id)throws Exception{
+		coupon_dao.admin_delete(coupon_id);
+		return "redirect:/coupon/admin";
+	}
 }

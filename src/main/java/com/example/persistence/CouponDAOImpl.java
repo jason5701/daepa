@@ -39,4 +39,9 @@ public class CouponDAOImpl implements CouponDAO{
 	public int coupon_id() throws Exception {
 		return session.selectOne(namespace+".coupon_id");
 	}
+
+	@Override
+	public void admin_delete(String coupon_id) throws Exception {
+		session.delete(namespace+".admin_delete",coupon_id);
+	}
 }

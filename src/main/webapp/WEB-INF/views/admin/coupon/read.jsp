@@ -46,11 +46,20 @@
 		</tr>
 	</table>
 	<div>
-		<input type="button" id="coupon_confirm" value="확인">
+		<input type="button" id="coupon_confirm" value="수정">
+		<input type="button" id="coupon_delete" value="삭제">
 		<input type="button" onClick="location.href='/coupon/admin'" value="목록">
 	</div>
 </form>
 <script>
+	var coupon_name="${vo.coupon_name}";
+	$("#coupon_delete").on("click",function(e){
+		e.preventDefault();
+		if(!confirm("쿠폰("+ coupon_name +")을 삭제하시겠습니까?")) return;
+		frm.action="/coupon/admin_delete";
+		frm.method="post";
+		frm.submit();
+	});
 	$("#coupon_confirm").on("click",function(e){
 		e.preventDefault();
 		if(!confirm("쿠폰을 수정하시겠습니까?")) return;

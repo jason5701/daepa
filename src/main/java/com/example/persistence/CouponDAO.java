@@ -10,4 +10,5 @@ public interface CouponDAO {
 	public void admin_update(CouponVO vo)throws Exception;
 	public void admin_insert(CouponVO vo)throws Exception;
 	public int coupon_id()throws Exception;
+	public void admin_delete(String coupon_id)throws Exception;
 }

@@ -13,4 +13,5 @@ public interface ProductDAO {
 	public void delete(String product_id) throws Exception;
 	public int totalCount(Criteria cri)throws Exception;
 	public List<String> getDetail_images(String product_id)throws Exception;
+	public List<ProductVO> admin_list(Criteria cri)throws Exception;
 }

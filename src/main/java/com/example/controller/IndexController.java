@@ -14,45 +14,21 @@ public class IndexController {
 		return "/index";
 	}
 	
-	//전체상품 카테고리
-	@RequestMapping("all_product") 
+	//전체상품-1인밀키트
+	@RequestMapping("/meals") 
 	public String all_product(Model model){
-		model.addAttribute("pageName", "product/all/list.jsp");
-		return "/index";
-	}
-	
-	//전체상품-1인밀키트,완제품
-	@RequestMapping("/all/meal") 
-	public String meal(Model model){
-		model.addAttribute("pageName", "product/all/meal.jsp");
-		return "/index";
-	}
-	
-	//전체상품-육류
-	@RequestMapping("/all/meat") 
-	public String meat(Model model){
-		model.addAttribute("pageName", "product/all/meat.jsp");
-		return "/index";
-	}
-	
-	//전체상품-해산물
-	@RequestMapping("/all/sea") 
-	public String sea(Model model){
-		model.addAttribute("pageName", "product/all/sea.jsp");
+		model.addAttribute("pageName", "product/meal/container.jsp");
+		model.addAttribute("product_list", "meal_category/each_meal_list.jsp");
+		String type[]={"전체","육류","해산물","면/밀가루"};
+		model.addAttribute("type", type);
 		return "/index";
 	}
 	
 	//전체상품-채소,야채
-	@RequestMapping("/all/vegetable") 
+	@RequestMapping("/veges") 
 	public String vegetable(Model model){
-		model.addAttribute("pageName", "product/all/vegetable.jsp");
-		return "/index";
-	}
-	
-	//전체상품-양념,조미료
-	@RequestMapping("/all/seasoning") 
-	public String seasoning(Model model){
-		model.addAttribute("pageName", "product/all/seasoning.jsp");
+		model.addAttribute("pageName", "product/vege/container.jsp");
+		model.addAttribute("product_list", "vege_category/each_vege_list.jsp");
 		return "/index";
 	}
 	

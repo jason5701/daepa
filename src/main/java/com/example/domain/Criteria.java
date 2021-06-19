@@ -5,6 +5,14 @@ public class Criteria {
 	private int perPageNum;
 	private String searchType;
 	private String keyword;
+	private String orderBy;
+	public String getOrderBy() {
+		return orderBy;
+	}
+
+	public void setOrderBy(String orderBy) {
+		this.orderBy = orderBy;
+	}
 
 	public Criteria() {
 		this(1, 10);
@@ -55,6 +63,7 @@ public class Criteria {
 	@Override
 	public String toString() {
 		return "Criteria [page=" + page + ", perPageNum=" + perPageNum + ", searchType=" + searchType + ", keyword="
-				+ keyword + "]";
+				+ keyword + ", orderBy=" + orderBy + "]";
 	}
+
 }

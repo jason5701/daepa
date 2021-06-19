@@ -22,7 +22,7 @@ public class MeterialController {
 	@ResponseBody
 	public Map<String,Object> meterial_list(Criteria cri)throws Exception{
 		Map<String,Object> map=new HashMap<>();
-		cri.setPerPageNum(10);
+		cri.setPerPageNum(20);
 		PageMaker pm=new PageMaker();
 		pm.setCri(cri);
 		pm.setTotalCount(meterial_dao.totalCount(cri));

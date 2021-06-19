@@ -18,11 +18,25 @@ public class ProductController {
 	@Autowired
 	ProductDAO product_dao;
 	
+	@RequestMapping("admin_product.json")
+	@ResponseBody
+	public Map<String, Object> admin_product_list(Criteria cri)throws Exception{
+		Map<String,Object> map=new HashMap<String,Object>();
+		cri.setPerPageNum(10);
+		PageMaker pm=new PageMaker();
+		pm.setCri(cri);
+		pm.setTotalCount(product_dao.totalCount(cri));
+		map.put("list", product_dao.admin_list(cri));
+		map.put("pm", pm);
+		map.put("cri", cri);
+		return map;
+	}
+	
 	@RequestMapping("product.json")
 	@ResponseBody
 	public Map<String, Object> product_list(Criteria cri)throws Exception{
 		Map<String,Object> map=new HashMap<String,Object>();
-		cri.setPerPageNum(10);
+		cri.setPerPageNum(20);
 		PageMaker pm=new PageMaker();
 		pm.setCri(cri);
 		pm.setTotalCount(product_dao.totalCount(cri));

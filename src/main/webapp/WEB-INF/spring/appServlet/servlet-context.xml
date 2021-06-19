@@ -31,5 +31,6 @@
 	</beans:bean>
 	<beans:bean id="uploadPath" class="java.lang.String">
 		<beans:constructor-arg value="c:/zzz/upload" />
-	</beans:bean>
+	</beans:bean>		
+	
 </beans:beans>

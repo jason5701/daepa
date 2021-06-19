@@ -98,7 +98,7 @@ public class AdminController {
 	public String product_manage(Model model){
 		model.addAttribute("pageName", "admin/main.jsp");
 		model.addAttribute("rightPage", "product/manage.jsp");
-		String main_list[]={"육류","해산물","면","야채"};
+		String main_list[]={"육류","해산물","면","밀가루"};
 		model.addAttribute("main_list", main_list);
 		return "/index";
 	}
