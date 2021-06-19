@@ -60,19 +60,24 @@
 	text-align: center;
 	border-collapse: collapse;
 }
-
-.regtbl_register tr {
+.regtbl_register2 {
+	width: 60%;
+	margin-top: 30px;
+	text-align: center;
+	border-collapse: collapse;
+}
+.regtbl_register tr,.regtbl_register2 tr {
 	height: 70px;
 	display: table-row;
 	vertical-align: inherit;
 	border-color: inherit;
 }
 
-.regtbl_register th {
+.regtbl_register th,.regtbl_register2 th {
 	width: 30%;
 }
 
-.regtbl_register td {
+.regtbl_register td,.regtbl_register2 td  {
 	width: 70%;
 	text-align: left;
 }
@@ -153,5 +158,16 @@ input[type="radio"] {
 	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px
 		rgba(0, 0, 0, 0.05);
 }
+select { width: 130px;
+            padding: .5em .5em;
+            border: 1px solid #999;
+            font-family: inherit;
+            background: url('/resources/image/index/arrow.jpg') no-repeat 95% 50%;
+            border-radius: 0px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            }               
+select::-ms-expand {display: none;}
 #register_agree{border-top: 1px solid #999; margin-top:50px;}
 .AllAgree{font-size: 15pt;font-weight: bold;}

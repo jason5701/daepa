@@ -22,7 +22,7 @@ import com.example.persistence.UserDAO;
 
 @Controller
 @RequestMapping("/user/")
-public class UserController {
+public class UserController {s
 	
 	@Autowired
 	UserDAO dao;	

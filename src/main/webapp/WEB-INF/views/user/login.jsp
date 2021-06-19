@@ -16,10 +16,10 @@
 			</tr>			
 		</table>
 		<div class="btn_login">	
-		<input type="submit" class="login_button" value="로그인"/>		
-		<input type="button" class="login_button2" value="회원가입"/>		
-	</form>		
-	</div>		
+			<input type="submit" class="login_button" value="로그인"/>		
+			<input type="button" class="login_button2" value="회원가입"/>
+		</div>			
+	</form>					
 </div>
 <script>		
 	//로그인하기
