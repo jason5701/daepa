@@ -51,23 +51,25 @@
 	</div>
 </div>
 
-<div id="snsBox">
-	<h2>▮ RECIPE ITEMS</h2>
+<!-- 레시피재료 -->
+<div id="recipeItems">
+<h2>▮ RECIPE ITEMS</h2>
 	<div class="slide_wrapper">
-		<ul class="slides">
-			<li><a href=""><img src="/resources/image/index/sns_slide01.jpg" width=150 height=150 /></a></li>
-			<li><a href=""><img src="/resources/image/index/sns_slide02.jpg" width=150 height=150 /></a></li>
-			<li><a href=""><img src="/resources/image/index/sns_slide03.jpg" width=150 height=150 /></a></li>
-			<li><a href=""><img src="/resources/image/index/sns_slide04.jpg" width=150 height=150 /></a></li>
-			<li><a href=""><img src="/resources/image/index/sns_slide05.jpg" width=150 height=150 /></a></li>
-		</ul>
+	<!-- <script id="temp" type="text/x-handlebars-template"> -->
+	<ul class="meterials">
+		<!-- {{#each list}} -->
+			<li>
+				<img src="" width=180 height=150 />
+				<span class="meterial_name">매운 청양고추 100g</span><br>
+				<span class="meterial_price">5,000원</span>
+			</li>
+		<!-- {{/each}} -->
+	</ul>
+	<!-- </script> -->
 	</div>
-	<p class="controls">
-		<span class="prev"><img src="/resources/image/index/left.png"/></span>
-		<span class="next"><img src="/resources/image/index/right.png"/></span>
-	</p>
 </div>
 
+<!-- 디테일 메뉴탭 -->
 <div class="detailMenu">
   <p>
     <a onclick="fnMove('1')">상품설명</a>
@@ -77,7 +79,7 @@
   </p>
 </div>
 <div class="detailContent">
-	<div id="detailContent1" >상품설명</div>
+	<div id="detailContent1" ></div>
 	<div id="detailContent2" >상세정보</div>
 	<div id="detailContent3" >고객후기</div>
 	<div id="detailContent4" >상품문의</div>
@@ -134,71 +136,4 @@ function fnMove(seq){
 	$('html, body').animate({scrollTop : offset.top}, 400);
 }
 
-/* 레시피재료 슬라이드 */
-var slides=document.querySelector('.slides'),
-	slide=document.querySelectorAll('.slides li'),
-	currentIdx=0,
-	slideCount=slide.length,
-	slideWidth=200,
-	slideMargin=30,
-	prevBtn=document.querySelector('.prev'),
-	nextBtn=document.querySelector('.next')
-
-makeClone();
-
-function makeClone(){
-	for(var i=0; i<slideCount; i++){
-		var cloneSlide=slide[i].cloneNode(true);
-		cloneSlide.classList.add('clone');
-		slides.appendChild(cloneSlide);
-	}
-	for(var i=slideCount -1; i>=0; i--){
-		var cloneSlide=slide[i].cloneNode(true);
-		cloneSlide.classList.add('clone');
-		slides.prepend(cloneSlide);
-	}
-	updateWidth();
-	setInitialPos();
-	
-	setTimeout(function(){
-		slides.classList.add('animated');
-	}, 100);
-}
-
-function updateWidth(){
-	var currentSlides=document.querySelectorAll('.slides li');
-	var newSlideCount=currentSlides.length;
-	
-	var newWidth=(slideWidth+slideMargin)*newSlideCount-slideMargin+'px';
-	slides.style.width=newWidth;
-}
-
-function setInitialPos(){
-	var initialTranslateValue = -(slideWidth+slideMargin)*slideCount;
-	slides.style.transform='translateX(' + initialTranslateValue + 'px)';
-	}
-	
-	nextBtn.addEventListener('click', function(){
-	moveSlide(currentIdx+1);
-	});
-	prevBtn.addEventListener('click', function(){
-	moveSlide(currentIdx-1);
-});
-
-function moveSlide(num){
-	slides.style.left = -num*(slideWidth+slideMargin)+'px';
-	currentIdx=num;
-	
-	if(currentIdx == slideCount || currentIdx == -slideCount){
-		
-		setTimeout(function(){
-			slides.classList.remove('animated');
-			slides.style.left='0px';
-			currentIdx=0;
-		}, 500);		
-		setTimeout(function(){
-			slides.classList.add('animated');
-		}, 600);	
-	}
-}
 </script>

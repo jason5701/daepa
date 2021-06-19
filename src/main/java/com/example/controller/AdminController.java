@@ -93,6 +93,29 @@ public class AdminController {
 		}
 		return "redirect:/index";
 	}
+	//관리자-완제품관리
+	@RequestMapping("product")
+	public String product_manage(Model model){
+		model.addAttribute("pageName", "admin/main.jsp");
+		model.addAttribute("rightPage", "product/manage.jsp");
+		String main_list[]={"육류","해산물","면","야채"};
+		model.addAttribute("main_list", main_list);
+		return "/index";
+	}
 	
+	//관리자-재료 관리
+	@RequestMapping("meterial")
+	public String meterial_manage(Model model){
+		model.addAttribute("pageName", "admin/main.jsp");
+		model.addAttribute("rightPage", "meterial/manage.jsp");
+		return "/index";
+	}
 	
+	//관리자-분석
+	@RequestMapping("analyze")
+	public String analyze(Model model){
+		model.addAttribute("pageName", "admin/main.jsp");
+		model.addAttribute("rightPage", "analyze/chart.jsp");
+		return "/index";
+	}
 }

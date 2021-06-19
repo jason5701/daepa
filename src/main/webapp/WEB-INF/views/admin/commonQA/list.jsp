@@ -13,7 +13,6 @@
 			<td>번호</td>
 			<td>작성자</td>
 			<td>제목</td>
-			<td>수정</td>
 		</tr>
 		{{#each list}}
 			<tr class="tr_row">

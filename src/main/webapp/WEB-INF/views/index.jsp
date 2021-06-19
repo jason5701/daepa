@@ -16,7 +16,7 @@
 	<div id="container">
 		<div id="header">
 			<div id="userMenu">
-				<div class="menuItem"><a href="">고객센터</a></div>
+
 				<div class="menuItem">
 					<c:if test="${user_id == daepa}">
 						<a href="/admin/login">관리자</a>
@@ -49,15 +49,15 @@
 			<div id="category">
 				<div id="allCategory">
 					<ul class="all">
-						<li><a href="#">전체 카테고리</a>
+						<li><a href="">전체 카테고리</a>
 				            <ul class="all_sub">
 				                <li><a href="/all_product">전체 상품</a>
 				                    <ul class="sub">
-				                    	<li><a href="#">1인밀키트/완제품</a></li>
-				                        <li><a href="#">육류</a></li>
-				                        <li><a href="#">해산물</a></li>
-				                        <li><a href="#">채소/과일</a></li>
-				                        <li><a href="#">양념/조미료</a></li>
+				                    	<li><a href="/all/meal">1인밀키트/완제품</a></li>
+				                        <li><a href="/all/meat">육류</a></li>
+				                        <li><a href="/all/sea">해산물</a></li>
+				                        <li><a href="/all/vegetable">채소/과일</a></li>
+				                        <li><a href="/all/seasoning">양념/조미료</a></li>
 				                    </ul>
 				                </li>
 				                <li><a href="/group_product">공동구매</a>

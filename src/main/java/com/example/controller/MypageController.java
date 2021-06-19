@@ -43,6 +43,7 @@ public class MypageController {
 		model.addAttribute("pageName","mypage/all.jsp");
 		model.addAttribute("leftPage", "myList.jsp");
 		model.addAttribute("rightPage", "my_info.jsp");
+		model.addAttribute("rightPage", "order_list.jsp");
 		return "/index";
 	}
 	@RequestMapping("my_infoupdate")

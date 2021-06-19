@@ -128,7 +128,7 @@ public class BoardController {
 		map.put("list", notice_dao.admin_list(cri));
 		PageMaker pm=new PageMaker();
 		pm.setCri(cri);
-		pm.setTotalCount(230);
+		pm.setTotalCount(notice_dao.totCount(cri));
 		map.put("cri", cri);
 		map.put("pm", pm);
 		return map;

@@ -40,17 +40,16 @@
 							<div class="link_title">쿠폰
 								<img src="/resources/image/mypage/arrow_right_gray_56_56.png"/>
 							</div>
-							<div class="spacer"></div>
-							<p class="info">1개</p>
-						</a>
-						<a class="link_wrap">
-							<div class="link_title">나눔관리
-								<img src="/resources/image/mypage/arrow_right_gray_56_56.png"/>
-							</div>
-							<div class="spacer"></div>
-							<p class="info">자세히보기</p>
-						</a>
-					</div>
+						<div class="spacer"></div>
+						<p class="info">1개</p>
+					</a>
+					<a class="link_wrap">
+						<div class="link_title" onClick="location.href='/group/sales'">나눔관리
+							<img src="/resources/image/mypage/arrow_right_gray_56_56.png"/>
+						</div>
+						<div class="spacer"></div>
+						<p class="info" onClick="location.href='/group/sales'">자세히보기</p>
+					</a>
 				</div>
 			</div>
 		</div>

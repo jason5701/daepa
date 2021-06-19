@@ -40,4 +40,14 @@ public class ProductDAOImpl implements ProductDAO{
 		session.update(namespace+".delete",product_id);
 	}
 
+	@Override
+	public int totalCount(Criteria cri) throws Exception {
+		return session.selectOne(namespace+".totalCount",cri);
+	}
+
+	@Override
+	public List<String> getDetail_images(String product_id) throws Exception {
+		return session.selectList(namespace+".getDetail_images",product_id);
+	}
+
 }

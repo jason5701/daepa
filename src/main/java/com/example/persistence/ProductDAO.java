@@ -11,4 +11,6 @@ public interface ProductDAO {
 	public void insert(ProductVO vo) throws Exception;
 	public void update(ProductVO vo) throws Exception;
 	public void delete(String product_id) throws Exception;
+	public int totalCount(Criteria cri)throws Exception;
+	public List<String> getDetail_images(String product_id)throws Exception;
 }

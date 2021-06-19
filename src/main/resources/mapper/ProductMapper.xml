@@ -2,7 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.ProductMapper">
 	<select id="list" resultType="com.example.domain.ProductVO">
-		select * from tbl_product order by product_id limit ${pageStart}, ${perPageNum}
+		select * from tbl_product 
+		<if test="searchType!='전체'">
+			where product_main_meterial like concat('%',#{searchType},'%') and product_name like concat('%',#{keyword},'%')
+		</if>
+		<if test="searchType=='전체'">
+			where product_name like concat('%',#{keyword},'%')
+		</if>
+		order by product_id limit ${pageStart}, ${perPageNum}
 	</select>
 	<select id="read" resultType="com.example.domain.ProductVO">
 		select * from tbl_product where product_id=#{product_id}
@@ -19,4 +26,16 @@
 	<update id="delete">
 		update tbl_product set product_drop=1 where product_id=#{product_id}
 	</update>
+	<select id="totalCount" resultType="int">
+		select count(*) from tbl_product 
+		<if test="searchType!='전체'">
+			where product_main_meterial like concat('%',#{searchType},'%') and product_name like concat('%',#{keyword},'%')
+		</if>
+		<if test="searchType=='전체'">
+			where product_name like concat('%',#{keyword},'%')
+		</if>
+	</select>
+	<select id="getDetail_images" resultType="string">
+		select product_images from tbl_product_images where product_id=#{product_id}
+	</select>
 </mapper>
