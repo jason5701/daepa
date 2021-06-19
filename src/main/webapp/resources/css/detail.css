@@ -50,7 +50,6 @@ h1, h2, h3, h4{text-align:center; }
     margin:0 auto;
     overflow:hidden;
     border-bottom:2px solid black;
-    margin-top:50px;
 }
     
 .detailMenu a{
@@ -87,39 +86,40 @@ h1, h2, h3, h4{text-align:center; }
    	right: 0;
     width: 1000px;
     margin:0 auto;
-    background:#D8EDE7; }
+    background:#D8EDE7; 
+}
     
-/* 레시피재료 슬라이드 */
-#snsBox{width:1000px; margin:0px auto; margin-top:40px; margin-bottom:40px; 
-		text-align:center;}
-#snsBox h2{color:black; text-align:left; font-size:13pt; }
+/* 레시피재료 */
+#recipeItems{width:1000px; margin:0px auto; margin-top:20px; 
+			 text-align:center; margin-bottom:20px; }
+#recipeItems h2{color:black; text-align:left; font-size:13pt; margin-bottom:10px;}
 .slide_wrapper{
 	position:relative;
 	width:1000px;
 	margin: 0 auto;
-	height:210px;
+	height:250px;
 	overflow:hidden;
 }
-.slides{
+.meterials{
 	position:absolute;
 	left:0; top:0;
 }
-.slides.animated{
-	transition: 0.5s ease-out;
-}
-.slides li{
-	width: 200px;
-	height: 200px;
-	background: #ccc;
+.meterials li{
+	width: 180px;
+	height: 210px;
 	float:left;
+	margin:1px;
+	text-align:center;
+	background:white;
+}
+.meterials img{
 	border:1px solid black;
 }
-.slides li:not(:last-child){
-	margin-right: 20px;
+.meterials .meterial_name{
+	width: 180px;
+	font-size:10pt;
 }
-.controls{
-	text-align:center;
-	margin-top:25px;
+.meterials .meterial_price{
+	width: 180px;
+	font-size:10pt;
 }
-.prev{ margin-right:20px; cursor:pointer; }
-.next{width:10px; margin-left:20px; cursor:pointer; }
