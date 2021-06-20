@@ -55,4 +55,9 @@ public class ProductDAOImpl implements ProductDAO{
 		return session.selectList(namespace+".admin_list",cri);
 	}
 
+	@Override
+	public List<ProductVO> main_list(Criteria cri) throws Exception {
+		return session.selectList(namespace+".main_list",cri);
+	}
+
 }

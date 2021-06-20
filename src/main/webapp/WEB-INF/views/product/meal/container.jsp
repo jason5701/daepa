@@ -9,10 +9,12 @@
 </head>
 
 <div id="allCategoryList">
-	<h2>전체 상품</h2>
+	<h2>1인 밀키트</h2>
 	<ul id="category_list" class="categoryList">
 		<c:forEach items="${type}" var="vo">
-			<li class="type">${vo}</li>
+			<li>
+				<a class="type">${vo}</a>
+			</li>
 		</c:forEach>
 		<li>
 			<select id="orderBy">

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <div id="all_list">
-	<div id="all_list_div">
+	<div id="all_list_div"></div>
 		<script id="temp" type="text/x-handlebars-template">
 		{{#each list}}
 		<div class="all_product">
@@ -16,9 +16,9 @@
 		</div>
 		{{/each}}
 		</script>
-	</div>
 </div>
 <script>
+	var page=1;
 	var searchType=$("#category_list .type").html();
 	$("#category_list").on("click",".type",function(){
 		searchType=$(this).html();
@@ -34,7 +34,7 @@
 			type:"get",
 			url:"/product/product.json",
 			dataType:"json",
-			data:{"searchType":searchType,"orderBy":orderBy},
+			data:{"page":page,"searchType":searchType,"orderBy":orderBy},
 			success:function(data){
 				console.log(data);
 				var temp=Handlebars.compile($("#temp").html());

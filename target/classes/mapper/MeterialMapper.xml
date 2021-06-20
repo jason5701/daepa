@@ -3,8 +3,10 @@
 <mapper namespace="com.example.mapper.MeterialMapper">
 	<select id="list" resultType="com.example.domain.MeterialVO">
 		select * from tbl_meterial_sales 
-		where meterial_name like concat('%',#{keyword},'%')
-		order by meterial_name desc limit #{pageStart}, #{perPageNum}
+		<if test="searchType!='전체'">
+			where meterial_color like concat('%',#{searchType},'%')
+		</if>
+		order by ${orderBy} limit #{pageStart}, #{perPageNum}
 	</select>
 	<select id="read" resultType="com.example.domain.MeterialVO">
 		select * from tbl_meterial_sales where meterial_id=#{meterial_id}

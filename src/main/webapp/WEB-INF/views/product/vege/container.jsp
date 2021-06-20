@@ -12,14 +12,16 @@
 	<h2>풀</h2>
 	<ul id="category_list" class="categoryList">
 		<c:forEach items="${type}" var="vo">
-			<li class="type">${vo}</li>
+			<li>
+				<a class="type">${vo}</a>
+			</li>
 		</c:forEach>
 		<li>
 			<select id="orderBy">
-				<option value="product_register desc">신상품순</option>
-				<option value="product_selling desc">인기상품순</option>
-				<option value="product_price desc">높은 가격순</option>
-				<option value="product_price">낮은 가격순</option>
+				<option value="meterial_register desc">신상품순</option>
+				<option value="meterial_selling desc">인기상품순</option>
+				<option value="meterial_price desc">높은 가격순</option>
+				<option value="meterial_price">낮은 가격순</option>
 			</select>
 		</li>
 	</ul>

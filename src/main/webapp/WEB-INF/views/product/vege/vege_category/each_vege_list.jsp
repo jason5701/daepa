@@ -18,14 +18,23 @@
 </div>
 <script>
 	var page=1;
+	var searchType=$("#category_list .type").html();
+	$("#category_list").on("click",".type",function(){
+		searchType=$(this).html();
+		getMeterial_list();
+	});
+	$("#orderBy").on("change",function(){
+		getMeterial_list();
+	});
 	getMeterial_list();
 	function getMeterial_list(){
 		var keyword="";
+		var orderBy=$("#orderBy").val();
 		$.ajax({
 			type:"get",
 			url:"/meterial/meterial.json",
 			dataType:"json",
-			data:{"page":page,"keyword":keyword},
+			data:{"page":page,"orderBy":orderBy,"searchType":searchType},
 			success:function(data){
 				console.log(data);
 				var temp=Handlebars.compile($("#temp").html());

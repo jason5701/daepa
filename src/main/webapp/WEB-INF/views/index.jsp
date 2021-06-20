@@ -53,9 +53,9 @@
 				            <ul class="all_sub">
 				                <li><a href="/meals">1인밀키트/완제품</a>
 				                    <ul class="sub">
-				                        <li><a href="meat">육류</a></li>
-				                        <li><a href="sea">해산물</a></li>
-				                        <li><a href="noodle">면/밀가루</a></li>
+				                        <li><a id="meats">육류</a></li>
+				                        <li><a href="/meals?searchType=해산물">해산물</a></li>
+				                        <li><a href="/meals?searchType=면/밀가루">면/밀가루</a></li>
 				                    </ul>
 				                </li>
 				                <li><a href="/veges">풀</a>
@@ -131,6 +131,11 @@
 	<a href="#" class="scrollToTop"><img src="/resources/image/index/up.png" width=40 /></a>
 </body>
 <script>
+$("#meats").on("click",function(e){
+	e.preventDefault();
+	alert("000");
+	location.href="/meals?searchType=육류";
+});
 $(document).ready(function(){
 
     //Check to see if the window is top if not then display button

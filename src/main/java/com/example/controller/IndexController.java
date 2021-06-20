@@ -29,6 +29,8 @@ public class IndexController {
 	public String vegetable(Model model){
 		model.addAttribute("pageName", "product/vege/container.jsp");
 		model.addAttribute("product_list", "vege_category/each_vege_list.jsp");
+		String type[]={"전체","초록","빨강","보라","하양"};
+		model.addAttribute("type", type);
 		return "/index";
 	}
 	

@@ -47,7 +47,6 @@
 		<li><a href="#" class="menu">육류</a></li>
 		<li><a href="#" class="menu">해산물</a></li>
 		<li><a href="#" class="menu">채소/과일</a></li>
-		<li><a href="#" class="menu">양념/조미료</a></li>
 	</ul>
 	<div id="product">
 		<div class="product_image">상품이미지</div>
