@@ -9,7 +9,7 @@
 </head>
 
 <div id="allCategoryList">
-	<h2>풀</h2>
+	<h2>채소</h2>
 	<ul id="category_list" class="categoryList">
 		<c:forEach items="${type}" var="vo">
 			<li>

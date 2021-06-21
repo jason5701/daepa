@@ -7,16 +7,10 @@
 </head>
 
 <div id="allCategoryList">
-	<h2>공동구매</h2>
+	<h2>나눔구매</h2>
 	<ul class="categoryList">
 		<li>
 			<a class="">전체보기</a>
-		</li>
-		<li>
-			<a class="">1인밀키트/완제품</a>
-		</li>
-		<li>
-			<a class="">재료</a>
 		</li>
 	</ul>
 </div>
@@ -25,7 +19,7 @@
 		<script id="temp" type="text/x-handlebars-template">
 			{{#each list}}
 			<div class="all_product">
-				<a href="/detail">
+				<a href="/group_detail?sales_id={{sales_id}}">
 					<div class="all_image">
 						<img src="/displayFile?fullName={{meterial_image}}" width=320 height=300/>
 					</div>

@@ -5,7 +5,7 @@
 		<script id="temp" type="text/x-handlebars-template">
 		{{#each list}}
 		<div class="all_product">
-			<a href="/detail">
+			<a href="/vege_detail?meterial_id={{meterial_id}}">
 				<div class="all_image">
 					<img src="/displayFile?fullName={{meterial_image}}" width=320 height=300/>
 				</div>
@@ -18,7 +18,7 @@
 </div>
 <script>
 	var page=1;
-	var searchType=$("#category_list .type").html();
+	var searchType="${searchType}";
 	$("#category_list").on("click",".type",function(){
 		searchType=$(this).html();
 		getMeterial_list();

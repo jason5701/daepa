@@ -5,7 +5,7 @@
 		<script id="temp" type="text/x-handlebars-template">
 		{{#each list}}
 		<div class="all_product">
-			<a href="/detail">
+			<a href="/meal_detail?product_id={{product_id}}">
 				<div class="all_image">
 					<img src="/displayFile?fullName={{product_image}}" width=320 height=300/>
 				</div>

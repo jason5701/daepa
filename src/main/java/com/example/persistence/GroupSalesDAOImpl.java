@@ -21,4 +21,9 @@ public class GroupSalesDAOImpl implements GroupSalesDAO{
 		return session.selectList(namespace+".group_list",cri);
 	}
 
+	@Override
+	public GroupSalesVO read(String sales_id) throws Exception {
+		return session.selectOne(namespace+".read",sales_id);
+	}
+
 }

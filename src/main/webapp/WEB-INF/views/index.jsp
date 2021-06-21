@@ -53,17 +53,17 @@
 				            <ul class="all_sub">
 				                <li><a href="/meals">1인밀키트/완제품</a>
 				                    <ul class="sub">
-				                        <li><a id="meats">육류</a></li>
+				                        <li><a href="/meals?searchType=육류">육류</a></li>
 				                        <li><a href="/meals?searchType=해산물">해산물</a></li>
 				                        <li><a href="/meals?searchType=면/밀가루">면/밀가루</a></li>
 				                    </ul>
 				                </li>
-				                <li><a href="/veges">풀</a>
+				                <li><a href="/veges">채소</a>
 				                    <ul class="sub">
-				                        <li><a href="/veges">녹색채소</a></li>
-				                        <li><a href="/veges">보라색채소</a></li>
-				                        <li><a href="/veges">빨강채소</a></li>
-				                        <li><a href="/veges">흰채소</a></li>
+				                        <li><a href="/veges?searchType=초록">녹색채소</a></li>
+				                        <li><a href="/veges?searchType=보라">보라색채소</a></li>
+				                        <li><a href="/veges?searchType=빨강">빨강채소</a></li>
+				                        <li><a href="/veges?searchType=하양">흰채소</a></li>
 				                    </ul>
 				                </li>
 				                <li><a href="/group_product">나눔구매</a>
@@ -131,11 +131,6 @@
 	<a href="#" class="scrollToTop"><img src="/resources/image/index/up.png" width=40 /></a>
 </body>
 <script>
-$("#meats").on("click",function(e){
-	e.preventDefault();
-	alert("000");
-	location.href="/meals?searchType=육류";
-});
 $(document).ready(function(){
 
     //Check to see if the window is top if not then display button

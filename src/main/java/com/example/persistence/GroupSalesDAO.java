@@ -7,4 +7,5 @@ import com.example.domain.GroupSalesVO;
 
 public interface GroupSalesDAO {
 	public List<GroupSalesVO> list(Criteria cri)throws Exception;
+	public GroupSalesVO read(String sales_id)throws Exception;
 }

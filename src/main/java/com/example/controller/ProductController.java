@@ -45,5 +45,4 @@ public class ProductController {
 		map.put("cri", cri);
 		return map;
 	}
-
 }

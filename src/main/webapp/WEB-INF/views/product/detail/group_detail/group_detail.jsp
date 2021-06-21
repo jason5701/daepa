@@ -7,47 +7,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 </head>
 <div id="detail">
-	<div id="product_image">
-		<img src="http://placehold.it/320x320" />
-	</div>
-	<div id="product_detail">
-		<div class="product_name" >제육볶음 1인분</div>
-		<div class="product_detail">돼지고기를 맛있게 볶음</div><br>
-		<div class="product_price">8,900원</div><hr>
-		<dl class="list fst">
-			<dt class="tit">판매단위</dt> 
-			<dd class="desc">1봉</dd>
-		</dl>
-		<dl class="list fst">
-			<dt class="tit">중량/용량</dt> 
-			<dd class="desc">600g</dd>
-		</dl><hr>
-		<dl class="list fst">
-			<dt class="tit">배송구분</dt> 
-			<dd class="desc">대파배송/택배배송</dd>
-		</dl>
-		<dl class="list fst">
-			<dt class="tit">포장타입</dt> 
-			<dd class="desc">냉장/종이포장</dd>
-		</dl><hr>
-		<dl class="list fst">
-			<dt class="tit">구매수량</dt> 
-			<dd class="qtt">
-			  <a id="qtt_down"><img src="/resources/image/index/minus.png"/></a>
-			  <span id="product_qtt">1</span>
-			  <a id="qtt_up"><img src="/resources/image/index/plus.png"/></a>
-			</dd>
-		</dl><hr>
-		<div id="groupBtn">
-			<button class="btnAlarm">재입고알림</button>
-			<button class="btnSave">늘 사는 것</button>
-			<button class="btnCart">장바구니 담기</button>
-		</div>
-		<div id="price">
-			총 합산금액 :
-			<span>sum</span>
-			<span>원</span>
-		</div>
+	<div>
+		<jsp:include page="${product_div}"></jsp:include>
 	</div>
 </div>
 
@@ -86,34 +47,6 @@
 </div>
 
 <script>
-
-//수량업다운 스크립트
-$(function(){
-	$('#qtt_down').click(function(e){
-		e.preventDefault();
-		var stat = $('#product_qtt').text();
-		var num = parseInt(stat,10);
-		num--;
-		if(num<=0){
-			alert('더 이상 줄일 수 없습니다.');
-			num=1;
-		}
-		$('#product_qtt').text(num);
-	});
-	
-	$('#qtt_up').click(function(e){
-		e.preventDefault();
-		var stat = $('#product_qtt').text();
-		var num = parseInt(stat,10);
-		num++;
-		if(num>100){
-			alert('더 이상 늘릴 수 없습니다.');
-			num=100;
-		}
-		$('#product_qtt').text(num);
-	});
-});
-
 //스크롤 메뉴 스크립트
 $(function() {
   $(document).ready(function() {

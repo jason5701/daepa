@@ -6,7 +6,7 @@ public class GroupSalesVO extends MeterialAndProductVO{
 	public int sales_price;
 	public int sales_qtt; //판매수량
 	public String sales_end; //판매마감일
-	public int sales_people; //공구 필요 인원
+	public int seles_people; //공구 필요 인원
 	public String sales_name; //공구 이름
 	public String sales_contents; //공구 내용
 	public String sales_image; //공구 대표이미지
@@ -43,11 +43,12 @@ public class GroupSalesVO extends MeterialAndProductVO{
 	public void setSales_end(String sales_end) {
 		this.sales_end = sales_end;
 	}
-	public int getSales_people() {
-		return sales_people;
+	
+	public int getSeles_people() {
+		return seles_people;
 	}
-	public void setSales_people(int sales_people) {
-		this.sales_people = sales_people;
+	public void setSeles_people(int seles_people) {
+		this.seles_people = seles_people;
 	}
 	public String getSales_name() {
 		return sales_name;
@@ -82,8 +83,9 @@ public class GroupSalesVO extends MeterialAndProductVO{
 	@Override
 	public String toString() {
 		return "GroupSalesVO [sales_id=" + sales_id + ", user_id=" + user_id + ", sales_price=" + sales_price
-				+ ", sales_qtt=" + sales_qtt + ", sales_end=" + sales_end + ", sales_people=" + sales_people
+				+ ", sales_qtt=" + sales_qtt + ", sales_end=" + sales_end + ", seles_people=" + seles_people
 				+ ", sales_name=" + sales_name + ", sales_contents=" + sales_contents + ", sales_image=" + sales_image
 				+ ", sales_drop=" + sales_drop + ", sales_whole_qtt=" + sales_whole_qtt + "]";
 	}
+	
 }

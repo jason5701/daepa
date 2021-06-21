@@ -2,7 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.GroupSalesMapper">
 	<select id="group_list" resultType="com.example.domain.GroupSalesVO">
-		select * from meterial_group order by sales_id desc limit ${pageStart}, #{perPageNum}
+		select * from meterial_group order by sales_id desc limit #{pageStart}, #{perPageNum}
+	</select>
+	<select id="read" resultType="com.example.domain.GroupSalesVO">
+		select * from meterial_group where sales_id=#{sales_id}
 	</select>
 	
 </mapper>
