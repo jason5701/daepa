@@ -36,7 +36,7 @@
 		</if>
 	</select>
 	<select id="getDetail_images" resultType="string">
-		select product_images from tbl_product_images where product_id=#{product_id}
+		select product_images from tbl_product_image where product_id=#{product_id}
 	</select>
 	<select id="admin_list" resultType="com.example.domain.ProductVO">
 		select * from tbl_product 

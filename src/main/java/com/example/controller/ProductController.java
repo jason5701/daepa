@@ -2,6 +2,7 @@ package com.example.controller;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -79,4 +80,9 @@ public class ProductController {
 		return "redirect:/admin/product";
 	}
 	
+	@RequestMapping(value="getAttach",method=RequestMethod.POST)
+	@ResponseBody
+	public List<String> getAttach(String product_id)throws Exception{
+		return product_dao.getDetail_images(product_id);
+	}
 }

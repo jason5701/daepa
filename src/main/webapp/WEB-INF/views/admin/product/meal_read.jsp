@@ -67,8 +67,23 @@
 	<div>
 		<button id="btn_modify">수정</button><input type="button" id="btn_list" value="목록">
 	</div>
+	<h2>파일정보 Ajax</h2>
+	<div id="upload">
+		<input type="file" id="file" />
+	</div>
+	<div id="uploaded">
+		<ul id="uploadFiles"></ul>
+		<script id="tempFiles" type="text/x-handlebars-template">
+			<li>
+				<img src="/displayFile?fullName={{fullName}}" width=50/>
+				<input type="text" name="imgs" value="{{fullName}}"/>
+				<input type="button" value="삭제" class="btnDelete" fullName={{fullName}}/>
+			</li>
+		</script>
+	</div>
 </form>
 <script>
+	var product_id="${vo.product_id}";
 	$("#product_image").on("click",function(){
 		$(frm.file).click();
 	});
@@ -87,4 +102,19 @@
 		e.preventDefault();
 		location.href="/admin/product";
 	});
+	getAttach();
+	function getAttach(){
+		$.ajax({
+			type:"post",
+			url:"/product/getAttach",
+			data:{"product_id":product_id},
+			success:function(data){
+				var temp=Handlebars.compile($("#tempFiles").html());
+				$(data).each(function(){
+					var tempData={"fullName":this};
+					$("#uploadFiles").append(temp(tempData));
+				});
+			}
+		});
+	}
 </script>
