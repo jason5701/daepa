@@ -45,4 +45,9 @@ public class MeterialDAOImpl implements MeterialDAO{
 	public int totalCount(Criteria cri) throws Exception {
 		return session.selectOne(namespace+".totalCount",cri);
 	}
+
+	@Override
+	public List<MeterialVO> admin_list(Criteria cri) throws Exception {
+		return session.selectList(namespace+".admin_list",cri);
+	}
 }

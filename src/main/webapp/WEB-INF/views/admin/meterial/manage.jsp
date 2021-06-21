@@ -61,7 +61,7 @@
 		
 		$.ajax({
 			type:"get",
-			url:"/meterial/meterial.json",
+			url:"/meterial/admin_meterial.json",
 			dataType:"json",
 			data:{"page":page,"keyword":keyword},
 			success:function(data){

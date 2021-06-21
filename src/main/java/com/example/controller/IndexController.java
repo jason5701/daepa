@@ -16,11 +16,12 @@ public class IndexController {
 	
 	//전체상품-1인밀키트
 	@RequestMapping("/meals") 
-	public String all_product(Model model){
+	public String all_product(Model model,String searchType){
 		model.addAttribute("pageName", "product/meal/container.jsp");
 		model.addAttribute("product_list", "meal_category/each_meal_list.jsp");
 		String type[]={"전체","육류","해산물","면/밀가루"};
 		model.addAttribute("type", type);
+		model.addAttribute("searchType", searchType);
 		return "/index";
 	}
 	

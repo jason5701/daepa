@@ -24,4 +24,9 @@
 	<select id="totalCount" resultType="int">
 		select count(*) from tbl_meterial_sales where meterial_name like concat('%',#{keyword},'%')
 	</select>
+	<select id="admin_list" resultType="com.example.domain.MeterialVO">
+		select * from tbl_meterial_sales
+		where meterial_name like concat('%',#{keyword},'%')
+		order by meterial_register desc limit #{pageStart}, #{perPageNum}
+	</select>
 </mapper>

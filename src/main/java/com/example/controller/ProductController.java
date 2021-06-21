@@ -31,7 +31,7 @@ public class ProductController {
 		map.put("cri", cri);
 		return map;
 	}
-	
+
 	@RequestMapping("product.json")
 	@ResponseBody
 	public Map<String, Object> product_list(Criteria cri)throws Exception{
@@ -45,4 +45,5 @@ public class ProductController {
 		map.put("cri", cri);
 		return map;
 	}
+
 }

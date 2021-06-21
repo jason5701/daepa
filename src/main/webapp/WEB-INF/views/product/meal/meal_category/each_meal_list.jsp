@@ -19,7 +19,8 @@
 </div>
 <script>
 	var page=1;
-	var searchType=$("#category_list .type").html();
+
+	var searchType="${searchType}";
 	$("#category_list").on("click",".type",function(){
 		searchType=$(this).html();
 		getProduct_list();
