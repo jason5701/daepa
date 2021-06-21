@@ -22,7 +22,7 @@
 			<td>상태</td>
 		</tr>
 		{{#each list}}
-			<tr>
+			<tr onClick="location.href='admin_product_read?product_id={{product_id}}'">
 				<td>{{product_id}}</td>
 				<td>{{product_name}}</td>
 				<th>{{product_price}}</th>

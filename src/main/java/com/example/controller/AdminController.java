@@ -18,16 +18,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.util.WebUtils;
 
 import com.example.domain.AdminVO;
-import com.example.domain.Criteria;
-import com.example.domain.PageMaker;
 import com.example.persistence.AdminDAO;
-import com.example.persistence.SuggestionDAO;
+import com.example.persistence.ProductDAO;
 
 @Controller
 @RequestMapping("/admin/")
 public class AdminController {
+	String main_list[]={"육류","해산물","면/밀가루"};
+	
 	@Autowired
 	AdminDAO admin_dao;
+	
+	@Autowired
+	ProductDAO product_dao;
 
 	@Autowired
 	BCryptPasswordEncoder passEncoder;
@@ -98,7 +101,14 @@ public class AdminController {
 	public String product_manage(Model model){
 		model.addAttribute("pageName", "admin/main.jsp");
 		model.addAttribute("rightPage", "product/manage.jsp");
-		String main_list[]={"육류","해산물","면","밀가루"};
+		model.addAttribute("main_list", main_list);
+		return "/index";
+	}
+	@RequestMapping("admin_product_read")
+	public String admin_meal_read(Model model,String product_id)throws Exception{
+		model.addAttribute("pageName", "admin/main.jsp");
+		model.addAttribute("rightPage", "product/meal_read.jsp");
+		model.addAttribute("vo", product_dao.read(product_id));
 		model.addAttribute("main_list", main_list);
 		return "/index";
 	}
