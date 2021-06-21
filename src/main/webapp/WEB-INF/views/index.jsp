@@ -18,7 +18,7 @@
 			<div id="userMenu">
 
 				<div class="menuItem">
-					<c:if test="${user_id == daepa}">
+					<c:if test="${vo.user_id == daepa}">
 						<a href="/admin/login">관리자</a>
 					</c:if>
 				</div>
@@ -26,21 +26,22 @@
 					<a href="/cs_service">고객센터</a>
 				</div>
 				<div class="menuItem">	
-					<c:if test="${user_id != null}">
+					<c:if test="${vo.user_id != null}">
 	  					<a href="/mypage/all">마이페이지</a>
 	  				</c:if>	
   				</div>	
 				<div class="menuItem">
-					<c:if test="${user_id != null}">
-	  					<span class="userId"> 🥬 ${user_id} 님 </span>
+					<c:if test="${vo.user_id != null}">
+						<span class="user_id" > 🥬${vo.user_id} 님 </span>
+	  					<span class="user_name"> 🥬${vo.user_name} 님 </span>
 	 				  	<a href="/user/logout">로그아웃</a>
 	   				</c:if>
-   					<c:if test="${user_id == null}">
+   					<c:if test="${vo.user_id == null}">
 	 					<a href="/user/login">로그인</a>
 	  				</c:if>
 				</div>
   				<div class="menuItem">		
-					<c:if test="${user_id == null}">
+					<c:if test="${vo.user_id == null}">
 	 					<a href="/user/register">회원가입</a>
 	  				</c:if>	  				
 				</div>

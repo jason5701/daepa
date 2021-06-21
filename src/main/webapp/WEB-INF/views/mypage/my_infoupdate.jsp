@@ -14,7 +14,7 @@
 			<tr>
 				<th>아이디</th>
 				<td>
-					<input type="text" class="register_text" name="user_id" value="${user_id}" readonly>					
+					<input type="text" class="register_text" name="user_id" value="${vo.user_id}" readonly>					
 				</td>
 			</tr>
 			<!-- 비밀번호 입력 -->
@@ -36,46 +36,46 @@
 			<!-- 이름 입력 -->
 			<tr>
 				<th>이름</th>
-				<td><input type="text" class="register_text" name="user_name" value="${user_name}">
+				<td><input type="text" class="register_text" name="user_name" value="${vo.user_name}">
 				</td>
 			</tr>
 			<!-- 이메일 입력 -->
 			<tr>
 				<th>이메일</th>
 				<td>
-					<input type="text" class="register_text" name="user_email" value="${user_email}">
+					<input type="text" class="register_text" name="user_email" value="${vo.user_email}">
 				</td>
 			</tr>
 			<!-- 전화번호 입력 -->
 			<tr>
 				<th>휴대폰</th>
-				<td><input type="text" class="register_text" name="user_mobile"	value="${user_mobile}"></td>
+				<td><input type="text" class="register_text" name="user_mobile"	value="${vo.user_mobile}"></td>
 			</tr>
 			
 			<!-- 성별 입력 -->
 			<tr>
 				<th>성별</th>
 				<td>
-					<input type="radio" name="user_sex" value="0" checked>선택안함
-					<input type="radio" name="user_sex" value="1">여자
-					<input type="radio" name="user_sex" value="2">남자				
+					<input type="radio" id="user_sex" name="user_sex" value="0">선택안함
+					<input type="radio" id="user_sex" name="user_sex" value="1">여자
+					<input type="radio" id="user_sex" name="user_sex" value="2">남자				
 				</td>
 			</tr>
 			<!-- 생년월일 입력 -->
 			<tr>
 				<th>생년월일</th>	
 				<td>			
-					<select name="user_birthday_year"  class="sel_register">
+					<select name="user_birthday_year" id="user_birthday_year" class="sel_register" value="${vo.user_birthday_year}">
 						<%for (int i = 2021; i > 1949; i--) {%>
 						<option value="<%=i%>"><%=i%>년</option>
 						<%}%>
 					</select> 
-					<select name="user_birthday_month" class="sel_register">
+					<select name="user_birthday_month" id="user_birthday_month" class="sel_register" value="${vo.user_birthday_month}">
 						<%for (int i = 01; i < 13; i++) {%>
 						<option value="<%=i%>"><%=i%>월</option>
 						<%}%>
 					</select> 
-					<select name="user_birthday_day" class="sel_register">
+					<select name="user_birthday_day" id="user_birthday_day" class="sel_register" value="${vo.user_birthday_day}">
 						<%for (int i = 1; i < 32; i++) {%>
 						<option value="<%=i%>"><%=i%>일</option>
 						<%}%>
@@ -97,3 +97,9 @@
 			</tr>
 		</table>	
 </div>
+<script>
+$('input:radio[name="user_sex"]:checked').val();
+$("#user_birthday_year option:selected").val();
+$("#user_birthday_month option:selected").val();
+$("#user_birthday_day option:selected").val();
+</script>

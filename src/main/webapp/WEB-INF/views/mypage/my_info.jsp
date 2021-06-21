@@ -11,7 +11,7 @@
 		<table class="regtbl_register2">
 			<tr class="login_id">
 				<th>아이디</th>
-				<td><input type="text" name="user_id" class="id_input" value="${user_id}"></td>
+				<td><input type="text" name="user_id" class="id_input" value="${vo.user_id}"></td>
 			</tr>
 			<tr class="login_password">
 				<th>비밀번호</th>

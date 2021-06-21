@@ -6,7 +6,7 @@
 		<if test="searchType!='전체'">
 			where product_main_meterial like concat('%',#{searchType},'%')
 		</if>
-		order by ${orderBy} limit ${pageStart}, ${perPageNum}
+		order by ${orderBy} limit #{pageStart}, #{perPageNum}
 	</select>
 	<select id="read" resultType="com.example.domain.ProductVO">
 		select * from tbl_product where product_id=#{product_id}
@@ -36,16 +36,6 @@
 		select product_images from tbl_product_images where product_id=#{product_id}
 	</select>
 	<select id="admin_list" resultType="com.example.domain.ProductVO">
-		select * from tbl_product 
-		<if test="searchType!='전체'">
-			where product_main_meterial like concat('%',#{searchType},'%') and product_name like concat('%',#{keyword},'%')
-		</if>
-		<if test="searchType=='전체'">
-			where product_name like concat('%',#{keyword},'%')
-		</if>
-		order by product_register desc limit ${pageStart}, ${perPageNum}
-	</select>
-	<select id="main_list" resultType="com.exmaple.domain.ProductVO">
 		select * from tbl_product 
 		<if test="searchType!='전체'">
 			where product_main_meterial like concat('%',#{searchType},'%') and product_name like concat('%',#{keyword},'%')
