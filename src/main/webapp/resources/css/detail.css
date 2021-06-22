@@ -71,11 +71,9 @@ h1, h2, h3, h4{text-align:center; }
 
 .detailContent div{
 	width: 998px;
-	height: 500px;
     text-align: center;
     margin:0 auto;
     padding-top:70px;
-    border:1px solid black;
     margin-top:10px;
 }
 

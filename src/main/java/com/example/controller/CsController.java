@@ -11,6 +11,7 @@ public class CsController {
 	public String cs_service(Model model) throws Exception {
 		model.addAttribute("pageName", "cs/cs_service.jsp");
 		model.addAttribute("leftMenu", "cs_menu.jsp");
+		model.addAttribute("rightContent", "commonQA/list.jsp");
 		return "/index";
 	}
 }

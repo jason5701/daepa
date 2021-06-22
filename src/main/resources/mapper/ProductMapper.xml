@@ -48,4 +48,8 @@
 		</if>
 		order by product_register desc limit #{pageStart}, #{perPageNum}
 	</select>
+	<select id="product_read" resultType="com.example.domain.ProductVO">
+ 		select * from tbl_product
+ 		where product_id=#{product_id}
+ 	</select>
 </mapper>

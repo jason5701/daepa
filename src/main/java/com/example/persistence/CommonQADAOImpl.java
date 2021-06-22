@@ -35,6 +35,22 @@ public class CommonQADAOImpl implements CommonQADAO{
 	public int admin_commonQA_code() throws Exception {
 		return session.selectOne(namespace+".admin_commonQA_code");
 	}
+
+	@Override
+	public List<CommonQAVO> commonQA_list(Criteria cri) throws Exception {
+		return session.selectList(namespace + ".commonQA_list", cri);
+	}
+
+	@Override
+	public int totalCount(Criteria cri) throws Exception {
+		return session.selectOne(namespace + ".totalCount", cri);
+	}
+
+	@Override
+	public CommonQAVO commonQA_read(int commonQA_number) throws Exception {
+		return session.selectOne(namespace + ".commonQA_read", commonQA_number);
+		
+	}
 	
 	
 }

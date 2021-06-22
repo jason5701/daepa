@@ -17,23 +17,11 @@
 </head>
 <body>
 	<form name="frm">
-		<input type="hidden" value="${vo.review_number}" name="review_number"/>
+		<input type="hidden" value="${review_number}" name="review_number"/>
 		<table>
 			<tr>
-				<td>
-					<c:if test="${vo.product_id==null}">
-						<input type="text" name="product_id" size=5 value="${vo.product_id}" display="none"/>
-					</c:if>
-					<c:if test="${vo.product_id!=null}">
-						<input type="text" name="product_id" size=5 value="${vo.product_id}" readonly/>
-					</c:if>
-					<c:if test="${vo.meterial_id==null}">
-						<input type="text" name="meterial_id" size=5 value="${vo.meterial_id}" display="none"/>
-					</c:if>
-					<c:if test="${vo.meterial_id!=null}">
-						<input type="text" name="meterial_id" size=5 value="${vo.meterial_id}" readonly/>
-					</c:if>
-				</td>
+				<td>상품번호</td>
+				<td><input type="text" name="product_id" value="${product_id}"></td>
 			</tr>
 			<tr>
 				<td>작성자</td>
@@ -74,7 +62,7 @@
 		</table>
 		<input type="submit" value="리뷰등록"/>
 		<input type="reset" value="등록취소"/>
-		<input type="button" value="리뷰목록" onClick="location.href='review_list'"/>
+		<input type="button" value="리뷰목록" onClick="location.href='product_review_list'"/>
 	</form>
 </body>
 <script>

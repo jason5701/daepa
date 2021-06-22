@@ -12,6 +12,7 @@
 <body>
 	<form name="frm" enctype="multipart/form-data">
 		<input type="hidden" value="${vo.review_number}" name="review_number"/>
+		<input type="hidden" value="${vo.product_id}" name="product_id"/>
 		<table>
 			<tr>
 				<td>작성자</td>
@@ -26,22 +27,12 @@
 				<td>${vo.review_click}</td>
 			</tr>
 			<tr>
-				<td>상품/재료 번호</td>
+				<td>상품이름</td>
 				<td>
-					<c:if test="${vo.product_id==null}">
-						<input type="hidden" name="product_id" size=5 value="${vo.product_id}" display="none"/>
-					</c:if>
-					<c:if test="${vo.product_id!=null}">
-						<input type="text" name="product_id" size=5 value="${vo.product_id}"/>
-					</c:if>
-					<c:if test="${vo.meterial_id==null}">
-						<input type="hidden" name="meterial_id" size=5 value="${vo.meterial_id}" display="none"/>
-					</c:if>
-					<c:if test="${vo.meterial_id!=null}">
-						<input type="text" name="meterial_id" size=5 value="${vo.meterial_id}"/>
-					</c:if>
+					${vo.product_name}
 				</td>
 			</tr>
+			
 	       <tr>
 	       		<td>이미지</td>
          		<td>
@@ -81,7 +72,6 @@
 		<input type="submit" value="수정">
 		<input type="reset" value="취소">
 		<input type="button" value="삭제" id="btnDelete">
-		<input type="button" value="목록" onClick="location.href='review_list'">
 	</form>
 </body>
 <script>
@@ -120,7 +110,7 @@
 	       $.ajax({
 	          type:"get",
 	          url:"/deleteFile",
-	          data:{"fullName":pcode + "/" + fullName},
+	          data:{"fullName":review_number + "/" + fullName},
 	          success:function(){
 	             alert("삭제완료!");
 	             li.remove();
