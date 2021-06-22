@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.ProductMapper">
+
 	<select id="list" resultType="com.example.domain.ProductVO">
 		select * from tbl_product 
 		<if test="searchType!='전체'">
@@ -10,23 +11,28 @@
 		<if test="searchType=='전체'">
 			where product_main_meterial like concat('%','%') and product_drop=0
 		</if>
-		order by ${orderBy} limit #{pageStart}, #{perPageNum}
+		order by #{orderBy} limit #{pageStart}, #{perPageNum}
 	</select>
+	
 	<select id="read" resultType="com.example.domain.ProductVO">
 		select * from tbl_product where product_id=#{product_id}
 	</select>
+	
 	<insert id="insert">
 		insert into tbl_product(product_id,product_name,product_price,product_image,product_detail,
 		product_main_meterial)
 		values(#{product_id},#{product_name},#{product_price},#{product_image},#{product_detail},#{product_main_meterial})
 	</insert>
+	
 	<update id="update">
 		update tbl_product set product_price=#{product_price}, product_image=#{product_image}, product_detail=#{product_detail},
 		product_delivery=#{product_delivery},product_main_meterial=#{product_main_meterial},product_drop=#{product_drop} where product_id=#{product_id}
 	</update>
+	
 	<update id="delete">
 		update tbl_product set product_drop=1 where product_id=#{product_id}
 	</update>
+	
 	<select id="totalCount" resultType="int">
 		select count(*) from tbl_product 
 		<if test="searchType!='전체'">
@@ -36,9 +42,11 @@
 			where product_name like concat('%',#{keyword},'%')
 		</if>
 	</select>
+	
 	<select id="getDetail_images" resultType="string">
 		select product_images from tbl_product_image where product_id=#{product_id} order by product_images
 	</select>
+	
 	<select id="admin_list" resultType="com.example.domain.ProductVO">
 		select * from tbl_product 
 		<if test="searchType!='전체'">
@@ -59,4 +67,10 @@
 	<delete id="delAttach">
 		delete from tbl_product_image where product_id=#{product_id}
 	</delete>
+	<select id="main_product_list" resultType="com.example.domain.ProductVO">
+		select * from tbl_product
+		where product_drop=0
+		order by product_name
+		limit #{pageStart}, #{perPageNum}
+	</select>
 </mapper>

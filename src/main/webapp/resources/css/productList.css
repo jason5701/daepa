@@ -25,13 +25,16 @@
 	width:320px; 
 	font-size:11pt; 
 	margin-bottom:6px;
-	text-align:left; 
+	text-align:right; 
 }
 .all_detail{
+	overflow: hidden;
 	width:320px;  
+	height:20px;
 	font-size:11pt; 
 	margin-bottom:6px;
 	text-align:left; 
+	text-overflow: ellipsis;
 }
 #allCategoryList{overflow:hidden; width:1000px; margin:0 auto; text-align:center; }
 #allCategoryList .categoryList li{

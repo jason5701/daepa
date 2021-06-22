@@ -92,4 +92,18 @@ public class ProductController {
 	public List<String> getAttach(String product_id)throws Exception{
 		return product_dao.getDetail_images(product_id);
 	}
+	
+	@RequestMapping("main_product.json")
+	@ResponseBody
+	public Map<String, Object> main_product_list(Criteria cri) throws Exception{
+		Map<String,Object> map=new HashMap<String,Object>();
+		cri.setPerPageNum(8);
+		PageMaker pm=new PageMaker();
+		pm.setCri(cri);
+		pm.setTotalCount(product_dao.totalCount(cri));
+		map.put("list", product_dao.main_product_list(cri));
+		map.put("pm", pm);
+		map.put("cri", cri);
+		return map;
+	}
 }

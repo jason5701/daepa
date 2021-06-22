@@ -210,11 +210,9 @@ label.right{
 #monthly h2{color:black; margin-top:10px; margin-bottom:10px; }
 #product{width:240px; float:left; margin-left:6px; margin-right:6px; 
 		 font-size:10pt; margin-top:10px; }
-#product .product_image{width:240px; height:240px; margin-bottom:5px;
-						border:1px solid black; }
-#product .product_name{width:230px; margin-bottom:5px; border:1px solid black;
-					   padding:5px; }
-#product .product_price{width:230px; border:1px solid black; padding:5px; }
+#product .product_image{border:1px solid black; width:240px; height:240px; margin-bottom:13px; }
+#product .product_name{width:230px; font-size:12pt; margin-bottom:3px; }
+#product .product_price{width:230px; padding:5px; margin-bottom:10px; text-align:right; }
 
 .list_category {
     width: 1000px;
@@ -239,6 +237,8 @@ label.right{
     line-height: 18px;
     text-decoration:none;
     color:black;
+    margin-left:5px;
+    margin-right:5px;
 }
 .list_category .menu a:active{color:black; }
 .list_category .menu:hover{background-color: #AFD9C2; color:black; font-weight:bold;}

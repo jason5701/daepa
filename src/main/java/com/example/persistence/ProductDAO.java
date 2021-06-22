@@ -18,4 +18,5 @@ public interface ProductDAO {
 	public List<ProductVO> admin_list(Criteria cri)throws Exception;
 	public List<String> addDetail_images(@Param("product_id") String product_id,@Param("product_images") String product_images)throws Exception;
 	public void delAttach(String product_id)throws Exception;
+	public List<ProductVO> main_product_list(Criteria cri)throws Exception;
 }
