@@ -2,6 +2,7 @@ package com.example.controller;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -18,6 +19,7 @@ import com.example.domain.Criteria;
 import com.example.domain.PageMaker;
 import com.example.domain.ProductVO;
 import com.example.persistence.ProductDAO;
+import com.example.service.ProductService;
 
 @Controller
 @RequestMapping("/product/")
@@ -27,6 +29,10 @@ public class ProductController {
 	
 	@Autowired
 	ProductDAO product_dao;
+	
+	@Autowired
+	ProductService product_service;
+	
 	
 	@RequestMapping("admin_product.json")
 	@ResponseBody
@@ -75,8 +81,15 @@ public class ProductController {
 		}else{
 			vo.setProduct_image(oldVO.getProduct_image());
 		}
-		product_dao.update(vo);
+		
+		System.out.println(vo.toString());
+		product_service.update(vo);
 		return "redirect:/admin/product";
 	}
 	
+	@RequestMapping(value="getAttach",method=RequestMethod.POST)
+	@ResponseBody
+	public List<String> getAttach(String product_id)throws Exception{
+		return product_dao.getDetail_images(product_id);
+	}
 }

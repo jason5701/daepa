@@ -19,18 +19,23 @@ import org.springframework.web.util.WebUtils;
 
 import com.example.domain.AdminVO;
 import com.example.persistence.AdminDAO;
+import com.example.persistence.MeterialDAO;
 import com.example.persistence.ProductDAO;
 
 @Controller
 @RequestMapping("/admin/")
 public class AdminController {
 	String main_list[]={"육류","해산물","면/밀가루"};
+	String vege_list[]={"보라","빨강","하양","초록"};
 	
 	@Autowired
 	AdminDAO admin_dao;
 	
 	@Autowired
 	ProductDAO product_dao;
+	
+	@Autowired
+	MeterialDAO meterial_dao;
 
 	@Autowired
 	BCryptPasswordEncoder passEncoder;
@@ -104,6 +109,8 @@ public class AdminController {
 		model.addAttribute("main_list", main_list);
 		return "/index";
 	}
+
+	//관리자-완제품-리드
 	@RequestMapping("admin_product_read")
 	public String admin_meal_read(Model model,String product_id)throws Exception{
 		model.addAttribute("pageName", "admin/main.jsp");
@@ -120,6 +127,17 @@ public class AdminController {
 		model.addAttribute("rightPage", "meterial/manage.jsp");
 		return "/index";
 	}
+	
+	//관리자-재료-리드
+	@RequestMapping("admin_meterial_read")
+	public String admin_vege_read(Model model,String meterial_id)throws Exception{
+		model.addAttribute("pageName", "admin/main.jsp");
+		model.addAttribute("rightPage", "meterial/vege_read.jsp");
+		model.addAttribute("vo", meterial_dao.read(meterial_id));
+		model.addAttribute("vege_list", vege_list);
+		return "/index";
+	}
+	
 	
 	//관리자-분석
 	@RequestMapping("analyze")

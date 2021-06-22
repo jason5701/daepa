@@ -1,5 +1,6 @@
 package com.example.domain;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public class ProductVO{
@@ -16,7 +17,15 @@ public class ProductVO{
 	private int product_drop; //품절 0-판매중,1-품절
 	private int product_group_price; //공동구매 가격
 	private String product_main_meterial; //대표재료? 음식구분을 위한 컬럼
+	private String[] detail_images;
 	
+	
+	public String[] getDetail_images() {
+		return detail_images;
+	}
+	public void setDetail_images(String[] detail_images) {
+		this.detail_images = detail_images;
+	}
 	public String getProduct_id() {
 		return product_id;
 	}
@@ -104,7 +113,8 @@ public class ProductVO{
 				+ ", product_detail=" + product_detail + ", product_delivery=" + product_delivery
 				+ ", product_register=" + product_register + ", product_click=" + product_click + ", product_selling="
 				+ product_selling + ", product_drop=" + product_drop + ", product_group_price=" + product_group_price
-				+ ", product_main_meterial=" + product_main_meterial + "]";
+				+ ", product_main_meterial=" + product_main_meterial + ", detail_images="
+				+ Arrays.toString(detail_images) + "]";
 	}
 	
 }

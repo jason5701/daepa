@@ -33,10 +33,10 @@
 <!-- 디테일 메뉴탭 -->
 <div class="detailMenu">
   <p>
-    <a onclick="fnMove('1')">상품설명</a>
-    <a onclick="fnMove('2')">상세정보</a>
-    <a onclick="fnMove('3')">고객후기(count)</a>
-    <a onclick="fnMove('4')">상품문의(count)</a>
+    <a onclick="fnMove('1')">상품설명</a> <!-- 나눔판매설명 -->
+    <a onclick="fnMove('2')">상세정보</a> <!-- 나눔판매정보 -->
+    <a onclick="fnMove('3')">오프너등급</a> <!-- 나눔판매 user의 포인트에 따른 등급 -->
+    <a onclick="fnMove('4')">나눔하는곳</a> <!-- user 주소 api? 또는 api지도로 나눔 직거래 장소 표시 -->
   </p>
 </div>
 <div class="detailContent">

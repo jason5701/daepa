@@ -14,7 +14,7 @@
 			<td>상태</td>
 		</tr>
 		{{#each list}}
-			<tr>
+			<tr onClick="location.href='admin_meterial_read?meterial_id={{meterial_id}}'">
 				<td>{{meterial_id}}</td>
 				<td>{{meterial_name}}</td>
 				<th>{{meterial_price}}</th>

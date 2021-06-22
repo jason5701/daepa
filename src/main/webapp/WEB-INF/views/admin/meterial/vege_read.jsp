@@ -6,59 +6,51 @@
 	<table>
 		<tr>
 			<td>품번</td>
-			<td><input type="text" name="product_id" value="${vo.product_id}" readonly/></td>
+			<td><input type="text" name="meterial_id" value="${vo.meterial_id}" readonly/></td>
 			<td>품명</td>
-			<td><input type="text" value="${vo.product_name}" readonly/></td>
+			<td><input type="text" value="${vo.meterial_name}" readonly/></td>
 		</tr>
 		<tr>
 			<td>단가</td>
-			<td colspan=3><input type="text" name="product_price" value="${vo.product_price}"/></td>
+			<td colspan=3><input type="text" name="meterial_price" value="${vo.meterial_price}"/></td>
 
 		</tr>
 		<tr>
 			<td>배송정보</td>
 			<td>
-				<select name="product_delivery">
-					<option value="0" <c:out value="${vo.product_delivery=='0'?'selected':''}"/>>무료배송</option>
-					<option value="1" <c:out value="${vo.product_delivery=='1'?'selected':''}"/>>일반배송</option>
+				<select name="meterial_delivery">
+					<option value="0" <c:out value="${vo.meterial_delivery=='0'?'selected':''}"/>>무료배송</option>
+					<option value="1" <c:out value="${vo.meterial_delivery=='1'?'selected':''}"/>>일반배송</option>
 				</select>
 			</td>
 		</tr>
 		<tr>
 			<td>조회수</td>
-			<td>${vo.product_click}</td>
+			<td>${vo.meterial_click}</td>
 			<td>판매량</td>
-			<td>${vo.product_selling}</td>
+			<td>${vo.meterial_selling}</td>
 		</tr>
 		<tr>
 			<td>상태</td>
-			<td>
-				<select name="product_drop">
-						<option value="0" <c:out value="${vo.product_drop=='0'?'selected':''}"/>>판매중</option>
-						<option value="1" <c:out value="${vo.product_drop=='1'?'selected':''}"/>>판매중지</option>
-				</select>
-			</td>
-			<td>대표재료</td>
-			<td>
-				<select name="product_main_meterial">
-					<c:forEach items="${main_list}" var="vo">
-						<option >${vo}</option>
-					</c:forEach>
+			<td colspan=3>
+				<select name="meterial_drop">
+						<option value="0" <c:out value="${vo.meterial_drop=='0'?'selected':''}"/>>판매중</option>
+						<option value="1" <c:out value="${vo.meterial_drop=='1'?'selected':''}"/>>판매중지</option>
 				</select>
 			</td>
 		</tr>
 		<tr>
 			<td>상품 설명</td>
-			<td colspan=3><textarea name="product_detail" style="width:500px; height:200px; resize: none;">${vo.product_detail}</textarea></td>
+			<td colspan=3><textarea name="meterial_description" style="width:500px; height:200px; resize: none;">${vo.meterial_description}</textarea></td>
 		</tr>
 		<tr>
 			<td>대표 이미지</td>
 			<td colspan=3>
-				<c:if test="${vo.product_image==null}">
+				<c:if test="${vo.meterial_image==null}">
 					<img src="http://placehold.it/300x300" id="product_image"/>
 				</c:if>
-				<c:if test="${vo.product_image!=null}">
-					<img src="/displayFile?fullName=${vo.product_image}" id="product_image"/>
+				<c:if test="${vo.meterial_image!=null}">
+					<img src="/displayFile?fullName=${vo.meterial_image}" width=300 id="product_image"/>
 				</c:if>
 				<input type="file" name="file" style="display:none;"/>	
 			</td>
@@ -83,7 +75,7 @@
 	</div>
 </form>
 <script>
-	var product_id="${vo.product_id}";
+	var meterial_id="${vo.meterial_id}";
 	$("#product_image").on("click",function(){
 		$(frm.file).click();
 	});
@@ -94,13 +86,13 @@
 	$("#btn_modify").on("click",function(e){
 		e.preventDefault();
 		if(!confirm("수정하시겠습니까?")) return;
-		frm.action="/product/update";
+		frm.action="/meterial/update";
 		frm.method="post";
 		frm.submit();
 	});
 	$("#btn_list").on("click",function(e){
 		e.preventDefault();
-		location.href="/admin/product";
+		location.href="/admin/meterial";
 	});
 	//상세이미지 저장
 	$(frm.files).on("change", function(){
@@ -149,8 +141,8 @@
 	function getAttach(){
 		$.ajax({
 			type:"post",
-			url:"/product/getAttach",
-			data:{"product_id":product_id},
+			url:"/meterial/getAttach",
+			data:{"meterial_id":meterial_id},
 			success:function(data){
 				var temp=Handlebars.compile($("#tempFiles").html());
 				$(data).each(function(){

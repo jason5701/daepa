@@ -20,5 +20,4 @@ public class MeterialAndProductVO extends MeterialVO{
 		return "MeterialAndProductVO [product_id=" + product_id + ", meterial_id=" + meterial_id + "]";
 	}
 	
-	
 }

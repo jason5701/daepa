@@ -41,32 +41,51 @@
 </div>
 <div class="detailContent">
 	<div id="detailContent1" ></div>
+	<script id="tempFiles" type="text/x-handlebars-template">
+		<img src="/displayFile?fullName=detail/{{fullName}}"/>
+	</script>
 	<div id="detailContent2" >상세정보</div>
 	<div id="detailContent3" >고객후기<jsp:include page="${product_review}"></jsp:include></div>
 	<div id="detailContent4" >상품문의</div>
 </div>
 
 <script>
-//스크롤 메뉴 스크립트
-$(function() {
-  $(document).ready(function() {
-
-    var scrollOffset = $('.detailMenu').offset();
-
-    $(window).scroll(function() {
-      if ($(document).scrollTop() > scrollOffset.top) {
-        $('.detailMenu').addClass('scroll-fixed');
-      }
-      else {
-        $('.detailMenu').removeClass('scroll-fixed');
-      }
-    });
-  });
-});
+	var product_id="${vo.product_id}";
+	//스크롤 메뉴 스크립트
+	$(function() {
+	  $(document).ready(function() {
 	
-function fnMove(seq){
-	var offset = $("#detailContent" + seq).offset();
-	$('html, body').animate({scrollTop : offset.top}, 400);
-}
-
+	    var scrollOffset = $('.detailMenu').offset();
+	
+	    $(window).scroll(function() {
+	      if ($(document).scrollTop() > scrollOffset.top) {
+	        $('.detailMenu').addClass('scroll-fixed');
+	      }
+	      else {
+	        $('.detailMenu').removeClass('scroll-fixed');
+	      }
+	    });
+	  });
+	});
+		
+	function fnMove(seq){
+		var offset = $("#detailContent" + seq).offset();
+		$('html, body').animate({scrollTop : offset.top}, 400);
+	}
+	//첨부 상세설명이미지
+	getAttach();
+	function getAttach(){
+		$.ajax({
+			type:"post",
+			url:"/product/getAttach",
+			data:{"product_id":product_id},
+			success:function(data){
+				var temp=Handlebars.compile($("#tempFiles").html());
+				$(data).each(function(){
+					var tempData={"fullName":this};
+					$("#detailContent1").append(temp(tempData));
+				});
+			}
+		});
+	}
 </script>

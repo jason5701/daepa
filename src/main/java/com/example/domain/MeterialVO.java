@@ -1,5 +1,6 @@
 package com.example.domain;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public class MeterialVO extends ProductVO{
@@ -13,7 +14,15 @@ public class MeterialVO extends ProductVO{
 	private int meterial_click; //조회수
 	private int meterial_selling; //재료 판매수량
 	private int meterial_drop; //재료품절 0-판매중,1-품절
+	private String[] detail_images;
 	
+	
+	public String[] getDetail_images() {
+		return detail_images;
+	}
+	public void setDetail_images(String[] detail_images) {
+		this.detail_images = detail_images;
+	}
 	public String getMeterial_id() {
 		return meterial_id;
 	}
@@ -80,8 +89,7 @@ public class MeterialVO extends ProductVO{
 				+ meterial_price + ", meterial_description=" + meterial_description + ", meterial_image="
 				+ meterial_image + ", meterial_delivery=" + meterial_delivery + ", meterial_register="
 				+ meterial_register + ", meterial_click=" + meterial_click + ", meterial_selling=" + meterial_selling
-				+ ", meterial_drop=" + meterial_drop + "]";
+				+ ", meterial_drop=" + meterial_drop + ", detail_images=" + Arrays.toString(detail_images) + "]";
 	}
-	
 	
 }
