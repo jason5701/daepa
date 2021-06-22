@@ -9,7 +9,7 @@
 		<if test="searchType!='전체'">
 			where meterial_color like concat('%',#{searchType},'%') and meterial_drop=0
 		</if>
-		order by ${orderBy} limit #{pageStart}, #{perPageNum}
+		order by #{orderBy} limit #{pageStart}, #{perPageNum}
 	</select>
 	<select id="read" resultType="com.example.domain.MeterialVO">
 		select * from tbl_meterial_sales where meterial_id=#{meterial_id}

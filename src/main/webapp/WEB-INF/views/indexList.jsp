@@ -42,32 +42,34 @@
 
 <div id="monthly">
 	<h2>MD의 추천상품👍</h2>
-	<ul class="list_category">
-		<li><a href="#" class="menu">밀키트/완제품</a></li>
-		<li><a href="#" class="menu">육류</a></li>
-		<li><a href="#" class="menu">해산물</a></li>
-		<li><a href="#" class="menu">채소/과일</a></li>
+	<ul class="list_category" id="list_category">
+		<li>
+			<a class="menu"> MD추천 </a>
+		</li>
+		<li>
+			<a class="menu"> ✨인기상품 </a>
+		</li>
+		<li>
+			<a class="menu"> new ❗❗ </a>
+		</li>
+		<li>
+			<a class="menu"> 제일 많이 팔렸어요 </a>
+		</li>
 	</ul>
-	<div id="product">
-		<div class="product_image">상품이미지</div>
-		<div class="product_name">상품명</div>
-		<div class="product_price">상품가격</div>
-	</div>
-	<div id="product">
-		<div class="product_image">상품이미지</div>
-		<div class="product_name">상품명</div>
-		<div class="product_price">상품가격</div>
-	</div>
-	<div id="product">
-		<div class="product_image">상품이미지</div>
-		<div class="product_name">상품명</div>
-		<div class="product_price">상품가격</div>
-	</div>
-	<div id="product">
-		<div class="product_image">상품이미지</div>
-		<div class="product_name">상품명</div>
-		<div class="product_price">상품가격</div>
-	</div>
+	<div id="best_product"></div>
+	<script id="temp" type="text/x-handlebars-template">
+		{{#each list}}
+		<div id="product">
+			<a href="/meal_detail?product_id={{product_id}}">
+				<div class="product_image">
+					<img src="/displayFile?fullName={{product_image}}" width=240 height=240/>
+				</div>
+			</a>
+			<div class="product_name">{{product_name}}</div>
+			<div class="product_price">{{product_price}}원</div>
+		</div>
+		{{/each}}
+	</script>
 </div>
 
 <div id="snsBox">
@@ -88,6 +90,23 @@
 </div>
 
 <script>
+
+//md추천 목록 
+getmain_product_list();
+function getmain_product_list(){
+	$.ajax({
+		type:"get",
+		url:"/product/main_product.json",
+		dataType:"json",
+		success:function(data){
+			console.log(data);
+			var temp=Handlebars.compile($("#temp").html());
+			$("#best_product").html(temp(data));
+		}
+	});
+}
+	
+//sns고객후기 스크립트	
 	var slides=document.querySelector('.slides'),
 		slide=document.querySelectorAll('.slides li'),
 		currentIdx=0,

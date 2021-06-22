@@ -12,7 +12,7 @@
 			</a>
 			<div class="all_name">{{product_name}}</div>
 			<div class="all_detail">{{product_detail}}</div>
-			<div class="all_price">{{product_price}}</div>
+			<div class="all_price">{{product_price}}원</div>
 		</div>
 		{{/each}}
 		</script>
@@ -28,7 +28,7 @@
 	$("#orderBy").on("change",function(){
 		getProduct_list();
 	});
-	getProduct_list()
+	getProduct_list();
 	function getProduct_list(){
 		var orderBy=$("#orderBy").val();
 		$.ajax({

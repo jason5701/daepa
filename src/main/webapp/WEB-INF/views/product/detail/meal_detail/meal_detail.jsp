@@ -42,7 +42,7 @@
 <div class="detailContent">
 	<div id="detailContent1" ></div>
 	<script id="tempFiles" type="text/x-handlebars-template">
-		<img src="/displayFile?fullName={{fullName}}"/>
+		<img src="/displayFile?fullName={{fullName}}" width=900px; />
 	</script>
 	<div id="detailContent2" >상세정보</div>
 	<div id="detailContent3" >고객후기</div>
