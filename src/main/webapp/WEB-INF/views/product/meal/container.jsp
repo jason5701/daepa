@@ -13,7 +13,7 @@
 	<ul id="category_list" class="categoryList">
 		<c:forEach items="${type}" var="vo">
 			<li>
-				<a class="typse">${vo}</a>
+				<a class="type">${vo}</a>
 			</li>
 		</c:forEach>
 		<li>
