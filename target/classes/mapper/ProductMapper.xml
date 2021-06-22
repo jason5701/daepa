@@ -49,6 +49,10 @@
 		</if>
 		order by product_register desc limit #{pageStart}, #{perPageNum}
 	</select>
+	<select id="product_read" resultType="com.example.domain.ProductVO">
+ 		select * from tbl_product
+ 		where product_id=#{product_id}
+ 	</select>
 	<select id="addDetail_images" resultType="string">
 		insert into tbl_product_image(product_images,product_id) values(#{product_images},#{product_id})
 	</select>

@@ -1,5 +1,6 @@
 package com.example.persistence;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -17,13 +18,13 @@ public class BoardDAOImpl implements BoardDAO{
 	SqlSession session;
 	
 	@Override
-	public List<ReviewVO> review_list(Criteria cri) throws Exception {
-		return session.selectList(namespace + ".review_list", cri);
+	public List<ReviewVO> product_review_list(Criteria cri) throws Exception {
+		return session.selectList(namespace + ".product_review_list", cri);
 	}
 
 	@Override
-	public void review_insert(ReviewVO vo) throws Exception {
-		session.insert(namespace + ".review_insert", vo);
+	public void product_review_insert(ReviewVO vo) throws Exception {
+		session.insert(namespace + ".product_review_insert", vo);
 		
 	}
 
@@ -33,14 +34,14 @@ public class BoardDAOImpl implements BoardDAO{
 	}
 
 	@Override
-	public void review_delete(int review_number) throws Exception {
-		session.delete(namespace + ".review_delete", review_number);
+	public void product_review_delete(int review_number) throws Exception {
+		session.delete(namespace + ".product_review_delete", review_number);
 		
 	}
 
 	@Override
-	public void review_update(ReviewVO vo) throws Exception {
-		session.update(namespace + ".review_update", vo);
+	public void product_review_update(ReviewVO vo) throws Exception {
+		session.update(namespace + ".product_review_update", vo);
 		
 	}
 
@@ -50,13 +51,42 @@ public class BoardDAOImpl implements BoardDAO{
 	}
 
 	@Override
-	public int totalCount() {
-		return session.selectOne(namespace + ".totalCount");
+	public int product_totalCount(Criteria cri)throws Exception{
+		
+		return session.selectOne(namespace + ".product_totalCount", cri);
 	}
 
 	@Override
 	public void updateReview_click(int review_number) throws Exception {
 		session.update(namespace + ".updateReview_click", review_number);
+		
+	}
+
+	@Override
+	public List<ReviewVO> meterial_review_list(Criteria cri) throws Exception {
+		return session.selectList(namespace + ".meterial_review_list", cri);
+	}
+
+	@Override
+	public int meterial_totalCount(Criteria cri) throws Exception {
+		return session.selectOne(namespace + ".meterial_totalCount", cri);
+	}
+
+	@Override
+	public void meterial_review_insert(ReviewVO vo) throws Exception {
+		session.insert(namespace + ".meterial_review_insert", vo);
+		
+	}
+
+	@Override
+	public void meterial_review_delete(int review_number) throws Exception {
+		session.delete(namespace + ".meterial_review_delete", review_number);
+		
+	}
+
+	@Override
+	public void meterial_review_update(ReviewVO vo) throws Exception {
+		session.update(namespace + ".meterial_review_update", vo);
 		
 	}
 
