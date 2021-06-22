@@ -48,10 +48,18 @@ public class UploadController {
 // 파일업로드 Ajax
 	@ResponseBody
 	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
-	public String uploadAjaxPost(MultipartFile file) throws Exception {
-		UUID uid = UUID.randomUUID();
-		String fullName = uid.toString() + "_" + file.getOriginalFilename();
-		File target = new File(path, fullName);
+	public String uploadAjaxPost(MultipartFile file,String add_path) throws Exception {
+		String upload_path=path+"/"+add_path;
+		System.out.println("업로드 이미지들 경로확인....."+upload_path);
+		File folder=new File(upload_path);
+		if(!folder.exists()){
+			folder.mkdir();
+		}
+		
+		//UUID uid = UUID.randomUUID();
+		//String fullName = uid.toString() + "_" + file.getOriginalFilename();
+		String fullName=System.currentTimeMillis()+"_"+file.getOriginalFilename();
+		File target = new File(upload_path, fullName);
 		FileCopyUtils.copy(file.getBytes(), target);
 		return fullName;
 	}
@@ -71,7 +79,8 @@ public class UploadController {
    @ResponseBody
    @RequestMapping("/deleteFile")
    public void deleteFile(String fullName){
-      new File(path + "/" + fullName).delete();
+	  System.out.println(fullName);
+      new File(path + fullName).delete();
    }
    
    //파일 다운로드

@@ -32,4 +32,13 @@
 		where meterial_name like concat('%',#{keyword},'%')
 		order by meterial_register desc limit #{pageStart}, #{perPageNum}
 	</select>
+	<select id="getDetail_images" resultType="string">
+		select meterial_detail_images from tbl_meterial_image where meterial_id=#{meterial_id}
+	</select>
+	<select id="addDetail_images" resultType="string">
+		insert into tbl_meterial_image(meterial_detail_images,meterial_id) values(#{meterial_detail_images},#{meterial_id})
+	</select>
+	<delete id="delAttach">
+		delete from tbl_meterial_image where meterial_id=#{meterial_id}
+	</delete>
 </mapper>

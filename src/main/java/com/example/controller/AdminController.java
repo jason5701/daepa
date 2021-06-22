@@ -26,6 +26,7 @@ import com.example.persistence.ProductDAO;
 @RequestMapping("/admin/")
 public class AdminController {
 	String main_list[]={"육류","해산물","면/밀가루"};
+	String vege_list[]={"보라","빨강","하양","초록"};
 	
 	@Autowired
 	AdminDAO admin_dao;
@@ -133,7 +134,7 @@ public class AdminController {
 		model.addAttribute("pageName", "admin/main.jsp");
 		model.addAttribute("rightPage", "meterial/vege_read.jsp");
 		model.addAttribute("vo", meterial_dao.read(meterial_id));
-		model.addAttribute("main_list", main_list);
+		model.addAttribute("vege_list", vege_list);
 		return "/index";
 	}
 	

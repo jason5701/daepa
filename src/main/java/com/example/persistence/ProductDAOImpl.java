@@ -1,5 +1,6 @@
 package com.example.persistence;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -54,4 +55,19 @@ public class ProductDAOImpl implements ProductDAO{
 	public List<ProductVO> admin_list(Criteria cri) throws Exception {
 		return session.selectList(namespace+".admin_list",cri);
 	}
+
+	@Override
+	public List<String> addDetail_images(String product_id, String product_images) throws Exception {
+		HashMap<String,Object> map=new HashMap<>();
+		map.put("product_id", product_id);
+		map.put("product_images", product_images);
+		
+		return session.selectList(namespace+".addDetail_images",map);
+	}
+
+	@Override
+	public void delAttach(String product_id) throws Exception {
+		session.delete(namespace+".delAttach",product_id);
+	}
+
 }

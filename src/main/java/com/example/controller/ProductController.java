@@ -19,6 +19,7 @@ import com.example.domain.Criteria;
 import com.example.domain.PageMaker;
 import com.example.domain.ProductVO;
 import com.example.persistence.ProductDAO;
+import com.example.service.ProductService;
 
 @Controller
 @RequestMapping("/product/")
@@ -28,6 +29,10 @@ public class ProductController {
 	
 	@Autowired
 	ProductDAO product_dao;
+	
+	@Autowired
+	ProductService product_service;
+	
 	
 	@RequestMapping("admin_product.json")
 	@ResponseBody
@@ -76,7 +81,9 @@ public class ProductController {
 		}else{
 			vo.setProduct_image(oldVO.getProduct_image());
 		}
-		product_dao.update(vo);
+		
+		System.out.println(vo.toString());
+		product_service.update(vo);
 		return "redirect:/admin/product";
 	}
 	

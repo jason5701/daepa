@@ -68,7 +68,11 @@
 				                </li>
 				                <li><a href="/group_product">나눔구매</a>
 				                    <ul class="sub">
-				                        <li><a href="#">재료</a></li>
+				                        <li><a href="#">전체</a></li>
+				                        <li><a href="#">서울</a></li>
+				                        <li><a href="#">인천</a></li>
+				                        <li><a href="#">경기</a></li>
+				                        <li><a href="#">부산</a></li>
 				                    </ul>
 				                </li>
 				            </ul>

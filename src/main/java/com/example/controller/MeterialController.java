@@ -2,6 +2,7 @@ package com.example.controller;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -17,8 +18,8 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.example.domain.Criteria;
 import com.example.domain.MeterialVO;
 import com.example.domain.PageMaker;
-import com.example.domain.ProductVO;
 import com.example.persistence.MeterialDAO;
+import com.example.service.MeterialService;
 
 @Controller
 @RequestMapping("/meterial/")
@@ -28,6 +29,9 @@ public class MeterialController {
 	
 	@Autowired
 	MeterialDAO meterial_dao;
+	
+	@Autowired
+	MeterialService meterial_service;
 	
 	@RequestMapping("meterial.json")
 	@ResponseBody
@@ -78,7 +82,14 @@ public class MeterialController {
 		}else{
 			vo.setMeterial_image(oldVO.getMeterial_image());
 		}
-		meterial_dao.update(vo);
+		meterial_service.update(vo);
 		return "redirect:/admin/meterial";
 	}
+	
+	@RequestMapping(value="getAttach",method=RequestMethod.POST)
+	@ResponseBody
+	public List<String> getAttach(String meterial_id)throws Exception{
+		return meterial_dao.getDetail_images(meterial_id);
+	}
+	
 }

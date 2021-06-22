@@ -42,7 +42,7 @@
 			<td>
 				<select name="product_main_meterial">
 					<c:forEach items="${main_list}" var="vo">
-						<option>${vo}</option>
+						<option >${vo}</option>
 					</c:forEach>
 				</select>
 			</td>
@@ -67,16 +67,16 @@
 	<div>
 		<button id="btn_modify">수정</button><input type="button" id="btn_list" value="목록">
 	</div>
-	<h2>파일정보 Ajax</h2>
+	<h2>상세설명이미지</h2>
 	<div id="upload">
-		<input type="file" id="file" />
+		<input type="file" name="files" accept="image/*" multiple/>
 	</div>
 	<div id="uploaded">
 		<ul id="uploadFiles"></ul>
 		<script id="tempFiles" type="text/x-handlebars-template">
 			<li>
-				<img src="/displayFile?fullName={{fullName}}" width=50/>
-				<input type="text" name="imgs" value="{{fullName}}"/>
+				<img src="/displayFile?fullName=detail/{{fullName}}" width=100/>
+				<input type="text" name="detail_images" value="{{fullName}}"/>
 				<input type="button" value="삭제" class="btnDelete" fullName={{fullName}}/>
 			</li>
 		</script>
@@ -102,6 +102,49 @@
 		e.preventDefault();
 		location.href="/admin/product";
 	});
+	//상세이미지 저장
+	$(frm.files).on("change", function(){
+	    var files=$(frm.files)[0].files;
+	    $.each(files, function(index, file){
+	       uploadFile(file);
+	    });
+    });
+	function uploadFile(file){
+	    if(file == null) return;
+		var formData = new FormData();
+		formData.append("file", file);
+		formData.append("add_path", "detail");
+		
+		$.ajax({
+			type:"post", 
+			url:"/uploadFile",
+			processData:false, 
+			contentType:false,
+			data:formData, 
+			success:function(data){
+				var temp=Handlebars.compile($("#tempFiles").html());
+				var tempData={"fullName":data};
+				$("#uploadFiles").append(temp(tempData));
+			}
+		});
+	}
+	//상세이미지 삭제(내부폴더에서도 삭제)
+	$("#uploadFiles").on("click","li .btnDelete",function(){
+		var li=$(this).parent();
+		var fullName=$(this).attr("fullName");
+		if(!confirm("파일을 삭제하시겠습니까?")) return;
+		$.ajax({
+			type:"get",
+			url:"/deleteFile",
+			data:{"fullName":"/detail/"+fullName},
+			success:function(){
+				alert("삭제완료.");
+				li.remove();
+			}
+		});
+	});
+	
+	//상세이미지 리스트
 	getAttach();
 	function getAttach(){
 		$.ajax({

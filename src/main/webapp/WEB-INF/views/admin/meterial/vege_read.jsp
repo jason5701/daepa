@@ -59,8 +59,23 @@
 	<div>
 		<button id="btn_modify">수정</button><input type="button" id="btn_list" value="목록">
 	</div>
+	<h2>상세설명이미지</h2>
+	<div id="upload">
+		<input type="file" name="files" accept="image/*" multiple/>
+	</div>
+	<div id="uploaded">
+		<ul id="uploadFiles"></ul>
+		<script id="tempFiles" type="text/x-handlebars-template">
+			<li>
+				<img src="/displayFile?fullName=detail/{{fullName}}" width=100/>
+				<input type="text" name="detail_images" value="{{fullName}}"/>
+				<input type="button" value="삭제" class="btnDelete" fullName={{fullName}}/>
+			</li>
+		</script>
+	</div>
 </form>
 <script>
+	var meterial_id="${vo.meterial_id}";
 	$("#product_image").on("click",function(){
 		$(frm.file).click();
 	});
@@ -79,4 +94,62 @@
 		e.preventDefault();
 		location.href="/admin/meterial";
 	});
+	//상세이미지 저장
+	$(frm.files).on("change", function(){
+	    var files=$(frm.files)[0].files;
+	    $.each(files, function(index, file){
+	       uploadFile(file);
+	    });
+    });
+	function uploadFile(file){
+	    if(file == null) return;
+		var formData = new FormData();
+		formData.append("file", file);
+		formData.append("add_path", "detail");
+		
+		$.ajax({
+			type:"post", 
+			url:"/uploadFile",
+			processData:false, 
+			contentType:false,
+			data:formData, 
+			success:function(data){
+				var temp=Handlebars.compile($("#tempFiles").html());
+				var tempData={"fullName":data};
+				$("#uploadFiles").append(temp(tempData));
+			}
+		});
+	}
+	//상세이미지 삭제(내부폴더에서도 삭제)
+	$("#uploadFiles").on("click","li .btnDelete",function(){
+		var li=$(this).parent();
+		var fullName=$(this).attr("fullName");
+		if(!confirm("파일을 삭제하시겠습니까?")) return;
+		$.ajax({
+			type:"get",
+			url:"/deleteFile",
+			data:{"fullName":"/detail/"+fullName},
+			success:function(){
+				alert("삭제완료.");
+				li.remove();
+			}
+		});
+	});
+	
+	//상세이미지 리스트
+	getAttach();
+	function getAttach(){
+		$.ajax({
+			type:"post",
+			url:"/meterial/getAttach",
+			data:{"meterial_id":meterial_id},
+			success:function(data){
+				var temp=Handlebars.compile($("#tempFiles").html());
+				$(data).each(function(){
+					var tempData={"fullName":this};
+					$("#uploadFiles").append(temp(tempData));
+				});
+			}
+		});
+	}
 </script>

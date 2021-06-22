@@ -36,7 +36,7 @@
 		</if>
 	</select>
 	<select id="getDetail_images" resultType="string">
-		select product_images from tbl_product_image where product_id=#{product_id}
+		select product_images from tbl_product_image where product_id=#{product_id} order by product_images
 	</select>
 	<select id="admin_list" resultType="com.example.domain.ProductVO">
 		select * from tbl_product 
@@ -48,4 +48,10 @@
 		</if>
 		order by product_register desc limit #{pageStart}, #{perPageNum}
 	</select>
+	<select id="addDetail_images" resultType="string">
+		insert into tbl_product_image(product_images,product_id) values(#{product_images},#{product_id})
+	</select>
+	<delete id="delAttach">
+		delete from tbl_product_image where product_id=#{product_id}
+	</delete>
 </mapper>
