@@ -38,10 +38,10 @@ public class UserController {
 	
 	@RequestMapping(value="login",method=RequestMethod.POST)
 	@ResponseBody
-	public HashMap<String,Object> loginPost(String user_id, String user_password,HttpSession session,boolean chkLogin,HttpServletResponse response)throws Exception{
+	public HashMap<String,Object> loginPost(UserVO vo,String user_password,HttpSession session,boolean chkLogin,HttpServletResponse response)throws Exception{
 		  HashMap<String,Object> map = new HashMap<String,Object>();
 		  int result = 0; //아이디가 없는 경우
-		  UserVO vo = dao.login(user_id);
+		  vo = dao.login(vo);
 		  if(vo!=null){
 			  if(passEncoder.matches(user_password,vo.getUser_password())){
 				  result=1; //로그인성공

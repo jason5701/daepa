@@ -1,4 +1,8 @@
 @CHARSET "UTF-8";
+#content {
+    min-width: 1050px;
+    padding-bottom: 120px;
+}
 <!-- 마이페이지 head -->
 .page_aticle {
     width: 1050px;
@@ -143,13 +147,13 @@
 }
 <!-- 마이페이지 left -->
 .mypage_content{
-	margin-left:50px;
-	margin-bottom:50px;
+	width: 1050px;
+	padding-top: 65px;
 }
 .aticle_type2 {
     padding-top:20px;
     margin-bottom:50px;
-    margin-left:150px;
+    margin-left:50px;
 }
 #snb {
     float: left;
@@ -192,12 +196,12 @@ ol, ul {
     color: #5f0080;
 }
 <!-- 마이페이지 right -->
+.mypage_Content_Right{
+	float: right;
+    width: 820px;
+}
 .page_aticle .head_aticle {
     padding: 5px 0 34px;
-}
-.page_aticle .aticle_type2 .page_section {
-    float: right;
-    width: 820px;
 }
 .head_aticle .tit {
 	margin-left:30px;
@@ -276,7 +280,7 @@ ol, ul {
     line-height: 17px;
 }
 <!-- 마이페이지 개인정보수정 -->
-.tbl_login, .btn_login {width: 100%;margin:20px auto; text-align:center;border-collapse: collapse;}
+.tbl_login, .btn_login{width: 100%; margin:20px auto; text-align:center; border-collapse: collapse;}
 .tbl_login tr {height:60px; display:table-row; vertical-align: inherit; border-color: inherit;}
 .tbl_login th {	width: 30%;}
 .tbl_login td {	width: 70%;	text-align: left;}
@@ -301,3 +305,30 @@ ol, ul {
 	font-weight: bold;
 }
 
+.board-container{
+	float: right;
+    width: 820px;
+    margin-top:20px;
+}
+
+#tbl_order_List{
+	width: 100%;	
+	display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    white-space: normal;
+    line-height: normal;
+    font-weight: normal;
+    font-size: medium;
+    font-style: normal;
+    color: -internal-quirk-inherit;
+    text-align: start;
+    border-spacing: 2px;
+    border-color: grey;
+    font-variant: normal;
+}
+
+#tbl_order_List tr{border-bottom: 1px solid #ddd; text-align:center; padding: 10px;}
+
+#tbl_order_List td{border-bottom: 1px solid #ddd; text-align:center; padding: 10px;}

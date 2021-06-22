@@ -2,9 +2,13 @@ package com.example.domain;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+
 public class OrderVO extends CouponVO{
 	private int order_number;
 	private String user_id;
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date order_register_date;
 	private String order_name;
 	private String order_address;

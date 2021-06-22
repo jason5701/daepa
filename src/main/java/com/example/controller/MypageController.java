@@ -1,6 +1,9 @@
 package com.example.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,13 +23,14 @@ public class MypageController {
 	@Autowired
 	PurchaseDAO purchase_dao;
 	
-	@RequestMapping("/order_List")
+	@RequestMapping("order_List.json")
 	@ResponseBody
-	public HashMap<String, Object> order_List(Criteria cri,String user_id)throws Exception{
+	public HashMap<String, Object> order_List(Model model,HttpSession session, Criteria cri,String user_id)throws Exception{
 		HashMap<String, Object> map=new HashMap<String, Object>();
 		cri.setPerPageNum(5);
-		map.put("list", purchase_dao.order_List(cri));
+		map.put("order_List", purchase_dao.order_List(user_id,cri));
 		
+		session.setAttribute("map", map);
 		PageMaker pm = new PageMaker();
 		pm.setCri(cri);
 		
@@ -35,7 +39,10 @@ public class MypageController {
 		
 		return map;
 	}
-	
+	@RequestMapping("order_List")
+	public String order_List(){
+		return "/mypage/order_list";
+	}
 	@RequestMapping("all")
 	public String mypage(Model model){
 		model.addAttribute("pageName","mypage/all.jsp");

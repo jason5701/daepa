@@ -5,6 +5,8 @@ public class PurchaseVO extends OrderVO{
 	public String product_id;
 	public int product_price;
 	public int purchase_qtt;
+	public int purchase_sum;
+
 	public int getOrder_number() {
 		return order_number;
 	}
@@ -30,6 +32,12 @@ public class PurchaseVO extends OrderVO{
 		this.purchase_qtt = purchase_qtt;
 	}
 	
+	public int getPurchase_sum() {
+		return purchase_sum;
+	}
+	public void setPurchase_sum(int purchase_sum) {
+		this.purchase_sum = this.product_price * this.purchase_qtt;
+	}
 	@Override
 	public String toString() {
 		return "PurchaseVO [order_number=" + order_number + ", product_id=" + product_id + ", product_price="
