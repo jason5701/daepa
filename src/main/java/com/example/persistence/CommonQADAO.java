@@ -10,4 +10,8 @@ public interface CommonQADAO {
 	public CommonQAVO admin_read(int commonQA_number)throws Exception;
 	public void admin_insert(CommonQAVO vo)throws Exception;
 	public int admin_commonQA_code()throws Exception;
+	
+	public List<CommonQAVO> commonQA_list(Criteria cri)throws Exception;
+	public int totalCount(Criteria cri)throws Exception;
+	public CommonQAVO commonQA_read(int commonQA_number)throws Exception;
 }

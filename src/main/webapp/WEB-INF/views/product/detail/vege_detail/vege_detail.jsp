@@ -45,7 +45,7 @@
 		<img src="/displayFile?fullName=detail/{{fullName}}"/>
 	</script>
 	<div id="detailContent2" >상세정보</div>
-	<div id="detailContent3" >고객후기</div>
+	<div id="detailContent3" >고객후기<jsp:include page="${meterial_review}"></jsp:include></div>
 	<div id="detailContent4" >상품문의</div>
 </div>
 

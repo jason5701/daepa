@@ -60,8 +60,10 @@ public class IndexController {
 	@RequestMapping("meal_detail") 
 	public String mealdetail(Model model,String product_id)throws Exception{
 		model.addAttribute("pageName", "product/detail/meal_detail/meal_detail.jsp");
+		model.addAttribute("product_review", "review/plist.jsp");
 		model.addAttribute("product_div", "meal_read_div.jsp");
 		model.addAttribute("vo", product_dao.read(product_id));
+		
 		return "/index";
 	}
 	
@@ -69,6 +71,7 @@ public class IndexController {
 	@RequestMapping("vege_detail") 
 	public String vege_detail(Model model,String meterial_id)throws Exception{
 		model.addAttribute("pageName", "product/detail/vege_detail/vege_detail.jsp");
+		model.addAttribute("meterial_review", "review/mlist.jsp");
 		model.addAttribute("product_div", "vege_read_div.jsp");
 		model.addAttribute("vo", meterial_dao.read(meterial_id));
 		return "/index";
