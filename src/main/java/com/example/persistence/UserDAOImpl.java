@@ -42,8 +42,8 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	@Override
-	public UserVO login(String user_id) throws Exception {
-		return session.selectOne(namespace+".login",user_id);
+	public UserVO login(UserVO vo) throws Exception {
+		return session.selectOne(namespace+".login",vo);
 	}
 	//아이디 중복체크
 	@Override

@@ -38,23 +38,21 @@ public class UserController {
 	
 	@RequestMapping(value="login",method=RequestMethod.POST)
 	@ResponseBody
-	public HashMap<String,Object> loginPost(String user_id, String user_password,HttpSession session,boolean chkLogin,HttpServletResponse response)throws Exception{
+	public HashMap<String,Object> loginPost(UserVO vo,String user_password,HttpSession session,boolean chkLogin,HttpServletResponse response)throws Exception{
 		  HashMap<String,Object> map = new HashMap<String,Object>();
 		  int result = 0; //아이디가 없는 경우
-		  UserVO vo = dao.login(user_id);
+		  vo = dao.login(vo);
 		  if(vo!=null){
 			  if(passEncoder.matches(user_password,vo.getUser_password())){
 				  result=1; //로그인성공
 			  }if(chkLogin){
 				  Cookie cookie = new Cookie("user_id",vo.getUser_id()); //쿠키생성
-				  cookie = new Cookie("user_name", URLEncoder.encode(vo.getUser_name(),"UTF-8")); 
 				  cookie.setPath("/");
 				  cookie.setMaxAge(60*60*24*7); //7일간 보관
 				  response.addCookie(cookie);
 			  }
 			  System.out.println("로그인확인........."+vo.toString());
-			  session.setAttribute("user_id", vo.getUser_id());
-			  session.setAttribute("user_name", vo.getUser_name());
+			  session.setAttribute("vo", vo);
 			  String path=(String)session.getAttribute("path");
 			  if(path==null) path="/index";
 			  map.put("path", path);
