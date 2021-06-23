@@ -55,23 +55,41 @@
 		</if>
 		order by product_register desc limit #{pageStart}, #{perPageNum}
 	</select>
+	
 	<select id="product_read" resultType="com.example.domain.ProductVO">
  		select * from tbl_product
  		where product_id=#{product_id}
  	</select>
+ 	
 	<select id="addDetail_images" resultType="string">
 		insert into tbl_product_image(product_images,product_id) values(#{product_images},#{product_id})
 	</select>
+	
 	<delete id="delAttach">
 		delete from tbl_product_image where product_id=#{product_id}
 	</delete>
+	
 	<select id="main_product_list" resultType="com.example.domain.ProductVO">
 		select * from tbl_product
 		where product_drop=0
-		order by product_name
+		order by #{orderBy}
 		limit #{pageStart}, #{perPageNum}
 	</select>
+<<<<<<< HEAD
 	<select id="getProduct_id" resultType="string">
 		select max(product_id) from tbl_product where product_id like '%M%'
 	</select>
+=======
+	
+	<update id="updateProduct_click">
+		update tbl_product set product_click=product_click+1
+		where product_id=#{product_id}
+	</update>
+	
+	<select id="meterial_list" resultType="com.example.domain.MeterialAndProductVO">
+		select * from mlist
+		where product_id=#{product_id}
+	</select>
+	
+>>>>>>> 4e3c62fcb64d474418d0375b88867f9c7f1a668a
 </mapper>

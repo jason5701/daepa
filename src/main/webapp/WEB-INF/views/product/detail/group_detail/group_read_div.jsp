@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <div id="product_image">
-	<img src="/displayFile?fullName=${vo.meterial_image}" width=400/>
+	<img src="/displayFile?fullName=${vo.meterial_image}" width=400 height=400 />
 </div>
 <div id="product_detail">
 	<div class="product_name">${vo.sales_name}</div>

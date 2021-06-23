@@ -88,36 +88,39 @@ h1, h2, h3, h4{text-align:center; }
 }
     
 /* 레시피재료 */
-#recipeItems{width:1000px; margin:0px auto; margin-top:20px; 
+#recipeItems{width:1000px; margin:0px auto; margin-top:40px; 
 			 text-align:center; margin-bottom:20px; }
 #recipeItems h2{color:black; text-align:left; font-size:13pt; margin-bottom:10px;}
 .slide_wrapper{
 	position:relative;
 	width:1000px;
 	margin: 0 auto;
-	height:250px;
+	height:210px;
 	overflow:hidden;
-}
-.meterials{
-	position:absolute;
-	left:0; top:0;
+	margin-top:20px;
+	margin-bottom:60px;
 }
 .meterials li{
-	width: 180px;
+	width: 164px;
 	height: 210px;
 	float:left;
 	margin:1px;
 	text-align:center;
 	background:white;
+	margin-left:1px;
+}
+.meterials a, a:visited, a:active, a:hover{
+	text-decoration:none; 
+	color:black;
 }
 .meterials img{
 	border:1px solid black;
 }
-.meterials .meterial_name{
-	width: 180px;
+.meterials .items_name{
+	width: 165px;
 	font-size:10pt;
 }
-.meterials .meterial_price{
-	width: 180px;
+.meterials .items_price{
+	width: 165px;
 	font-size:10pt;
 }

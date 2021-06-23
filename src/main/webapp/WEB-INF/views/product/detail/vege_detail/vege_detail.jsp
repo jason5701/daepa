@@ -14,19 +14,22 @@
 
 <!-- 레시피재료 -->
 <div id="recipeItems">
-<h2>▮ RECIPE ITEMS</h2>
+<h2>▮ ${vo.meterial_name} 재료로 만들 수 있는 요리가 있어요👨‍🍳</h2>
 	<div class="slide_wrapper">
-	<!-- <script id="temp" type="text/x-handlebars-template"> -->
+	<div id="items"></div>
+	<script id="tempitems" type="text/x-handlebars-template">
 	<ul class="meterials">
-		<!-- {{#each list}} -->
+		{{#each list}}
 			<li>
-				<img src="" width=180 height=150 />
-				<span class="meterial_name">매운 청양고추 100g</span><br>
-				<span class="meterial_price">5,000원</span>
+				<a href="/meal_detail?product_id={{product_id}}">
+					<img src="/displayFile?fullName={{product_image}}" width=150 height=150 />
+					<span class="items_name">{{product_name}}</span><br>
+					<span class="items_price">{{product_price}}원</span>
+				</a>
 			</li>
-		<!-- {{/each}} -->
+		{{/each}}
 	</ul>
-	<!-- </script> -->
+	</script>
 	</div>
 </div>
 
@@ -51,6 +54,23 @@
 
 <script>
 	var meterial_id="${vo.meterial_id}";
+	
+	//연관음식불러오기
+	getProduct_list();
+	function getProduct_list(){
+		$.ajax({
+			type:"get",
+			url:"/meterial/product_list.json",
+			dataType:"json",
+			data:{"meterial_id":meterial_id},
+			success:function(data){
+				console.log(data);
+				var temp=Handlebars.compile($("#tempitems").html());
+				$("#items").html(temp(data));
+			}
+		});
+	}
+	
 	//스크롤 메뉴 스크립트
 	$(function() {
 	  $(document).ready(function() {

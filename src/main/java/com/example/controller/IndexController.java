@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.persistence.GroupSalesDAO;
 import com.example.persistence.MeterialDAO;
 import com.example.persistence.ProductDAO;
+import com.example.service.MeterialService;
+import com.example.service.ProductService;
 
 @Controller
 public class IndexController {
@@ -19,6 +21,12 @@ public class IndexController {
 	
 	@Autowired
 	GroupSalesDAO group_dao;
+	
+	@Autowired
+	ProductService product_service;
+	
+	@Autowired
+	MeterialService meterial_service;
 	
 	//¿Œµ¶Ω∫
 	@RequestMapping("index") 
@@ -62,8 +70,7 @@ public class IndexController {
 		model.addAttribute("pageName", "product/detail/meal_detail/meal_detail.jsp");
 		model.addAttribute("product_review", "review/plist.jsp");
 		model.addAttribute("product_div", "meal_read_div.jsp");
-		model.addAttribute("vo", product_dao.read(product_id));
-		
+		model.addAttribute("vo", product_service.read(product_id));
 		return "/index";
 	}
 	
@@ -73,7 +80,7 @@ public class IndexController {
 		model.addAttribute("pageName", "product/detail/vege_detail/vege_detail.jsp");
 		model.addAttribute("meterial_review", "review/mlist.jsp");
 		model.addAttribute("product_div", "vege_read_div.jsp");
-		model.addAttribute("vo", meterial_dao.read(meterial_id));
+		model.addAttribute("vo", meterial_service.read(meterial_id));
 		return "/index";
 	}
 	

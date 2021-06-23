@@ -26,4 +26,12 @@ public class ProductServiceImpl implements ProductService{
 			product_dao.addDetail_images(vo.getProduct_id(), fullName);
 		}
 	}
+	
+	@Transactional
+	@Override
+	public ProductVO read(String product_id) throws Exception {
+		ProductVO vo=product_dao.read(product_id);
+		product_dao.updateProduct_click(product_id);
+		return vo;
+	}
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.example.domain.Criteria;
+import com.example.domain.MeterialAndProductVO;
 import com.example.domain.ProductVO;
 
 @Repository
@@ -75,5 +76,13 @@ public class ProductDAOImpl implements ProductDAO{
 	@Override
 	public String getProduct_id() throws Exception {
 		return session.selectOne(namespace+".getProduct_id");
+	}
+	public void updateProduct_click(String product_id) throws Exception {
+		session.update(namespace+".updateProduct_click", product_id);
+	}
+
+	@Override
+	public List<MeterialAndProductVO> meterial_list(String product_id) throws Exception {
+		return session.selectList(namespace+".meterial_list", product_id);
 	}
 }

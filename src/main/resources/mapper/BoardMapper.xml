@@ -37,7 +37,6 @@
  		where review_number=#{review_number}
  	</delete>
  	
- 	
  	<update id="updateReview_click">
  		update tbl_review set review_click=review_click+1
  		where review_number=#{review_number}

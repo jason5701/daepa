@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <head>
 	<link rel="stylesheet" href="/resources/css/detail.css" />
 	<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -16,17 +19,20 @@
 <div id="recipeItems">
 <h2>▮ RECIPE ITEMS</h2>
 	<div class="slide_wrapper">
-	<!-- <script id="temp" type="text/x-handlebars-template"> -->
+	<div id="items"></div>
+	<script id="tempitems" type="text/x-handlebars-template">
 	<ul class="meterials">
-		<!-- {{#each list}} -->
+		{{#each list}}
 			<li>
-				<img src="" width=180 height=150 />
-				<span class="meterial_name">매운 청양고추 100g</span><br>
-				<span class="meterial_price">5,000원</span>
+				<a href="/vege_detail?meterial_id={{meterial_id}}">
+					<img src="/displayFile?fullName={{meterial_image}}" width=150 height=150 />
+					<span class="items_name">{{meterial_name}}</span><br>
+					<span class="items_price">{{meterial_price}}원</span>
+				</a>
 			</li>
-		<!-- {{/each}} -->
+		{{/each}}
 	</ul>
-	<!-- </script> -->
+	</script>
 	</div>
 </div>
 
@@ -50,7 +56,24 @@
 </div>
 
 <script>
-	var product_id="${vo.product_id}";
+var product_id="${vo.product_id}";
+
+	//연관재료불러오기
+	getMeterial_list();
+	function getMeterial_list(){
+		$.ajax({
+			type:"get",
+			url:"/product/meterial_list.json",
+			dataType:"json",
+			data:{"product_id":product_id},
+			success:function(data){
+				console.log(data);
+				var temp=Handlebars.compile($("#tempitems").html());
+				$("#items").html(temp(data));
+			}
+		});
+	}
+	
 	//스크롤 메뉴 스크립트
 	$(function() {
 	  $(document).ready(function() {

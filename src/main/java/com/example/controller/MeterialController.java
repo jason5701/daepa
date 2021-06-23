@@ -92,7 +92,6 @@ public class MeterialController {
 	public List<String> getAttach(String meterial_id)throws Exception{
 		return meterial_dao.getDetail_images(meterial_id);
 	}
-	
 	@RequestMapping(value="admin_insert",method=RequestMethod.POST)
 	public String admin_meterial_insert(MeterialVO vo,MultipartHttpServletRequest multi)throws Exception{
 		//파일업로드
@@ -104,5 +103,13 @@ public class MeterialController {
 		}
 		meterial_dao.admin_insert(vo);
 		return "redirect:/admin/meterial";
+	}
+	@RequestMapping("product_list.json")
+	@ResponseBody
+	public Map<String, Object> product_list(String meterial_id) throws Exception{
+		Map<String,Object> map=new HashMap<String,Object>();
+		map.put("list", meterial_dao.product_list(meterial_id));
+		System.out.println(meterial_dao.product_list(meterial_id).toString());
+		return map;
 	}
 }

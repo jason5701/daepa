@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.example.domain.Criteria;
+import com.example.domain.MeterialAndProductVO;
 import com.example.domain.ProductVO;
 
 public interface ProductDAO {
@@ -20,4 +21,6 @@ public interface ProductDAO {
 	public void delAttach(String product_id)throws Exception;
 	public List<ProductVO> main_product_list(Criteria cri)throws Exception;
 	public String getProduct_id()throws Exception;
+	public void updateProduct_click(String product_id) throws Exception;
+	public List<MeterialAndProductVO> meterial_list(String product_id) throws Exception;
 }
