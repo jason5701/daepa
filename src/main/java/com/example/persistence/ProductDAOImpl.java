@@ -65,9 +65,11 @@ public class ProductDAOImpl implements ProductDAO{
 	}
 	@Override
 	public void delAttach(String product_id) throws Exception {
-		session.delete(namespace+".delAttach",product_id);
+		session.delete(namespace+".delAttach",product_id);		
+	}
 	@Override
 	public List<ProductVO> main_product_list(Criteria cri) throws Exception {
 		return session.selectList(namespace+".main_product_list", cri);
 	}
 }
+

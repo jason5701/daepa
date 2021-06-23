@@ -37,10 +37,10 @@
 	       		<td>이미지</td>
          		<td>
                 	<c:if test="${vo.review_image==null}">
-                		<img id="image" src="http://placehold.it/150x120" width=150/>
+                		<img id="image" src="http://placehold.it/300x250" width=300/>
                		</c:if>
                		<c:if test="${vo.review_image!=null}">
-                  		<img id="image" src="/displayFile?fullName=${vo.review_image}" width=150/>
+                  		<img id="image" src="/displayFile?fullName=${vo.review_image}" width=300/>
                		</c:if>
                		<input type="file" name="file" style="display:none;"/>
             	</td>
@@ -77,7 +77,7 @@
 <script>
 	$("#btnDelete").on("click", function(){
 		if(!confirm("삭제하시겠습니까?")) return;
-		frm.action="review_delete";
+		frm.action="product_review_delete";
 		frm.method="get";
 		frm.submit();
 	});
@@ -121,7 +121,7 @@
 	   $(frm).on("submit", function(e){
 	      e.preventDefault();
 	      if(!confirm("상품을 수정하시겠습니까?")) return;
-	      frm.action="review_update";
+	      frm.action="product_review_update";
 	      frm.method="post";
 	      frm.submit();
 	   });

@@ -16,16 +16,16 @@
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
 <body>
-	<form name="frm">
-		<input type="hidden" value="${review_number}" name="review_number"/>
+	<form name="frm" enctype="multipart/form-data">
+		<input type="hidden" value="${last_review_number}" name="review_number"/>
 		<table>
 			<tr>
 				<td>상품번호</td>
-				<td><input type="text" name="meterial_id" value="${meterial_id}"></td>
+				<td><input type="text" name="meterial_id" value="${vo.meterial_id}"></td>
 			</tr>
 			<tr>
 				<td>작성자</td>
-				<td><input type="text" name="review_writer" value="${review_writer}"></td>
+				<td><input type="text" name="review_writer"></td>
 			</tr>
 			<tr>
 				<td>작성일</td>
@@ -37,7 +37,7 @@
 			</tr>		
 			<tr>
 				<td>내용</td>
-				<td><input type="text" name="review_contents" placeholder="후기 내용을 입력하세요."/></td>
+				<td><textarea rows="10" cols="50" name="review_contents" placeholder="후기 내용을 입력하세요."/></textarea></td>
 			</tr>
 	        <tr>
 	        	<td>후기이미지</td>
@@ -66,8 +66,12 @@
 	</form>
 </body>
 <script>
+	var meterial_id="${meterial_id}";	
+	var review_number="${review_number}";
 	$(frm).on("submit", function(e){
 		e.preventDefault();
+		alert(meterial_id);
+		alert(review_number);
 		var review_title=$(frm.review_title).val();
 		var review_contents=$(frm.review_contents).val();
 		if(review_title=="") {
@@ -80,10 +84,11 @@
 			return;
 		}
 		if(!confirm("리뷰를 등록하시겠습니까?")) return;
-		frm.action="/board/meterial_review_list";
+		frm.action="meterial_review_insert";
 		frm.method="post";
 		frm.submit();
 	});
+	
 	//첨부파일삭제
 	$("#uploadFiles").on("click", "li .del", function(){
 		var li=$(this).parent();
