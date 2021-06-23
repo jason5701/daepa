@@ -12,10 +12,40 @@ public class OrderVO extends CouponVO{
 	private Date order_register_date;
 	private String order_name;
 	private String order_address;
+	private String order_post;
+	private String order_road_address;
+	private String order_address_detail1;
+	private String order_address_detail2;
 	private String order_email;
 	private String order_mobile;
 	private String order_payment;
 	private String order_status;
+	
+	
+	public String getOrder_post() {
+		return order_post;
+	}
+	public void setOrder_post(String order_post) {
+		this.order_post = order_post;
+	}
+	public String getOrder_road_address() {
+		return order_road_address;
+	}
+	public void setOrder_road_address(String order_road_address) {
+		this.order_road_address = order_road_address;
+	}
+	public String getOrder_address_detail1() {
+		return order_address_detail1;
+	}
+	public void setOrder_address_detail1(String order_address_detail1) {
+		this.order_address_detail1 = order_address_detail1;
+	}
+	public String getOrder_address_detail2() {
+		return order_address_detail2;
+	}
+	public void setOrder_address_detail2(String order_address_detail2) {
+		this.order_address_detail2 = order_address_detail2;
+	}
 	public int getOrder_number() {
 		return order_number;
 	}
@@ -69,6 +99,15 @@ public class OrderVO extends CouponVO{
 	}
 	public void setOrder_status(String order_status) {
 		this.order_status = order_status;
+	}
+	@Override
+	public String toString() {
+		return "OrderVO [order_number=" + order_number + ", user_id=" + user_id + ", order_register_date="
+				+ order_register_date + ", order_name=" + order_name + ", order_address=" + order_address
+				+ ", order_post=" + order_post + ", order_road_address=" + order_road_address
+				+ ", order_address_detail1=" + order_address_detail1 + ", order_address_detail2="
+				+ order_address_detail2 + ", order_email=" + order_email + ", order_mobile=" + order_mobile
+				+ ", order_payment=" + order_payment + ", order_status=" + order_status + "]";
 	}
 	
 }

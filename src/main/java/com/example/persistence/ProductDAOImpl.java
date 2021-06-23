@@ -27,8 +27,8 @@ public class ProductDAOImpl implements ProductDAO{
 	}
 
 	@Override
-	public void insert(ProductVO vo) throws Exception {
-		session.insert(namespace+".insert",vo);
+	public void admin_insert(ProductVO vo) throws Exception {
+		session.insert(namespace+".admin_insert",vo);
 	}
 
 	@Override
@@ -66,8 +66,14 @@ public class ProductDAOImpl implements ProductDAO{
 	@Override
 	public void delAttach(String product_id) throws Exception {
 		session.delete(namespace+".delAttach",product_id);
+	}
 	@Override
 	public List<ProductVO> main_product_list(Criteria cri) throws Exception {
 		return session.selectList(namespace+".main_product_list", cri);
+	}
+
+	@Override
+	public String getProduct_id() throws Exception {
+		return session.selectOne(namespace+".getProduct_id");
 	}
 }

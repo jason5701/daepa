@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.HotdealMapper">
+	<select id="hotdeal" resultType="com.example.domain.HotdealVO">
+		select * from tbl_hotdeal
+	</select>
+	<select id="hotdeal_detail" resultType="com.example.domain.HotdealVO">
+		select * from hotdeal_product where hotdeal_number=#{hotdeal_number}
+	</select>
+</mapper>

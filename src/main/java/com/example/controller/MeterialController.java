@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.example.domain.Criteria;
 import com.example.domain.MeterialVO;
 import com.example.domain.PageMaker;
+import com.example.domain.ProductVO;
 import com.example.persistence.MeterialDAO;
 import com.example.service.MeterialService;
 
@@ -92,4 +93,16 @@ public class MeterialController {
 		return meterial_dao.getDetail_images(meterial_id);
 	}
 	
+	@RequestMapping(value="admin_insert",method=RequestMethod.POST)
+	public String admin_meterial_insert(MeterialVO vo,MultipartHttpServletRequest multi)throws Exception{
+		//파일업로드
+		MultipartFile file=multi.getFile("file");
+		if(!file.isEmpty()){
+			String image=System.currentTimeMillis()+"_"+file.getOriginalFilename();
+			file.transferTo(new File(path + "/" + image));
+			vo.setMeterial_image(image);
+		}
+		meterial_dao.admin_insert(vo);
+		return "redirect:/admin/meterial";
+	}
 }

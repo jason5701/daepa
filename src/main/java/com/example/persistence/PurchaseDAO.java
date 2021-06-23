@@ -10,4 +10,5 @@ import com.example.domain.PurchaseVO;
 
 public interface PurchaseDAO {
 	public List<PurchaseVO> order_List(@Param("user_id") String user_id,@Param("cri") Criteria cri)throws Exception;
+	public List<PurchaseVO> admin_order_list(Criteria cri)throws Exception;
 }

@@ -4,4 +4,7 @@
 	<select id="order_List" resultType="com.example.domain.PurchaseVO">
 		select * from order_List where user_id=#{user_id} limit #{cri.pageStart}, #{cri.perPageNum}
 	</select>
+	<select id="admin_order_list" resultType="com.example.domain.PurchaseVO">
+		select * from admin_order_List limit #{pageStart}, #{perPageNum}
+	</select>
 </mapper>

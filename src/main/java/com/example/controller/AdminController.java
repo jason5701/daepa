@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.util.WebUtils;
 
 import com.example.domain.AdminVO;
+import com.example.domain.MeterialVO;
+import com.example.domain.ProductVO;
 import com.example.persistence.AdminDAO;
 import com.example.persistence.MeterialDAO;
 import com.example.persistence.ProductDAO;
@@ -51,6 +53,14 @@ public class AdminController {
 	public String commonQA(Model model){
 		model.addAttribute("pageName", "admin/main.jsp");
 		model.addAttribute("rightPage", "commonQA/list.jsp");
+		return "/index";
+	}
+	
+	//包府磊-林巩郴开 葛电 user
+	@RequestMapping("orders")
+	public String admin_orders(Model model){
+		model.addAttribute("pageName", "admin/main.jsp");
+		model.addAttribute("rightPage", "orders/list.jsp");
 		return "/index";
 	}
 
@@ -109,6 +119,16 @@ public class AdminController {
 		model.addAttribute("main_list", main_list);
 		return "/index";
 	}
+	//包府磊-肯力前-眠啊
+	@RequestMapping("product_insert")
+	public String meal_insert(Model model,ProductVO vo)throws Exception{
+		model.addAttribute("pageName", "admin/main.jsp");
+		model.addAttribute("rightPage", "product/meal/insert.jsp");
+		String newProduct_id="M"+(Integer.parseInt(product_dao.getProduct_id().substring(1))+1);
+		model.addAttribute("new_id", newProduct_id);
+		model.addAttribute("main_list", main_list);
+		return "/index";
+	}
 
 	//包府磊-肯力前-府靛
 	@RequestMapping("admin_product_read")
@@ -125,6 +145,17 @@ public class AdminController {
 	public String meterial_manage(Model model){
 		model.addAttribute("pageName", "admin/main.jsp");
 		model.addAttribute("rightPage", "meterial/manage.jsp");
+		return "/index";
+	}
+	
+	//包府磊-犁丰-眠啊
+	@RequestMapping("meterial_insert")
+	public String vege_insert(Model model,MeterialVO vo)throws Exception{
+		model.addAttribute("pageName", "admin/main.jsp");
+		model.addAttribute("rightPage", "meterial/vege/insert.jsp");
+		String newMeterial_id="N"+(Integer.parseInt(meterial_dao.getMetrial_id().substring(1))+1);
+		model.addAttribute("new_id", newMeterial_id);
+		model.addAttribute("vege_list", vege_list);
 		return "/index";
 	}
 	

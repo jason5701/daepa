@@ -28,8 +28,8 @@ public class MeterialDAOImpl implements MeterialDAO{
 	}
 
 	@Override
-	public void insert(MeterialVO vo) throws Exception {
-		session.insert(namespace+".insert",vo);
+	public void admin_insert(MeterialVO vo) throws Exception {
+		session.insert(namespace+".admin_insert",vo);
 	}
 
 	@Override
@@ -68,5 +68,10 @@ public class MeterialDAOImpl implements MeterialDAO{
 	@Override
 	public void delAttach(String meterial_id) throws Exception {
 		session.delete(namespace+".delAttach",meterial_id);
+	}
+
+	@Override
+	public String getMetrial_id() throws Exception {
+		return session.selectOne(namespace+".getMeterial_id");
 	}
 }

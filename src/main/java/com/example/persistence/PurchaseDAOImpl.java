@@ -28,4 +28,9 @@ public class PurchaseDAOImpl implements PurchaseDAO{
 		return session.selectList(namespace+".order_List",map);
 	}
 
+	@Override
+	public List<PurchaseVO> admin_order_list(Criteria cri) throws Exception {
+		return session.selectList(namespace+".admin_order_list",cri);
+	}
+
 }

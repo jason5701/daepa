@@ -106,4 +106,17 @@ public class ProductController {
 		map.put("cri", cri);
 		return map;
 	}
+	
+	@RequestMapping(value="admin_insert",method=RequestMethod.POST)
+	public String admin_product_insert(ProductVO vo,MultipartHttpServletRequest multi)throws Exception{
+		//파일업로드
+		MultipartFile file=multi.getFile("file");
+		if(!file.isEmpty()){
+			String image=System.currentTimeMillis()+"_"+file.getOriginalFilename();
+			file.transferTo(new File(path + "/" + image));
+			vo.setProduct_image(image);
+		}
+		product_dao.admin_insert(vo);
+		return "redirect:/admin/product";
+	}
 }

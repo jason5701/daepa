@@ -41,14 +41,14 @@
 <script>
 	var page=1;
 	$("#tbl").on("click",".tr_row",function(){
-		if($("#tbl .row").css("display")=="none"){
+		/*if($("#tbl .row").css("display")=="none"){
 			$(this).next().show();
 			$(this).next().css("display:block;");
-		}else{
+		}else if($("#tbl .row").css("display")!="none"){
 			$(this).next().hide();
 			$(this).next().css("display:none;");
-		}
-		
+		}*/
+		$(this).next().toggle();
 	});
 	$("#keyword").on("keydown",function(e){
 		if(e.keyCode==13) {

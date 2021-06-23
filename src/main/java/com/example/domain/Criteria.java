@@ -6,6 +6,7 @@ public class Criteria {
 	private String searchType;
 	private String keyword;
 	private String orderBy;
+	
 	public String getOrderBy() {
 		return orderBy;
 	}

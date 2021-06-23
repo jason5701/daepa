@@ -3,7 +3,7 @@ package com.example.domain;
 import java.util.Arrays;
 import java.util.Date;
 
-public class ProductVO{
+public class ProductVO extends AdminVO{
 	private String product_id;
 	private String product_name;
 	private int product_price;

@@ -21,6 +21,9 @@
 							<a href="#none" onclick="location.href='/admin/commonQA'">자주하는질문</a>
 						</li>
 						<li class="on">
+							<a href="#none" onclick="location.href='/admin/orders'">주문내역</a>
+						</li>
+						<li class="on">
 							<a href="#none" onclick="#">1:1채팅</a>
 						</li>
 						<li class="on">
