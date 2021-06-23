@@ -22,8 +22,13 @@
 		values(#{review_title}, #{meterial_id}, #{review_writer}, now(), #{review_contents}, #{review_image})
  	</insert>
  	
- 	<select id="review_read" resultType="com.example.domain.ReviewVO">
+ 	<select id="product_review_read" resultType="com.example.domain.ReviewVO">
  		select * from pname_review
+ 		where review_number=#{review_number}
+ 	</select>
+ 	
+ 	<select id="meterial_review_read" resultType="com.example.domain.ReviewVO">
+ 		select * from mname_review
  		where review_number=#{review_number}
  	</select>
  	

@@ -71,6 +71,7 @@ public class IndexController {
 		model.addAttribute("product_review", "review/plist.jsp");
 		model.addAttribute("product_div", "meal_read_div.jsp");
 		model.addAttribute("vo", product_service.read(product_id));
+		model.addAttribute("vo", product_dao.read(product_id));
 		return "/index";
 	}
 	

@@ -29,8 +29,8 @@ public class BoardDAOImpl implements BoardDAO{
 	}
 
 	@Override
-	public ReviewVO review_read(int review_number) throws Exception {
-		return session.selectOne(namespace + ".review_read", review_number);
+	public ReviewVO product_review_read(int review_number) throws Exception {
+		return session.selectOne(namespace + ".product_review_read", review_number);
 	}
 
 	@Override
@@ -88,6 +88,11 @@ public class BoardDAOImpl implements BoardDAO{
 	public void meterial_review_update(ReviewVO vo) throws Exception {
 		session.update(namespace + ".meterial_review_update", vo);
 		
+	}
+
+	@Override
+	public ReviewVO meterial_review_read(int review_number) throws Exception {
+		return session.selectOne(namespace + ".meterial_review_read", review_number);
 	}
 
 }

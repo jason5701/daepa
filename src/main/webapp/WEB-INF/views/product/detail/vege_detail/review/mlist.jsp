@@ -37,32 +37,29 @@
 			<span id="total"></span>
 		</div>
 	</div>
-
-		<table id="tbl"></table>
-		<script id="temp" type="text/x-handlebars-template">
-			<tr class="title">
-				<td width=50>번호</td>
-				<td width=50>상품번호</td>
-				<td width=100>제목</td>
-        		<td width=50>작성자</td>
-         		<td width=100>작성일</td>
-				<td width=50>조회</td>      	
-			</tr>
-			{{#each list}}
-	        <tr class="row" onClick="location.href='/board/review_read?review_number={{review_number}}'">  
-				<td>{{review_number}}</td>
-				<td>{{product_id}}</td>
-				<td>{{review_title}}</td>
-		        <td>{{review_writer}}</td>
-		        <td>{{review_write_date}}</td>
-				<td>{{review_click}}</td>
-	        <tr>
-			{{/each}}
-		</script>
-
-	<br/>
+	<table id="tbl"></table>
+	<script id="temp" type="text/x-handlebars-template">
+		<tr class="title">
+			<td width=50>번호</td>
+			<td width=50>상품번호</td>
+			<td width=100>제목</td>
+        	<td width=50>작성자</td>
+         	<td width=100>작성일</td>
+			<td width=50>조회</td>      	
+		</tr>
+		{{#each list}}
+	    <tr class="row" onClick="location.href='/board/meterial_review_read?review_number={{review_number}}'">  
+			<td>{{review_number}}</td>
+			<td>{{meterial_id}}</td>
+			<td>{{review_title}}</td>
+		    <td>{{review_writer}}</td>
+		    <td>{{review_write_date}}</td>
+			<td>{{review_click}}</td>
+		<tr>
+		{{/each}}
+	</script>
 	<div id="review_insert">
-		<button onClick="location.href='/board/meterial_review_insert'">후기쓰기</button>
+		<button onClick="location.href='/board/meterial_review_insert?meterial_id=${vo.meterial_id}'">후기쓰기</button>
 	</div>
 	<div id="pagination"></div>
 </body>
@@ -84,6 +81,7 @@
 			dataType:"json",
 			data:{"page":page,"keyword":keyword,"searchType":meterial_id},
 			success:function(data){
+				//alert(meterial_id);
 				console.log(data);
 				var temp = Handlebars.compile($("#temp").html());
 				$("#tbl").html(temp(data));

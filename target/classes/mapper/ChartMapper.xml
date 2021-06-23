@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.ChartMapper">
+	<select id="product_click" resultType="HashMap">
+		select product_name,product_id,product_click from tbl_product where product_click!=0 order by product_click desc
+	</select>
+	<select id="product_selling" resultType="HashMap">
+		select product_name,product_id,product_selling from tbl_product order by product_selling desc
+	</select>
+</mapper>
