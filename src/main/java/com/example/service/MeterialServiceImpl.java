@@ -10,8 +10,7 @@ import com.example.persistence.MeterialDAO;
 @Service
 public class MeterialServiceImpl implements MeterialService{
 	@Autowired
-	MeterialDAO meterial_dao;
-	
+	MeterialDAO meterial_dao;	
 	
 	@Transactional
 	@Override
@@ -26,6 +25,14 @@ public class MeterialServiceImpl implements MeterialService{
 		for(String fullName:files){
 			meterial_dao.addDetail_images(vo.getMeterial_id(), fullName);
 		}
+	}
+
+	@Transactional
+	@Override
+	public MeterialVO read(String meterial_id) throws Exception {
+		MeterialVO vo=meterial_dao.read(meterial_id);
+		meterial_dao.updateMeterial_click(meterial_id);
+		return vo;
 	}
 
 }

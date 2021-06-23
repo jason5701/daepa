@@ -12,26 +12,8 @@
 	</div>
 </div>
 
-<!-- 레시피재료 -->
-<div id="recipeItems">
-<h2>▮ RECIPE ITEMS</h2>
-	<div class="slide_wrapper">
-	<!-- <script id="temp" type="text/x-handlebars-template"> -->
-	<ul class="meterials">
-		<!-- {{#each list}} -->
-			<li>
-				<img src="" width=180 height=150 />
-				<span class="meterial_name">매운 청양고추 100g</span><br>
-				<span class="meterial_price">5,000원</span>
-			</li>
-		<!-- {{/each}} -->
-	</ul>
-	<!-- </script> -->
-	</div>
-</div>
-
 <!-- 디테일 메뉴탭 -->
-<div class="detailMenu">
+<div class="detailMenu" style="margin-top:70px; ">
   <p>
     <a onclick="fnMove('1')">상품설명</a> <!-- 나눔판매설명 -->
     <a onclick="fnMove('2')">상세정보</a> <!-- 나눔판매정보 -->

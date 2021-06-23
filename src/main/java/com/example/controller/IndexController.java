@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.persistence.GroupSalesDAO;
 import com.example.persistence.MeterialDAO;
 import com.example.persistence.ProductDAO;
+import com.example.service.MeterialService;
+import com.example.service.ProductService;
 
 @Controller
 public class IndexController {
@@ -19,6 +21,12 @@ public class IndexController {
 	
 	@Autowired
 	GroupSalesDAO group_dao;
+	
+	@Autowired
+	ProductService product_service;
+	
+	@Autowired
+	MeterialService meterial_service;
 	
 	//¿Œµ¶Ω∫
 	@RequestMapping("index") 
@@ -63,7 +71,6 @@ public class IndexController {
 		model.addAttribute("product_review", "review/plist.jsp");
 		model.addAttribute("product_div", "meal_read_div.jsp");
 		model.addAttribute("vo", product_dao.read(product_id));
-		
 		return "/index";
 	}
 	

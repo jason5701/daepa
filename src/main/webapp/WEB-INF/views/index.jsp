@@ -16,21 +16,20 @@
 	<div id="container">
 		<div id="header">
 			<div id="userMenu">
-
 				<div class="menuItem">
-						<a href="/admin/login">관리자</a>
+					<a href="/admin/login">관리자</a>
 				</div>
 				<div class="menuItem">
 					<a href="/cs_service">고객센터</a>
 				</div>
 				<div class="menuItem">	
-	  					<a href="/mypage/all">마이페이지</a>
+	  				<a href="/mypage/all">마이페이지</a>
   				</div>	
 				<div class="menuItem">
-	 					<a href="/user/login">로그인</a>
+	 				<a href="/user/login">로그인</a>
 				</div>
   				<div class="menuItem">		
-	 					<a href="/user/register">회원가입</a>  				
+	 				<a href="/user/register">회원가입</a>  				
 				</div>
 			</div>
 			<a href="/index"><img src="/resources/image/index/Dlogo.jpg" /></a>
@@ -38,7 +37,7 @@
 				<div id="allCategory">
 					<ul class="all">
 						<li>
-							<div style="overflow:hidden; padding-left:15px; width:500px;  margin-left:10px; ">
+							<div style="overflow:hidden; padding-left:15px; width:140px;  margin-left:10px; ">
 								<img src="/resources/image/index/menu.png" style="margin-top:13px; float:left; "/>
 								<span style="float:left; margin-left:10px; ">전체 카테고리</span>
 							</div>

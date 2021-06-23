@@ -92,4 +92,13 @@ public class MeterialController {
 		return meterial_dao.getDetail_images(meterial_id);
 	}
 	
+	@RequestMapping("product_list.json")
+	@ResponseBody
+	public Map<String, Object> product_list(String meterial_id) throws Exception{
+		Map<String,Object> map=new HashMap<String,Object>();
+		map.put("list", meterial_dao.product_list(meterial_id));
+		System.out.println(meterial_dao.product_list(meterial_id).toString());
+		return map;
+	}
+	
 }

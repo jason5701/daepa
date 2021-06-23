@@ -9,6 +9,7 @@ import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.example.domain.Criteria;
+import com.example.domain.MeterialAndProductVO;
 import com.example.domain.PageMaker;
 import com.example.domain.ProductVO;
 import com.example.persistence.ProductDAO;
@@ -106,4 +108,13 @@ public class ProductController {
 		map.put("cri", cri);
 		return map;
 	}
+	
+	@RequestMapping("meterial_list.json")
+	@ResponseBody
+	public Map<String, Object> meterial_list(String product_id) throws Exception{
+		Map<String,Object> map=new HashMap<String,Object>();
+		map.put("list", product_dao.meterial_list(product_id));
+		return map;
+	}
+	
 }

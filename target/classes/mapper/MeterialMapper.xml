@@ -41,4 +41,12 @@
 	<delete id="delAttach">
 		delete from tbl_meterial_image where meterial_id=#{meterial_id}
 	</delete>
+	<update id="updateMeterial_click">
+		update tbl_meterial_sales set meterial_click=meterial_click+1
+		where meterial_id=#{meterial_id}
+	</update>
+	<select id="product_list" resultType="com.example.domain.MeterialAndProductVO">
+		select * from mlist
+		where meterial_id=#{meterial_id}
+	</select>
 </mapper>

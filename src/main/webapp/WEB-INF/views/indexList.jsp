@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div class="slideBox">
 	<input type="radio" name="slide" id="slide01" checked />
@@ -44,16 +45,18 @@
 	<h2>MD의 추천상품👍</h2>
 	<ul class="list_category" id="list_category">
 		<li>
-			<a class="menu"> MD추천 </a>
-		</li>
-		<li>
-			<a class="menu"> ✨인기상품 </a>
-		</li>
-		<li>
-			<a class="menu"> new ❗❗ </a>
-		</li>
-		<li>
-			<a class="menu"> 제일 많이 팔렸어요 </a>
+			<a class="menu">
+				<input class="item" type="hidden" value="product_name"/>MD추천
+			</a>
+			<a class="menu">
+				<input class="item" type="hidden" value="product_click desc"/>✨인기상품
+			</a>
+			<a class="menu">
+				<input class="item" type="hidden" value="product_register desc"/>new ❗❗
+			</a>
+			<a class="menu">
+				<input class="item" type="hidden" value="product_selling desc"/>제일 많이 팔렸어요
+			</a>
 		</li>
 	</ul>
 	<div id="best_product"></div>
@@ -92,13 +95,22 @@
 <script>
 
 //md추천 목록 
-getmain_product_list();
-function getmain_product_list(){
+var orderBy="product_name";
+getmain_list();
+
+$("#list_category").on("click", ".menu", function(){
+	orderBy=$(this).children(".item").val();
+	getmain_list();
+});
+
+function getmain_list(){
 	$.ajax({
 		type:"get",
 		url:"/product/main_product.json",
 		dataType:"json",
+		data:{"orderBy":orderBy},
 		success:function(data){
+			//alert(orderBy);
 			console.log(data);
 			var temp=Handlebars.compile($("#temp").html());
 			$("#best_product").html(temp(data));

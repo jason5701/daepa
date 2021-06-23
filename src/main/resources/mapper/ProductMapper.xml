@@ -56,25 +56,35 @@
 		</if>
 		order by product_register desc limit #{pageStart}, #{perPageNum}
 	</select>
-<<<<<<< HEAD
+	
 	<select id="product_read" resultType="com.example.domain.ProductVO">
  		select * from tbl_product
  		where product_id=#{product_id}
  	</select>
+ 	
 	<select id="addDetail_images" resultType="string">
 		insert into tbl_product_image(product_images,product_id) values(#{product_images},#{product_id})
 	</select>
+	
 	<delete id="delAttach">
 		delete from tbl_product_image where product_id=#{product_id}
 	</delete>
-=======
 	
 	<select id="main_product_list" resultType="com.example.domain.ProductVO">
 		select * from tbl_product
 		where product_drop=0
-		order by product_name
+		order by #{orderBy}
 		limit #{pageStart}, #{perPageNum}
 	</select>
 	
->>>>>>> 76463d18b2b66112cebc05f62e0e3d41fa49f005
+	<update id="updateProduct_click">
+		update tbl_product set product_click=product_click+1
+		where product_id=#{product_id}
+	</update>
+	
+	<select id="meterial_list" resultType="com.example.domain.MeterialAndProductVO">
+		select * from mlist
+		where product_id=#{product_id}
+	</select>
+	
 </mapper>
