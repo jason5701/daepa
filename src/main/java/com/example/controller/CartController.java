@@ -28,7 +28,7 @@ public class CartController {
 	@Autowired
 	CartService cart_service;
 	
-	//장바구니목록
+	//장바구니 목록
 	@RequestMapping("list") 
 	public String cart_list(Model model, HttpSession session, HttpServletResponse response) throws Exception{
 		UserVO user=(UserVO)session.getAttribute("vo");
@@ -44,7 +44,7 @@ public class CartController {
 		return "/index";
 	}
 	
-	//장바구니담기
+	//장바구니 담기
 	@RequestMapping(value="insert", method=RequestMethod.POST)
 	@ResponseBody
 	public int insert(CartVO vo, HttpSession session) throws Exception{
