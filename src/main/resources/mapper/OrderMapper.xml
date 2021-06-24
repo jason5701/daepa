@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.OrderMapper">	
+	<insert id="insert_orders">
+		insert into tbl_orders(user_id,order_name,order_post,order_road_address,order_address,order_address_detail1,order_address_detail2,order_email,order_mobile,order_payment)
+		values(#{user_id},#{order_name},#{order_post},#{order_road_address},#{order_address},#{order_address_detail1},#{order_address_detail2},#{order_email},#{order_mobile},#{order_payment})
+	</insert>
+	
+</mapper>

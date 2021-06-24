@@ -7,7 +7,6 @@
 		<if test="searchType!='전체'">
 			where product_main_meterial like concat('%',#{searchType},'%') and product_drop=0
 		</if>
-
 		<if test="searchType=='전체'">
 			where product_main_meterial like concat('%','%') and product_drop=0
 		</if>
@@ -67,10 +66,14 @@
 	<delete id="delAttach">
 		delete from tbl_product_image where product_id=#{product_id}
 	</delete>
+
+	
 	<select id="main_product_list" resultType="com.example.domain.ProductVO">
 		select * from tbl_product
 		where product_drop=0
 		order by product_name
 		limit #{pageStart}, #{perPageNum}
 	</select>
+	
+
 </mapper>

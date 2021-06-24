@@ -56,7 +56,6 @@
 		</if>
 		order by product_register desc limit #{pageStart}, #{perPageNum}
 	</select>
-<<<<<<< HEAD
 	<select id="product_read" resultType="com.example.domain.ProductVO">
  		select * from tbl_product
  		where product_id=#{product_id}
@@ -67,7 +66,7 @@
 	<delete id="delAttach">
 		delete from tbl_product_image where product_id=#{product_id}
 	</delete>
-=======
+
 	
 	<select id="main_product_list" resultType="com.example.domain.ProductVO">
 		select * from tbl_product
@@ -76,5 +75,5 @@
 		limit #{pageStart}, #{perPageNum}
 	</select>
 	
->>>>>>> 76463d18b2b66112cebc05f62e0e3d41fa49f005
+
 </mapper>
