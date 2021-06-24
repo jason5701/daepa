@@ -43,6 +43,7 @@
 	</delete>
 	<select id="getMeterial_id" resultType="string">
 		select max(meterial_id) from tbl_meterial_sales where meterial_id like '%n%'
+	</select>
 	<update id="updateMeterial_click">
 		update tbl_meterial_sales set meterial_click=meterial_click+1
 		where meterial_id=#{meterial_id}

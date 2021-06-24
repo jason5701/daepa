@@ -70,13 +70,16 @@ public class MeterialDAOImpl implements MeterialDAO{
 	public void delAttach(String meterial_id) throws Exception {
 		session.delete(namespace+".delAttach",meterial_id);
 	}
-
+	
 	@Override
 	public String getMetrial_id() throws Exception {
 		return session.selectOne(namespace+".getMeterial_id");
+	}
+	
 	public void updateMeterial_click(String meterial_id) throws Exception {
 		session.update(namespace+".updateMeterial_click", meterial_id);
 	}
+	
 	@Override
 	public List<MeterialAndProductVO> product_list(String meterial_id) throws Exception {
 		return session.selectList(namespace+".product_list", meterial_id);

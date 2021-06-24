@@ -67,17 +67,12 @@
 	<delete id="delAttach">
 		delete from tbl_product_image where product_id=#{product_id}
 	</delete>
-<<<<<<< HEAD
-=======
-	
->>>>>>> 022ca0789b2c4059c9fdd922e2c6c2b0044710f9
 	<select id="main_product_list" resultType="com.example.domain.ProductVO">
 		select * from tbl_product
 		where product_drop=0
 		order by #{orderBy}
 		limit #{pageStart}, #{perPageNum}
 	</select>
-<<<<<<< HEAD
 	<select id="getProduct_id" resultType="string">
 		select max(product_id) from tbl_product where product_id like '%M%'
 	</select>
@@ -90,6 +85,5 @@
 		select * from mlist
 		where product_id=#{product_id}
 	</select>
-=======
->>>>>>> 022ca0789b2c4059c9fdd922e2c6c2b0044710f9
+
 </mapper>

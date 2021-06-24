@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <h2>나눔판매 관리</h2>
+<div><button onClick="location.href='/user/group_sales_insert'">나눠사자!!</button></div>
 <div style="float:right; ">
 	<div style="overflow:hidden; width:700;">
 		<div id="meterial_div"></div>
@@ -23,6 +24,7 @@
 <script>
 	var page=1;
 	var keyword="";
+	var user_id="${vo.user_id}";
 	$("#keyword").on("keydown",function(e){
 		if(e.keyCode==13) {
 			$("#btn_search").click();
@@ -37,10 +39,11 @@
 	function getMeterial_list(){
 		$.ajax({
 			type:"get",
-			url:"/meterial/meterial.json",
+			url:"/user/meterial_user_list.json",
 			dataType:"json",
-			data:{"page":page,"keyword":keyword},
+			data:{"user_id":user_id,"keyword":keyword,"page":page},
 			success:function(data){
+				console.log(data);
 				var temp=Handlebars.compile($("#temp").html());
 				$("#meterial_div").html(temp(data));
 				

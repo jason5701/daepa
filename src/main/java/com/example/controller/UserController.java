@@ -1,7 +1,7 @@
 package com.example.controller;
 
-import java.net.URLEncoder;
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +17,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.util.WebUtils;
 
+import com.example.domain.Criteria;
+import com.example.domain.PageMaker;
 import com.example.domain.UserVO;
+import com.example.persistence.GroupSalesDAO;
 import com.example.persistence.UserDAO;
 
 @Controller
@@ -26,6 +29,9 @@ public class UserController {
 	
 	@Autowired
 	UserDAO dao;	
+	
+	@Autowired
+	GroupSalesDAO group_dao;
 	
 	@Autowired
 	BCryptPasswordEncoder passEncoder;
@@ -75,4 +81,28 @@ public class UserController {
 		}
 		return "/index";
 	}	
+	
+	//user별 나눔판매리스트
+	@RequestMapping("meterial_user_list.json")
+	@ResponseBody
+	public Map<String,Object> metrial_user_list(Criteria cri,String user_id)throws Exception{
+		Map<String,Object> map=new HashMap<>();
+		cri.setPerPageNum(3);
+		PageMaker pm=new PageMaker();
+		pm.setCri(cri);
+		pm.setTotalCount(group_dao.user_total_count(user_id));
+		map.put("list", group_dao.user_list(cri, user_id));
+		map.put("cri", cri);
+		map.put("pm", pm);
+		return map;
+	}
+	
+	//나눔구매
+	@RequestMapping("group_sales_insert")
+	public String group_sales_insert(Model model)throws Exception{
+		model.addAttribute("pageName","mypage/all.jsp");
+		model.addAttribute("leftPage", "myList.jsp");
+		model.addAttribute("rightPage", "nanum/insert.jsp");
+		return "/index";
+	}
 }

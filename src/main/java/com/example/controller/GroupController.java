@@ -19,25 +19,11 @@ public class GroupController {
 	@Autowired
 	GroupSalesDAO group_dao;
 	
-	@RequestMapping("sales_list.json")
-	@ResponseBody
-	public Map<String,Object> group_list(Criteria cri)throws Exception{
-		Map<String,Object> map=new HashMap<>();
-		PageMaker pm=new PageMaker();
-		cri.setPerPageNum(20);
-		pm.setCri(cri);
-		pm.setTotalCount(200);
-		map.put("list", group_dao.list(cri));
-		map.put("pm", pm);
-		map.put("cri", cri);
-		return map;
-	}
-	
 	@RequestMapping("sales")
 	public String group_sales_management(Model model){
 		model.addAttribute("pageName","mypage/all.jsp");
-		model.addAttribute("rightPage", "myList.jsp");
-		model.addAttribute("leftPage", "group_manage.jsp");
+		model.addAttribute("leftPage", "myList.jsp");
+		model.addAttribute("rightPage", "nanum/group_manage.jsp");
 		return "/index";
 	}
 }

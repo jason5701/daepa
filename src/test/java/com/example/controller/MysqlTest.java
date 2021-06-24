@@ -27,15 +27,7 @@ public class MysqlTest {
 		 noticeDAO.admin_insert(vo);
 	 }
 	 
-	 @Autowired
-	 private GroupSalesDAO group_dao;
-	 	
-	 @Test
-	 public void group_sales_list()throws Exception{
-		 Criteria cri=new Criteria();
-		 group_dao.list(cri);
-	 }
-	 
+
 	 @Autowired
 	 private MeterialDAO meterialDAO;
 	 
