@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.MeterialMapper">
+
 	<select id="list" resultType="com.example.domain.MeterialVO">
 		select * from tbl_meterial_sales 
 		<if test="searchType=='전체'">
@@ -11,47 +12,58 @@
 		</if>
 		order by ${orderBy} limit #{pageStart}, #{perPageNum}
 	</select>
+	
 	<select id="read" resultType="com.example.domain.MeterialVO">
 		select * from tbl_meterial_sales where meterial_id=#{meterial_id}
 	</select>
+	
 	<insert id="admin_insert">
 		insert into tbl_meterial_sales(meterial_id,meterial_name,meterial_price,meterial_description,meterial_image,meterial_drop,meterial_color)
 		values(#{meterial_id},#{meterial_name},#{meterial_price},#{meterial_description},#{meterial_image},1,#{meterial_color})
 	</insert>
+	
 	<update id="update">
 		update tbl_meterial_sales set meterial_price=#{meterial_price}, meterial_description=#{meterial_description}, meterial_image=#{meterial_image}, meterial_delivery=#{meterial_delivery},meterial_drop=#{meterial_drop} where meterial_id=#{meterial_id}
 	</update>
+	
 	<update id="delete">
 		update tbl_meterial_sales set meterial_drop=1 where meterial_id=#{meterial_id}
 	</update>
+	
 	<select id="totalCount" resultType="int">
 		select count(*) from tbl_meterial_sales where meterial_name like concat('%',#{keyword},'%')
 	</select>
+	
 	<select id="admin_list" resultType="com.example.domain.MeterialVO">
 		select * from tbl_meterial_sales
 		where meterial_name like concat('%',#{keyword},'%')
 		order by meterial_register desc limit #{pageStart}, #{perPageNum}
 	</select>
+	
 	<select id="getDetail_images" resultType="string">
 		select meterial_detail_images from tbl_meterial_image where meterial_id=#{meterial_id}
 	</select>
+	
 	<select id="addDetail_images" resultType="string">
 		insert into tbl_meterial_image(meterial_detail_images,meterial_id) values(#{meterial_detail_images},#{meterial_id})
 	</select>
+	
 	<delete id="delAttach">
 		delete from tbl_meterial_image where meterial_id=#{meterial_id}
 	</delete>
-<<<<<<< HEAD
+	
 	<select id="getMeterial_id" resultType="string">
 		select max(meterial_id) from tbl_meterial_sales where meterial_id like '%n%'
-=======
+	</select>
+	
 	<update id="updateMeterial_click">
 		update tbl_meterial_sales set meterial_click=meterial_click+1
 		where meterial_id=#{meterial_id}
 	</update>
+	
 	<select id="product_list" resultType="com.example.domain.MeterialAndProductVO">
-		select * from mlist
+		select * from recipe_list
 		where meterial_id=#{meterial_id}
->>>>>>> 4e3c62fcb64d474418d0375b88867f9c7f1a668a
 	</select>
+	
 </mapper>
