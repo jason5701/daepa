@@ -45,7 +45,7 @@
 <div class="detailContent">
 	<div id="detailContent1" ></div>
 	<script id="tempFiles" type="text/x-handlebars-template">
-		<img src="/displayFile?fullName=detail/{{fullName}}"/>
+		<img src="/displayFile?fullName=detail/{{fullName}}" width=900px/>
 	</script>
 	<div id="detailContent2" >상세정보</div>
 	<div id="detailContent3" >고객후기<jsp:include page="${meterial_review}"></jsp:include></div>

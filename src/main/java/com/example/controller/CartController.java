@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,7 +31,7 @@ public class CartController {
 	
 	//장바구니 목록
 	@RequestMapping("list") 
-	public String cart_list(Model model, HttpSession session, HttpServletResponse response) throws Exception{
+	public String cart_list(Model model, HttpSession session) throws Exception{
 		UserVO user=(UserVO)session.getAttribute("vo");
 		if(user != null){
 			String user_id=user.getUser_id();
@@ -40,7 +41,6 @@ public class CartController {
 		}else if(session == null || user == null){
 			return "redirect:/user/login";
 		}
-		
 		return "/index";
 	}
 	
@@ -48,16 +48,26 @@ public class CartController {
 	@RequestMapping(value="insert", method=RequestMethod.POST)
 	@ResponseBody
 	public int insert(CartVO vo, HttpSession session) throws Exception{
-		
-		int result=0;
 		UserVO user=(UserVO)session.getAttribute("vo");
 		
+		int result=0;
 		if(user != null){
 			vo.setUser_id(user.getUser_id());
+			List<CartVO> cart=cart_service.cart_list(vo.getUser_id());
+			for(CartVO co:cart) { //카트에 이미 담긴 상품인지 체크
+				
+		    }
 			cart_service.cart_insert(vo);
 			result=1;
 		}
 		return result;
+	}
+	
+	//장바구니 삭제
+	@RequestMapping(value="delete", method=RequestMethod.POST)
+	@ResponseBody
+	public void delete(int cart_number) throws Exception{
+		cart_service.cart_delete(cart_number);
 	}
 
 }

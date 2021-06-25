@@ -24,4 +24,9 @@ public class CartServiceImpl implements CartService{
 		return cart_dao.cart_list(user_id);
 	}
 
+	@Override
+	public void cart_delete(int cart_number) throws Exception {
+		cart_dao.cart_delete(cart_number);
+	}
+
 }

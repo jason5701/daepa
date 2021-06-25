@@ -28,5 +28,11 @@ public class CartDAOImpl implements CartDAO{
 	public List<CartVO> cart_list(String user_id) throws Exception {
 		return session.selectList(namespace+".cart_list", user_id);
 	}
+
+	//장바구니 삭제
+	@Override
+	public void cart_delete(int cart_number) throws Exception {
+		session.delete(namespace+".cart_delete", cart_number);
+	}
 	
 }
