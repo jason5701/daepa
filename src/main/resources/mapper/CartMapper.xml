@@ -18,4 +18,21 @@
 		where cart_number=#{cart_number}
 	</delete>
 	
+	<select id="cart_count" resultType="int">
+		select count(*) from tbl_cart
+		where user_id=#{user_id} and product_id=#{product_id}
+	</select>
+	
+	<update id="cart_update_qtt">
+		update tbl_cart
+		set cart_product_qtt=cart_product_qtt+#{cart_product_qtt}
+		where user_id=#{user_id} and product_id=#{product_id}
+	</update>
+	
+	<update id="cart_update">
+		update tbl_cart
+		set cart_product_qtt=#{cart_product_qtt}
+		where user_id=#{user_id} and product_id=#{product_id}
+	</update>
+	
 </mapper>

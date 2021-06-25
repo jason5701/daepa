@@ -29,4 +29,19 @@ public class CartServiceImpl implements CartService{
 		cart_dao.cart_delete(cart_number);
 	}
 
+	@Override
+	public int cart_count(String product_id, String user_id) throws Exception {
+		return cart_dao.cart_count(product_id, user_id);
+	}
+
+	@Override
+	public void cart_update_qtt(CartVO vo) throws Exception {
+		cart_dao.cart_update_qtt(vo);
+	}
+
+	@Override
+	public void cart_upate(CartVO vo) throws Exception {
+		cart_dao.cart_upate(vo);
+	}
+
 }

@@ -53,8 +53,15 @@ public class CartController {
 		int result=0;
 		if(user != null){
 			vo.setUser_id(user.getUser_id());
-			cart_service.cart_insert(vo);
-			result=1;
+			
+			int count=cart_service.cart_count(vo.getProduct_id(), vo.getUser_id());
+			if(count == 0){
+				cart_service.cart_insert(vo);
+				result=1;
+			}else{
+				result=2;
+				cart_service.cart_update_qtt(vo);
+			}
 		}
 		return result;
 	}
@@ -64,6 +71,14 @@ public class CartController {
 	@ResponseBody
 	public void delete(int cart_number) throws Exception{
 		cart_service.cart_delete(cart_number);
+	}
+	
+	//장바구니 수정
+	@RequestMapping("update")
+	public String update(CartVO vo) throws Exception{
+		
+		
+		return "redirect:/cart/list";
 	}
 
 }

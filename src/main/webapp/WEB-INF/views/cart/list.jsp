@@ -6,10 +6,8 @@
 
 <h2>장바구니</h2>
 
-<div class="allCheck">
+<div id="chkBox">
 	<input type="checkbox" name="chkAll" id="chkAll" /><label for="chkAll">모두 선택</label> 
-</div>
-<div class="delBtn">
 	<button type="button" class="selectDelete_btn">선택 삭제</button> 
 </div>
 <table border=1 id="carttbl">
@@ -20,23 +18,25 @@
 		<td>${cartList.product_name}</td>
 		<td width=100><fmt:formatNumber pattern="###,###,###" value="${cartList.product_price}" /></td>
 		<td width=100>
-		<dl class="list fst">
-			<dt class="tit">구매수량</dt> 
-			<dd class="qtt">
-			  <a id="qtt_down"><img src="/resources/image/index/minus.png"/></a>
-			  <span id="product_qtt">${cartList.cart_product_qtt}</span>
-			  <a id="qtt_up"><img src="/resources/image/index/plus.png"/></a>
-			</dd>
-		</dl></td>
+			<input type="text" id="product_qtt" value="${cartList.cart_product_qtt}">
+			<input type="button" class="qtt_btn" value="수정">
+		</td>
 	</tr>
 	<tr>
 		<td colspan=4><fmt:formatNumber pattern="###,###,###" value="${cartList.product_price * cartList.cart_product_qtt}" /></td>
-		<td><button type="button" class="delete_btn" data-cartNum="${cartList.cart_number}">삭제</button></td>
+		<td><input type="button" class="delete_btn" data-cartNum="${cartList.cart_number}" value="삭제"></td>
 	</tr>
 	</c:forEach>
 </table>
 
 <script>
+//수정버튼 클릭 시
+$("#carttbl").on("click", ".qtt_btn", function(){
+	var product_qtt=$("#product_qtt").val();
+});
+
+
+//각 삭제버튼 클릭 시
 $("#carttbl").on("click", ".delete_btn", function(){
 	var cart_number=$(this).attr("data-cartNum");
 	//alert(cart_number);
@@ -50,6 +50,32 @@ $("#carttbl").on("click", ".delete_btn", function(){
 			location.href="/cart/list";
 		}
 	});
+});
+
+//선택삭제버튼 클릭 시
+$("#chkBox").on("click", ".selectDelete_btn", function(){
+	if($("#carttbl .row .chk:checked").length==0){
+		alert("선택한 상품이 없습니다.");
+	}
+	
+		if(!confirm("선택한 상품을 삭제할까요?")) return;
+		
+		$("#carttbl .row .chk:checked").each(function(){
+		var array=[];
+		cart_number=$(this).attr("data-cartNum");
+		var data={"cart_number":cart_number};
+		array.push(data);
+		
+		$.ajax({
+			type:"post",
+			url:"/cart/delete",
+			data:{"cart_number":cart_number},
+			success:function(){
+			}
+		});
+	});
+	alert("삭제완료!");
+	location.href="/cart/list";
 });
 
 //전체체크박스 클릭 시
@@ -74,33 +100,5 @@ $("#carttbl").on("click", ".row .chk", function(){
 	}else{
 		$("#chkAll").prop("checked", false);
 	}
-});
-
-//수량업다운 스크립트
-$(function(){
-	$('#qtt_down').click(function(e){
-		e.preventDefault();
-		var stat = $('#product_qtt').text();
-		var num = parseInt(stat,10);
-		num--;
-		if(num<=0){
-			alert('더 이상 줄일 수 없습니다.');
-			num=1;
-		}
-		$('#product_qtt').text(num);
-		$("#meterial_sum").html(meterial_price*num);
-	});
-	
-	$('#qtt_up').click(function(e){
-		e.preventDefault();
-		var stat = $('#product_qtt').text();
-		var num = parseInt(stat,10);
-		num++;
-		if(num>100){
-			alert('더 이상 늘릴 수 없습니다.');
-			num=100;
-		}
-		$('#product_qtt').text(num);
-	});
 });
 </script>

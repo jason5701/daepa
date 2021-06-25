@@ -1,6 +1,8 @@
 package com.example.persistence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,27 @@ public class CartDAOImpl implements CartDAO{
 	@Override
 	public void cart_delete(int cart_number) throws Exception {
 		session.delete(namespace+".cart_delete", cart_number);
+	}
+
+	//장바구니 중복체크
+	@Override
+	public int cart_count(String product_id, String user_id) throws Exception {
+		Map<String, Object> map=new HashMap<String, Object>();
+		map.put("product_id", product_id);
+		map.put("user_id", user_id);
+		return session.selectOne(namespace+".cart_count", map);
+	}
+
+	//장바구니 중복 수량수정
+	@Override
+	public void cart_update_qtt(CartVO vo) throws Exception {
+		session.update(namespace+".cart_update_qtt", vo);
+	}
+
+	//장바구니 수정
+	@Override
+	public void cart_upate(CartVO vo) throws Exception {
+		session.update(namespace+".cart_upate", vo);
 	}
 	
 }

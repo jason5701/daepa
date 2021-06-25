@@ -65,8 +65,13 @@ var product_name = $(".product_name").html();
 		data : {"product_id":product_id, "cart_product_qtt":product_qtt},
 		success : function(result){
 			if(result == 1){
-				if(!confirm(product_name+" 을(를) 장바구니에 추가할까요?")) return;
-				alert("장바구니에 추가되었습니다.");
+				if(!confirm(product_name+"을(를) 장바구니에 추가할까요?")) return;
+				if(!confirm("장바구니에 추가되었습니다. 장바구니로 이동할까요?")) return;
+				location.href="cart/list";
+			}else if(result == 2){
+				if(!confirm(product_name+"은(는) 이미 담겨있습니다. 수량을 추가할까요?")) return;
+				if(!confirm("장바구니에 추가되었습니다. 장바구니로 이동할까요?")) return;
+				location.href="cart/list";
 			}else{
 				alert("로그인된 회원만 사용할 수 있습니다.");
 			}
