@@ -10,15 +10,15 @@
 	</head>
 	<body>
 		<h2>로그인</h2>
-		<div style="width:340px">
+		<div class="div_Login">
 			<form name="frm">
 				<div>
-					<input type="text" name="admin_id" size="20" placeholder="관리자 아이디를 입력해주세요."  style="height:54px; width:100%; font-size:14px; outline:none; border-radius:3px; border:1px solid #ccc;"/>
+					<input type="text" class="input_admin_id" name="admin_id" size="20" placeholder="관리자 아이디를 입력해주세요."/>
 				</div>
 				<div style="margin-top:10px;">
-					<input type="password" name="admin_password" placeholder="비밀번호를 입력해주세요."  style="height:54px; width:100%; font-size:14px; outline:none; border-radius:3px; border:1px solid #ccc;"/>
+					<input type="password" class="input_admin_password" name="admin_password" placeholder="비밀번호를 입력해주세요."/>
 				</div>
-				<span><input type="checkbox" name="chkLogin"/>로그인 상태유지</span>
+				<span><input type="checkbox" name="chkLogin" style="margin-top:10px; margin-right:5px;"/>로그인 상태유지</span>
 				<button type="submit" class="btn_type1" style="margin-top:10px;"><span class="txt_type">로그인</span></button>
 			</form>
 		</div>

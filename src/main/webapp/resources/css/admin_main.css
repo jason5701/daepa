@@ -81,3 +81,14 @@ a{
 	text-decoration:none;
 }
 
+.btn_admin{
+	width: 130px;
+	height: 30px;
+	padding: .5em;
+	text-align:center;
+	border: 1px solid #364967;
+	background: #364967;
+	border-radius:3px;
+	color: white;
+	font-weight: bold;
+}

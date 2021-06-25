@@ -1,26 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="/resources/css/user.css" />
-<h1 class="login_H1">로 그 인</h1>
-<div class="div_Login">
-	<form name="frm">
-		<table class="tbl_login">
-			<tr class="login_id">
-				<td><input type="text" name="user_id" class="id_input" placeholder="아이디를 입력해주세요"></td>
-			</tr>
-			<tr class="login_password">
-				<td><input type="password" name="user_password" class="password_input" placeholder="비밀번호를 입력해주세요"></td>
-			</tr>
-			<tr class="login_chk">
-				<td><input type="checkbox" name="chkLogin"> 로그인 저장</td>
-			</tr>			
-		</table>
-		<div class="btn_login">	
-			<input type="submit" class="login_button" value="로그인"/>		
-			<input type="button" class="login_button2" value="회원가입"/>
-		</div>			
-	</form>					
-</div>
+		<h2>로 그 인</h2>
+		<div class="div_Login">
+			<form name="frm">
+				<div>
+					<input type="text" name="user_id" class="id_input" placeholder="아이디를 입력해주세요">
+				</div>
+				<div style="margin-top:10px;">
+					<input type="password" name="user_password" class="password_input" placeholder="비밀번호를 입력해주세요">
+				</div>
+				<span>
+					<input type="checkbox" name="chkLogin" class="chkLogin" style="margin-top:10px; margin-right:5px;"/>로그인 상태유지
+				</span>
+					<input type="submit" class="login_button" style="margin-top:10px;" value="로그인"/>		
+					<input type="button" class="login_button2" value="회원가입"/>
+			</form>
+		</div>
 <script>		
 	//로그인하기
 	$(frm).on("submit", function(e) {

@@ -21,16 +21,24 @@ public class PurchaseDAOImpl implements PurchaseDAO{
 	String namespace="com.example.mapper.PurchaseMapper";
 
 	@Override
-	public List<PurchaseVO> order_List(@Param("user_id") String user_id,@Param("cri") Criteria cri) throws Exception {		
+	public List<PurchaseVO> orderList(@Param("order_number") int order_number,@Param("user_id") String user_id) throws Exception {		
 		Map<String, Object> map=new HashMap<>();
+		map.put("order_number", order_number);
 		map.put("user_id", user_id);
-		map.put("cri", cri);
-		return session.selectList(namespace+".order_List",map);
+		return session.selectList(namespace+".orderList",map);
 	}
 
 	@Override
 	public List<PurchaseVO> admin_order_list(Criteria cri) throws Exception {
 		return session.selectList(namespace+".admin_order_list",cri);
+	}
+
+	@Override
+	public List<PurchaseVO> orders(@Param("user_id") String user_id,@Param("cri") Criteria cri) throws Exception {
+		Map<String, Object> map=new HashMap<>();
+		map.put("user_id", user_id);
+		map.put("cri", cri);
+		return session.selectList(namespace+".orders",map);
 	}
 
 }

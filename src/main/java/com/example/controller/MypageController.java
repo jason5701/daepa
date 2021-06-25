@@ -23,12 +23,25 @@ public class MypageController {
 	@Autowired
 	PurchaseDAO purchase_dao;
 	
-	@RequestMapping("order_List.json")
+	@RequestMapping("orderList.json")
 	@ResponseBody
-	public HashMap<String, Object> order_List(Model model,HttpSession session, Criteria cri,String user_id)throws Exception{
+	public HashMap<String, Object> orderList(Model model,HttpSession session, String user_id, int order_number)throws Exception{
+		HashMap<String, Object> map=new HashMap<String, Object>();
+		map.put("orderList", purchase_dao.orderList(order_number,user_id));
+		
+		session.setAttribute("map", map);
+		PageMaker pm = new PageMaker();		
+		map.put("pm", pm);
+		
+		return map;
+	}
+	
+	@RequestMapping("orders.json")
+	@ResponseBody
+	public HashMap<String, Object> orders(Model model,HttpSession session, Criteria cri,String user_id)throws Exception{
 		HashMap<String, Object> map=new HashMap<String, Object>();
 		cri.setPerPageNum(5);
-		map.put("order_List", purchase_dao.order_List(user_id,cri));
+		map.put("orders", purchase_dao.orders(user_id, cri));
 		
 		session.setAttribute("map", map);
 		PageMaker pm = new PageMaker();
@@ -39,15 +52,16 @@ public class MypageController {
 		
 		return map;
 	}
-	@RequestMapping("order_List")
-	public String order_List(){
-		return "/mypage/order_list";
+	
+	@RequestMapping("orderList")
+	public String orderList(){
+		return "/mypage/orderList";
 	}
 	@RequestMapping("all")
 	public String mypage(Model model){
 		model.addAttribute("pageName","mypage/all.jsp");
 		model.addAttribute("leftPage", "myList.jsp");
-		model.addAttribute("rightPage", "order_list.jsp");
+		model.addAttribute("rightPage", "orderList.jsp");
 		return "/index";
 	}
 	
@@ -73,18 +87,18 @@ public class MypageController {
 		model.addAttribute("rightPage", "my_QnA.jsp");
 		return "/index";
 	}
-	@RequestMapping("my_info")
-	public String my_info(Model model){
+	@RequestMapping("myInfo")
+	public String myInfo(Model model){
 		model.addAttribute("pageName","mypage/all.jsp");
 		model.addAttribute("leftPage", "myList.jsp");
-		model.addAttribute("rightPage", "my_info.jsp");
+		model.addAttribute("rightPage", "myInfo.jsp");
 		return "/index";
 	}
-	@RequestMapping("my_infoupdate")
-	public String my_infoupdate(Model model){
+	@RequestMapping("myInfoupdate")
+	public String myInfoupdate(Model model){
 		model.addAttribute("pageName","mypage/all.jsp");
 		model.addAttribute("leftPage", "myList.jsp");
-		model.addAttribute("rightPage", "my_infoupdate.jsp");
+		model.addAttribute("rightPage", "myInfoupdate.jsp");
 		return "/index";
 	}
 	

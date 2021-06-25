@@ -2,23 +2,15 @@
 <!-- 로그인 스타일 ------------------------------------------------------------------>
 *{font-family: 'Noto Sans CJK KR'}
 .login_H1 , .register_H1{font-weight:900; text-align:center; font-size: 30px;}
-.div_Login{margin: 0px auto; width: 800px; height: 1316px;}
-.tbl_login, .btn_login {width: 80%;	margin:0px auto; text-align:center;border-collapse: collapse;}
-.tbl_login tr {height:60px; display:table-row; vertical-align: inherit; border-color: inherit;}
+.div_Login{margin: 10px auto; width: 400px; height: 1316px;}
 .id_input, .password_input{
-	width: 400px;
-	height: 50px;
-	padding: .5em;
-	font-weight: 500;
-	border: 1px solid #364967;
-	background: white;
-	font-size: 12pt;
-	color: black;
+	height:54px; width:100%; font-size:14px; padding:10px; outline:none; border-radius:3px; border:1px solid #ccc;
 }
-#chkLogin, .normal, .Allnormal {
+.chkLogin, .normal, .Allnormal {
 	display: inline-block;
 	width: 20px;
 	height: 20px;
+	margin-top:10px;
 	border: 2px solid #364967;
 	cursor: pointer;
 }
@@ -29,6 +21,7 @@
 	margin-bottom:10px;
 	border: 1px solid #364967;
 	background: #364967;
+	border-radius:3px;
 	color: white;
 	font-weight: bold;
 }
@@ -38,6 +31,7 @@
 	padding: .5em;
 	border: 1px solid #364967;
 	background: white;
+	border-radius:3px;
 	color: block;
 	font-weight: bold;
 }

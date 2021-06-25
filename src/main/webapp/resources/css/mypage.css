@@ -311,7 +311,7 @@ ol, ul {
     margin-top:20px;
 }
 
-#tbl_order_List{
+#tbl_orderList, #tbl_orders{
 	width: 100%;	
 	display: table;
     border-collapse: separate;
@@ -329,6 +329,6 @@ ol, ul {
     font-variant: normal;
 }
 
-#tbl_order_List tr{border-bottom: 1px solid #ddd; text-align:center; padding: 10px;}
+#tbl_orders tr, #tbl_orderList tr{border-bottom: 1px solid #ddd; text-align:center; padding: 10px;}
 
-#tbl_order_List td{border-bottom: 1px solid #ddd; text-align:center; padding: 10px;}
+#tbl_orders td, #tbl_orderList td{border-bottom: 1px solid #ddd; text-align:center; padding: 10px;}
