@@ -57,6 +57,7 @@ public class MypageController {
 	public String orderList(){
 		return "/mypage/orderList";
 	}
+	
 	@RequestMapping("all")
 	public String mypage(Model model){
 		model.addAttribute("pageName","mypage/all.jsp");
@@ -65,28 +66,30 @@ public class MypageController {
 		return "/index";
 	}
 	
-	@RequestMapping("my_favorite")
+	@RequestMapping("myFavorite")
 	public String my_favorite(Model model){
 		model.addAttribute("pageName","mypage/all.jsp");
 		model.addAttribute("leftPage", "myList.jsp");
-		model.addAttribute("rightPage", "my_favorite.jsp");
+		model.addAttribute("rightPage", "myFavorite.jsp");
 		return "/index";
 	}
 	
-	@RequestMapping("my_review")
+	@RequestMapping("myReview")
 	public String my_review(Model model){
 		model.addAttribute("pageName","mypage/all.jsp");
 		model.addAttribute("leftPage", "myList.jsp");
-		model.addAttribute("rightPage", "my_review.jsp");
+		model.addAttribute("rightPage", "myReview.jsp");
 		return "/index";
 	}
-	@RequestMapping("my_QnA")
+	
+	@RequestMapping("myQnA")
 	public String login(Model model){
 		model.addAttribute("pageName","mypage/all.jsp");
 		model.addAttribute("leftPage", "myList.jsp");
-		model.addAttribute("rightPage", "my_QnA.jsp");
+		model.addAttribute("rightPage", "myQnA.jsp");
 		return "/index";
 	}
+	
 	@RequestMapping("myInfo")
 	public String myInfo(Model model){
 		model.addAttribute("pageName","mypage/all.jsp");
@@ -94,6 +97,7 @@ public class MypageController {
 		model.addAttribute("rightPage", "myInfo.jsp");
 		return "/index";
 	}
+	
 	@RequestMapping("myInfoupdate")
 	public String myInfoupdate(Model model){
 		model.addAttribute("pageName","mypage/all.jsp");
