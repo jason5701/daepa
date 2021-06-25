@@ -53,10 +53,6 @@ public class CartController {
 		int result=0;
 		if(user != null){
 			vo.setUser_id(user.getUser_id());
-			List<CartVO> cart=cart_service.cart_list(vo.getUser_id());
-			for(CartVO co:cart) { //카트에 이미 담긴 상품인지 체크
-				
-		    }
 			cart_service.cart_insert(vo);
 			result=1;
 		}
