@@ -41,17 +41,15 @@
 	<delete id="delAttach">
 		delete from tbl_meterial_image where meterial_id=#{meterial_id}
 	</delete>
-<<<<<<< HEAD
 	<select id="getMeterial_id" resultType="string">
 		select max(meterial_id) from tbl_meterial_sales where meterial_id like '%n%'
-=======
+	</select>
 	<update id="updateMeterial_click">
 		update tbl_meterial_sales set meterial_click=meterial_click+1
 		where meterial_id=#{meterial_id}
 	</update>
 	<select id="product_list" resultType="com.example.domain.MeterialAndProductVO">
-		select * from mlist
+		select * from recipe_list
 		where meterial_id=#{meterial_id}
->>>>>>> 4e3c62fcb64d474418d0375b88867f9c7f1a668a
 	</select>
 </mapper>

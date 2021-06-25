@@ -15,44 +15,19 @@
  	<insert id="product_review_insert">
  		insert into tbl_review(review_title, product_id, review_writer, review_write_date, review_contents, review_image)
 		values(#{review_title}, #{product_id}, #{review_writer}, now(), #{review_contents}, #{review_image})
- 	</insert>
- 	
- 	<insert id="meterial_review_insert">
- 		insert into tbl_review(review_title, meterial_id, review_writer, review_write_date, review_contents, review_image)
-		values(#{review_title}, #{meterial_id}, #{review_writer}, now(), #{review_contents}, #{review_image})
- 	</insert>
+ 	</insert>	
  	
  	<select id="product_review_read" resultType="com.example.domain.ReviewVO">
  		select * from pname_review
  		where review_number=#{review_number}
  	</select>
- 	
- 	<select id="meterial_review_read" resultType="com.example.domain.ReviewVO">
- 		select * from mname_review
- 		where review_number=#{review_number}
- 	</select>
- 	
+	
  	<delete id="product_review_delete">
  		delete from tbl_review
  		where review_number=#{review_number}
  	</delete>
  	
- 	<delete id="meterial_review_delete">
- 		delete from tbl_review
- 		where review_number=#{review_number}
- 	</delete>
- 	
- 	<update id="updateReview_click">
- 		update tbl_review set review_click=review_click+1
- 		where review_number=#{review_number}
- 	</update>
- 	
  	<update id="product_review_update">
- 		update tbl_review set review_contents=#{review_contents}, review_image=#{review_image}, review_modify_date=now()
- 		where review_number=#{review_number}
- 	</update>
- 	
- 	<update id="meterial_review_update">
  		update tbl_review set review_contents=#{review_contents}, review_image=#{review_image}, review_modify_date=now()
  		where review_number=#{review_number}
  	</update>
@@ -72,10 +47,70 @@
 		limit #{pageStart}, #{perPageNum}
  	</select>
  	
+ 	<insert id="meterial_review_insert">
+ 		insert into tbl_review(review_title, meterial_id, review_writer, review_write_date, review_contents, review_image)
+		values(#{review_title}, #{meterial_id}, #{review_writer}, now(), #{review_contents}, #{review_image})
+ 	</insert>
+ 	 	
+ 	<select id="meterial_review_read" resultType="com.example.domain.ReviewVO">
+ 		select * from mname_review
+ 		where review_number=#{review_number}
+ 	</select>
+ 	
+ 	<delete id="meterial_review_delete">
+ 		delete from tbl_review
+ 		where review_number=#{review_number}
+ 	</delete>
+ 	
+ 	<update id="meterial_review_update">
+ 		update tbl_review set review_contents=#{review_contents}, review_image=#{review_image}, review_modify_date=now()
+ 		where review_number=#{review_number}
+ 	</update>
+ 	 		
  	<select id="meterial_totalCount" resultType="int">
 		select count(*) from tbl_review where meterial_id=#{searchType}
 	</select>
 	
+	<select id="user_review_list" resultType="com.example.domain.ReviewVO">
+ 		select * from uname_review where review_writer=#{searchType} 
+ 		<if test="keyword=='review_number desc'">
+ 			order by review_number desc
+	 	</if>
+	 	<if test="keyword=='review_click desc'">
+ 			order by review_click desc
+	 	</if>
+		limit #{pageStart}, #{perPageNum}
+ 	</select>
+
+ 	<insert id="user_review_insert">
+ 		insert into tbl_review(review_title, review_writer, review_write_date, review_contents, review_image)
+		values(#{review_title}, #{review_writer}, now(), #{review_contents}, #{review_image})
+ 	</insert>	
+ 	
+ 	<select id="user_review_read" resultType="com.example.domain.ReviewVO">
+ 		select * from uname_review
+ 		where review_number=#{review_number}
+ 	</select>
+	
+ 	<delete id="user_review_delete">
+ 		delete from tbl_review
+ 		where review_number=#{review_number}
+ 	</delete>
+ 	
+ 	<update id="user_review_update">
+ 		update tbl_review set review_contents=#{review_contents}, review_image=#{review_image}, review_modify_date=now()
+ 		where review_number=#{review_number}
+ 	</update>
+ 	
+ 	<select id="user_totalCount" resultType="int">
+		select count(*) from tbl_review where review_writer=#{searchType}
+	</select>
+	
+ 	<update id="updateReview_click">
+ 		update tbl_review set review_click=review_click+1
+ 		where review_number=#{review_number}
+ 	</update>
+ 		
 	<select id="lastNumber" resultType="String">
 		select max(review_number) from tbl_review
 	</select>

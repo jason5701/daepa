@@ -95,4 +95,37 @@ public class BoardDAOImpl implements BoardDAO{
 		return session.selectOne(namespace + ".meterial_review_read", review_number);
 	}
 
+	@Override
+	public List<ReviewVO> user_review_list(Criteria cri) throws Exception {
+		return session.selectList(namespace + ".user_review_list", cri);
+	}
+
+	@Override
+	public void user_review_insert(ReviewVO vo) throws Exception {
+		session.insert(namespace + ".user_review_insert", vo);
+		
+	}
+
+	@Override
+	public void user_review_delete(int review_number) throws Exception {
+		session.delete(namespace + ".user_review_delete", review_number);
+		
+	}
+
+	@Override
+	public void user_review_update(ReviewVO vo) throws Exception {
+		session.update(namespace + ".user_review_update", vo);
+		
+	}
+
+	@Override
+	public int user_totalCount(Criteria cri) throws Exception {
+		return session.selectOne(namespace + ".user_totalCount", cri);
+	}
+
+	@Override
+	public ReviewVO user_review_read(int review_number) throws Exception {
+		return session.selectOne(namespace + ".user_review_read", review_number);
+	}
+
 }

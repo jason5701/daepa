@@ -26,4 +26,11 @@ public class BoardServiceImpl implements BoardService{
 		review_dao.updateReview_click(review_number);
 		return vo;
 	}
+	@Transactional
+	@Override
+	public ReviewVO user_review_read(int review_number) throws Exception {
+		ReviewVO vo=review_dao.user_review_read(review_number);
+		review_dao.updateReview_click(review_number);
+		return vo;
+	}
 }
