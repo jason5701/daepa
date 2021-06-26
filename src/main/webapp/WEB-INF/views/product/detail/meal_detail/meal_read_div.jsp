@@ -6,6 +6,7 @@
 	<img src="/displayFile?fullName=${vo.product_image}" width=400 height=400 />
 </div>
 <div id="product_detail">
+	<div class="product_id" style="display:none; ">${vo.product_id}</div>
 	<div class="product_name">${vo.product_name}</div>
 	<div class="product_detail">${vo.product_detail}</div><br>
 	<div class="product_price"><fmt:formatNumber value="${vo.product_price}" pattern="#,###,###"/>원</div><hr>
@@ -49,7 +50,35 @@
 	</div>
 </div>
 <script>
-	var product_price="${vo.product_price}";
+
+var product_price="${vo.product_price}";
+
+//카트담기
+$(".btnCart").click(function(){
+var product_qtt = $("#product_qtt").html();
+var product_id = $(".product_id").html();
+var product_name = $(".product_name").html();
+
+	$.ajax({
+		url : "/cart/insert",
+		type : "post",
+		data : {"product_id":product_id, "cart_product_qtt":product_qtt},
+		success : function(result){
+			if(result == 1){
+				if(!confirm(product_name+"을(를) 장바구니에 추가할까요?")) return;
+				if(!confirm("장바구니에 추가되었습니다. 장바구니로 이동할까요?")) return;
+				location.href="cart/list";
+			}else if(result == 2){
+				if(!confirm(product_name+"은(는) 이미 담겨있습니다. 수량을 추가할까요?")) return;
+				if(!confirm("장바구니에 추가되었습니다. 장바구니로 이동할까요?")) return;
+				location.href="cart/list";
+			}else{
+				alert("로그인된 회원만 사용할 수 있습니다.");
+			}
+		}
+	});
+});
+
 	//수량업다운 스크립트
 	$(function(){
 		$("#product_sum").html(product_price*1);

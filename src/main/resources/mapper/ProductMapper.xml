@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.ProductMapper">
+
 	<select id="list" resultType="com.example.domain.ProductVO">
 		select * from tbl_product 
 		<if test="searchType!='전체'">
@@ -76,14 +77,14 @@
 	<select id="getProduct_id" resultType="string">
 		select max(product_id) from tbl_product where product_id like '%M%'
 	</select>
+	
 	<update id="updateProduct_click">
 		update tbl_product set product_click=product_click+1
 		where product_id=#{product_id}
 	</update>
 	
 	<select id="meterial_list" resultType="com.example.domain.MeterialAndProductVO">
-		select * from mlist
+		select * from recipe_list
 		where product_id=#{product_id}
 	</select>
-
 </mapper>
