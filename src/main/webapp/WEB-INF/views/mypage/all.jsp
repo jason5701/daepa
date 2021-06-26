@@ -35,14 +35,14 @@
 									<img src="/resources/image/mypage/arrow_right_gray_56_56.png"/>
 								</div>
 								<div class="spacer"></div>
-								<p class="info">0원</p>						
+								<p class="info">${vo.user_point}원</p>						
 							</a>
 							<a class="link_wrap">
 								<div class="link_title">쿠폰
 									<img src="/resources/image/mypage/arrow_right_gray_56_56.png"/>
 								</div>
 							<div class="spacer"></div>
-							<p class="info">1개</p>
+							<p class="info">0개</p>
 						</a>
 						<a class="link_wrap">
 							<div class="link_title" onClick="location.href='/group/sales'">나눔관리

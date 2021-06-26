@@ -43,7 +43,7 @@ $(frm).on("submit", function(e) {
 				alert("비번확인!");
 				console.log(data);
 				if(data.result==1){
-					location.href="/mypage/my_infoupdate";
+					location.href="/mypage/myInfoupdate";
 				}else{
 					alert("비밀번호가 일치하지 않습니다.")
 				}				

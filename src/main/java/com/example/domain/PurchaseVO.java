@@ -36,7 +36,7 @@ public class PurchaseVO extends OrderVO{
 		return purchase_sum;
 	}
 	public void setPurchase_sum(int purchase_sum) {
-		this.purchase_sum = this.product_price * this.purchase_qtt;
+		this.purchase_sum = purchase_sum;
 	}
 	@Override
 	public String toString() {

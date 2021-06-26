@@ -20,3 +20,5 @@
 	text-align:center;
 	font-weight:500;
 }
+.div_Login{margin: 10px auto; width: 400px; height: 1316px;}
+.input_admin_id, .input_admin_password{height:54px; width:100%; font-size:14px; padding:10px; outline:none; border-radius:3px; border:1px solid #ccc;}

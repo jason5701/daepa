@@ -19,26 +19,50 @@
 			</div>	
 	</div>
 	<div class="board-container">
-		<table id="tbl_order_List"></table>
-		<script id="temp_order_List" type="text/x-handlebars-template">
+		<table id="tbl_orders"></table>
+		<script id="temp_orders" type="text/x-handlebars-template">
 			<tr class="title">
+				<td width=100>주문번호</td>
 				<td width=100>주문일자</td>
-				<td width=200>상품명</td>
-        		<td width=50>상품수량</td>
-         		<td width=100>상품단가</td>
-				<td width=100>금액</td>      	
+				<td width=100>주문자</td>
+         		<td width=400>주소</td>
+				<td width=100>상태</td>      	
 			</tr>
-			{{#each order_List}}
-	        <tr class="row">  
+			{{#each orders}}
+			<tr class="tr_row" order_number="{{order_number}}">>
+				<td>{{order_number}}</td>				
 				<td>{{order_register_date}}</td>
-				<td>{{product_name}}</td>
-		        <td>{{purchase_qtt}}개</td>
-		        <td>{{nf product_price}}원</td>
-				<td>{{nf purchase_sum}}원</td>
-	        <tr>
+				<td>{{order_name}}</td>
+				<td>{{order_address}}</td>
+				<td>{{order_status}}</td>
+			</tr>			
 			{{/each}}
-		</script>
+		</script>	
 			<div id="pagination"></div>
+			<br>
+		<div class="div_orderList">
+			<hr/>
+			<h2>주문 목록</h2>
+			<table id="tbl_orderList"  style=" background:#ddd; text-align:left;"></table>
+			<script id="temp_orderList" type="text/x-handlebars-template">
+				<tr class="title">
+					<td width=100>상품번호</td>
+					<td width=400>상품명</td>
+					<td width=100>단가</td>
+         			<td width=100>수량</td>
+					<td width=100>금액</td>      	
+				</tr>
+				{{#each orderList}}
+				<tr class="row">
+					<td>{{product_id}}</td>				
+					<td>{{product_name}}</td>
+					<td>{{product_price}}</td>
+					<td>{{nf purchase_qtt}}</td>			
+					<td>{{nf purchase_sum}}</td>
+				</tr>			
+				{{/each}}		
+			</script>
+		</div>
 	</div>
 </div>
 <script>
@@ -50,17 +74,25 @@ Handlebars.registerHelper("nf", function(price){
 <script>
 	var page=1;
 	var user_id="${vo.user_id}";
-	getList();
+	var order_number=$("#tbl_orders .tr_row").attr("order_number");
+	ordersList();	
+	$(".div_orderList").hide();
 	
-	function getList(){				
+	$("#tbl_orders").on("click",".tr_row",function(){		
+		$(".div_orderList").show();
+		var order_number = $(this).attr("order_number");
+		purchaseList(order_number);
+	});
+	
+	function ordersList(){				
 		$.ajax({
 			type:"get",
-			url:"order_List.json",
+			url:"orders.json",
 			dataType:"json",
 			data:{"page":page,"user_id":user_id},			
 			success:function(data){
-				var temp = Handlebars.compile($("#temp_order_List").html());
-				$("#tbl_order_List").html(temp(data));	
+				var temp = Handlebars.compile($("#temp_orders").html());
+				$("#tbl_orders").html(temp(data));	
 				//페이징목록출력
 				var str="";
 				var prev=data.pm.startPage-1;
@@ -76,6 +108,19 @@ Handlebars.registerHelper("nf", function(price){
 				}
 				if(data.pm.next) str +="<a href='" + next + "'>▶</a>";
 				$("#pagination").html(str);
+				}
+			});				
+	}
+	function purchaseList(order_number){	
+		$.ajax({			
+			type:"get",
+			url:"orderList.json",
+			dataType:"json",
+			data:{"order_number":order_number,"user_id":user_id},			
+			success:function(data){
+				console.log();
+				var temp = Handlebars.compile($("#temp_orderList").html());
+				$("#tbl_orderList").html(temp(data));					
 				}
 			});				
 	}
