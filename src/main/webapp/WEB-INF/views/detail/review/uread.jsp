@@ -12,7 +12,9 @@
 <body>
 	<form name="frm" enctype="multipart/form-data">
 		<input type="hidden" value="${vo.review_number}" name="review_number"/>
+		<input type="hidden" value="${user_id}" name="user_id"/>
 		<input type="hidden" value="${vo.product_id}" name="product_id"/>
+		<input type="hidden" value="${vo.meterial_id}" name="meterial_id"/>
 		<table>
 			<tr>
 				<td>작성자</td>
@@ -28,9 +30,8 @@
 			</tr>
 			<tr>
 				<td>상품이름</td>
-				<td>
-					${vo.product_name}
-				</td>
+				<td>${vo.product_name}</td>
+				<td>${vo.meterial_name}</td>
 			</tr>
 			
 	       <tr>
@@ -51,7 +52,7 @@
 	            </td>
 	            <td style="height:150px; padding:10px;">
 	            <input type="file" name="files" accept="image/*" multiple style="display:none;"/>
-					<div id="uploaded">
+					<!--<div id="uploaded">
 	  					<ul id="uploadFiles"></ul>
 	   					<script id="temp" type="text/x-handlebars-template">
       						<li>
@@ -60,7 +61,7 @@
         						<input class="del" type="button" value="삭제" fullName={{fullName}}/>
       						</li>
    	  					</script>
-					</div>
+					</div>-->
 	            </td>
          	</tr>	
 			<tr>
@@ -72,12 +73,13 @@
 		<input type="submit" value="수정">
 		<input type="reset" value="취소">
 		<input type="button" value="삭제" id="btnDelete">
+		<input type="button" value="목록이동" onClick="location.href='/mypage/my_review'">
 	</form>
 </body>
 <script>
 	$("#btnDelete").on("click", function(){
 		if(!confirm("삭제하시겠습니까?")) return;
-		frm.action="product_review_delete";
+		frm.action="user_review_delete";
 		frm.method="get";
 		frm.submit();
 	});
@@ -117,14 +119,14 @@
 	          }
 	       });
 	   });*/
-	//상품수정
-	$(frm).on("submit", function(e){
-	   e.preventDefault();
-	   if(!confirm("상품을 수정하시겠습니까?")) return;
-	   frm.action="product_review_update";
-	   frm.method="post";
-	   frm.submit();
-	});
+		//상품수정
+	   $(frm).on("submit", function(e){
+	      e.preventDefault();
+	      if(!confirm("상품을 수정하시겠습니까?")) return;
+	      frm.action="user_review_update";
+	      frm.method="post";
+	      frm.submit();
+	   });
 	//이미지클릭했을떄
 	$("#image").on("click", function(){
 	   $(frm.file).click();

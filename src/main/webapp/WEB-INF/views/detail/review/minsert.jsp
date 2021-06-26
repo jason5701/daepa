@@ -17,15 +17,18 @@
 </head>
 <body>
 	<form name="frm" enctype="multipart/form-data">
-		<input type="hidden" value="${last_review_number}" name="review_number"/>
+		<input type="hidden" value="${review_number}" name="review_number"/>
 		<table>
 			<tr>
 				<td>상품번호</td>
-				<td><input type="text" name="meterial_id" value="${vo.meterial_id}"></td>
+				<td><input type="text" name="meterial_id" value="${meterial_id}"></td>
 			</tr>
 			<tr>
 				<td>작성자</td>
-				<td><input type="text" name="review_writer"></td>
+				<td>
+					<input type="hidden" name="review_writer" value="${vo.user_id}">
+					<input type="text" value="${vo.user_name}" readonly>
+				</td>
 			</tr>
 			<tr>
 				<td>작성일</td>
@@ -44,7 +47,7 @@
 				<td>
 					<img id="image" src="http://placehold.it/150x120" width=150/>
 					<input type="file" name="file" style="display:none;"/>
-					<div id="upload">
+					<!--<div id="upload">
 						<input type="file" id="file" accept="image/*" style="display:none;"/>
 					</div>
 					<div id="uploaded">
@@ -56,7 +59,7 @@
 								<input class="del" type="button" value="삭제" fullName={{fullName}}/>
 							</li>
 						</script>
-					</div>
+					</div>-->
 				</td>
 			</tr> 	
 		</table>
@@ -66,12 +69,12 @@
 	</form>
 </body>
 <script>
-	var meterial_id="${meterial_id}";	
-	var review_number="${review_number}";
+	/*var meterial_id="${meterial_id}";	
+	var review_number="${review_number}";*/
 	$(frm).on("submit", function(e){
 		e.preventDefault();
-		alert(meterial_id);
-		alert(review_number);
+		/*alert(meterial_id);
+		alert(review_number);*/
 		var review_title=$(frm.review_title).val();
 		var review_contents=$(frm.review_contents).val();
 		if(review_title=="") {
@@ -89,7 +92,7 @@
 		frm.submit();
 	});
 	
-	//첨부파일삭제
+	/*//첨부파일삭제
 	$("#uploadFiles").on("click", "li .del", function(){
 		var li=$(this).parent();
 		var fullName=$(this).attr("fullName");
@@ -127,7 +130,7 @@
 		        $("#uploadFiles").append(temp(tempData));
 	        }
 		});
-	});
+	});*/
 	//이미지클릭했을떄
 	$("#image").on("click", function(){
 		$(frm.file).click();

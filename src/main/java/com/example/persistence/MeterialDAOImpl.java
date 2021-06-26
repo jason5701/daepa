@@ -75,7 +75,7 @@ public class MeterialDAOImpl implements MeterialDAO{
 	public String getMetrial_id() throws Exception {
 		return session.selectOne(namespace+".getMeterial_id");
 	}
-	
+
 	public void updateMeterial_click(String meterial_id) throws Exception {
 		session.update(namespace+".updateMeterial_click", meterial_id);
 	}
