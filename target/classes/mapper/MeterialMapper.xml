@@ -51,6 +51,7 @@
 	<delete id="delAttach">
 		delete from tbl_meterial_image where meterial_id=#{meterial_id}
 	</delete>
+	
 	<select id="getMeterial_id" resultType="string">
 		select max(meterial_id) from tbl_meterial_sales where meterial_id like '%n%'
 	</select>
