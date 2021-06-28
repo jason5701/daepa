@@ -73,7 +73,7 @@
                  </ul>
             </div>
             <div id="menu">
-               <span class="menuCart"></span>
+               <span class="menuCart" onClick="location.href='/cart/list'"></span>
                <span class="menuLocation"></span>
             </div>
             <div id="searchBox">

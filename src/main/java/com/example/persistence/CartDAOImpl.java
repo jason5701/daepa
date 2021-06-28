@@ -54,8 +54,14 @@ public class CartDAOImpl implements CartDAO{
 
 	//장바구니 수정
 	@Override
-	public void cart_upate(CartVO vo) throws Exception {
-		session.update(namespace+".cart_upate", vo);
+	public void cart_update(CartVO vo) throws Exception {
+		session.update(namespace+".cart_update", vo);
+	}
+
+	@Override
+	public int cart_total(String user_id) throws Exception {
+		session.selectOne(namespace+".cart_total", user_id);
+		return session.selectOne(namespace+".cart_total", user_id);
 	}
 	
 }
