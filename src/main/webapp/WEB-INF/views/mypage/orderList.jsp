@@ -7,15 +7,17 @@
 		<div class="head_aticle">
 			<h2 class="tit">주문내역
 				<span class="tit_sub">지난 3년간의 주문 내역 조회가 가능합니다</span>
+				
 			</h2>
 			<div class="search_date">
 				<h3 class="screen_out">기간선택</h3>
+				<span id="total_Orders"></span>
 				<select class="layer_search">
 					<option value="all">전체기간</option>
 					<option value="2021">2021년</option>
 					<option value="2020">2020년</option>
 					<option value="2019">2019년</option>
-				</select>
+				</select>				
 			</div>	
 	</div>
 	<div class="board-container">
@@ -73,9 +75,10 @@ Handlebars.registerHelper("nf", function(price){
 </script>
 <script>
 	var page=1;
-	var user_id="${vo.user_id}";
+	var user_id="${user_info.user_id}";
 	var order_number=$("#tbl_orders .tr_row").attr("order_number");
-	ordersList();	
+	ordersList();
+	
 	$(".div_orderList").hide();
 	
 	$("#tbl_orders").on("click",".tr_row",function(){		
@@ -93,20 +96,16 @@ Handlebars.registerHelper("nf", function(price){
 			success:function(data){
 				var temp = Handlebars.compile($("#temp_orders").html());
 				$("#tbl_orders").html(temp(data));	
+				$("#total_Orders").html("주문 건 수: " + data.pm.totalCount + "건");
 				//페이징목록출력
 				var str="";
-				var prev=data.pm.startPage-1;
-				var next=data.pm.endPage+1;
-            
-				if(data.pm.prev) str +="<a href='" + prev + "'>◀</a>";
-				for(var i=data.pm.startPage;i<=data.pm.endPage; i++){
-					if(i==page){
-					   str += "[<a class='active' href='" + i + "'>" + i + "</a>] ";
+				for(var i=data.pm.startPage; i<=data.pm.endPage; i++){
+					if(page==i){
+						str+="<a style='color:gray;' href=' "+i+" '>"+i +" </a>";
 					}else{
-					   str += "[<a href='" + i + "'>" + i + "</a>] ";
-					}   
+						str+="<a href=' "+i+" '>"+i +" </a>";
+					}
 				}
-				if(data.pm.next) str +="<a href='" + next + "'>▶</a>";
 				$("#pagination").html(str);
 				}
 			});				
@@ -128,6 +127,6 @@ Handlebars.registerHelper("nf", function(price){
 	$("#pagination").on("click","a",function(e){
 		e.preventDefault();
 		page = $(this).attr("href");
-		getList();
+		ordersList();
 	});
 </script>

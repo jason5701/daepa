@@ -4,14 +4,11 @@
  	<select id="list" resultType="com.example.domain.UserVO">
  		select * from tbl_users
  	</select>
- 	<select id="read" resultType="com.example.domain.UserVO">
- 		select * from tbl_users where user_id=#{user_id}
- 	</select>
  	<insert id="register">
  		insert into tbl_users (user_id,user_password,user_name,user_email,user_mobile,user_post,user_road_address,user_address,user_address_detail1,user_address_detail2,user_sex,user_birthday_year,user_birthday_month,user_birthday_day,user_drop,user_point) values (#{user_id},#{user_password},#{user_name},#{user_email},#{user_mobile},#{user_post},#{user_road_address},#{user_address},#{user_address_detail1},#{user_address_detail2},#{user_sex},#{user_birthday_year},#{user_birthday_month},#{user_birthday_day},#{user_drop},#{user_point}) 
  	</insert>
- 	<update id="update">
- 		update tbl_users set user_password=#{user_password},user_name=#{user_name},user_email=#{user_email},user_mobile=#{user_mobile},user_address=#{user_address},user_sex=#{user_sex},user_birthday=#{user_birthday} where user_id=#{user_id}
+ 	<update id="update_users">
+ 		update tbl_users set user_password=#{user_password},user_name=#{user_name},user_email=#{user_email},user_mobile=#{user_mobile},user_address=#{user_address},user_sex=#{user_sex},user_birthday_year=#{user_birthday_year},user_birthday_month=#{user_birthday_month},user_birthday_day=#{user_birthday_day} where user_id=#{user_id}
  	</update>
  	<select id="login" resultType="com.example.domain.UserVO">
  		select * from tbl_users where user_id=#{user_id}

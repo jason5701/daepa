@@ -18,10 +18,10 @@ import com.example.persistence.PurchaseDAO;
 
 @Controller
 @RequestMapping("/mypage/")
-public class MypageController {
+public class MypageController {	
 	
 	@Autowired
-	PurchaseDAO purchase_dao;
+	PurchaseDAO purchase_dao;	
 	
 	@RequestMapping("orderList.json")
 	@ResponseBody
@@ -40,13 +40,14 @@ public class MypageController {
 	@ResponseBody
 	public HashMap<String, Object> orders(Model model,HttpSession session, Criteria cri,String user_id)throws Exception{
 		HashMap<String, Object> map=new HashMap<String, Object>();
-		cri.setPerPageNum(5);
-		map.put("orders", purchase_dao.orders(user_id, cri));
-		
-		session.setAttribute("map", map);
 		PageMaker pm = new PageMaker();
-		pm.setCri(cri);
+		cri.setPerPageNum(5);
+		pm.setCri(cri);		
+		pm.setTotalCount(purchase_dao.total_Orders(user_id,cri));
 		
+		session.setAttribute("map", map);	
+		
+		map.put("orders", purchase_dao.orders(user_id, cri));
 		map.put("cri", cri);
 		map.put("pm", pm);
 		

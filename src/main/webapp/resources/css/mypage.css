@@ -332,3 +332,5 @@ ol, ul {
 #tbl_orders tr, #tbl_orderList tr{border-bottom: 1px solid #ddd; text-align:center; padding: 10px;}
 
 #tbl_orders td, #tbl_orderList td{border-bottom: 1px solid #ddd; text-align:center; padding: 10px;}
+
+#pagination{width: 100%; text-align: center; }

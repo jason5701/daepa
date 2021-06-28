@@ -150,25 +150,20 @@
 				</td>
 			</tr>
 			<!-- 생년월일 입력 -->
-			<tr>
+			<tr class="birth">
 				<th>생년월일</th>	
-				<td>			
-					<select name="user_birthday_year"  class="sel_register">
-						<%for (int i = 2021; i > 1949; i--) {%>
-						<option value="<%=i%>"><%=i%>년</option>
-						<%}%>
-					</select> 
-					<select name="user_birthday_month" class="sel_register">
-						<%for (int i = 01; i < 13; i++) {%>
-						<option value="<%=i%>"><%=i%>월</option>
-						<%}%>
-					</select> 
-					<select name="user_birthday_day" class="sel_register">
-						<%for (int i = 1; i < 32; i++) {%>
-						<option value="<%=i%>"><%=i%>일</option>
-						<%}%>
-					</select>
-				</td>
+				<td>
+					<div class="div_birthday">	
+						<input type="text" name="birth_year" id="birth_year" pattern="[0-9]*" value="" label="생년월일" size="4" maxlength="4" placeholder="YYYY">
+						<span class="bar"></span>
+						<input type="text" name="birth[]" id="birth_month" pattern="[0-9]*" value="" label="생년월일" size="2" maxlength="2" placeholder="MM">
+						<span class="bar"></span>
+						<input type="text" name="birth[]" id="birth_day" pattern="[0-9]*" value="" label="생년월일" size="2" maxlength="2" placeholder="DD">
+					</div>	
+					<p class="txt_guide" style="display: none;">
+						<span class="txt"></span>
+					</p>	
+				</td>				
 			</tr>
 			<!-- 약관 동의 폼 -->
 			<tr>
