@@ -10,9 +10,9 @@
    <link rel="preconnect" href="https://fonts.gstatic.com">
    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
-    <!-- -구글 차트 라이브러리 -->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+   <!-- -구글 차트 라이브러리 -->
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
    <div id="container">
@@ -73,12 +73,12 @@
                  </ul>
             </div>
             <div id="menu">
-               <span class="menuCart"></span>
+               <span class="menuCart" onClick="location.href='/cart/list'"></span>
                <span class="menuLocation"></span>
             </div>
             <div id="searchBox">
-               <input type="text" size=20 placeholder="검색" />
-               <span class="searchIcon"></span>
+               <input type="text" size=20 placeholder="검색" id="keyword"/>
+               <span class="searchIcon" ></span>
             </div>
          </div>
       </div><hr>
@@ -128,6 +128,23 @@
    <a href="#" class="scrollToTop"><img src="/resources/image/index/up.png" width=40 /></a>
 </body>
 <script>
+
+$("#keyword").on("keydown",function(e){
+	if(e.keyCode==13) {
+		$(".searchIcon").click();
+	}
+});
+
+$(".searchIcon").on("click", function(){
+	var keyword=$("#keyword").val();
+	if(keyword == ""){
+		alert("검색어를 입력해주세요.");
+	}else{
+		location.href="/search/list?keyword="+keyword;
+	}
+});
+
+//스크롤 업다운 버튼 스크립트
 $(document).ready(function(){
 
     //Check to see if the window is top if not then display button

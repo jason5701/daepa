@@ -35,4 +35,10 @@
 		where user_id=#{user_id} and product_id=#{product_id}
 	</update>
 	
+	<select id="cart_total" resultType="int">
+		select ifnull(sum(product_price * cart_product_qtt), 0) total
+		from tbl_cart c, tbl_product p
+		where c.product_id=p.product_id and c.user_id=#{user_id};
+	</select>
+	
 </mapper>

@@ -86,11 +86,11 @@ public class IndexController {
 	}
 	
 	//전체상품 카테고리->나눔판매 상세페이지
-		@RequestMapping("group_detail") 
-		public String group_detail(Model model,String sales_id)throws Exception{
-			model.addAttribute("pageName", "product/detail/group_detail/group_detail.jsp");
-			model.addAttribute("product_div", "group_read_div.jsp");
-			model.addAttribute("vo", group_dao.read(sales_id));
-			return "/index";
-		}
+	@RequestMapping("group_detail") 
+	public String group_detail(Model model,String sales_id)throws Exception{
+		model.addAttribute("pageName", "product/detail/group_detail/group_detail.jsp");
+		model.addAttribute("product_div", "group_read_div.jsp");
+		model.addAttribute("vo", group_dao.read(sales_id));
+		return "/index";
+	}
 }

@@ -40,8 +40,13 @@ public class CartServiceImpl implements CartService{
 	}
 
 	@Override
-	public void cart_upate(CartVO vo) throws Exception {
-		cart_dao.cart_upate(vo);
+	public void cart_update(CartVO vo) throws Exception {
+		cart_dao.cart_update(vo);
+	}
+
+	@Override
+	public int cart_total(String user_id) throws Exception {
+		return cart_dao.cart_total(user_id);
 	}
 
 }

@@ -1,12 +1,15 @@
 package com.example.domain;
 
 public class MeterialAndProductVO extends MeterialVO{
-	private String product_id;
 	private String meterial_id;
 	private String meterial_image;
 	private String meterial_name;
 	private int meterial_price;
+	private String product_id;
 	private String product_image;
+	private String product_name;
+	private int product_price;
+	
 	public String getProduct_image() {
 		return product_image;
 	}
@@ -25,9 +28,6 @@ public class MeterialAndProductVO extends MeterialVO{
 	public void setProduct_price(int product_price) {
 		this.product_price = product_price;
 	}
-	private String product_name;
-	private int product_price;
-	
 	public String getMeterial_image() {
 		return meterial_image;
 	}

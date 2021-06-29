@@ -11,6 +11,7 @@
 				</div>
 			</a>
 			<div class="all_name">{{meterial_name}}</div>
+			<div class="all_detail">{{meterial_description}}</div>
 			<div class="all_price">{{meterial_price}}원</div>
 		</div>
 		{{/each}}
