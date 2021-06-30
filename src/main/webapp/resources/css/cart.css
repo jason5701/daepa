@@ -4,6 +4,7 @@
 #cart h2{margin-top: 40px; }
 #cart1{width:750px; float:left; margin-top:20px; margin-bottom:50px; border-right:2px black solid; }
 #cart2{width:230px; float:right; margin-top:20px; margin-bottom:50px;}
+
 #cart2 span{font-size:7pt; float:right; color:gray; }
 #carttbl{margin:0px auto; border-collapse:collapse; }
 #carttbl td{}

@@ -5,10 +5,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+<<<<<<< HEAD
+=======
+import org.springframework.stereotype.Controller;
+>>>>>>> a4e622b3c599c595861dd6f8c46cb5188b4ce2e5
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
+
 
 public class EchoHandler extends TextWebSocketHandler{
 	
@@ -41,9 +46,7 @@ public class EchoHandler extends TextWebSocketHandler{
 		
 		//모든 유저에게 메세지 출력
 		for(WebSocketSession web : sessionList){
-			web.sendMessage(new TextMessage(strMessage));
-		}
-		super.handleTextMessage(session, message);
-	}
 
+		}
+	}
 }

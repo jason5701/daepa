@@ -73,7 +73,7 @@
 		<input type="submit" value="수정">
 		<input type="reset" value="취소">
 		<input type="button" value="삭제" id="btnDelete">
-		<input type="button" value="목록이동" onClick="location.href='/mypage/my_review'">
+		<input type="button" value="목록이동" onClick="location.href='/mypage/myReview'">
 	</form>
 </body>
 <script>
