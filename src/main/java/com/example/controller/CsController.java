@@ -14,4 +14,5 @@ public class CsController {
 		model.addAttribute("rightContent", "commonQA/list.jsp");
 		return "/index";
 	}
+	
 }

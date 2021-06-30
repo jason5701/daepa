@@ -5,13 +5,22 @@
 	<select id="order_List" resultType="com.example.domain.PurchaseVO">
 		select * from orderlist where user_id=#{user_id} limit #{cri.pageStart}, #{cri.perPageNum}
 	</select>
+	
 	<select id="orders" resultType="com.example.domain.OrderVO">
 		select * from tbl_orders where user_id=#{user_id} limit #{cri.pageStart}, #{cri.perPageNum}
 	</select>
+	
 	<select id="orderList" resultType="com.example.domain.PurchaseVO">
 		select *,product_price * purchase_qtt purchase_sum from orderList where user_id=#{user_id} and order_number=#{order_number}
 	</select>
+	
 	<select id="admin_order_list" resultType="com.example.domain.PurchaseVO">
 		select * from admin_order_List limit #{pageStart}, #{perPageNum}
 	</select>
+	
+	<insert id="order_insert">
+		insert into tbl_orders
+		values(#{order_name}, #{order_address}, #{order_email}, #{order_mobile})
+	</insert>
+	
 </mapper>

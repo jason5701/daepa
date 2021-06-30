@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.example.domain.Criteria;
+import com.example.domain.OrderVO;
 import com.example.domain.PurchaseVO;
 
 @Repository
@@ -39,6 +40,11 @@ public class PurchaseDAOImpl implements PurchaseDAO{
 		map.put("user_id", user_id);
 		map.put("cri", cri);
 		return session.selectList(namespace+".orders",map);
+	}
+
+	@Override
+	public void order_insert(OrderVO vo) throws Exception {
+		session.insert(namespace+".order_insert", vo);
 	}
 
 }

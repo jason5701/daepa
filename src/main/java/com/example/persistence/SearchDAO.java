@@ -9,5 +9,7 @@ public interface SearchDAO {
 	
 	public List<MeterialAndProductVO> search_plist(Criteria cri) throws Exception;
 	public List<MeterialAndProductVO> search_mlist(Criteria cri) throws Exception;
+	public int search_plist_count(Criteria cri) throws Exception;
+	public int search_mlist_count(Criteria cri) throws Exception;
 
 }

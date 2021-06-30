@@ -8,7 +8,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 	<title>자주하는질문 목록</title>
 	<style>
-		table{width:100%;border-collapse: collapse;border-bottom:solid 1px;}
+		table{width:100%;border-collapse: collapse;border-bottom:solid 1px; font-size:13px;}
 		td{border:solid 1px rgb(200, 200, 200) solid;padding: 10px;text-align: center;}
 		.row:hover{background: rgb(200, 200, 200);color: white;}
 		.row{border-top:solid 1px rgb(200, 200, 200);}
@@ -17,7 +17,7 @@
 		#pagination a{text-decoration:none; color:black}
 		#pagination .active{color:red}
 		#review_insert{text-align:right;}
-		.tit{font-size:32px;}
+		.tit{font-size:28px; float:left;}
 		.titSub{font-size:12px;}
 		#total{display:none;}
 	</style>

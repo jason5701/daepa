@@ -14,7 +14,13 @@
 <%String keyword = request.getParameter("keyword");%>
 
 <div id="all_list">
-<h2>"<%=keyword%>" 검색결과</h2>
+<c:if test="${count == 0}">
+	<h2>"<%=keyword%>" 검색결과</h2>
+	<h2 style="color:red; ">검색결과가 없습니다.</h2>
+</c:if>
+<c:if test="${count > 0}">
+	<h2>"<%=keyword%>" 검색결과</h2>
+	<span>총 ${count}건이 검색되었습니다.</span>
 	<div id="all_plist"></div>
 		<script id="ptemp" type="text/x-handlebars-template">
 		{{#each plist}}
@@ -44,6 +50,7 @@
 		</div>
 		{{/each}}
 		</script>
+</c:if>
 </div>
 <script>
 var keyword="<%=keyword%>";

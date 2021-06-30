@@ -239,6 +239,7 @@ label.right{
     color:black;
     margin-left:5px;
     margin-right:5px;
+    cursor:pointer; 
 }
 .list_category .menu a:active{color:black; }
 .list_category .menu:hover{background-color: #AFD9C2; color:black; font-weight:bold;}

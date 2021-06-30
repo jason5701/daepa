@@ -16,4 +16,14 @@
  		limit #{pageStart}, #{perPageNum}
  	</select>
  	
+ 	<select id="search_plist_count" resultType="int">
+ 		select count(*) from tbl_product
+ 		where product_name like concat('%',#{keyword},'%') and product_drop=0
+ 	</select>
+ 	
+ 	<select id="search_mlist_count" resultType="int">
+ 		select count(*) from tbl_meterial_sales
+ 		where meterial_name like concat('%',#{keyword},'%') and meterial_drop=0
+ 	</select>
+ 	
 </mapper>

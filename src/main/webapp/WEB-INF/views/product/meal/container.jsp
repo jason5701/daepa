@@ -16,14 +16,12 @@
 				<a class="type">${vo}</a>
 			</li>
 		</c:forEach>
-		<li>
-			<select id="orderBy">
-				<option value="product_register desc">신상품순</option>
-				<option value="product_selling desc">인기상품순</option>
-				<option value="product_price desc">높은 가격순</option>
-				<option value="product_price">낮은 가격순</option>
-			</select>
-		</li>
+		<select id="orderBy">
+			<option value="product_register desc">신상품순</option>
+			<option value="product_selling desc">인기상품순</option>
+			<option value="product_price desc">높은 가격순</option>
+			<option value="product_price">낮은 가격순</option>
+		</select>
 	</ul>
 </div>
 

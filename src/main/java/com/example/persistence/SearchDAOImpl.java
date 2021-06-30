@@ -26,4 +26,14 @@ public class SearchDAOImpl implements SearchDAO{
 		return session.selectList(namespace + ".search_mlist", cri);
 	}
 
+	@Override
+	public int search_plist_count(Criteria cri) throws Exception {
+		return session.selectOne(namespace + ".search_plist_count", cri);
+	}
+
+	@Override
+	public int search_mlist_count(Criteria cri) throws Exception {
+		return session.selectOne(namespace + ".search_mlist_count", cri);
+	}
+
 }
