@@ -27,6 +27,7 @@ import com.example.service.CartService;
 public class OrderController {
 	
 	@Autowired
+
 	PurchaseDAO purchase_dao;
 	
 	@Autowired
@@ -70,6 +71,10 @@ public class OrderController {
 		
 	}
 	
+
+	PurchaseDAO purchase_dao;	
+			
+
 	@RequestMapping("admin_list.json")
 	@ResponseBody
 	public Map<String,Object> admin_order_list(Criteria cri)throws Exception{
@@ -78,9 +83,21 @@ public class OrderController {
 		cri.setPerPageNum(5);
 		pm.setCri(cri);
 		pm.setTotalCount(120);
-		map.put("list", purchase_dao.admin_order_list(cri));
+		map.put("admin_list", purchase_dao.admin_order_list(cri));
 		map.put("pm", pm);
 		map.put("cri", cri);
+		return map;
+	}
+	
+	@RequestMapping("admin_purchase_List.json")
+	@ResponseBody
+	public HashMap<String, Object> admin_purchase_List(Model model, int order_number)throws Exception{
+		HashMap<String, Object> map=new HashMap<String, Object>();
+		map.put("purchase_List", purchase_dao.admin_purchase_List(order_number));
+		
+		PageMaker pm = new PageMaker();		
+		map.put("pm", pm);
+		
 		return map;
 	}
 }

@@ -19,20 +19,30 @@
       <div id="header">
          <div id="userMenu">
             <div class="menuItem">
-               <a href="/admin/login">관리자</a>
-            </div>
-            <div class="menuItem">
-               <a href="/cs_service">고객센터</a>
-            </div>
-            <div class="menuItem">   
-                 <a href="/mypage/all">마이페이지</a>
-              </div>   
-            <div class="menuItem">
-                <a href="/user/login">로그인</a>
-            </div>
-              <div class="menuItem">      
-                <a href="/user/register">회원가입</a>              
-            </div>
+			   <a href="/admin/login">관리자</a>
+			</div>
+			<div class="menuItem">
+			   <a href="/cs_service">고객센터</a>
+			</div>
+			<div class="menuItem">   
+			     <c:if test="${user_info.user_id!=null}">
+                    <a href="/mypage/all">마이페이지</a>
+                 </c:if>
+			</div>   
+			<div class="menuItem">
+				<c:if test="${user_info.user_id==null}">
+			    	<a href="/user/login">로그인</a>
+			    </c:if>
+			    <c:if test="${user_info.user_id!=null}">
+			        <span>${user_info.user_name}님 </span>			    
+			    	<a href="/user/logout">로그아웃</a>
+			    </c:if>
+			</div>
+			<div class="menuItem">    
+				<c:if test="${user_info.user_id==null}">
+			    	<a href="/user/register">회원가입</a>    
+			    </c:if>  			              
+			</div>
          </div>
          <a href="/index"><img src="/resources/image/index/Dlogo.jpg" /></a>
          <div id="category">

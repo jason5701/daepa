@@ -21,11 +21,6 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	@Override
-	public UserVO read(String user_id) throws Exception {
-		return session.selectOne(namespace+".read",user_id);
-	}
-
-	@Override
 	public int totalCount() throws Exception {
 		return session.selectOne(namespace+".totalCount");
 	}
@@ -38,7 +33,7 @@ public class UserDAOImpl implements UserDAO{
 
 	@Override
 	public void update(UserVO vo) throws Exception {
-		session.update(namespace+".update",vo);
+		session.update(namespace+".update_users",vo);
 	}
 
 	@Override

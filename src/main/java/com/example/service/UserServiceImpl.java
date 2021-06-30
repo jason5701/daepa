@@ -10,11 +10,11 @@ import com.example.persistence.UserDAO;
 public class UserServiceImpl implements UserService{
 	String namespace="com.example.mapper.UserMapper";
 	@Autowired
-	UserDAO dao;
+	UserDAO user_dao;
 	
 	@Override
 	public int idChk(UserVO vo) throws Exception {
-		int result=dao.idChk(vo);
+		int result=user_dao.idChk(vo);
 		return result;
 	}
 
@@ -27,6 +27,12 @@ public class UserServiceImpl implements UserService{
 	public UserVO login(String user_id) throws Exception {
 		UserVO vo= new UserVO();
 		return vo;
+	}
+
+	@Override
+	public void update_users(UserVO vo) throws Exception {
+		user_dao.update(vo);
+		
 	}
 
 }

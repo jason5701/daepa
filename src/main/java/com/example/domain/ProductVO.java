@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class ProductVO extends AdminVO{
 	private String product_id;
+	private String user_id;
 	private String product_name;
 	private int product_price;
 	private int product_qtt;

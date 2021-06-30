@@ -1,10 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <h2>주문 내역</h2>
-<table id="tbl"></table>
+<table id="tbl"></table>		
 <script id="temp" type="text/x-handlebars-template">
-	{{#each list}}
-		<tr class="tr_row">
+		<tr class="title">
+			<td width=20>주문번호</td>
+			<td width=50>회원아이디</td>
+			<td width=30>주문인</td>
+			<td width=100>주문날짜</td>
+			<td width=150>주소</td>
+			<td width=80>이메일</td>
+			<td width=80>전화번호</td>
+			<td width=20>결제수단</td>
+			<td width=20>배송상태</td>
+		</tr>
+	{{#each admin_list}}
+		<tr class="tr_row" order_number="{{order_number}}">
 			<td>{{order_number}}</td>
 			<td>{{user_id}}</td>
 			<td>{{order_name}}</td>
@@ -14,26 +25,57 @@
 			<td>{{order_mobile}}</td>
 			<td>{{order_payment}}</td>
 			<td>{{order_status}}</td>
-		</tr>
-		<tr class="row" style="display:none;">
-			<td>주문상품아이디</td>
-			<td>{{product_id}}</td>
-			<td>주문상품명</td>
-			<td>{{product_name}}</td>
-			<td>주문수량</td>
-			<td>{{purchase_qtt}}</td>
-			<td>상품단가</td>
-			<td>{{product_price}}</td>
-		</tr>
+		</tr>	
 	{{/each}}
 </script>
 <div id="pagination"></div>
+	<div class="div_orderList">
+			<hr/>
+			<h2>주문 목록<button id="btnSend" style="margin-left:20px;">배송</button></h2>
+			<table id="tbl_purchase_List"  style=" background:#ddd; text-align:left;"></table>
+			<script id="temp_purchase_List" type="text/x-handlebars-template">
+				<tr class="title">
+					<td width=100>상품번호</td>
+					<td width=400>상품명</td>
+					<td width=100>단가</td>
+         			<td width=100>수량</td>
+					<td width=100>금액</td>      	
+				</tr>
+				{{#each purchase_List}}
+				<tr class="row">
+					<td>{{product_id}}</td>				
+					<td>{{product_name}}</td>
+					<td>{{product_price}}</td>
+					<td>{{nf purchase_qtt}}</td>			
+					<td>{{nf purchase_sum}}</td>
+				</tr>			
+				{{/each}}		
+			</script>
+		</div>
+<script>
+Handlebars.registerHelper("nf", function(price){
+    var regexp = /\B(?=(\d{3})+(?!\d))/g; 
+    return price.toString().replace(regexp, ",");
+});
+</script>
 <script>
 	var page=1;
-	$("#tbl").on("click",".tr_row",function(){
-		$(this).next().toggle();
-	});
+	var order_number=$("#tbl .tr_row").attr("order_number");
 	getOrder_list();
+	
+	
+	
+	$(".div_orderList").hide();
+	
+	$("#tbl").on("click",".tr_row",function(){		
+		$(".div_orderList").show();
+		var order_number = $(this).attr("order_number");
+		purchaseList(order_number);
+		$("#btnSend").on("click",function(){
+			alert("주문번호 : " + order_number + "을 배송 처리하시겠습니까?");
+		});
+	});
+	
 	function getOrder_list(){
 		$.ajax({
 			type:"get",
@@ -56,6 +98,20 @@
 			}
 		});
 	}
+	
+	function purchaseList(order_number){		
+		$.ajax({			
+			type:"get",
+			url:"/order/admin_purchase_List.json",
+			dataType:"json",
+			data:{"order_number":order_number},			
+			success:function(data){
+				var temp = Handlebars.compile($("#temp_purchase_List").html());
+				$("#tbl_purchase_List").html(temp(data));					
+				}
+			});				
+	}
+	
 	$("#pagination").on("click","a",function(e){
 		e.preventDefault();
 		page=$(this).attr("href");

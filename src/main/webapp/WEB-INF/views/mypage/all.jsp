@@ -10,7 +10,7 @@
 					<div class="grade_user">
 						<div class="grade_wrap">
 							<div class="grade_logo">웰컴</div>
-							<strong class="user_name">${vo.user_name} 님</strong>
+							<strong class="user_name">${user_info.user_name} 님</strong>
 						</div>
 						<div class="grade_bnenfit">
 							<div class="benefit">
@@ -35,7 +35,7 @@
 									<img src="/resources/image/mypage/arrow_right_gray_56_56.png"/>
 								</div>
 								<div class="spacer"></div>
-								<p class="info">${vo.user_point}원</p>						
+								<p class="info">${user_info.user_point}원</p>						
 							</a>
 							<a class="link_wrap">
 								<div class="link_title">쿠폰

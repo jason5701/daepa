@@ -1,8 +1,4 @@
 @CHARSET "UTF-8";
-#content {
-    min-width: 1050px;
-    padding-bottom: 120px;
-}
 <!-- 마이페이지 head -->
 .page_aticle {
     width: 1050px;
@@ -145,19 +141,41 @@
     flex-grow: 3;
     position: relative;
 }
-<!-- 마이페이지 left -->
-.mypage_content{
-	width: 1050px;
-	padding-top: 65px;
+#notice_main{
+	border-bottom:1px solid #f7f7f7;
 }
-.aticle_type2 {
-    padding-top:20px;
-    margin-bottom:50px;
-    margin-left:50px;
+#content{
+	min-width:1050px;
+	padding-bottom:120px;
+	position:relative;
+}
+
+.page_aticle.aticle_type2 {
+    padding-top: 85px;
+}
+.page_aticle{
+	width:1050px;
+	margin: 0 auto;
+}
+.page_aticle.aticle_type2 .page_section {
+    float: right;
+    width: 820px;
+}
+.page_aticle .head_aticle {
+    padding: 5px 0 34px;
+}
+
+.page_aticle .head_aticle .tit {
+    height: 36px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    color: #333;
+    letter-spacing: -.5px;
 }
 #snb {
     float: left;
-    width: 200px;    
+    width: 200px;
 }
 #snb .tit_snb {
     padding: 8px 0 33px 1px;
@@ -167,14 +185,21 @@
     color: #333;
     letter-spacing: -.5px;
 }
+
+div{
+	display:block;
+}
+
 #snb .inner_snb {
     border: 1px solid #f2f2f2;
     border-bottom: 0;
 }
-ol, ul {	
-    list-style-type: none;
+
+ol,ul{
+	list-style-type:none;
 }
-#snb .list_menu li {	
+
+#snb .list_menu li {
     border-bottom: 1px solid #f2f2f2;
 }
 #snb .list_menu li a {
@@ -186,7 +211,6 @@ ol, ul {
     font-size: 14px;
     color: #666;
     line-height: 20px;
-    text-decoration:none;
     letter-spacing: -.3px;
 }
 #snb .list_menu li.on a, #snb .list_menu li a:hover {
@@ -195,24 +219,20 @@ ol, ul {
     font-weight: 700;
     color: #5f0080;
 }
-<!-- 마이페이지 right -->
-.mypage_Content_Right{
-	float: right;
-    width: 820px;
+
+a{
+	text-decoration:none;
 }
-.page_aticle .head_aticle {
-    padding: 5px 0 34px;
-}
-.head_aticle .tit {
-	margin-left:30px;
-	text-align:left;
-    height: 36px;
+#snb .tit_snb {
+    padding: 8px 0 33px 1px;
     font-weight: 700;
-    font-size: 24px;
-    line-height: 36px;
-    float:left;
+    font-size: 30px;
+    line-height: 34px;
     color: #333;
     letter-spacing: -.5px;
+<<<<<<< HEAD
+}
+=======
 }
 .head_aticle .tit_sub {
     padding-left: 11px;
@@ -332,3 +352,6 @@ ol, ul {
 #tbl_orders tr, #tbl_orderList tr{border-bottom: 1px solid #ddd; text-align:center; padding: 10px;}
 
 #tbl_orders td, #tbl_orderList td{border-bottom: 1px solid #ddd; text-align:center; padding: 10px;}
+
+#pagination{width: 100%; text-align: center; }
+>>>>>>> 7b0886d489be4b07afc23e4a44cb1678a5b4adc6

@@ -14,4 +14,7 @@ public interface PurchaseDAO {
 	public List<PurchaseVO> orders(@Param("user_id") String user_id,@Param("cri") Criteria cri)throws Exception;
 	public List<PurchaseVO> admin_order_list(Criteria cri)throws Exception;
 	public void order_insert(OrderVO vo) throws Exception;
+	public int total_Orders(@Param("user_id") String user_id,@Param("cri") Criteria cri) throws Exception;
+	public List<PurchaseVO> admin_purchase_List(int order_number)throws Exception;	
+
 }
