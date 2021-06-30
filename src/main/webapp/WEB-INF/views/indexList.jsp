@@ -46,7 +46,7 @@
 	<ul class="list_category" id="list_category">
 		<li>
 			<a class="menu">
-				<input class="item" type="hidden" value="product_name"/>MD추천
+				<input class="item" type="hidden" value="product_detail desc"/>MD추천
 			</a>
 			<a class="menu">
 				<input class="item" type="hidden" value="product_click desc"/>✨인기상품
@@ -95,7 +95,7 @@
 <script>
 
 //md추천 목록 
-var orderBy="product_name";
+var orderBy="product_detail desc";
 getmain_list();
 
 $("#list_category").on("click", ".menu", function(){

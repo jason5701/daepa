@@ -4,14 +4,14 @@
 
  	<select id="search_plist" resultType="com.example.domain.MeterialAndProductVO">
  		select * from tbl_product
- 		where product_name like concat('%',#{keyword},'%')
+ 		where product_name like concat('%',#{keyword},'%') and product_drop=0
  		order by product_name
 		limit #{pageStart}, #{perPageNum}
  	</select>
  	
  	<select id="search_mlist" resultType="com.example.domain.MeterialAndProductVO">
  		select * from tbl_meterial_sales
- 		where meterial_name like concat('%',#{keyword},'%')
+ 		where meterial_name like concat('%',#{keyword},'%') and meterial_drop=0
  		order by meterial_name
  		limit #{pageStart}, #{perPageNum}
  	</select>

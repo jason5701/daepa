@@ -68,12 +68,14 @@
 	<delete id="delAttach">
 		delete from tbl_product_image where product_id=#{product_id}
 	</delete>
+	
 	<select id="main_product_list" resultType="com.example.domain.ProductVO">
 		select * from tbl_product
 		where product_drop=0
-		order by #{orderBy}
+		order by ${orderBy}
 		limit #{pageStart}, #{perPageNum}
 	</select>
+	
 	<select id="getProduct_id" resultType="string">
 		select max(product_id) from tbl_product where product_id like '%M%'
 	</select>
