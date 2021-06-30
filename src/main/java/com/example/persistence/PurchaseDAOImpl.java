@@ -41,4 +41,17 @@ public class PurchaseDAOImpl implements PurchaseDAO{
 		return session.selectList(namespace+".orders",map);
 	}
 
+	@Override
+	public int total_Orders(@Param("user_id") String user_id,@Param("cri") Criteria cri) throws Exception {
+		Map<String, Object> map=new HashMap<>();
+		map.put("user_id", user_id);
+		map.put("cri", cri);
+		return session.selectOne(namespace+".total_Orders",map);
+	}
+
+	@Override
+	public List<PurchaseVO> admin_purchase_List(int order_number) throws Exception {
+		return session.selectList(namespace+".admin_purchase_List",order_number);
+	}
+
 }

@@ -8,24 +8,20 @@
 	</div>	
 	<br>
 	<!-- 회원가입 폼 -->
-	<form name="frm" action="/user/register" method="post">
+	<form name="frm" action="/user/update_users" method="post">
 		<table id="tbl" class="regtbl_register2">
 			<!-- 아이디입력 -->
 			<tr>
 				<th>아이디</th>
 				<td>
-					<input type="text" class="register_text" name="user_id" value="${vo.user_id}" readonly>					
+					<input type="text" class="register_text" name="user_id" value="${user_info.user_id}" readonly>					
 				</td>
 			</tr>
 			<!-- 비밀번호 입력 -->
 			<tr>
-				<th>현재 비밀번호</th>
-				<td><input type="password" class="register_text" name="new_user_password" placeholder="현재 비밀번호를 입력하세요"></td>
-			</tr>
-			<tr>
 				<th>새 비밀번호</th>
 				<td><input type="password" class="register_text" name="user_password" placeholder="새로운 비밀번호를 입력하세요"></td>
-			</tr>			
+			</tr>					
 			<tr>
 				<th>새 비밀번호 확인</th>
 				<td>
@@ -36,20 +32,20 @@
 			<!-- 이름 입력 -->
 			<tr>
 				<th>이름</th>
-				<td><input type="text" class="register_text" name="user_name" value="${vo.user_name}">
+				<td><input type="text" class="register_text" name="user_name" value="${user_info.user_name}">
 				</td>
 			</tr>
 			<!-- 이메일 입력 -->
 			<tr>
 				<th>이메일</th>
 				<td>
-					<input type="text" class="register_text" name="user_email" value="${vo.user_email}">
+					<input type="text" class="register_text" name="user_email" value="${user_info.user_email}">
 				</td>
 			</tr>
 			<!-- 전화번호 입력 -->
 			<tr>
 				<th>휴대폰</th>
-				<td><input type="text" class="register_text" name="user_mobile"	value="${vo.user_mobile}"></td>
+				<td><input type="text" class="register_text" name="user_mobile"	value="${user_info.user_mobile}"></td>
 			</tr>
 			
 			<!-- 성별 입력 -->
@@ -62,25 +58,20 @@
 				</td>
 			</tr>
 			<!-- 생년월일 입력 -->
-			<tr>
+			<tr class="birth">
 				<th>생년월일</th>	
-				<td>			
-					<select name="user_birthday_year" id="user_birthday_year" class="sel_register" value="${vo.user_birthday_year}">
-						<%for (int i = 2021; i > 1949; i--) {%>
-						<option value="<%=i%>"><%=i%>년</option>
-						<%}%>
-					</select> 
-					<select name="user_birthday_month" id="user_birthday_month" class="sel_register" value="${vo.user_birthday_month}">
-						<%for (int i = 01; i < 13; i++) {%>
-						<option value="<%=i%>"><%=i%>월</option>
-						<%}%>
-					</select> 
-					<select name="user_birthday_day" id="user_birthday_day" class="sel_register" value="${vo.user_birthday_day}">
-						<%for (int i = 1; i < 32; i++) {%>
-						<option value="<%=i%>"><%=i%>일</option>
-						<%}%>
-					</select>
-				</td>
+				<td>
+					<div class="div_birthday">	
+						<input type="text" name="user_birthday_year" id="user_birthday_year" pattern="[0-9]*" value="" label="생년월일" size="4" maxlength="4" placeholder="YYYY">
+						<span class="bar"></span>
+						<input type="text" name="user_birthday_month" id="user_birthday_month" pattern="[0-9]*" value="" label="생년월일" size="2" maxlength="2" placeholder="MM">
+						<span class="bar"></span>
+						<input type="text" name="user_birthday_day" id="user_birthday_day" pattern="[0-9]*" value="" label="생년월일" size="2" maxlength="2" placeholder="DD">
+					</div>	
+					<p class="txt_guide" style="display: none;">
+						<span class="txt"></span>
+					</p>	
+				</td>				
 			</tr>
 			<!-- 약관 동의 폼 -->
 			<tr>
@@ -96,10 +87,52 @@
 				</td>
 			</tr>
 		</table>	
+		<!-- 회원수정 버튼 -->
+	<div class="divButton">
+		<input type="submit" id="btnUpdate" class="register_button"  value="회원수정">
+		<input type="reset" class="register_button2" value="취소">
+	</div>
 </div>
 <script>
-$('input:radio[name="user_sex"]:checked').val();
-$("#user_birthday_year option:selected").val();
-$("#user_birthday_month option:selected").val();
-$("#user_birthday_day option:selected").val();
+//수정 버튼 누를때
+$("#btnUpdate").on("click", function(){	
+	if($(frm.user_password).val()==""){
+		alert("변경할 비밀번호를 입력해주세요.");
+		$(frm.user_password).focus();
+		return false;
+	}
+	if($(frm.pwChk).val()==""){
+		alert("비밀번호를 한번 더 입력해주세요.");
+		$(frm.pwChk).focus();
+		return false;
+	}
+	if($(frm.user_name).val()==""){
+		alert("성명을 입력해주세요.");
+		$(frm.user_name).focus();
+		return false;
+	}
+	if($("#check_1").is(":checked")==false){
+		alert("필수 약관에 동의하셔야 회원정보 수정이 가능합니다.")
+		return false;
+	}
+});
+//비밀번호 확인 버튼 누를때
+$("#pwChk").on("click",function(e){
+	e.preventDefault();
+	if($(frm.user_password).val()==""){
+		alert("비밀번호를 입력해주세요.");
+		$(frm.user_password).focus();
+		return false;
+	}else if($(frm.pwChk).val()==""){
+		alert("비밀번호를 한번 더 입력해주세요.");
+		$(frm.pwChk).focus();
+		return false;
+	}else if($(frm.user_password).val()!=$(frm.pwChk).val()){
+		alert("비밀번호가 일치하지 않습니다.");
+		return false;
+	}else{
+		alert("비밀번호가 일치합니다.");	
+		$(frm.user_name).focus();
+	}
+});
 </script>

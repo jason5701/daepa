@@ -7,6 +7,10 @@
 	padding-bottom:120px;
 	position:relative;
 }
+
+table {width: 100%; border-top: 1px solid #444444; text-align:center; border-collapse: collapse;}
+tr, td {border-bottom: 1px solid #444444;padding: 10px;}
+
 .page_aticle.aticle_type2 {
     padding-top: 85px;
 }

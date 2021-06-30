@@ -19,11 +19,7 @@
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
-	</beans:bean>
-	
-	<context:component-scan base-package="com.example.controller" />
-	<context:component-scan base-package="com.example.service" />
-	<context:component-scan base-package="com.example.persistence" />
+	</beans:bean>	
 	
 	<beans:bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -31,6 +27,22 @@
 	</beans:bean>
 	<beans:bean id="uploadPath" class="java.lang.String">
 		<beans:constructor-arg value="c:/zzz/upload" />
-	</beans:bean>		
+	</beans:bean>	
+		
+	<context:component-scan base-package="com.example.controller" />
+	<context:component-scan base-package="com.example.service" />
+	<context:component-scan base-package="com.example.persistence" />
+	<beans:bean id="AuthInterceptor" class="com.example.interceptor.AuthInterceptor"/>
+		<interceptors>
+			<interceptor>
+				<mapping path="/board/product_review_insert"/>
+				<mapping path="/board/product_review_read"/>
+				<mapping path="/mypage/all"/>
+				<mapping path="/mypage/myFavorite"/>
+				<mapping path="/mypage/myInfo"/>
+				<mapping path="/mypage/myInfoupdate"/>
+				<beans:ref bean="AuthInterceptor"/>
+			</interceptor>			
+       </interceptors>	
 	
 </beans:beans>

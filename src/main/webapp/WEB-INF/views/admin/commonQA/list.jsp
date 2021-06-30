@@ -1,13 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="/resources/css/admin_main.css"/>
+<style>
+#div_content{width: 100%; margin:0px auto;}
+table {width: 100%; border-top: 1px solid #444444; border-collapse: collapse;}
+tr, td {border-bottom: 1px solid #444444;padding: 10px;}
+
+#btn_admin{
+	width: 130px;
+	height: 30px;
+	padding: .5em;
+	text-align:center;
+	border: 1px solid #364967;
+	background: #364967;
+	border-radius:3px;
+	color: white;
+	font-weight: bold;
+}
+</style>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <h2>자주하는질문</h2>
 <c:if test="${admin_id!=null}">
 	<div>
-		<button onClick="location.href='/board/admin_commonQA_insert'">글쓰기</button>	
+		<button id="btn_admin" onClick="location.href='/board/admin_commonQA_insert'">글쓰기</button>	
 	</div>
 </c:if>
-<table id="tbl"></table>
+<div id="div_content">
+	<table id="tbl"></table>
 	<script id="temp" type="text/x-handlebars-template">
 		<tr>
 			<td>번호</td>
@@ -33,11 +52,14 @@
 				<option value="commonQA_contents">내용</option>
 			</select>
 		</div>
-		<div class="div_search">
-			<input type="text" id="keyword"/>
-			<button id="btn_search">검색</button>
-		</div>
+		<span>
+			<div class="div_search">
+				<input type="text" id="keyword"/>
+				<button id="btn_search">검색</button>
+			</div>
+		</span>
 	</div>
+</div>
 <script>
 	var page=1;
 	$("#tbl").on("click",".tr_row",function(){

@@ -33,7 +33,8 @@ public class IndexController {
 	public String index(Model model){
 		model.addAttribute("pageName", "indexList.jsp");
 		return "/index";
-	}
+	}	
+	
 	
 	//전체상품-1인밀키트
 	@RequestMapping("/meals") 

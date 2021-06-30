@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -21,7 +23,7 @@ public class RegisterController {
 	UserDAO dao;
 	
 	@Autowired
-	UserService service;
+	UserService user_service;
 	
 	@Autowired
 	SqlSession session;
@@ -29,10 +31,20 @@ public class RegisterController {
 	@Autowired
 	BCryptPasswordEncoder passEncoder;
 	
+	@RequestMapping(value="update_users", method = RequestMethod.POST)
+	public String update_users(UserVO user_vo, HttpSession session) throws Exception{
+		String password=passEncoder.encode(user_vo.getUser_password());
+		user_vo.setUser_password(password);
+		user_service.update_users(user_vo);		
+		session.invalidate();
+		
+		return "redirect:/index";
+	}
+	
 	@ResponseBody
 	@RequestMapping(value="idChk",method=RequestMethod.POST)
 	public int idChk(UserVO vo) throws Exception{
-		int result = service.idChk(vo);
+		int result = user_service.idChk(vo);
 		return result;
 	}
 	
@@ -49,12 +61,12 @@ public class RegisterController {
 	}
 	@RequestMapping(value="register",method=RequestMethod.POST)
 	public String register(UserVO vo)throws Exception{	
-		int result=service.idChk(vo);
+		int result=user_service.idChk(vo);
 		try{
 			if(result==1){
 				return "/user/register";
 			}else if(result == 0){
-				service.register(vo);
+				user_service.register(vo);
 			}
 		}catch(Exception e){
 			throw new RuntimeException();
