@@ -49,9 +49,12 @@ public class PurchaseDAOImpl implements PurchaseDAO{
 		return session.selectOne(namespace+".total_Orders",map);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public List<PurchaseVO> admin_purchase_List(int order_number) throws Exception {
 		return session.selectList(namespace+".admin_purchase_List",order_number);
 	}
 
+=======
+>>>>>>> 7b0886d489be4b07afc23e4a44cb1678a5b4adc6
 }

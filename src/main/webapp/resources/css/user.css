@@ -135,7 +135,11 @@
 .birth .bar {
     float: left;
 }
+<<<<<<< HEAD
 .memberjoin .txt_guide {
+=======
+.member_join .txt_guide {
+>>>>>>> 7b0886d489be4b07afc23e4a44cb1678a5b4adc6
     width: 332px;
 }
 .memberjoin .ico {

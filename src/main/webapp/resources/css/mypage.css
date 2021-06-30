@@ -230,4 +230,128 @@ a{
     line-height: 34px;
     color: #333;
     letter-spacing: -.5px;
+<<<<<<< HEAD
 }
+=======
+}
+.head_aticle .tit_sub {
+    padding-left: 11px;
+    padding-bottom: 30px;
+    font-size: 14px;
+    color: #999;
+    text-align:left;
+    line-height: 20px;
+    letter-spacing: -.3px;
+    vertical-align: 3px;
+}
+.head_aticle .tit_sub_qna {
+    font-size: 14px;
+    color: #999;
+    text-align:left;
+    line-height: 20px;
+    letter-spacing: -.3px;
+    vertical-align: 3px;
+}
+.search_date {
+    position: relative;
+    z-index: 1;
+    float: right;
+    padding-right:300px;    
+}
+.screen_out {
+    display: block;
+    overflow: hidden;
+    position: absolute;    
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+.search_date .layer_search {    
+	width: 130px;
+    padding: .5em .5em;
+    border: 1px solid #999;
+    font-family: inherit;
+    background: url('/resources/image/index/arrow.jpg') no-repeat 95% 50%;
+    border-radius: 0px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.board-container {
+    height: 100%;
+}
+.myinfo_PW {
+    width: 820px;
+    float:left;
+    margin: 20px auto;    
+}
+.myinfo_PW .tit {
+    padding: 0 0 8px;
+    font-weight: 700;
+    font-size: 18px;
+}
+.myinfo_PW .sub {
+    padding-bottom: 20px;
+    font-size: 12px;
+    color: #666;
+    line-height: 17px;
+}
+<!-- 마이페이지 개인정보수정 -->
+.tbl_login, .btn_login{width: 100%; margin:20px auto; text-align:center; border-collapse: collapse;}
+.tbl_login tr {height:60px; display:table-row; vertical-align: inherit; border-color: inherit;}
+.tbl_login th {	width: 30%;}
+.tbl_login td {	width: 70%;	text-align: left;}
+.id_input, .password_input{
+	width: 400px;
+	height: 50px;
+	padding: .5em;
+	font-weight: 500;
+	border: 1px solid #364967;
+	background: white;
+	font-size: 12pt;
+	color: black;
+}
+.login_button3 {
+	width: 100px;
+	height: 50px;
+	padding: .5em;
+	margin-bottom:10px;
+	border: 1px solid #364967;
+	background: #364967;
+	color: white;
+	font-weight: bold;
+}
+
+.board-container{
+	float: right;
+    width: 820px;
+    margin-top:20px;
+}
+
+#tbl_orderList, #tbl_orders{
+	width: 100%;	
+	display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    white-space: normal;
+    line-height: normal;
+    font-weight: normal;
+    font-size: medium;
+    font-style: normal;
+    color: -internal-quirk-inherit;
+    text-align: start;
+    border-spacing: 2px;
+    border-color: grey;
+    font-variant: normal;
+}
+
+#tbl_orders tr, #tbl_orderList tr{border-bottom: 1px solid #ddd; text-align:center; padding: 10px;}
+
+#tbl_orders td, #tbl_orderList td{border-bottom: 1px solid #ddd; text-align:center; padding: 10px;}
+
+#pagination{width: 100%; text-align: center; }
+>>>>>>> 7b0886d489be4b07afc23e4a44cb1678a5b4adc6
