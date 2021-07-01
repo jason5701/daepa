@@ -4,12 +4,12 @@ public class CartVO {
 	
 	private int cart_number;
 	private String user_id;
-	
 	private String product_id;
 	private String product_name;
 	private String product_image;
 	private int product_price;
 	private int cart_product_qtt;
+	
 	public int getCart_number() {
 		return cart_number;
 	}

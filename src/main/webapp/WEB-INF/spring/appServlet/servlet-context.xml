@@ -37,9 +37,6 @@
 		<websocket:sockjs />
 	</websocket:handlers>
 	<beans:bean id="echoHandler" class="com.example.controller.EchoHandler"/>
-
-
-	</beans:bean>	
 		
 	<context:component-scan base-package="com.example.controller" />
 	<context:component-scan base-package="com.example.service" />

@@ -32,7 +32,7 @@ public class CartController {
 	//장바구니 목록
 	@RequestMapping("list") 
 	public String cart_list(Model model, HttpSession session) throws Exception{
-		UserVO user=(UserVO)session.getAttribute("vo");
+		UserVO user=(UserVO)session.getAttribute("user_info");
 		if(user != null){
 			String user_id=user.getUser_id();
 			List<CartVO> cartList=cart_service.cart_list(user_id);
@@ -59,7 +59,7 @@ public class CartController {
 	@RequestMapping(value="insert", method=RequestMethod.POST)
 	@ResponseBody
 	public int insert(CartVO vo, HttpSession session) throws Exception{
-		UserVO user=(UserVO)session.getAttribute("vo");
+		UserVO user=(UserVO)session.getAttribute("user_info");
 		
 		int result=0;
 		if(user != null){
@@ -87,7 +87,7 @@ public class CartController {
 	//장바구니 수정
 	@RequestMapping("update")
 	public String update(CartVO vo, HttpSession session) throws Exception{
-		UserVO user=(UserVO)session.getAttribute("vo");
+		UserVO user=(UserVO)session.getAttribute("user_info");
 		List<CartVO> cartList=cart_service.cart_list(user.getUser_id());
 		
 		for(CartVO cart:cartList){
