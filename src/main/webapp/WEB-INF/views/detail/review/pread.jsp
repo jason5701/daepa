@@ -51,7 +51,7 @@
 	            </td>
 	            <td style="height:150px; padding:10px;">
 	            <input type="file" name="files" accept="image/*" multiple style="display:none;"/>
-					<div id="uploaded">
+					<!--<div id="uploaded">
 	  					<ul id="uploadFiles"></ul>
 	   					<script id="temp" type="text/x-handlebars-template">
       						<li>
@@ -60,7 +60,7 @@
         						<input class="del" type="button" value="삭제" fullName={{fullName}}/>
       						</li>
    	  					</script>
-					</div>
+					</div>-->
 	            </td>
          	</tr>	
 			<tr>

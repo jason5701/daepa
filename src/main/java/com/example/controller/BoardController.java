@@ -202,7 +202,7 @@ public class BoardController {
 			new File(path + "/" + vo.getReview_image()).delete();
 		}
 		review_dao.user_review_delete(review_number);
-		return "redirect:/mypage/my_review";
+		return "redirect:/mypage/myReview";
 	}
 	
 	@RequestMapping("user_review_list.json")
@@ -219,28 +219,6 @@ public class BoardController {
 		map.put("cri", cri);
 		map.put("pm", pm);
 		return map;
-	}
-	
-	@RequestMapping("user_review_insert")
-	public String user_review_insert(Model model, String review_writer)throws Exception{		
-		String lastNumber=review_dao.lastNumber();
-		int last_review_number=Integer.parseInt(lastNumber.substring(1)) + 11;
-		model.addAttribute("review_number",last_review_number);	
-		model.addAttribute("review_writer", review_writer);
-		return "/detail/review/uinsert";
-	}
-	
-	@RequestMapping(value="user_review_insert", method=RequestMethod.POST)
-	public String user_review_insert(ReviewVO vo,MultipartHttpServletRequest multi) throws Exception{
-		//파일업로드
-		MultipartFile file=multi.getFile("file");
-		if(!file.isEmpty()){
-			String image=System.currentTimeMillis()+"_"+file.getOriginalFilename();
-			file.transferTo(new File(path + "/" + image));
-			vo.setReview_image(image);
-		}
-		review_dao.user_review_insert(vo);
-		return "redirect:/mypage/my_review";
 	}
 	
 	@RequestMapping(value="user_review_update", method=RequestMethod.POST)
@@ -263,7 +241,7 @@ public class BoardController {
 			vo.setReview_image(oldVO.getReview_image());
 		}
 		review_dao.user_review_update(vo);
-		return "redirect:/mypage/my_review";
+		return "redirect:/mypage/myReview";
 	}
 	
 	@RequestMapping("user_review_read")

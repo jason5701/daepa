@@ -2,37 +2,43 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.CartMapper">
 
-	<select id="cart_list" resultType="com.example.domain.CartVO">
-		select * from c_list
-		where user_id=#{user_id}
-		order by cart_number desc
-	</select>
-	
-	<insert id="cart_insert">
-		insert into tbl_cart(user_id, product_id, cart_product_qtt)
-		values(#{user_id}, #{product_id}, #{cart_product_qtt})
-	</insert>
-	
-	<delete id="cart_delete">
-		delete from tbl_cart
-		where cart_number=#{cart_number}
-	</delete>
-	
-	<select id="cart_count" resultType="int">
-		select count(*) from tbl_cart
-		where user_id=#{user_id} and product_id=#{product_id}
-	</select>
-	
-	<update id="cart_update_qtt">
-		update tbl_cart
-		set cart_product_qtt=cart_product_qtt+#{cart_product_qtt}
-		where user_id=#{user_id} and product_id=#{product_id}
-	</update>
-	
-	<update id="cart_update">
-		update tbl_cart
-		set cart_product_qtt=#{cart_product_qtt}
-		where user_id=#{user_id} and product_id=#{product_id}
-	</update>
-	
+   <select id="cart_list" resultType="com.example.domain.CartVO">
+      select * from c_list
+      where user_id=#{user_id}
+      order by cart_number desc
+   </select>
+   
+   <insert id="cart_insert">
+      insert into tbl_cart(user_id, product_id, cart_product_qtt)
+      values(#{user_id}, #{product_id}, #{cart_product_qtt})
+   </insert>
+   
+   <delete id="cart_delete">
+      delete from tbl_cart
+      where cart_number=#{cart_number}
+   </delete>
+   
+   <select id="cart_count" resultType="int">
+      select count(*) from tbl_cart
+      where user_id=#{user_id} and product_id=#{product_id}
+   </select>
+   
+   <update id="cart_update_qtt">
+      update tbl_cart
+      set cart_product_qtt=cart_product_qtt+#{cart_product_qtt}
+      where user_id=#{user_id} and product_id=#{product_id}
+   </update>
+   
+   <update id="cart_update">
+      update tbl_cart
+      set cart_product_qtt=#{cart_product_qtt}
+      where user_id=#{user_id} and product_id=#{product_id}
+   </update>
+   
+   <select id="cart_total" resultType="int">
+      select ifnull(sum(product_price * cart_product_qtt), 0) total
+      from tbl_cart c, tbl_product p
+      where c.product_id=p.product_id and c.user_id=#{user_id};
+   </select>
+   
 </mapper>

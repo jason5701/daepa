@@ -3,18 +3,36 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script type="text/javascript" src="https://dapi.kakao.com/v2/search/blog?query=고기"></script>
 
 <head>
 	<link rel="stylesheet" href="/resources/css/detail.css" />
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+	<style>
+	.thumb{width:210px;}
+	.title{width:180px; white-space: nowrap; text-overflow:ellipsis; overflow:hidden;}
+	</style>
 </head>
 <div id="detail">
 	<div>
 		<jsp:include page="${product_div}"></jsp:include>
 	</div>
 </div>
-
+<!-- 블로그 API  -->
+<h2>▮ POPULAR BLOG RECIPE </h2>
+<div class="slide_wrapper">
+<div id="blogs"></div>
+	<script id="tempblogs" type="text/x-handlebars-template">
+		{{#each documents}}
+		<div style="float:left; width:220px; margin-left:5px;">
+			<div class="thumb"><a href="{{url}}"><img src="{{thumbnail}}"></a></div>
+			<br>
+			<div class="title">{{{title}}}</div>
+		</div>
+		{{/each}}
+	</script>
+	</div>
 <!-- 레시피재료 -->
 <div id="recipeItems">
 <h2>▮ RECIPE ITEMS</h2>
@@ -57,6 +75,8 @@
 
 <script>
 var product_id="${vo.product_id}";
+var product_name="${vo.product_name}";
+var size="4";
 
 	//연관재료불러오기
 	getMeterial_list();
@@ -108,6 +128,22 @@ var product_id="${vo.product_id}";
 					var tempData={"fullName":this};
 					$("#detailContent1").append(temp(tempData));
 				});
+			}
+		});
+	}
+	getlist();
+	//블로그 API 스크립트
+	function getlist(){
+		$.ajax({
+			type:"get",
+			url:"https://dapi.kakao.com/v2/search/blog",
+			headers:{"Authorization" : "KakaoAK a18571056e052529162aacd67fd66c8c"},
+			dataType:"json",
+			data:{"query":product_name + "레시피", "size":size},
+			success:function(data){
+				var temp = Handlebars.compile($("#tempblogs").html());
+				console.log(data);
+				$("#blogs").html(temp(data));
 			}
 		});
 	}

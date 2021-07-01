@@ -37,7 +37,7 @@
 			<span id="total"></span>
 		</div>
 	</div>
-	<table id="tbl"></table>
+	<table id="tbl" class="table"></table>
 	<script id="temp" type="text/x-handlebars-template">
 		<tr class="title">
 			<td width=50>번호</td>
@@ -48,14 +48,22 @@
 			<td width=50>조회</td>      	
 		</tr>
 		{{#each list}}
-		<tr class="row" onClick="location.href='/board/product_review_read?review_number={{review_number}}'">  
-			<td>{{review_number}}</td>
+		<tr class="row">  
+			<td class="review_number">{{review_number}}</td>
 			<td>{{product_id}}</td>
 			<td>{{review_title}}</td>
 		    <td>{{review_writer}}</td>
 		    <td>{{review_write_date}}</td>
 			<td>{{review_click}}</td>
 		<tr>
+		<tr class="c_row" style="display:none" review_number={{review_number}}>
+			<td colspan="3">
+				<p>{{product_name}}</p>
+				<img id="image" src="/displayFile?fullName={{review_image}}" width=300/>
+				<input type="file" name="file" style="display:none;"/>
+				<textarea rows="10" cols="100" style="border:none;">{{review_contents}}</textarea>
+			</td>								
+		</tr>
 		{{/each}}
 	</script>
 	<div id="review_insert">
@@ -108,6 +116,24 @@
 		e.preventDefault();
 		page = $(this).attr("href");
 		getProduct_review_list();
+	});
+	
+	//클릭시 하단에 tr 글 출력
+	$(".table").on("click",".row",function(){
+	  	var tr = $(this);
+	    var no = tr.find(".review_number").html();
+		$(".c_row").each(function(){
+			var review_number = $(this).attr("review_number");
+			if(no==review_number){
+				if($(this).css("display")=="none"){
+				   $(this).show();
+				}else{
+				   $(this).hide();
+				}
+			}else{
+				$(this).hide();
+			}
+		});
 	});
 </script>
 </html>

@@ -66,14 +66,6 @@ public class MypageController {
 		return "/index";
 	}
 	
-	@RequestMapping("myFavorite")
-	public String my_favorite(Model model){
-		model.addAttribute("pageName","mypage/all.jsp");
-		model.addAttribute("leftPage", "myList.jsp");
-		model.addAttribute("rightPage", "myFavorite.jsp");
-		return "/index";
-	}
-	
 	@RequestMapping("myReview")
 	public String my_review(Model model){
 		model.addAttribute("pageName","mypage/all.jsp");
