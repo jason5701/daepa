@@ -36,4 +36,27 @@
 			where notice_contents like concat('%',#{keyword},'%')
 		</if>
 	</select>
+	
+	
+	<!-- 20210623 수정사항  -->
+	<select id="list" resultType="com.example.domain.NoticeVO">
+ 		select * from tbl_notice
+ 		order by notice_number
+ 		limit #{pageStart}, #{perPageNum}
+ 	</select>
+ 	<!-- 20210701 윤선 수정사항  -->
+ 	<select id="read" resultType="com.example.domain.NoticeVO">
+ 		select * from tbl_notice
+ 		where notice_number=#{notice_number}
+ 	</select>
+ 	<!-- 20210701 윤선 수정사항  -->
+ 	<select id="n_totalCount" resultType="int">
+      select count(*) from tbl_notice
+   </select>
+   <!-- 20210701 윤선 수정사항  -->
+   <update id="updateClick">
+ 		update tbl_notice set notice_click=notice_click + 1
+ 		where notice_number=#{notice_number}
+ 	</update>
+	
 </mapper>

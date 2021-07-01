@@ -51,5 +51,26 @@ public class NoticeDAOImpl implements NoticeDAO{
 		return session.selectOne(namespace+".totCount",cri);
 	}
 	
+	/*20210701 윤선 수정사항*/
+	@Override
+	public List<NoticeVO> list(Criteria cri) throws Exception {	
+		return session.selectList(namespace + ".list", cri);
+	}
+	/*20210701 윤선 수정사항*/
+	@Override
+	public NoticeVO read(int notice_number) throws Exception {
+		return session.selectOne(namespace + ".read", notice_number);
+	}
+	/*20210701 윤선 수정사항*/
+	@Override
+	public int n_totalCount()throws Exception{
+		return session.selectOne(namespace + ".n_totalCount");
+	}
+	/*20210701 윤선 수정사항*/
+	@Override
+	public void updateClick(int notice_number) throws Exception {
+		session.update(namespace + ".updateClick" ,notice_number);	
+	}
+	
 	
 }

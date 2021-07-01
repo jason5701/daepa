@@ -1,3 +1,5 @@
+ 
+
 package com.example.controller;
 
 import java.io.File;
@@ -20,10 +22,12 @@ import com.example.domain.NoticeVO;
 import com.example.domain.PageMaker;
 import com.example.domain.ReviewVO;
 import com.example.persistence.BoardDAO;
+import com.example.persistence.BoardQADAO;
 import com.example.persistence.CommonQADAO;
 import com.example.persistence.NoticeDAO;
 import com.example.persistence.SuggestionDAO;
 import com.example.service.BoardService;
+import com.example.service.NoticeService;
 import com.example.service.SuggestionService;
 
 @Controller
@@ -34,12 +38,75 @@ public class BoardController {
 	
 	@Autowired
 	NoticeDAO notice_dao;
+	
+	/*20210701 윤선 수정사항*/
+	@Autowired
+	NoticeService notice_service;
+	
+	/*20210701 윤선 수정사항*/
+	@Autowired
+	BoardQADAO boardQA_dao;
 
 	@Autowired
 	BoardDAO review_dao;
 	
 	@Autowired
 	BoardService review_service;
+	
+	/*20210701 윤선 수정사항*/
+	@RequestMapping("notice/list.json")
+	@ResponseBody
+	public HashMap<String, Object> list_json(Criteria cri) throws Exception{
+		HashMap<String, Object> map=new HashMap<>();
+		cri.setPerPageNum(3);
+		map.put("notice_hashmap", notice_dao.list(cri));
+		PageMaker pm=new PageMaker();
+		pm.setCri(cri);
+		pm.setTotalCount(notice_dao.n_totalCount());
+		
+		map.put("pm", pm);
+		map.put("cri", cri);
+		
+		return map;
+	}
+	/*20210701 윤선 수정사항*/
+	@RequestMapping("notice/list")
+	public String list(Model model, Criteria cri) throws Exception {
+		model.addAttribute("list", notice_dao.list(cri)); //("items 이름" , DAO)
+		return "/detail/notice/notice_list"; //(jsp 경로)
+	}	 
+	 
+	 
+	/*20210701 윤선 수정사항*/
+	@RequestMapping("notice/read")
+	public String read(Model model, int notice_number) throws Exception { 
+		model.addAttribute("vo", notice_service.read(notice_number));	
+		return "/cs/detail/notice/notice_read";
+	}
+	
+	/*20210625 수정사항*/
+	@RequestMapping("product_boardQA_list.json") //jsp에 있는, ajax으로 url 연결하여 출력. ==> 크롤링과 동일하게 생각하면 됨
+	@ResponseBody
+	public HashMap<String, Object> product_boardQA_list(Criteria cri) throws Exception{
+		HashMap<String, Object> map=new HashMap<>();
+		cri.setPerPageNum(3);
+		map.put("list", boardQA_dao.product_boardQA_list(cri));  
+		
+		PageMaker pm=new PageMaker();
+		pm.setCri(cri);
+	    pm.setTotalCount(boardQA_dao.totalCount(cri));
+	    
+	    map.put("pm", pm);
+	    map.put("cri", cri);
+		return map;
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	@RequestMapping("product_review_delete")
 	public String product_review_delete(int review_number) throws Exception{
