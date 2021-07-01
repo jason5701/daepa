@@ -44,7 +44,6 @@ public class OrderController {
 		
 		if(user != null){
 			String user_id=user.getUser_id();
-			UserVO userinfo=user_dao.read(user_id);
 			
 			List<CartVO> cartList=cart_service.cart_list(user_id);
 			
@@ -55,7 +54,7 @@ public class OrderController {
 			}else{
 				fee=total >= 50000 ? 0 : 2500;
 			}
-			model.addAttribute("userinfo", userinfo);
+			
 			model.addAttribute("cartList", cartList);
 			model.addAttribute("total", total);
 			model.addAttribute("fee", fee);
@@ -69,11 +68,7 @@ public class OrderController {
 	@ResponseBody
 	public void order_insert(OrderVO vo) throws Exception{
 		
-	}
-	
-
-	PurchaseDAO purchase_dao;	
-			
+	}	
 
 	@RequestMapping("admin_list.json")
 	@ResponseBody

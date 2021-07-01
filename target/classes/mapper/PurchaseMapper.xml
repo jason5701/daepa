@@ -15,17 +15,19 @@
 		select *,product_price * purchase_qtt purchase_sum from orderList where user_id=#{user_id} and order_number=#{order_number}
 	</select>
 
-	
 	<insert id="order_insert">
 		insert into tbl_orders
 		values(#{order_name}, #{order_address}, #{order_email}, #{order_mobile})
 	</insert>
+
 	<select id="admin_order_list" resultType="com.example.domain.OrderVO">
 		select * from tbl_orders order by order_register_date desc limit #{pageStart}, #{perPageNum}
 	</select>	
+
 	<select id="admin_purchase_List" resultType="com.example.domain.PurchaseVO">
 		select *,product_price * purchase_qtt purchase_sum from orderList where order_number=#{order_number}
 	</select>
+
 	<update id="update_orderstatus">
 		update tbl_orders set order_status=1 where order_number=#{order_number};
 	</update>
