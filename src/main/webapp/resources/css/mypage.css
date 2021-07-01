@@ -157,7 +157,7 @@
 	width:1050px;
 	margin: 0 auto;
 }
-.page_aticle.aticle_type2 .page_section {
+.page_aticle .aticle_type2 .page_section {
     float: right;
     width: 820px;
 }
@@ -354,4 +354,3 @@ a{
 #tbl_orders td, #tbl_orderList td{border-bottom: 1px solid #ddd; text-align:center; padding: 10px;}
 
 #pagination{width: 100%; text-align: center; }
->>>>>>> 7b0886d489be4b07afc23e4a44cb1678a5b4adc6

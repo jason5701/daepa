@@ -46,6 +46,8 @@
 			<interceptor>
 				<mapping path="/board/product_review_insert"/>
 				<mapping path="/board/product_review_read"/>
+				<mapping path="/board/meterial_review_insert"/>
+				<mapping path="/board/meterial_review_read"/>
 				<mapping path="/mypage/all"/>
 				<mapping path="/mypage/myFavorite"/>
 				<mapping path="/mypage/myInfo"/>

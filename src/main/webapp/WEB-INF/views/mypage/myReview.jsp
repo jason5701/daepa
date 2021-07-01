@@ -1,5 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <style>
+    	.page_section{width:810px;float:right;}
+		table{width: 100%;border-collapse: collapse;border-bottom:solid 1px;}
+		td{border:solid 1px rgb(200, 200, 200) solid;padding: 10px;text-align: center;}
+		.row:hover{background: rgb(200, 200, 200);color: white;}
+		.row{border-top:solid 1px rgb(200, 200, 200);}
+		.title{border-top:2px solid;text-align: center;}
+		#pagination{text-align: center;}
+		#pagination a{text-decoration:none; color:black}
+		#pagination .active{color:red}
+		#review_insert{text-align:right;}
+		#total{display:none;}
+	</style>
 <div class="page_section">
 	<div class="head_aticle">
 		<h2 class="tit">상품 후기
@@ -8,7 +21,7 @@
 	</div>	
 	<div class="div_container">
 		<div class="div_checkbox">
-			<select id="keyword" style="float:right;">
+			<select id="orderBy" style="float:right;">
 				<option value="review_number desc" selected>최근등록순</option>
 				<option value="review_click desc">조회많은순</option>
 			</select>
@@ -38,22 +51,22 @@
 	</script>
 	<div id="pagination"></div>
 <script>
-	var user_id="${vo.user_id}";
+	var user_id="${user_info.user_id}";
 	var page=1;
 	getUser_review_list();
 	
-	$("#keyword").on("change", function(){
+	$("#orderBy").on("change", function(){
 		page=1;
 		getUser_review_list();
 	});
 	
 	function getUser_review_list(){
-		var keyword=$("#keyword").val();
+		var orderBy=$("#orderBy").val();
 		$.ajax({
 			type:"get",
 			url:"/board/user_review_list.json",
 			dataType:"json",
-			data:{"page":page,"keyword":keyword,"searchType":user_id},
+			data:{"page":page,"orderBy":orderBy,"searchType":user_id},
 			success:function(data){
 				console.log(data);
 				var temp = Handlebars.compile($("#temp").html());

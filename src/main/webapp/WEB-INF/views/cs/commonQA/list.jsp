@@ -8,7 +8,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 	<title>자주하는질문 목록</title>
 	<style>
-		table{width:100%;border-collapse: collapse;border-bottom:solid 1px; font-size:13px;}
+		table{width:100%;border-collapse: collapse;border-bottom:solid 1px;}
 		td{border:solid 1px rgb(200, 200, 200) solid;padding: 10px;text-align: center;}
 		.row:hover{background: rgb(200, 200, 200);color: white;}
 		.row{border-top:solid 1px rgb(200, 200, 200);}
@@ -17,7 +17,7 @@
 		#pagination a{text-decoration:none; color:black}
 		#pagination .active{color:red}
 		#review_insert{text-align:right;}
-		.tit{font-size:28px; float:left;}
+		.tit{font-size:32px;}
 		.titSub{font-size:12px;}
 		#total{display:none;}
 	</style>
@@ -41,17 +41,21 @@
 		</div>
 	</div>
 	<div id="list">
-		<table id="tbl"></table>
+		<table id="tbl" class="table"></table>
 		<script id="temp" type="text/x-handlebars-template">
 			<tr class="title">
 				<td width=200>번호</td>
 				<td width=800>제목</td>	
 			</tr>
 			{{#each list}}
-	        <tr class="row" onClick="location.href='/board/commonQA_read?commonQA_number={{commonQA_number}}'">  
-				<td>{{commonQA_number}}</td>
+	        <tr class="row">  
+				<td class="commonQA_number">{{commonQA_number}}</td>
 				<td>{{commonQA_title}}</td>
-	        <tr>
+	        </tr>
+			<tr class="c_row" style="display:none" commonQA_number={{commonQA_number}}>
+           		<td></td>
+				<td><textarea rows="10" cols="100" style="border:none;">{{commonQA_contents}}</textarea></td>
+         	</tr>
 			{{/each}}
 		</script>
 	</div>
@@ -121,5 +125,24 @@
 		page = $(this).attr("href");
 		getList();
 	});
+	
+	//클릭시 하단에 tr 글 출력
+	$(".table").on("click",".row",function(){
+	  	var tr = $(this);
+	    var no = tr.find(".commonQA_number").html();
+		$(".c_row").each(function(){
+			var commonQA_number = $(this).attr("commonQA_number");
+			if(no==commonQA_number){
+				if($(this).css("display")=="none"){
+					$(this).show();
+				}else{
+					$(this).hide();
+				}
+			}else{
+				$(this).hide();
+			}
+		});
+	});
+
 </script>
 </html>
