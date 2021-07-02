@@ -40,14 +40,14 @@
 		</c:if>
 		<c:forEach begin="${pm.startPage}" end="${pm.endPage}" var="i">
 			<c:if test="${i!=cri.page}">
-				<span page="${i}">${i}</span>
+				<span page="${i}">${i}&nbsp&nbsp</span>
 			</c:if>
 			<c:if test="${i==cri.page}">
-				<span style="color:red;" page="${i}">${i}</span>
+				<span style="color:#ccc;" page="${i}">${i}&nbsp&nbsp</span>
 			</c:if>
 		</c:forEach>
 		<c:if test="${pm.next}">
-			<span page="${pm.endPage+1}">다음</span>
+			<span page="${pm.endPage+1}">▶</span>
 		</c:if>
 	</div>
 </div>

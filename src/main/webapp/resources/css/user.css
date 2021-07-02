@@ -3,6 +3,8 @@
 *{font-family: 'Noto Sans CJK KR'}
 .login_H1 , .register_H1{font-weight:900; text-align:center; font-size: 30px;}
 .div_Login{margin: 10px auto; width: 400px; height: 1316px;}
+.div_registerComplete{margin: 10px auto; width: 400px;}
+.login_go{margin: 10px auto; text-align:center; margin-top:20px;}
 .id_input, .password_input{
 	height:54px; width:100%; font-size:14px; padding:10px; outline:none; border-radius:3px; border:1px solid #ccc;
 }
@@ -135,11 +137,7 @@
 .birth .bar {
     float: left;
 }
-<<<<<<< HEAD
-.memberjoin .txt_guide {
-=======
 .member_join .txt_guide {
->>>>>>> 7b0886d489be4b07afc23e4a44cb1678a5b4adc6
     width: 332px;
 }
 .memberjoin .ico {

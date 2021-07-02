@@ -2,18 +2,25 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <h2>재료관리</h2>
+<div>
+<div class="div_search" style="float:left; margin-bottom:10px;">
+	<input class="admin_text" type="text" id="keyword"/>
+	<button class="btn_admin" id="btn_search">검색</button>
+</div>
+<span style="float:right;">
 <c:if test="${admin_id!=null}">
 	<div>
-		<button onClick="location.href='/admin/meterial_insert'">글쓰기</button>	
+		<button class="btn_admin" onClick="location.href='/admin/meterial_insert'">글쓰기</button>	
 	</div>
 </c:if>
+</span>
+</div>
 <table id="tbl"></table>
 <script id="temp" type="text/x-handlebars-template">
 	<tr>
 		<td>상품번호</td>
 		<td>상품명</td>
 		<td>단가</td>
-		<td>설명</td>
 		<td>배송</td>
 		<td>조회수</td>
 		<td>판매량</td>
@@ -24,7 +31,6 @@
 			<td>{{meterial_id}}</td>
 			<td>{{meterial_name}}</td>
 			<th>{{meterial_price}}</th>
-			<td>{{meterial_description}}</td>
 			<td>{{print_deli meterial_delivery}}</td>
 			<td>{{meterial_click}}</td>
 			<td>{{meterial_selling}}</td>
@@ -45,10 +51,7 @@
 	});
 </script>
 <div id="pagination"></div>
-<div class="div_search">
-	<input type="text" id="keyword"/>
-	<button id="btn_search">검색</button>
-</div>
+
 <script>
 	var page=1;
 	
@@ -78,9 +81,9 @@
 				var str="";
 				for(var i=data.pm.startPage;i<=data.pm.endPage;i++){
 					if(i==page){
-						str+="<a style='color:red;' href='"+i+"'>"+i +"</a>";
+						str+="<a style='color:#ccc;' href='"+i+"'>"+i +"&nbsp&nbsp</a>";
 					}else{
-						str+="<a href='"+i+"'>"+i +"</a>";
+						str+="<a href='"+i+"'>"+i +"&nbsp&nbsp</a>";
 					}
 				}
 				

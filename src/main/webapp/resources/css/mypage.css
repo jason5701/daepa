@@ -223,17 +223,7 @@ ol,ul{
 a{
 	text-decoration:none;
 }
-#snb .tit_snb {
-    padding: 8px 0 33px 1px;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 34px;
-    color: #333;
-    letter-spacing: -.5px;
-<<<<<<< HEAD
-}
-=======
-}
+
 .head_aticle .tit_sub {
     padding-left: 11px;
     padding-bottom: 30px;
@@ -354,4 +344,3 @@ a{
 #tbl_orders td, #tbl_orderList td{border-bottom: 1px solid #ddd; text-align:center; padding: 10px;}
 
 #pagination{width: 100%; text-align: center; }
->>>>>>> 7b0886d489be4b07afc23e4a44cb1678a5b4adc6

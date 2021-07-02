@@ -7,12 +7,11 @@
 			<td width=20>주문번호</td>
 			<td width=50>회원아이디</td>
 			<td width=30>주문인</td>
-			<td width=100>주문날짜</td>
-			<td width=150>주소</td>
-			<td width=80>이메일</td>
-			<td width=80>전화번호</td>
+			<td width=80>주문날짜</td>
+			<td width=100>주소</td>
+			<td width=50>전화번호</td>
 			<td width=20>결제수단</td>
-			<td width=20>배송상태</td>
+			<td width=30>배송상태</td>
 		</tr>
 	{{#each admin_list}}
 		<tr class="tr_row" order_number="{{order_number}}">
@@ -21,17 +20,16 @@
 			<td>{{order_name}}</td>
 			<td>{{order_register_date}}</td>
 			<td>{{order_address}}</td>
-			<td>{{order_email}}</td>
 			<td>{{order_mobile}}</td>
-			<td>{{order_payment}}</td>
-			<td>{{order_status}}</td>
+			<td>{{pm order_payment}}</td>
+			<td>{{d_success order_status}}</td>
 		</tr>	
 	{{/each}}
 </script>
 <div id="pagination"></div>
 	<div class="div_orderList">
 			<hr/>
-			<h2>주문 목록<button id="btnSend" style="margin-left:20px;">배송</button></h2>
+			<h2 style="margin:10px auto; padding-left:10px;">주문 목록<button id="btnSend" class="btn_admin2" style="float:right; margin-left:20px;">배송</button></h2>
 			<table id="tbl_purchase_List"  style=" background:#ddd; text-align:left;"></table>
 			<script id="temp_purchase_List" type="text/x-handlebars-template">
 				<tr class="title">
@@ -45,9 +43,9 @@
 				<tr class="row">
 					<td>{{product_id}}</td>				
 					<td>{{product_name}}</td>
-					<td>{{product_price}}</td>
-					<td>{{nf purchase_qtt}}</td>			
-					<td>{{nf purchase_sum}}</td>
+					<td>{{product_price}}원</td>
+					<td>{{nf purchase_qtt}}개</td>			
+					<td>{{nf purchase_sum}}원</td>
 				</tr>			
 				{{/each}}		
 			</script>
@@ -56,6 +54,16 @@
 Handlebars.registerHelper("nf", function(price){
     var regexp = /\B(?=(\d{3})+(?!\d))/g; 
     return price.toString().replace(regexp, ",");
+});
+Handlebars.registerHelper("d_success", function(order_status){
+	var order_status="";
+	if(order_status==1) order_status="배송완료"; else order_status="배송전"; 
+	return order_status;
+});
+Handlebars.registerHelper("pm", function(order_payment){
+	var order_payment="";
+	if(order_payment==1) order_payment="카드"; else order_payment="현금"; 
+	return order_payment;
 });
 </script>
 <script>
@@ -89,9 +97,9 @@ Handlebars.registerHelper("nf", function(price){
 				var str="";
 				for(var i=data.pm.startPage; i<=data.pm.endPage; i++){
 					if(page==i){
-						str+="<a style='color:red;' href='"+i+"'>"+i+"</a>";
+						str+="<a style='color:#ccc;' href='"+i+"'>"+i+"&nbsp&nbsp</a>";
 					}else{
-						str+="<a href='"+i+"'>"+i+"</a>";
+						str+="<a href='"+i+"'>"+i+" &nbsp&nbsp</a>";
 					}
 				}
 				$("#pagination").html(str);

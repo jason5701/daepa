@@ -3,19 +3,32 @@
     <link rel="stylesheet" href="/resources/css/mypage.css"/>
     <style>
     table {width: 70%; border-top: 1px solid #444444; margin:10px auto; text-align:center; border-collapse: collapse;}
-	tr, td {border-bottom: 1px solid #444444;padding: 10px;}    
+	tr, td {border-bottom: 1px solid #444444;padding: 10px;}  
+	.head_aticle{margin-top:20px;}
+	.tit{text-align:left; margin-left:10px;}
+	.head_aticle .tit_sub {
+    padding-left: 11px;
+    padding-bottom: 30px;
+    font-size: 14px;
+    color: #999;
+    text-align:left;
+    line-height: 20px;
+    letter-spacing: -.3px;
+    vertical-align: 3px;
+	} 
+	.search_date{
+	  	position: relative;
+	    z-index: 1;
+	    float: right;
+	    padding-right:300px;    
+	} 
     </style>
     <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <div class="mypage_Content_Right">
 		<div class="head_aticle">
 			<h2 class="tit">주문내역
-<<<<<<< HEAD
-				<span class="tit_sub">지난 3년간의 주문 내역 조회가 가능합니다</span>				
-=======
 				<span class="tit_sub">지난 3년간의 주문 내역 조회가 가능합니다</span>
-				
->>>>>>> 7b0886d489be4b07afc23e4a44cb1678a5b4adc6
 			</h2>
 			<div class="search_date">
 				<h3 class="screen_out">기간선택</h3>
@@ -44,7 +57,7 @@
 				<td>{{order_register_date}}</td>
 				<td>{{order_name}}</td>
 				<td>{{order_address}}</td>
-				<td>{{order_status}}</td>
+				<td>{{d_success order_status}}</td>
 			</tr>			
 			{{/each}}
 		</script>	
@@ -79,6 +92,15 @@
 Handlebars.registerHelper("nf", function(price){
     var regexp = /\B(?=(\d{3})+(?!\d))/g; 
     return price.toString().replace(regexp, ",");
+});
+Handlebars.registerHelper("d_success", function(order_status){
+	var order_status="";
+	if(order_status==1) {
+		order_status="배송완료";
+		}else{
+		order_status="배송전"; 
+		}
+	return order_status;
 });
 </script>
 <script>

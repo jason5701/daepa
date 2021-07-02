@@ -3,16 +3,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
 <h2>${vo.product_name}</h2>
 <form name="frm" encType="multipart/form-data">
-	<table>
+	<table  class="tbl_read">
 		<tr>
 			<td>품번</td>
-			<td><input type="text" name="meterial_id" value="${vo.meterial_id}" readonly/></td>
+			<td><input type="text"  class="admin_text2" name="meterial_id" value="${vo.meterial_id}" readonly/></td>
 			<td>품명</td>
-			<td><input type="text" value="${vo.meterial_name}" readonly/></td>
+			<td><input type="text" class="admin_text" value="${vo.meterial_name}" readonly/></td>
 		</tr>
 		<tr>
 			<td>단가</td>
-			<td colspan=3><input type="text" name="meterial_price" value="${vo.meterial_price}"/></td>
+			<td colspan=3><input type="text" class="admin_text2" name="meterial_price" value="${vo.meterial_price}"/></td>
 
 		</tr>
 		<tr>
@@ -41,7 +41,7 @@
 		</tr>
 		<tr>
 			<td>상품 설명</td>
-			<td colspan=3><textarea name="meterial_description" style="width:500px; height:200px; resize: none;">${vo.meterial_description}</textarea></td>
+			<td colspan=3><textarea name="meterial_description" class="admin_text" style="width:500px; height:200px; resize: none;">${vo.meterial_description}</textarea></td>
 		</tr>
 		<tr>
 			<td>대표 이미지</td>

@@ -8,7 +8,7 @@
 	<table>
 		<tr>
 			<td>제목</td>
-			<td><input type="text" name="suggestion_title" value="${vo.suggestion_title}"/></td>
+			<td><input type="text" class="admin_text"  name="suggestion_title" value="${vo.suggestion_title}"/></td>
 		</tr>
 		<tr>
 			<td>작성자</td>
@@ -21,11 +21,11 @@
 			
 		</tr>
 		<tr>
-			<td colspan=2><textarea name="suggestion_contents" style="width:500px; height:200px; resize: none;">${vo.suggestion_contents}</textarea></td>
+			<td colspan=2><textarea name="suggestion_contents" class="admin_text"  style="width:500px; height:200px; resize: none;">${vo.suggestion_contents}</textarea></td>
 		</tr>
 	</table>
-	<div>
-		<input type="button" id="btn_list" value="목록">
+	<div style="float:right;">
+		<input type="button"  class="btn_admin" id="btn_list" value="목록">
 	</div>
 </form>
 <script>

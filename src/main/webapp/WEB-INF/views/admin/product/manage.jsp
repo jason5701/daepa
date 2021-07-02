@@ -2,17 +2,27 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
 <h2>상품관리</h2>
-<c:if test="${admin_id!=null}">
-	<div>
-		<button onClick="location.href='/admin/product_insert'">글쓰기</button>	
+<div>
+	<div style="float:left;">
+		<select id="main_meterial" >
+				 <option value="전체">전체상품</option>
+			<c:forEach items="${main_list}" var="vo">
+				<option value="${vo}">${vo}</option>
+			</c:forEach>
+		</select>		
+		<div class="div_search">
+			<input type="text" class="admin_text" id="keyword"/>
+			<button id="btn_search" class="btn_admin">검색</button>
+		</div>
 	</div>
-</c:if>
-<select id="main_meterial">
-		 <option value="전체">전체상품</option>
-	<c:forEach items="${main_list}" var="vo">
-		<option value="${vo}">${vo}</option>
-	</c:forEach>
-</select>
+	<span style="float:right;">
+	<c:if test="${admin_id!=null}">
+		<div>
+			<button class="btn_admin" onClick="location.href='/admin/product_insert'">글쓰기</button>	
+		</div>
+	</c:if>
+	</span>
+</div>
 <table id="tbl"></table>
 <script id="temp" type="text/x-handlebars-template">
 	<tr>
@@ -20,7 +30,6 @@
 		<td>상품명</td>
 		<td>단가</td>
 		<td>재고</td>
-		<td>성분</td>
 		<td>배송</td>
 		<td>조회수</td>
 		<td>판매량</td>
@@ -30,9 +39,8 @@
 		<tr onClick="location.href='admin_product_read?product_id={{product_id}}'">
 			<td>{{product_id}}</td>
 			<td>{{product_name}}</td>
-			<th>{{product_price}}</th>
+			<th>{{nf product_price}}</th>
 			<td>{{product_qtt}}</td>
-			<td>{{product_detail}}</td>
 			<td>{{print_delivery product_delivery}}</td>
 			<td>{{product_click}}</td>
 			<td>{{product_selling}}</td>
@@ -41,6 +49,10 @@
 	{{/each}}
 </script>
 <script>
+	Handlebars.registerHelper("nf", function(price){
+	    var regexp = /\B(?=(\d{3})+(?!\d))/g; 
+	    return price.toString().replace(regexp, ",");
+	});
 	Handlebars.registerHelper("print_drop", function(product_drop){
 		var drop_status="";
 		if(product_drop==1) drop_status="판매중지"; else drop_status="판매중"; 
@@ -53,10 +65,7 @@
 	});
 </script>
 <div id="pagination"></div>
-<div class="div_search">
-	<input type="text" id="keyword"/>
-	<button id="btn_search">검색</button>
-</div>
+
 <script>
 	var page=1;
 	
@@ -89,9 +98,9 @@
 				var str="";
 				for(var i=data.pm.startPage;i<=data.pm.endPage;i++){
 					if(i==page){
-						str+="<a style='color:red;' href='"+i+"'>"+i +"</a>";
+						str+="<a style='color:#ccc;' href='"+i+"'>"+i +"&nbsp&nbsp</a>";
 					}else{
-						str+="<a href='"+i+"'>"+i +"</a>";
+						str+="<a href='"+i+"'>"+i +"&nbsp&nbsp</a>";
 					}
 				}
 				

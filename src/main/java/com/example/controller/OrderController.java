@@ -36,6 +36,14 @@ public class OrderController {
 	@Autowired
 	CartService cart_service;
 	
+	@RequestMapping("update_orderstatus")
+	public void update_orderstatus(String order_number,OrderVO ordervo){
+		String order_status = ordervo.getOrder_status();
+		ordervo.setOrder_status(order_status);
+		purchase_dao.update_orderstatus(ordervo);
+	}
+	
+	
 	@RequestMapping("form")
 	public String order_form(Model model, HttpSession session) throws Exception{
 		model.addAttribute("pageName", "order/form.jsp");

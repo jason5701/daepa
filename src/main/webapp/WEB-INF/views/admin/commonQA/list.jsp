@@ -6,25 +6,26 @@
 table {width: 100%; border-top: 1px solid #444444; border-collapse: collapse;}
 tr, td {border-bottom: 1px solid #444444;padding: 10px;}
 
-#btn_admin{
-	width: 130px;
-	height: 30px;
-	padding: .5em;
-	text-align:center;
-	border: 1px solid #364967;
-	background: #364967;
-	border-radius:3px;
-	color: white;
-	font-weight: bold;
-}
 </style>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <h2>자주하는질문</h2>
-<c:if test="${admin_id!=null}">
-	<div>
-		<button id="btn_admin" onClick="location.href='/board/admin_commonQA_insert'">글쓰기</button>	
+	<div class="div_container" >
+		<div class="div_checkbox" style="float:left;">
+			<select id="type">
+				<option value="commonQA_title">제목</option>
+				<option value="commonQA_contents">내용</option>
+			</select>
+			<input type="text" id="keyword" class="admin_text"/>
+			<button class="btn_admin" id="btn_search">검색</button>
+		</div>	
+	<span style="float:right;">
+		<c:if test="${admin_id!=null}">
+			<div>
+				<button class="btn_admin" onClick="location.href='/board/admin_commonQA_insert'">글쓰기</button>	
+			</div>
+		</c:if>
+	</span>
 	</div>
-</c:if>
 <div id="div_content">
 	<table id="tbl"></table>
 	<script id="temp" type="text/x-handlebars-template">
@@ -45,20 +46,7 @@ tr, td {border-bottom: 1px solid #444444;padding: 10px;}
 		{{/each}}
 	</script>
 	<div id="pagination"></div>
-	<div class="div_container">
-		<div class="div_checkbox">
-			<select id="type">
-				<option value="commonQA_title">제목</option>
-				<option value="commonQA_contents">내용</option>
-			</select>
-		</div>
-		<span>
-			<div class="div_search">
-				<input type="text" id="keyword"/>
-				<button id="btn_search">검색</button>
-			</div>
-		</span>
-	</div>
+	
 </div>
 <script>
 	var page=1;
@@ -101,9 +89,9 @@ tr, td {border-bottom: 1px solid #444444;padding: 10px;}
 				if(data.pm.prev) str+="<a href='"+prev+"'>◀</a>";
 				for(var i=data.pm.startPage; i<=data.pm.endPage; i++){
 					if(i==page){
-						str+="<a style='color:red;' href='"+i+"'>"+i+"</a>"
+						str+="<a style='color:#ccc;' href='"+i+"'&nbsp&nbsp >"+i+" </a>"
 					}else{
-						str+="<a href='"+i+"'>"+i+"</a>"
+						str+="<a href='"+i+"&nbsp&nbsp '>"+i+" </a>"
 					}
 				}
 				if(data.pm.next) str+="<a href='"+next+"'>▶</a>";

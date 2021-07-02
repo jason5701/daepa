@@ -9,7 +9,7 @@
 %>
 <h2>쿠폰리스트</h2>
 <div>
-	<button onClick="location.href='/coupon/admin_insert'">쿠폰발행</button>
+	<button class="btn_admin" onClick="location.href='/coupon/admin_insert'">쿠폰발행</button>
 </div>
 <div>
 	<c:forEach items="${list}" var="vo">
@@ -37,7 +37,7 @@
 				<div>상태 : <b>사용중지</b></div>
 			</c:if>
 			<div>
-				<button onClick="location.href='/coupon/read_set?coupon_id=${vo.coupon_id}'">쿠폰 설정</button>
+				<button class="btn_admin2" onClick="location.href='/coupon/read_set?coupon_id=${vo.coupon_id}'">쿠폰 설정</button>
 			</div>
 		</div>
 	</c:forEach>
