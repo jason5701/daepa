@@ -40,7 +40,6 @@ public class OrderController {
 	public void update_orderstatus(String order_number,OrderVO ordervo){
 		String order_status = ordervo.getOrder_status();
 		ordervo.setOrder_status(order_status);
-		purchase_dao.update_orderstatus(ordervo);
 	}
 	
 	
