@@ -17,7 +17,7 @@
 </div>
 <table id="tbl"></table>
 <script id="temp" type="text/x-handlebars-template">
-	<tr>
+	<tr style="background:#fafafa;">
 		<td>상품번호</td>
 		<td>상품명</td>
 		<td>단가</td>

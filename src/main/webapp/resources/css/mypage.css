@@ -136,7 +136,7 @@
 .mypage_top .list_mypage .link_wrap .info {
     font-weight: 700;
     font-size: 20px;
-    color: #5f0080;
+    color: #123478;
     line-height: 28px;
     flex-grow: 3;
     position: relative;
@@ -209,7 +209,7 @@ ol,ul{
     background: #fff url(https://res.kurly.com/pc/ico/2008/ico_arrow_6x11.svg) no-repeat 174px 52%;
     background-size: 6px 11px;
     font-size: 14px;
-    color: #666;
+    color: #123478;
     line-height: 20px;
     letter-spacing: -.3px;
 }
@@ -217,7 +217,7 @@ ol,ul{
     background: #fafafa url(https://res.kurly.com/pc/ico/2008/ico_arrow_6x11_on.svg) no-repeat 174px 52%;
     background-size: 6px 11px;
     font-weight: 700;
-    color: #5f0080;
+    color: #123478;
 }
 
 a{
@@ -246,7 +246,7 @@ a{
     position: relative;
     z-index: 1;
     float: right;
-    padding-right:300px;    
+    left: 300px; 
 }
 .screen_out {
     display: block;

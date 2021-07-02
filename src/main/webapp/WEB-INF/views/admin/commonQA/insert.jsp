@@ -11,22 +11,22 @@
 	<table>
 		<tr>
 			<td>작성자</td>
-			<td><input type="text" name="commonQA_writer" value="${admin_id}" readonly></td>
+			<td><input type="text" class="admin_text" name="commonQA_writer" value="${admin_id}" readonly></td>
 		</tr>
 		<tr>
 			<td>작성일</td>
-			<td><input type="text" value="<%= sf.format(nowTime)%>" readonly/></td>
+			<td><input type="text" class="admin_text" value="<%= sf.format(nowTime)%>" readonly/></td>
 		</tr>
 		<tr>
 			<td>제목</td>
-			<td><input type="text" name="commonQA_title" placeholder="자주하는질문  제목을 입력하세요."/></td>
+			<td><input type="text" class="admin_text" name="commonQA_title" placeholder="자주하는질문  제목을 입력하세요."/></td>
 		</tr>
 		<tr>
 			<td>내용</td>
-			<td><input type="text" name="commonQA_contents" placeholder="자주하는질문  내용을 입력하세요."/></td>
+			<td><input type="text" class="admin_text" name="commonQA_contents" placeholder="자주하는질문  내용을 입력하세요."/></td>
 		</tr>
 	</table>
-	<button id="btn_write">입력</button>
+	<button class="btn_admin" style="float:right; margin-bottom:10px;" id="btn_write" id="btn_write">입력</button>
 </form>
 <script>
 	

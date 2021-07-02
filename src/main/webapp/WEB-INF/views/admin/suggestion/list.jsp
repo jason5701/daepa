@@ -2,13 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<h2>제안 리스트</h2>
+<h2>제 안</h2>
 <div>
 	<span id="total"></span>
 </div>
 <div>
 	<table id="tbl">
-		<tr>
+		<tr style="background:#fafafa;">
 			<td>번호</td>
 			<td>작성자</td>
 			<td>제목</td>

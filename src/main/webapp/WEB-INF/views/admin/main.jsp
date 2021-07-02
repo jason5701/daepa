@@ -9,7 +9,7 @@
 				<h2 class="tit_snb">관리자</h2>
 				<div>
 					<c:if test="${admin_id!=null}">
-						<button class="btn_admin" onClick="location.href='/admin/logout'">${admin_id} 로그아웃</button>
+						<button class="btn_admin2" style="margin-bottom:20px; margin-left:35px;" onClick="location.href='/admin/logout'">로그아웃</button>
 					</c:if>
 				</div>
 				<div class="inner_snb">

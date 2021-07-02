@@ -24,7 +24,7 @@
 	</div>
 	<table id="tbl"></table>
 	<script id="temp" type="text/x-handlebars-template">
-		<tr>
+		<tr style="background:#fafafa;">
 			<td>번호</td>
 			<td>제목</td>
 			<td>작성자</td>

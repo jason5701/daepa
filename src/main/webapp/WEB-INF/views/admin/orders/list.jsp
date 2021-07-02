@@ -3,7 +3,7 @@
 <h2>주문 내역</h2>
 <table id="tbl"></table>		
 <script id="temp" type="text/x-handlebars-template">
-		<tr class="title">
+		<tr class="title" style="background:#fafafa;">
 			<td width=20>주문번호</td>
 			<td width=50>회원아이디</td>
 			<td width=30>주문인</td>
@@ -29,10 +29,10 @@
 <div id="pagination"></div>
 	<div class="div_orderList">
 			<hr/>
-			<h2 style="margin:10px auto; padding-left:10px;">주문 목록<button id="btnSend" class="btn_admin2" style="float:right; margin-left:20px;">배송</button></h2>
-			<table id="tbl_purchase_List"  style=" background:#ddd; text-align:left;"></table>
+			<h2 style="margin:10px auto; padding-left:10px;">주문 목록<button id="btnSend" class="btn_admin" style="float:right; margin-left:20px;">배송</button></h2>
+			<table id="tbl_purchase_List"  style="text-align:center;"></table>
 			<script id="temp_purchase_List" type="text/x-handlebars-template">
-				<tr class="title">
+				<tr class="title" style="background:#fafafa;">
 					<td width=100>상품번호</td>
 					<td width=400>상품명</td>
 					<td width=100>단가</td>

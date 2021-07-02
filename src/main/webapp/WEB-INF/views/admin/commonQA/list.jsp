@@ -5,7 +5,6 @@
 #div_content{width: 100%; margin:0px auto;}
 table {width: 100%; border-top: 1px solid #444444; border-collapse: collapse;}
 tr, td {border-bottom: 1px solid #444444;padding: 10px;}
-
 </style>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <h2>자주하는질문</h2>
@@ -29,7 +28,7 @@ tr, td {border-bottom: 1px solid #444444;padding: 10px;}
 <div id="div_content">
 	<table id="tbl"></table>
 	<script id="temp" type="text/x-handlebars-template">
-		<tr>
+		<tr style="background:#fafafa;">
 			<td>번호</td>
 			<td>작성자</td>
 			<td>제목</td>
@@ -41,7 +40,7 @@ tr, td {border-bottom: 1px solid #444444;padding: 10px;}
 				<td>{{commonQA_title}}</td>
 			</tr>
 			<tr class="row" style="display:none;">
-				<td colspan=3>{{commonQA_contents}}</td>
+				<td style="text-align:left" colspan=3>{{commonQA_contents}}</td>
 			</tr>
 		{{/each}}
 	</script>
@@ -89,9 +88,9 @@ tr, td {border-bottom: 1px solid #444444;padding: 10px;}
 				if(data.pm.prev) str+="<a href='"+prev+"'>◀</a>";
 				for(var i=data.pm.startPage; i<=data.pm.endPage; i++){
 					if(i==page){
-						str+="<a style='color:#ccc;' href='"+i+"'&nbsp&nbsp >"+i+" </a>"
+						str+="<a style='color:#ccc;' href='"+i+"'>&nbsp&nbsp"+i+"&nbsp&nbsp</a>"
 					}else{
-						str+="<a href='"+i+"&nbsp&nbsp '>"+i+" </a>"
+						str+="<a href='"+i+"'>&nbsp&nbsp "+i+"&nbsp&nbsp </a>"
 					}
 				}
 				if(data.pm.next) str+="<a href='"+next+"'>▶</a>";

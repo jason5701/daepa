@@ -56,9 +56,7 @@
 			</td>
 		</tr>
 	</table>
-	<div>
-		<button id="btn_modify">수정</button><input type="button" id="btn_list" value="목록">
-	</div>
+	
 	<h2>상세설명이미지</h2>
 	<div id="upload">
 		<input type="file" name="files" accept="image/*" multiple/>
@@ -68,10 +66,13 @@
 		<script id="tempFiles" type="text/x-handlebars-template">
 			<li>
 				<img src="/displayFile?fullName=detail/{{fullName}}" width=100/>
-				<input type="text" name="detail_images" value="{{fullName}}"/>
-				<input type="button" value="삭제" class="btnDelete" fullName={{fullName}}/>
+				<input type="text" name="detail_images" style="display:none;" value="{{fullName}}"/>
+				<input type="button"  value="삭제" class="btnDelete" fullName={{fullName}}/>
 			</li>
 		</script>
+	</div>
+	<div>
+		<button  class="btn_admin" style="float:right; margin-bottom:10px;" id="btn_modify">수정</button><input type="button"  class="btn_admin" style="float:right; margin-bottom:10px;"  id="btn_list" value="목록">
 	</div>
 </form>
 <script>

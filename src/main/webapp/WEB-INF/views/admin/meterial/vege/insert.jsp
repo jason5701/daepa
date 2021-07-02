@@ -1,18 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<style>	
+	table td{text-align:left;}
+</style>  
 <h2>새채소 추가</h2>
 <form name="frm" encType="multipart/form-data">
 	<table>
 		<tr>
 			<td>품번</td>
-			<td><input type="text" name="meterial_id" value="${new_id}" readonly/></td>
+			<td><input type="text" class="admin_text2" name="meterial_id" value="${new_id}" readonly/></td>
 			<td>품명</td>
-			<td><input type="text" name="meterial_name"/></td>
+			<td><input type="text" class="admin_text2" name="meterial_name"/></td>
 		</tr>
 		<tr>
 			<td>단가</td>
-			<td colspan=3><input type="text" name="meterial_price"/></td>
+			<td colspan=3><input type="text" class="admin_text" name="meterial_price"/></td>
 
 		</tr>
 		<tr>
@@ -42,12 +45,12 @@
 			<td>대표 이미지</td>
 			<td colspan=3>
 				<img src="http://placehold.it/300x300" id="meterial_image"/>
-				<input type="file" name="file" style="display:none;"/>	
+				<input type="file" name="file" class="admin_text" style="display:none;"/>	
 			</td>
 		</tr>
 	</table>
 	<div>
-		<button id="btn_save">저장</button><input type="button" onClick="location.href='/admin/meterial'" value="목록">
+		<button class="btn_admin" style="float:right; margin-bottom:10px;" id="btn_save">저장</button><input type="button" onClick="location.href='/admin/meterial'" class="btn_admin" style="float:right; margin-bottom:10px;" value="목록">
 	</div>
 </form>
 <script>

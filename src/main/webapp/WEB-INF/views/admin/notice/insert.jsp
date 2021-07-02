@@ -6,24 +6,24 @@
 	Date nowTime = new Date();
 	SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
 %>
-<h2>공지사항 쓰기</h2>
+<h2>공지사항</h2>
 <form name="frm" encType="multipart/form-data">
 	<table>
 		<tr>
 			<td>작성자</td>
-			<td><input type="text" name="notice_writer" value="${admin_id}" readonly></td>
+			<td><input type="text" class="admin_text" name="notice_writer" value="${admin_id}" readonly></td>
 		</tr>
 		<tr>
 			<td>작성일</td>
-			<td><input type="text" value="<%= sf.format(nowTime)%>" readonly/></td>
+			<td><input type="text" class="admin_text" value="<%= sf.format(nowTime)%>" readonly/></td>
 		</tr>
 		<tr>
 			<td>제목</td>
-			<td><input type="text" name="notice_title" placeholder="공지사항  제목을 입력하세요."/></td>
+			<td><input type="text" class="admin_text" name="notice_title" placeholder="공지사항  제목을 입력하세요."/></td>
 		</tr>
 		<tr>
 			<td>내용</td>
-			<td><input type="text" name="notice_contents" placeholder="공지사항  내용을 입력하세요."/></td>
+			<td><input type="text" class="admin_text" name="notice_contents" placeholder="공지사항  내용을 입력하세요."/></td>
 		</tr>
 		<tr>
 			<td>자료</td>
@@ -33,7 +33,7 @@
 			</td>
 		</tr>
 	</table>
-	<button id="btn_write">입력</button>
+	<button class="btn_admin" style="float:right; margin-bottom:10px;" id="btn_write">글쓰기</button>
 </form>
 <script>
 	$("#notice_img").on("click",function(){
