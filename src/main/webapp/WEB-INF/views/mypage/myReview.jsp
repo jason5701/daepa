@@ -38,7 +38,7 @@
 	</script>
 	<div id="pagination"></div>
 <script>
-	var user_id="${vo.user_id}";
+	var user_id="${user_info.user_id}";
 	var page=1;
 	getUser_review_list();
 	

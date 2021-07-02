@@ -38,6 +38,7 @@
 	</websocket:handlers>
 	<beans:bean id="echoHandler" class="com.example.controller.EchoHandler"/>
 
+
 	<context:component-scan base-package="com.example.controller" />
 	<context:component-scan base-package="com.example.service" />
 	<context:component-scan base-package="com.example.persistence" />
@@ -53,5 +54,6 @@
 				<beans:ref bean="AuthInterceptor"/>
 			</interceptor>			
        </interceptors>	
+
 
 </beans:beans>

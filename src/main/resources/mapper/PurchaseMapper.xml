@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.mapper.PurchaseMapper">	
 
+<mapper namespace="com.example.mapper.PurchaseMapper">
+	
 	<select id="orders" resultType="com.example.domain.OrderVO">
 		select * from tbl_orders where user_id=#{user_id} 
 	 	order by order_register_date desc limit #{cri.pageStart}, #{cri.perPageNum}

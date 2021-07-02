@@ -12,7 +12,7 @@ public class CsController {
 		model.addAttribute("pageName", "cs/cs_service.jsp");
 		model.addAttribute("leftMenu", "cs_menu.jsp");
 		model.addAttribute("rightContent", "commonQA/list.jsp");
-		//model.addAttribute("rightContent", "realtime/chat.jsp");
+		model.addAttribute("rightContent", "realtime/chat.jsp");
 		return "/index";
 	}
 	

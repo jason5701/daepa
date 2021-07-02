@@ -41,17 +41,21 @@
 		</div>
 	</div>
 	<div id="list">
-		<table id="tbl"></table>
+		<table id="tbl" class="table"></table>
 		<script id="temp" type="text/x-handlebars-template">
 			<tr class="title">
 				<td width=200>번호</td>
 				<td width=800>제목</td>	
 			</tr>
 			{{#each list}}
-	        <tr class="row" onClick="location.href='/board/commonQA_read?commonQA_number={{commonQA_number}}'">  
-				<td>{{commonQA_number}}</td>
+	        <tr class="row">  
+				<td class="commonQA_number">{{commonQA_number}}</td>
 				<td>{{commonQA_title}}</td>
-	        <tr>
+	        </tr>
+			<tr class="c_row" style="display:none" commonQA_number={{commonQA_number}}>
+           		<td></td>
+				<td><textarea rows="10" cols="100" style="border:none;">{{commonQA_contents}}</textarea></td>
+         	</tr>
 			{{/each}}
 		</script>
 	</div>
@@ -121,5 +125,24 @@
 		page = $(this).attr("href");
 		getList();
 	});
+	
+	//클릭시 하단에 tr 글 출력
+	$(".table").on("click",".row",function(){
+	  	var tr = $(this);
+	    var no = tr.find(".commonQA_number").html();
+		$(".c_row").each(function(){
+			var commonQA_number = $(this).attr("commonQA_number");
+			if(no==commonQA_number){
+				if($(this).css("display")=="none"){
+					$(this).show();
+				}else{
+					$(this).hide();
+				}
+			}else{
+				$(this).hide();
+			}
+		});
+	});
+
 </script>
 </html>
