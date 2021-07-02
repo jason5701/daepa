@@ -64,8 +64,7 @@
 			</tr> 	
 		</table>
 		<input type="submit" value="리뷰등록"/>
-		<input type="reset" value="등록취소"/>
-		<input type="button" value="리뷰목록" onClick="location.href='meterial_review_list'"/>
+		<input type="reset" value="등록취소" onClick="location.href='/vege_detail?meterial_id=${meterial_id}'"/>
 	</form>
 </body>
 <script>

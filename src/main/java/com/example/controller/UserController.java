@@ -44,21 +44,22 @@ public class UserController {
 	
 	@RequestMapping(value="login",method=RequestMethod.POST)
 	@ResponseBody
-	public HashMap<String,Object> loginPost(UserVO vo,String user_password,HttpSession session,boolean chkLogin,HttpServletResponse response)throws Exception{
+	public HashMap<String,Object> loginPost(UserVO user_info,String user_password,HttpSession session,boolean chkLogin,HttpServletResponse response)throws Exception{
 		  HashMap<String,Object> map = new HashMap<String,Object>();
+		  session.setAttribute("id", user_info.getUser_id());
 		  int result = 0; //아이디가 없는 경우
-		  vo = dao.login(vo);
-		  if(vo!=null){
-			  if(passEncoder.matches(user_password,vo.getUser_password())){
+		  user_info = dao.login(user_info);
+		  if(user_info!=null){
+			  if(passEncoder.matches(user_password,user_info.getUser_password())){
 				  result=1; //로그인성공
 			  }if(chkLogin){
-				  Cookie cookie = new Cookie("user_id",vo.getUser_id()); //쿠키생성
+				  Cookie cookie = new Cookie("user_id",user_info.getUser_id()); //쿠키생성
 				  cookie.setPath("/");
 				  cookie.setMaxAge(60*60*24*7); //7일간 보관
 				  response.addCookie(cookie);
 			  }
-			  System.out.println("로그인확인........."+vo.toString());
-			  session.setAttribute("vo", vo);
+			  System.out.println("로그인확인........."+user_info.toString());
+			  session.setAttribute("user_info", user_info);
 			  String path=(String)session.getAttribute("path");
 			  if(path==null) path="/index";
 			  map.put("path", path);

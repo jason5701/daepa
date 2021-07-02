@@ -77,6 +77,7 @@
 	<select id="getProduct_id" resultType="string">
 		select max(product_id) from tbl_product where product_id like '%M%'
 	</select>
+	
 	<update id="updateProduct_click">
 		update tbl_product set product_click=product_click+1
 		where product_id=#{product_id}

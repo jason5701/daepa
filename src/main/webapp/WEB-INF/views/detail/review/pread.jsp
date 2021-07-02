@@ -14,33 +14,31 @@
 		<input type="hidden" value="${vo.review_number}" name="review_number"/>
 		<input type="hidden" value="${vo.product_id}" name="product_id"/>
 		<table>
-			<tr>
+			<tr style="display:none;">
 				<td>작성자</td>
 				<th>${vo.review_writer}</th>
 				<td>작성일</td>
 				<td><fmt:formatDate value="${vo.review_write_date}" pattern="yyyy-MM-dd"/></td>
 			</tr>
-			<tr>
+			<tr style="display:none;">
 				<td>수정일</td>
 				<td><fmt:formatDate value="${vo.review_modify_date}" pattern="yyyy-MM-dd"/></td>
 				<td>조회수</td>
 				<td>${vo.review_click}</td>
 			</tr>
 			<tr>
-				<td>상품이름</td>
 				<td>
 					${vo.product_name}
 				</td>
 			</tr>
 			
 	       <tr>
-	       		<td>이미지</td>
          		<td>
                 	<c:if test="${vo.review_image==null}">
-                		<img id="image" src="http://placehold.it/300x250" width=300/>
+                		<img id="image" src="http://placehold.it/150x150" width=200/>
                		</c:if>
                		<c:if test="${vo.review_image!=null}">
-                  		<img id="image" src="/displayFile?fullName=${vo.review_image}" width=300/>
+                  		<img id="image" src="/displayFile?fullName=${vo.review_image}" width=200/>
                		</c:if>
                		<input type="file" name="file" style="display:none;"/>
             	</td>
@@ -50,8 +48,8 @@
 	               <input type="button" id="btnImage" value="첨부이미지" style="display:none;"/>
 	            </td>
 	            <td style="height:150px; padding:10px;">
-	            <input type="file" name="files" accept="image/*" multiple style="display:none;"/>
-					<div id="uploaded">
+	            	<input type="file" name="files" accept="image/*" multiple style="display:none;"/>
+					<!--<div id="uploaded">
 	  					<ul id="uploadFiles"></ul>
 	   					<script id="temp" type="text/x-handlebars-template">
       						<li>
@@ -60,7 +58,7 @@
         						<input class="del" type="button" value="삭제" fullName={{fullName}}/>
       						</li>
    	  					</script>
-					</div>
+					</div>-->
 	            </td>
          	</tr>	
 			<tr>
@@ -69,9 +67,16 @@
 				</td>
 			</tr>
 		</table>
-		<input type="submit" value="수정">
-		<input type="reset" value="취소">
-		<input type="button" value="삭제" id="btnDelete">
+		<div>
+			<c:if test="${vo.review_writer == user_info.user_id}">
+				<input type="submit" value="수정">
+				<input type="button" value="취소/목록이동" onClick="location.href='/meal_detail?product_id=${vo.product_id}'">
+				<input type="button" value="삭제" id="btnDelete">
+			</c:if>
+			<c:if test="${vo.review_writer != user_info.user_id}">
+				<input type="button" value="취소/목록이동" onClick="location.href='/meal_detail?product_id=${vo.product_id}'">
+			</c:if>
+		</div>	
 	</form>
 </body>
 <script>

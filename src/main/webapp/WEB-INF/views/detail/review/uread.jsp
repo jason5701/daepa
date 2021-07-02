@@ -16,26 +16,24 @@
 		<input type="hidden" value="${vo.product_id}" name="product_id"/>
 		<input type="hidden" value="${vo.meterial_id}" name="meterial_id"/>
 		<table>
-			<tr>
+			<tr style="display:none;">
 				<td>작성자</td>
 				<th>${vo.review_writer}</th>
 				<td>작성일</td>
 				<td><fmt:formatDate value="${vo.review_write_date}" pattern="yyyy-MM-dd"/></td>
 			</tr>
-			<tr>
+			<tr style="display:none;">
 				<td>수정일</td>
 				<td><fmt:formatDate value="${vo.review_modify_date}" pattern="yyyy-MM-dd"/></td>
 				<td>조회수</td>
 				<td>${vo.review_click}</td>
 			</tr>
 			<tr>
-				<td>상품이름</td>
 				<td>${vo.product_name}</td>
 				<td>${vo.meterial_name}</td>
 			</tr>
 			
 	       <tr>
-	       		<td>이미지</td>
          		<td>
                 	<c:if test="${vo.review_image==null}">
                 		<img id="image" src="http://placehold.it/300x250" width=300/>
@@ -71,9 +69,8 @@
 			</tr>
 		</table>
 		<input type="submit" value="수정">
-		<input type="reset" value="취소">
+		<input type="button" value="취소/목록이동" onClick="location.href='/mypage/myReview'">
 		<input type="button" value="삭제" id="btnDelete">
-		<input type="button" value="목록이동" onClick="location.href='/mypage/my_review'">
 	</form>
 </body>
 <script>

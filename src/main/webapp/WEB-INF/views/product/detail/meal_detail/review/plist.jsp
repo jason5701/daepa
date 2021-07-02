@@ -49,13 +49,13 @@
 		</tr>
 		{{#each list}}
 		<tr class="row" onClick="location.href='/board/product_review_read?review_number={{review_number}}'">  
-			<td>{{review_number}}</td>
+			<td class="review_number">{{review_number}}</td>
 			<td>{{product_id}}</td>
 			<td>{{review_title}}</td>
 		    <td>{{review_writer}}</td>
 		    <td>{{review_write_date}}</td>
 			<td>{{review_click}}</td>
-		<tr>
+        </tr>
 		{{/each}}
 	</script>
 	<div id="review_insert">
