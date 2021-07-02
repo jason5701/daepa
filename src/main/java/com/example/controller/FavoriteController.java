@@ -45,9 +45,12 @@ public class FavoriteController {
 	   //Âò¸ñ·Ï ´ã±â
 	   @RequestMapping(value="insert", method=RequestMethod.POST)
 	   @ResponseBody
-	   public void insert(FavVO vo, HttpSession session) throws Exception{
+	   public String insert(FavVO vo, HttpSession session) throws Exception{
 	      UserVO user=(UserVO)session.getAttribute("vo");
 	      
+	      
+	      
+	      return "/index";
 	   }
 	   
 	   

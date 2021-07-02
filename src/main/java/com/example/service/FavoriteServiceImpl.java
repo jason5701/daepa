@@ -30,6 +30,18 @@ public class FavoriteServiceImpl implements FavoriteService{
 		return favorite_dao.meterial_favorite_list(user_id);
 	}
 
+	@Override
+	public void product_favorite_insert(FavVO vo) throws Exception {
+		favorite_dao.product_favorite_insert(vo);
+		
+	}
+
+	@Override
+	public void meterial_favorite_insert(FavVO vo) throws Exception {
+		favorite_dao.meterial_favorite_insert(vo);
+		
+	}
+
 
 
 }

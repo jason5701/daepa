@@ -145,9 +145,9 @@ $("#chkAll").on("click", function(){
    }
 });
 
-/*
-//모든 체크박스 클릭 시
-$("#productftbl" || "#meterialftbl").on("click", ".row .chk", function(){
+
+//모든 체크박스 클릭 시 전체선택
+$("#productftbl").on("click", ".row .chk", function(){
    var num1=$("#productftbl .row .chk").length;
    var num2=$("#productftbl .row .chk:checked").length;
    var num3=$("#meterialftbl .row .chk").length;
@@ -158,7 +158,17 @@ $("#productftbl" || "#meterialftbl").on("click", ".row .chk", function(){
       $("#chkAll").prop("checked", false);
    }
 });
-*/
 
+$("#meterialftbl").on("click", ".row .chk", function(){
+	   var num1=$("#productftbl .row .chk").length;
+	   var num2=$("#productftbl .row .chk:checked").length;
+	   var num3=$("#meterialftbl .row .chk").length;
+	   var num4=$("#meterialftbl .row .chk:checked").length;
+	   if(num1==num2 && num3==num4){
+	      $("#chkAll").prop("checked", true);
+	   }else{
+	      $("#chkAll").prop("checked", false);
+	   }
+	});
 </script>
 

@@ -12,13 +12,13 @@
 		where user_id=#{user_id}
 	</select>
 	
-	<insert id="insert_product">
+	<insert id="product_favorite_insert">
 		insert into tbl_favorite(user_id, product_id)
 		values(#{user_id}, #{product_id})
 		where user_id=#{user_id}
 	</insert>
 	
-	<insert id="insert_meterial">
+	<insert id="meterial_favorite_insert">
 		insert into tbl_favorite(user_id, meterial_id)
 		values(#{user_id}, #{meterial_id})
 		where user_id=#{user_id}

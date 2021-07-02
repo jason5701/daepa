@@ -31,4 +31,16 @@ public class FavoriteDAOImpl implements FavoriteDAO{
 		return session.selectList(namespace+".meterial_favorite_list", user_id);
 	}
 
+	@Override
+	public void product_favorite_insert(FavVO vo) throws Exception {
+		  session.insert(namespace+".product_favorite_insert", vo);
+		
+	}
+
+	@Override
+	public void meterial_favorite_insert(FavVO vo) throws Exception {
+		session.insert(namespace+".meterial_favorite_insert", vo);
+		
+	}
+
 }
