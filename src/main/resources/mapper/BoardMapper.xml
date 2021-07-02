@@ -2,18 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mapper.BoardMapper">
  	<select id="product_review_list" resultType="com.example.domain.ReviewVO">
-<<<<<<< HEAD
  		select * from tbl_review where product_id=#{searchType}
  		order by ${orderBy}
-=======
- 		select * from pname_review where product_id=#{searchType} 
- 		<if test="keyword=='review_number desc'">
- 			order by review_number desc
-	 	</if>
-	 	<if test="keyword=='review_click desc'">
- 			order by review_click desc
-	 	</if>
->>>>>>> a793ee895d116cba0bb28dfd20f3e4b8a97db169
 		limit #{pageStart}, #{perPageNum}
  	</select>
 

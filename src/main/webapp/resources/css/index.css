@@ -44,7 +44,7 @@ hr{width:100%; margin:0px auto; display:block; border:black 0 none;
 #menu{float:right; }
 .menuCart{float:right; background:url("../image/index/cart.png") no-repeat;
 		  width:25px; height:25px; cursor:pointer; }
-.menuLocation{float:right; background:url("../image/index/location.png") no-repeat;
+.menuFavo{float:right; background:url("../image/index/favorite.png") no-repeat;
 		  	  width:25px; height:25px; margin-right:20px; cursor:pointer; }
 		  	  
 /* menu 가로형*/

@@ -84,7 +84,7 @@
             </div>
             <div id="menu">
                <span class="menuCart" onClick="location.href='/cart/list'"></span>
-               <span class="menuLocation"></span>
+               <span class="menuFavo"></span>
             </div>
             <div id="searchBox">
                <input type="text" size=20 placeholder="검색" id="keyword"/>

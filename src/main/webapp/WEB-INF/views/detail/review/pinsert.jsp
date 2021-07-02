@@ -26,8 +26,8 @@
 			<tr>
 				<td>작성자</td>
 				<td>
-					<input type="hidden" name="review_writer" value="${vo.user_id}">
-					<input type="text" value="${vo.user_name}" readonly>
+					<input type="hidden" name="review_writer" value="${user_info.user_id}">
+					<input type="text" value="${user_info.user_name}" readonly>
 				</td>
 			</tr>
 			<tr>
