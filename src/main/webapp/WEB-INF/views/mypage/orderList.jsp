@@ -10,12 +10,7 @@
 <div class="mypage_Content_Right">
 		<div class="head_aticle">
 			<h2 class="tit">주문내역
-<<<<<<< HEAD
-				<span class="tit_sub">지난 3년간의 주문 내역 조회가 가능합니다</span>				
-=======
-				<span class="tit_sub">지난 3년간의 주문 내역 조회가 가능합니다</span>
-				
->>>>>>> 7b0886d489be4b07afc23e4a44cb1678a5b4adc6
+				<span class="tit_sub">지난 3년간의 주문 내역 조회가 가능합니다</span>	
 			</h2>
 			<div class="search_date">
 				<h3 class="screen_out">기간선택</h3>
