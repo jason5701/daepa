@@ -87,7 +87,6 @@ public class UserController {
 		return "/index";
 	}		
 	
-	
 	//user별 나눔판매리스트
 	@RequestMapping("meterial_user_list.json")
 	@ResponseBody

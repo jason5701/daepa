@@ -107,6 +107,7 @@ Handlebars.registerHelper("d_success", function(order_status){
 	var page=1;
 	var user_id="${user_info.user_id}";
 	var order_number=$("#tbl_orders .tr_row").attr("order_number");
+	
 	ordersList();
 	
 	$(".div_orderList").hide();

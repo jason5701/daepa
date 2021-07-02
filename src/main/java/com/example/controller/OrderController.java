@@ -17,6 +17,7 @@ import com.example.domain.CartVO;
 import com.example.domain.Criteria;
 import com.example.domain.OrderVO;
 import com.example.domain.PageMaker;
+import com.example.domain.PurchaseVO;
 import com.example.domain.UserVO;
 import com.example.persistence.PurchaseDAO;
 import com.example.persistence.UserDAO;
@@ -27,7 +28,6 @@ import com.example.service.CartService;
 public class OrderController {
 	
 	@Autowired
-
 	PurchaseDAO purchase_dao;
 	
 	@Autowired
@@ -36,6 +36,7 @@ public class OrderController {
 	@Autowired
 	CartService cart_service;
 	
+
 	@RequestMapping("update_orderstatus")
 	public void update_orderstatus(String order_number,OrderVO ordervo){
 		String order_status = ordervo.getOrder_status();
@@ -43,14 +44,16 @@ public class OrderController {
 	}
 	
 	
+	//주문서 입력
 	@RequestMapping("form")
 	public String order_form(Model model, HttpSession session) throws Exception{
 		model.addAttribute("pageName", "order/form.jsp");
 		
-		UserVO user=(UserVO)session.getAttribute("vo");
+		UserVO user=(UserVO)session.getAttribute("user_info");
 		
 		if(user != null){
 			String user_id=user.getUser_id();
+			UserVO userinfo=user_dao.login(user);
 			
 			List<CartVO> cartList=cart_service.cart_list(user_id);
 			
@@ -61,7 +64,7 @@ public class OrderController {
 			}else{
 				fee=total >= 50000 ? 0 : 2500;
 			}
-			
+			model.addAttribute("userinfo", userinfo);
 			model.addAttribute("cartList", cartList);
 			model.addAttribute("total", total);
 			model.addAttribute("fee", fee);
@@ -71,12 +74,26 @@ public class OrderController {
 		return "/index";
 	}
 	
+	//주문자정보 추가
 	@RequestMapping(value="order_insert", method=RequestMethod.POST)
 	@ResponseBody
-	public void order_insert(OrderVO vo) throws Exception{
-		
-	}	
-
+	public int order_insert(OrderVO vo, HttpSession session, Model model) throws Exception{
+		UserVO user=(UserVO)session.getAttribute("user_info");
+		vo.setUser_id(user.getUser_id());
+		purchase_dao.order_insert(vo);
+				
+		int max_order=purchase_dao.max_order_number();
+		return max_order;
+	}
+	
+	//판매(상품)정보 추가
+	@RequestMapping(value="purchase_insert", method=RequestMethod.POST)
+	@ResponseBody
+	public void purchase_insert(PurchaseVO vo, HttpSession session) throws Exception{
+		UserVO user=(UserVO)session.getAttribute("user_info");		
+		purchase_dao.purchase_insert(vo);
+	}
+	
 	@RequestMapping("admin_list.json")
 	@ResponseBody
 	public Map<String,Object> admin_order_list(Criteria cri)throws Exception{
