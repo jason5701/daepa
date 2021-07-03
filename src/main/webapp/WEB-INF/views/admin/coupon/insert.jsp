@@ -6,26 +6,29 @@
 	Date nowTime = new Date();
 	SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
 %>
+<style>	
+	table td{text-align:left;}
+</style>
 <h2>쿠폰발행</h2>
 <form name="frm" encType="multipart/form-data">
 	<table>
 		<tr>
 			<td>작성자</td>
-			<td><input type="text" name="coupon_id" value="${coupon_id}" readonly></td>
+			<td><input type="text" class="admin_text"  name="coupon_id" value="${coupon_id}" readonly></td>
 		</tr>
 		<tr>
 			<td>발행일</td>
-			<td><input type="text" value="<%= sf.format(nowTime)%>" readonly/></td>
+			<td><input type="text" class="admin_text2"  value="<%= sf.format(nowTime)%>" readonly/></td>
 			<td>종료일</td>
-			<td><input type="text" name="coupon_end" value="<%= sf.format(nowTime)%>"/></td>
+			<td><input type="text" class="admin_text2"  name="coupon_end" value="<%= sf.format(nowTime)%>"/></td>
 		</tr>
 		<tr>
 			<td>쿠폰명</td>
-			<td><input type="text" name="coupon_name" placeholder="쿠폰 명을 입력하세요."/></td>
+			<td><input type="text" class="admin_text"  name="coupon_name" placeholder="쿠폰 명을 입력하세요."/></td>
 		</tr>
 		<tr>
 			<td>할인가</td>
-			<td><input type="text" name="coupon_discount" placeholder="할인가격을 입력하세요."/></td>
+			<td><input type="text" class="admin_text"  name="coupon_discount" placeholder="할인가격을 입력하세요."/></td>
 		</tr>
 		<tr>
 			<td>쿠폰이미지</td>
@@ -35,7 +38,7 @@
 			</td>
 		</tr>
 	</table>
-	<button id="btn_write">발행</button>
+	<button class="btn_admin" style="float:right; margin-bottom:10px;" id="btn_write">발행</button>
 </form>
 <script>
 	$("#coupon_img").on("click",function(){

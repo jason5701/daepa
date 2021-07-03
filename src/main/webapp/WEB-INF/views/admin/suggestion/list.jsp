@@ -2,13 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<h2>제안 리스트</h2>
+<h2>제 안</h2>
 <div>
 	<span id="total"></span>
 </div>
 <div>
 	<table id="tbl">
-		<tr>
+		<tr style="background:#fafafa;">
 			<td>번호</td>
 			<td>작성자</td>
 			<td>제목</td>
@@ -40,14 +40,14 @@
 		</c:if>
 		<c:forEach begin="${pm.startPage}" end="${pm.endPage}" var="i">
 			<c:if test="${i!=cri.page}">
-				<span page="${i}">${i}</span>
+				<span page="${i}">${i}&nbsp&nbsp</span>
 			</c:if>
 			<c:if test="${i==cri.page}">
-				<span style="color:red;" page="${i}">${i}</span>
+				<span style="color:#ccc;" page="${i}">${i}&nbsp&nbsp</span>
 			</c:if>
 		</c:forEach>
 		<c:if test="${pm.next}">
-			<span page="${pm.endPage+1}">다음</span>
+			<span page="${pm.endPage+1}">▶</span>
 		</c:if>
 	</div>
 </div>

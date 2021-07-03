@@ -64,7 +64,11 @@
 			</tr> 	
 		</table>
 		<input type="submit" value="리뷰등록"/>
+<<<<<<< HEAD
 		<input type="button" value="취소/리뷰목록이동" onClick="location.href='product_review_list'"/>
+=======
+		<input type="reset" value="등록취소" onClick="location.href='/meal_detail?product_id=${product_id}'"/>
+>>>>>>> 62b44a39807fcf1328aff958b4539ca8273616ae
 	</form>
 </body>
 <script>

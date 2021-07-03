@@ -3,14 +3,28 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <div class="head_aticle">
 	<h2 class="tit">공지사항</h2>
-	<c:if test="${admin_id!=null}">
-		<div>
-			<button onClick="location.href='/board/admin_notice_insert'">글쓰기</button>	
+	<div>
+		<div class="div_container" style="float:left;">
+			<div class="div_checkbox">
+				<select id="type">
+					<option value="notice_title">제목</option>
+					<option value="notice_contents">내용</option>
+				</select>
+				<input type="text" class="admin_text" id="keyword"/>
+				<button class="btn_admin" id="btn_search">검색</button>
+			</div>		
 		</div>
-	</c:if>
+		<span style="float:right;">	
+			<c:if test="${admin_id!=null}">
+				<div>
+					<button class="btn_admin" onClick="location.href='/board/admin_notice_insert'">글쓰기</button>	
+				</div>
+			</c:if>
+		</span>
+	</div>
 	<table id="tbl"></table>
 	<script id="temp" type="text/x-handlebars-template">
-		<tr>
+		<tr style="background:#fafafa;">
 			<td>번호</td>
 			<td>제목</td>
 			<td>작성자</td>
@@ -27,19 +41,7 @@
 			</tr>
 		{{/each}}
 	</script>
-	<div id="pagination"></div>
-	<div class="div_container">
-		<div class="div_checkbox">
-			<select id="type">
-				<option value="notice_title">제목</option>
-				<option value="notice_contents">내용</option>
-			</select>
-		</div>
-		<div class="div_search">
-			<input type="text" id="keyword"/>
-			<button id="btn_search">검색</button>
-		</div>
-	</div>
+	<div id="pagination"></div>	
 </div>
 <script>
 	var page=1;
@@ -72,9 +74,9 @@
 				if(data.pm.prev) str+="<a href='"+prev+"'>◀</a>";
 				for(var i=data.pm.startPage; i<=data.pm.endPage; i++){
 					if(i==page){
-						str+="<a style='color:red;' href='"+i+"'>"+i+"</a>"
+						str+="<a style='color:#ccc;' href='"+i+"'>"+i+"&nbsp&nbsp</a>"
 					}else{
-						str+="<a href='"+i+"'>"+i+"</a>"
+						str+="<a href='"+i+"'>"+i+"&nbsp&nbsp</a>"
 					}
 				}
 				if(data.pm.next) str+="<a href='"+next+"'>▶</a>";

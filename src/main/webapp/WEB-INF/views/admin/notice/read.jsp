@@ -7,7 +7,7 @@
 	<table>
 		<tr>
 			<td>제목</td>
-			<td colspan=3><input type="text" name="notice_title" value="${vo.notice_title}"/></td>
+			<td colspan=3><input type="text" class="admin_text" name="notice_title" value="${vo.notice_title}"/></td>
 		</tr>
 		<tr>
 			<td>작성자</td>
@@ -22,11 +22,11 @@
 			<td>${vo.notice_click}</td>
 		</tr>
 		<tr>
-			<td colspan=4><textarea name="notice_contents" style="width:500px; height:200px; resize: none;">${vo.notice_contents}</textarea></td>
+			<td colspan=4><textarea name="notice_contents"  class="admin_text" style="width:500px; height:200px; resize: none;">${vo.notice_contents}</textarea></td>
 		</tr>
 	</table>
-	<div>
-		<button id="btn_modify">수정</button><button id="btn_delete">삭제</button><input type="button" id="btn_list" value="목록">
+	<div style="margin:10px auto; text-align:center">
+		<button id="btn_modify" class="btn_admin" >수정</button><button id="btn_delete" class="btn_admin">삭제</button><input type="button" id="btn_list"  class="btn_admin" value="목록">
 	</div>
 </form>
 <script>

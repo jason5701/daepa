@@ -30,7 +30,7 @@ public class MypageController {
 	public HashMap<String, Object> orderList(Model model,HttpSession session, String user_id, int order_number)throws Exception{
 		HashMap<String, Object> map=new HashMap<String, Object>();
 		map.put("orderList", purchase_dao.orderList(order_number,user_id));
-		
+				
 		session.setAttribute("map", map);
 		PageMaker pm = new PageMaker();		
 		map.put("pm", pm);

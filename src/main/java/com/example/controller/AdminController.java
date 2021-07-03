@@ -42,6 +42,7 @@ public class AdminController {
 	@Autowired
 	BCryptPasswordEncoder passEncoder;
 	
+	
 	@RequestMapping("main")
 	public String admin(Model model){
 		model.addAttribute("pageName", "admin/main.jsp");
@@ -54,7 +55,7 @@ public class AdminController {
 		model.addAttribute("pageName", "admin/main.jsp");
 		model.addAttribute("rightPage", "commonQA/list.jsp");
 		return "/index";
-	}
+	}	
 	
 	//包府磊-林巩郴开 葛电 user
 	@RequestMapping("orders")

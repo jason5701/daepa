@@ -7,13 +7,23 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 </head>
 <div id="cs_menu">
+<div id="snb" class="snb_cc">
 	<h2>대파고객센터</h2>
-	<div id="list_menu">
+	<div class="inner_snb">
 		<ul class="list_menu">
-			<li>공지사항</li>
-			<li>자주하는 질문</li>
-			<li>1:1 문의</li>
-			<li>제안하기</li>
+			<li class="on">
+				<a href="#none" onclick="location.href='/cs/notice'">공지사항</a>
+			</li>
+			<li class="on">
+				<a href="#none" onclick="location.href='/cs/commonQA'">자주하는질문</a>
+			</li>
+			<li class="on">
+				<a href="#none" onclick="location.href='/cs/realtime'">1:1채팅</a>
+			</li>
+			<li class="on">
+				<a href="#none" onclick="location.href='/cs/suggestion'">제안</a>
+			</li>
 		</ul>
+	</div>
 	</div>
 </div>

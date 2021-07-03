@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.mapper.PurchaseMapper">	
 
+<mapper namespace="com.example.mapper.PurchaseMapper">
+	
 	<select id="orders" resultType="com.example.domain.OrderVO">
 		select * from tbl_orders where user_id=#{user_id} 
 	 	order by order_register_date desc limit #{cri.pageStart}, #{cri.perPageNum}
@@ -16,8 +17,17 @@
 	</select>
 
 	<insert id="order_insert">
-		insert into tbl_orders
-		values(#{order_name}, #{order_address}, #{order_email}, #{order_mobile})
+		insert into tbl_orders(order_name, order_address, order_email, order_mobile, user_id)
+		values(#{order_name}, #{order_address}, #{order_email}, #{order_mobile}, #{user_id})
+	</insert>
+	
+	<select id="max_order_number" resultType="int">
+		select max(order_number) from tbl_orders
+	</select>
+	
+	<insert id="purchase_insert">
+		insert into tbl_purchase(order_number, product_id, purchase_qtt)
+		values(#{order_number}, #{product_id}, #{purchase_qtt})
 	</insert>
 
 	<select id="admin_order_list" resultType="com.example.domain.OrderVO">

@@ -10,68 +10,68 @@
    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
 <body>
-   <form name="frm" enctype="multipart/form-data">
-      <input type="hidden" value="${vo.review_number}" name="review_number"/>
-      <input type="hidden" value="${user_id}" name="user_id"/>
-      <input type="hidden" value="${vo.product_id}" name="product_id"/>
-      <input type="hidden" value="${vo.meterial_id}" name="meterial_id"/>
-      <table>
-         <tr style="display:none;">
-            <td>작성자</td>
-            <th>${vo.review_writer}</th>
-            <td>작성일</td>
-            <td><fmt:formatDate value="${vo.review_write_date}" pattern="yyyy-MM-dd"/></td>
-         </tr>
-         <tr style="display:none;">
-            <td>수정일</td>
-            <td><fmt:formatDate value="${vo.review_modify_date}" pattern="yyyy-MM-dd"/></td>
-            <td>조회수</td>
-            <td>${vo.review_click}</td>
-         </tr>
-         <tr>
-            <td>${vo.product_name}</td>
-            <td>${vo.meterial_name}</td>
-         </tr>
-         
-          <tr>
-               <td>
-                   <c:if test="${vo.review_image==null}">
-                      <img id="image" src="http://placehold.it/300x250" width=300/>
-                     </c:if>
-                     <c:if test="${vo.review_image!=null}">
-                        <img id="image" src="/displayFile?fullName=${vo.review_image}" width=300/>
-                     </c:if>
-                     <input type="file" name="file" style="display:none;"/>
-               </td>
-           </tr>
-           <tr>
-               <td>
-                  <input type="button" id="btnImage" value="첨부이미지" style="display:none;"/>
-               </td>
-               <td style="height:150px; padding:10px;">
-               <input type="file" name="files" accept="image/*" multiple style="display:none;"/>
-               <!--<div id="uploaded">
-                    <ul id="uploadFiles"></ul>
-                     <script id="temp" type="text/x-handlebars-template">
-                        <li>
-                           <img src="/displayFile?fullName=${vo.review_number}/{{fullName}}" width=50/>
-                           <input type="text" name="images" value="{{fullName}}"/>
-                          <input class="del" type="button" value="삭제" fullName={{fullName}}/>
-                        </li>
-                       </script>
-               </div>-->
-               </td>
-            </tr>   
-         <tr>
-            <td>
-               <textarea rows="10" cols="50" name="review_contents">${vo.review_contents}</textarea>
-            </td>
-         </tr>
-      </table>
-      <input type="submit" value="수정">
-      <input type="button" value="취소/목록이동" onClick="location.href='/mypage/myReview'">
-      <input type="button" value="삭제" id="btnDelete">
-   </form>
+	<form name="frm" enctype="multipart/form-data">
+		<input type="hidden" value="${vo.review_number}" name="review_number"/>
+		<input type="hidden" value="${user_id}" name="user_id"/>
+		<input type="hidden" value="${vo.product_id}" name="product_id"/>
+		<input type="hidden" value="${vo.meterial_id}" name="meterial_id"/>
+		<table>
+			<tr style="display:none;">
+				<td>작성자</td>
+				<th>${vo.review_writer}</th>
+				<td>작성일</td>
+				<td><fmt:formatDate value="${vo.review_write_date}" pattern="yyyy-MM-dd"/></td>
+			</tr>
+			<tr style="display:none;">
+				<td>수정일</td>
+				<td><fmt:formatDate value="${vo.review_modify_date}" pattern="yyyy-MM-dd"/></td>
+				<td>조회수</td>
+				<td>${vo.review_click}</td>
+			</tr>
+			<tr>
+				<td>${vo.product_name}</td>
+				<td>${vo.meterial_name}</td>
+			</tr>
+			
+	       <tr>
+         		<td>
+                	<c:if test="${vo.review_image==null}">
+                		<img id="image" src="http://placehold.it/300x250" width=300/>
+               		</c:if>
+               		<c:if test="${vo.review_image!=null}">
+                  		<img id="image" src="/displayFile?fullName=${vo.review_image}" width=300/>
+               		</c:if>
+               		<input type="file" name="file" style="display:none;"/>
+            	</td>
+        	</tr>
+        	<tr>
+	            <td>
+	               <input type="button" id="btnImage" value="첨부이미지" style="display:none;"/>
+	            </td>
+	            <td style="height:150px; padding:10px;">
+	            <input type="file" name="files" accept="image/*" multiple style="display:none;"/>
+					<!--<div id="uploaded">
+	  					<ul id="uploadFiles"></ul>
+	   					<script id="temp" type="text/x-handlebars-template">
+      						<li>
+         						<img src="/displayFile?fullName=${vo.review_number}/{{fullName}}" width=50/>
+         						<input type="text" name="images" value="{{fullName}}"/>
+        						<input class="del" type="button" value="삭제" fullName={{fullName}}/>
+      						</li>
+   	  					</script>
+					</div>-->
+	            </td>
+         	</tr>	
+			<tr>
+				<td>
+					<textarea rows="10" cols="50" name="review_contents">${vo.review_contents}</textarea>
+				</td>
+			</tr>
+		</table>
+		<input type="submit" value="수정">
+		<input type="button" value="취소/목록이동" onClick="location.href='/mypage/myReview'">
+		<input type="button" value="삭제" id="btnDelete">
+	</form>
 </body>
 <script>
    $("#btnDelete").on("click", function(){

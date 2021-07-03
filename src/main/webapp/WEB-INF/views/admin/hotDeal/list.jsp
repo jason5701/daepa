@@ -3,7 +3,7 @@
 <h2>핫딜</h2>
 <table id="tbl"></table>
 <script id="temp" type="text/x-handlebars-template">
-	<tr>
+	<tr style="background:#fafafa;">
 		<td>번호</td>
 		<td>제목</td>
 		<td>시작</td>

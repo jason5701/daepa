@@ -1,18 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<style>	
+	table td{text-align:left;}
+</style> 
 <h2>1인 밀키트 추가</h2>
 <form name="frm" encType="multipart/form-data">
 	<table>
 		<tr>
 			<td>품번</td>
-			<td><input type="text" name="product_id" value="${new_id}" readonly/></td>
+			<td><input type="text" class="admin_text2" name="product_id" value="${new_id}" readonly/></td>
 			<td>품명</td>
-			<td><input type="text" name="product_name"/></td>
+			<td><input type="text" class="admin_text2" name="product_name"/></td>
 		</tr>
 		<tr>
 			<td>단가</td>
-			<td colspan=3><input type="text" name="product_price"/></td>
+			<td colspan=3><input type="text" class="admin_text" name="product_price"/></td>
 
 		</tr>
 		<tr>
@@ -36,7 +39,7 @@
 		</tr>
 		<tr>
 			<td>상품 설명</td>
-			<td colspan=3><textarea name="product_detail" style="width:500px; height:200px; resize: none;">${vo.product_detail}</textarea></td>
+			<td colspan=3><textarea name="product_detail" class="admin_text" style="width:500px; height:200px; resize: none;">${vo.product_detail}</textarea></td>
 		</tr>
 		<tr>
 			<td>대표 이미지</td>
@@ -47,7 +50,7 @@
 		</tr>
 	</table>
 	<div>
-		<button id="btn_save">저장</button><input type="button" onClick="location.href='/admin/product'" value="목록">
+		<button class="btn_admin" style="float:right; margin-bottom:10px;" id="btn_save">저장</button><input type="button" class="btn_admin" style="float:right; margin-bottom:10px;" onClick="location.href='/admin/product'" value="목록">
 	</div>
 </form>
 <script>

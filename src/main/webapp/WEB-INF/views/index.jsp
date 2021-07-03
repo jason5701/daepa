@@ -22,7 +22,7 @@
 			   <a href="/admin/login">관리자</a>
 			</div>
 			<div class="menuItem">
-			   <a href="/cs_service">고객센터</a>
+			   <a href="/cs/notice">고객센터</a>
 			</div>
 			<div class="menuItem">   
 			     <c:if test="${user_info.user_id!=null}">
@@ -84,7 +84,7 @@
             </div>
             <div id="menu">
                <span class="menuCart" onClick="location.href='/cart/list'"></span>
-               <span class="menuLocation"></span>
+               <span class="menuFavo"></span>
             </div>
             <div id="searchBox">
                <input type="text" size=20 placeholder="검색" id="keyword"/>
