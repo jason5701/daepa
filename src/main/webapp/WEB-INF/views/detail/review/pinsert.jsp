@@ -26,8 +26,8 @@
 			<tr>
 				<td>작성자</td>
 				<td>
-					<input type="hidden" name="review_writer" value="${vo.user_id}">
-					<input type="text" value="${vo.user_name}" readonly>
+					<input type="hidden" name="review_writer" value="${user_info.user_id}">
+					<input type="text" value="${user_info.user_name}" readonly>
 				</td>
 			</tr>
 			<tr>
@@ -64,8 +64,7 @@
 			</tr> 	
 		</table>
 		<input type="submit" value="리뷰등록"/>
-		<input type="reset" value="등록취소"/>
-		<input type="button" value="리뷰목록" onClick="location.href='product_review_list'"/>
+		<input type="button" value="취소/리뷰목록이동" onClick="location.href='product_review_list'"/>
 	</form>
 </body>
 <script>

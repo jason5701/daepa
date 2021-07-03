@@ -30,7 +30,7 @@
 	<br/>	
 	<div class="div_container">
 		<div class="div_checkbox">
-			<select id="keyword" style="float:right;">
+			<select id="orderBy" style="float:right;">
 				<option value="review_number desc" selected>최근등록순</option>
 				<option value="review_click desc">조회많은순</option>
 			</select>
@@ -68,18 +68,18 @@
 	var page=1;
 	getProduct_review_list();
 	
-	$("#keyword").on("change", function(){
+	$("#orderBy").on("change", function(){
 		page=1;
 		getProduct_review_list();
 	});
 	
 	function getProduct_review_list(){
-		var keyword=$("#keyword").val();
+		var orderBy=$("#orderBy").val();
 		$.ajax({
 			type:"get",
 			url:"/board/product_review_list.json",
 			dataType:"json",
-			data:{"page":page,"keyword":keyword,"searchType":product_id},
+			data:{"page":page,"orderBy":orderBy,"searchType":product_id},
 			success:function(data){
 				console.log(data);
 				var temp = Handlebars.compile($("#temp").html());

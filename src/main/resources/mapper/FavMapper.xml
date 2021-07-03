@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.FavMapper">
+
+	<select id="product_favorite_list" resultType="com.example.domain.FavVO">
+		select * from fav_pview 
+		where user_id=#{user_id}
+	</select>
+	
+	<select id="meterial_favorite_list" resultType="com.example.domain.FavVO">
+		select * from fav_mview 
+		where user_id=#{user_id}
+	</select>
+	
+	<insert id="product_favorite_insert">
+		insert into tbl_favorite(user_id, product_id)
+		values(#{user_id}, #{product_id})
+		where user_id=#{user_id}
+	</insert>
+	
+	<insert id="meterial_favorite_insert">
+		insert into tbl_favorite(user_id, meterial_id)
+		values(#{user_id}, #{meterial_id})
+		where user_id=#{user_id}
+	</insert>
+	
+	<delete id="favorite_delete">
+		delete from tbl_favorite where favorite_number=#{favorite_number}
+	</delete>
+	
+</mapper>
