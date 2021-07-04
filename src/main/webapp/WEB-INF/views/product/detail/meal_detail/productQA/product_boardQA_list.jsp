@@ -8,20 +8,18 @@
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 	<title>REVIEW 목록</title>
-	<!-- 
 	<style>
 		table{width: 100%;border-collapse: collapse;border-bottom:solid 1px;}
 		td{border:solid 1px rgb(200, 200, 200) solid;padding: 10px;text-align: center;}
-		.row:hover{background: rgb(200, 200, 200);color: white;}
+		.row:hover{cursor:pointer;}
 		.row{border-top:solid 1px rgb(200, 200, 200);}
 		.title{border-top:2px solid;text-align: center;}
-		#pagination{text-align: center;}
-		#pagination a{text-decoration:none; color:black}
-		#pagination .active{color:red}
-		#review_insert{text-align:right;}
+		#pagination1{text-align: center; font-size:12pt; font-weight:bold; }
+		#pagination1 a{text-decoration:none; color:#123478;}
+		#pagination1 .active{color:#ccc;}
+		#product_boardQA_insert{text-align:right;}
 		#total{display:none;}
 	</style>
-	 -->
 </head>
 <body>
 	<h2>PRODUCT Q&A</h2>
@@ -51,8 +49,8 @@
 			</tr>
 		{{/each}}	
 		</script>
-		<div>
-			<input type="button" id="product_boardQA_insert" style="background-color:#5112AB; width:140px; height:45px; border:1px solid #6324BD; color:white; cursor:pointer; margin:0px auto;;" value="상품문의" onClick="location.href='/board/product_boardQA_insert?product_id=${vo.product_id}'"/>
+		<div id="product_boardQA_insert">
+			<input type="button" class="btn_style" value="상품문의" onClick="location.href='/board/product_boardQA_insert?product_id=${vo.product_id}'"/>
 		</div>
 		<script>
 			Handlebars.registerHelper("answer_status", function(boardQA_click){
@@ -89,10 +87,10 @@
             
 				if(data.pm.prev) str +="<a href='" + prev + "'>◀</a>";
 				for(var i=data.pm.startPage;i<=data.pm.endPage; i++){
-					if(i==page1){
-					   str += "[<a class='active' href='" + i + "'>" + i + "</a>] ";
+					if(i==page){
+					   str += "<a class='active' href='" + i + "'>&nbsp&nbsp" + i + "&nbsp&nbsp</a> ";
 					}else{
-					   str += "[<a href='" + i + "'>" + i + "</a>] ";
+					   str += "<a href='" + i + "'>&nbsp&nbsp" + i + "&nbsp&nbsp</a> ";
 					}   
 				}
 				if(data.pm.next) str +="<a href='" + next + "'>▶</a>";

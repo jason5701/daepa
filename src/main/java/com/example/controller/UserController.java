@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.util.WebUtils;
 
@@ -41,11 +42,12 @@ public class UserController {
 	BCryptPasswordEncoder passEncoder;
 	
 	@RequestMapping("login")
-	public String login(Model model){
+	public String login(@RequestParam(value = "code", required = false) String code,Model model)throws Exception{
 		model.addAttribute("pageName","user/login.jsp");
+		System.out.println("#########" + code);
 		return "/index";
 	}
-	
+		
 	@RequestMapping(value="login",method=RequestMethod.POST)
 	@ResponseBody
 	public HashMap<String,Object> loginPost(UserVO user_info,String user_password,HttpSession session,boolean chkLogin,HttpServletResponse response)throws Exception{

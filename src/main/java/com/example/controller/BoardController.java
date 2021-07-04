@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.example.domain.BoardQAVO;
 import com.example.domain.CommonQAVO;
 import com.example.domain.Criteria;
 import com.example.domain.NoticeVO;
@@ -105,6 +106,64 @@ public class BoardController {
 		return map;
 	}
 		
+////////////////////////20210702윤선이 수정수정 !!!
+@RequestMapping("user_boardQA_list.json") //jsp에 있는, ajax으로 url 연결하여 출력. ==> 크롤링과 동일하게 생각하면 됨
+@ResponseBody
+public HashMap<String, Object> user_boardQA_list(Criteria cri) throws Exception{
+HashMap<String, Object> map=new HashMap<>();
+cri.setPerPageNum(3);
+map.put("list", boardQA_dao.user_boardQA_list(cri));  
+
+PageMaker pm=new PageMaker();
+pm.setCri(cri);
+pm.setTotalCount(boardQA_dao.totalCount(cri));
+
+map.put("pm", pm);
+map.put("cri", cri);
+return map;
+}
+
+@RequestMapping("boardQA/boardQA_read")
+public String product_boardQA_read(Model model, int boardQA_number) throws Exception {
+model.addAttribute("vo", boardQA_dao.product_boardQA_read(boardQA_number));
+//System.out.println(boardQA_dao.boardQA_read(boardQA_number)) 
+return "/product/detail/meal_detail/productQA/product_boardQA_read";
+}
+
+///insert
+@RequestMapping("product_boardQA_insert")
+public String product_boardQA_insert(Model model, String product_id)throws Exception{
+String lastNumber=boardQA_dao.lastNumber();
+int boardQA_number_1=Integer.parseInt(lastNumber.substring(1)) + 11;
+model.addAttribute("boardQA_number",boardQA_number_1);
+model.addAttribute("product_id", product_id);
+model.addAttribute("aa", product_dao.read(product_id));
+return "/product/detail/meal_detail/productQA/product_boardQA_insert";
+}
+
+@RequestMapping(value="product_boardQA_insert", method=RequestMethod.POST)
+public String product_boardQA_insert(BoardQAVO vo) throws Exception{
+boardQA_dao.product_boardQA_insert(vo);		
+return "redirect:/meal_detail?product_id=" + vo.getProduct_id();
+}
+//(/insert)
+
+///update (get)
+@RequestMapping(value="product_boardQA_update", method=RequestMethod.GET)
+public String product_boardQA_update(Model model,BoardQAVO vo, int boardQA_number) throws Exception{
+boardQA_dao.product_boardQA_update(vo);
+model.addAttribute("vo", boardQA_dao.product_boardQA_read(boardQA_number));
+return "/product/detail/meal_detail/productQA/product_boardQA_reply";
+}
+
+//update (post)
+@RequestMapping(value="product_boardQA_update", method=RequestMethod.POST)
+public String product_boardQA_update(BoardQAVO vo) throws Exception{
+boardQA_dao.product_boardQA_update(vo);		
+return "redirect:/meal_detail?product_id=" + vo.getProduct_id();
+}
+
+	
 	
 	@RequestMapping("product_review_delete")
 	   public String product_review_delete(int review_number) throws Exception{

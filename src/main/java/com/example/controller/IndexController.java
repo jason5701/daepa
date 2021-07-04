@@ -71,6 +71,9 @@ public class IndexController {
 		model.addAttribute("pageName", "product/detail/meal_detail/meal_detail.jsp");
 		model.addAttribute("product_review", "review/plist.jsp");
 		model.addAttribute("product_div", "meal_read_div.jsp");
+		////////////////////////20210702윤선이 수정수정 !!!
+		model.addAttribute("product_boardQA_list", "productQA/product_boardQA_list.jsp");
+		
 		model.addAttribute("vo", product_service.read(product_id));
 		model.addAttribute("vo", product_dao.read(product_id));
 		return "/index";

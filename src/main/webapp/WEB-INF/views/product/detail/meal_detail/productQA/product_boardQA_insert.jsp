@@ -13,31 +13,29 @@
 
 </head>
 <body>
-<div style="width:510px; height:800px; background-color: #FFFFFF; border: 1px solid #D5D5D5; border-radius:10px 10px 10px 10px;  padding:10px;">
+<div style="width:510px; height:800px; background-color: #FFFFFF; border: 1px solid #D5D5D5; border-radius:10px 10px 10px 10px;  padding:10px; margin:0px auto;">
 	<h2> 상품 문의하기</h2>
 	<hr style="border: 0.25px solid; width:500px; margin: 0 auto; background-color:#D5D5D5; color:#D5D5D5;" />
 	<br/>
 	
 	<table>
 		<tr>
-			<td style=" width:80;">${vo.product_id}</td> 
-			<td style=" width:80; padding:0px 30px 0px 30px;">${vo.product_image} 이미지들어가는곳</td>
-			<td style=" width:80;">${vo.product_name}</td>
+			<td style=" width:80;">${product_id}</td> 
+			<td style=" width:80; padding:0px 30px 0px 30px;">
+                <img id="image" src="/displayFile?fullName=${aa.product_image}" width=120/>
+               	<input type="file" name="file" style="display:none;"/>
+			</td>
+			<td style=" width:80;">${aa.product_name}</td>
 		</tr>
 	</table>
 	<br/>
 	<hr style="border: 0.25px solid; width:500px; margin: 0 auto; background-color:#D5D5D5; color:#D5D5D5;" />
-	<form name="frm" action="product_boardQA_insert" method="post">
+	<form name="frm" encType="multipart/form-data">
 		<table style="padding:10px" width=500 >
 			<tr>
-				<td><input type="hidden" name="product_id" value="${vo.product_id}"/></td>
-			</tr>
-			 
-			 <tr>
+				<td><input type="hidden" name="product_id" value="${product_id}"/></td>
 				<td><input type="hidden" name="boardQA_writer" value="yoonsun"/></td>
-			</tr>
-			<tr>
-				<td><input type="hidden" value="1992-07-19" readonly/></td>
+				<!--<td><input type="hidden" value="1992-07-19" readonly/></td> -->
 			</tr>
 			<tr>
 				<td class="title" style="text-align:center;" width=100>제목</td>
@@ -50,7 +48,7 @@
 				</td>
 			</tr>
 		</table>
-		<div style="float:right; margin-right:50px;  color:#aaa; font-size:12px;" id="counter">(0 / 최대 200자)</div>
+		<div style="float:right; margin-right:50px;  color:#aaa; font-size:12px;" id="counter">(0 / 최대 500자)</div>
 		<br/>
 		<div style="padding:20px; text-align:center; ">
 			<input type="reset" style="width:150px; height:50px; background-color:#ffffff; border:1px solid #D5D5D5; cursor:pointer; border-radius:6px 6px 6px 6px; " value="취소">
@@ -60,7 +58,7 @@
 </div>	
 </body>
 <script>
-	var product_name="${vo.product_name}"
+	var product_name="${vo.product_name}";
 	
 
 	//글자수 실시간 카운팅
@@ -83,6 +81,8 @@
 			alert("문의 내용을 입력바랍니다"); return;
 		}
 		if (!confirm(product_name + "상품문의를 등록하실래요?")) return;
+		frm.action="product_boardQA_insert";
+		frm.method="post"; 
 		frm.submit();
 		alert("등록이 완료되었습니다.");
 	});

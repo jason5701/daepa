@@ -33,7 +33,9 @@
 			</div>   
 			<div class="menuItem">
 				<c:if test="${user_info.user_id==null}">
-			    	<a href="/user/login">로그인</a>
+			    	<a href=""https://kauth.kakao.com/oauth/authorize?client_id=730975601d99f3b911f8fb8fff4edafa
+    &redirect_uri=http://localhost:8080/login
+    &response_type=code"">로그인</a>
 			    </c:if>
 			    <c:if test="${user_info.user_id!=null}">
 			        <span>${user_info.user_name}님 </span>			    
