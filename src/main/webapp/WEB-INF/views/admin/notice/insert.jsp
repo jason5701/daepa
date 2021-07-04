@@ -23,7 +23,7 @@
 		</tr>
 		<tr>
 			<td>내용</td>
-			<td><input type="text" class="admin_text" name="notice_contents" placeholder="공지사항  내용을 입력하세요."/></td>
+			<td><textarea type="text" class="admin_text" name="notice_contents"  style="width:350px; height:200px; resize: none;" placeholder="내용을 입력하세요."></textarea></td>
 		</tr>
 		<tr>
 			<td>자료</td>

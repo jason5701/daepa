@@ -61,8 +61,8 @@ public class PurchaseDAOImpl implements PurchaseDAO{
 	}
 
 	@Override
-	public void update_orderstatus(String order_number) throws Exception {
-		session.update(namespace+".update_orderstatus",order_number);		
+	public void update_orderstatus(OrderVO ordervo) throws Exception {
+		session.update(namespace+".update_orderstatus",ordervo);		
 	}
 	public int max_order_number() throws Exception {
 		return session.selectOne(namespace+".max_order_number");
@@ -73,5 +73,9 @@ public class PurchaseDAOImpl implements PurchaseDAO{
 		session.insert(namespace+".purchase_insert", vo);
 	}
 
+	@Override
+	public int total_Orders_Admin(Criteria cri) throws Exception {
+		return session.selectOne(namespace+".total_Orders_Admin",cri);
+	}
 
 }

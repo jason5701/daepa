@@ -56,24 +56,22 @@ Handlebars.registerHelper("nf", function(price){
     return price.toString().replace(regexp, ",");
 });
 Handlebars.registerHelper("d_success", function(order_status){
-	var order_status="";
-	if(order_status==1) order_status="배송완료"; else order_status="배송전"; 
-	return order_status;
+	var status="";
+	if(order_status==1) status="배송완료"; else status="배송전"; 
+	return status;
 });
 Handlebars.registerHelper("pm", function(order_payment){
-	var order_payment="";
-	if(order_payment==1) order_payment="카드"; else order_payment="현금"; 
-	return order_payment;
+	var payment="";
+	if(order_payment==1) payment="카드"; else payment="현금"; 
+	return payment;
 });
 </script>
 <script>
 	var page=1;
 	var order_number=$("#tbl .tr_row").attr("order_number");
-	getOrder_list();
+	getOrder_list();	
 	
-	
-	
-	$(".div_orderList").hide();
+	$(".div_orderList").hide();	
 	
 	$("#tbl").on("click",".tr_row",function(){		
 		$(".div_orderList").show();
@@ -81,6 +79,13 @@ Handlebars.registerHelper("pm", function(order_payment){
 		purchaseList(order_number);
 		$("#btnSend").on("click",function(){
 			alert("주문번호 : " + order_number + "을 배송 처리하시겠습니까?");
+			$.ajax({
+				type:"post",
+				url:"/order/update_orderstatus",
+				data:{"order_number":order_number},
+				success:function(){					
+				}
+			})
 		});
 	});
 	

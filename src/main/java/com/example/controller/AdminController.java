@@ -178,4 +178,14 @@ public class AdminController {
 		model.addAttribute("rightPage", "analyze/chart.jsp");
 		return "/index";
 	}
+	
+	//관리자-채팅
+	@RequestMapping("chat")
+	public String chat(Model model){
+		model.addAttribute("pageName", "admin/main.jsp");
+		model.addAttribute("rightPage", "cs/cs_service.jsp");
+		return "/index";
+	}
+
+	
 }

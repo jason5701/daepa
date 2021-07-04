@@ -19,7 +19,9 @@
       <div id="header">
          <div id="userMenu">
             <div class="menuItem">
-			   <a href="/admin/login">관리자</a>
+            	<c:if test="${user_info.user_id==null}">
+			    	 <a href="/admin/login">관리자</a>    
+			    </c:if>			  
 			</div>
 			<div class="menuItem">
 			   <a href="/cs/notice">고객센터</a>

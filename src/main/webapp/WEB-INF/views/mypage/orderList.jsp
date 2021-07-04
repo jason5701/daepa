@@ -44,7 +44,7 @@
 	<div class="board-container">
 		<table id="tbl_orders"></table>
 		<script id="temp_orders" type="text/x-handlebars-template">
-			<tr class="title">
+			<tr class="title"  style="background:#fafafa; border-bottom: 3px solid #444444;">
 				<td width=100>주문번호</td>
 				<td width=100>주문일자</td>
 				<td width=100>주문자</td>
@@ -66,9 +66,9 @@
 		<div class="div_orderList">
 			<hr/>
 			<h2>주문 목록</h2>
-			<table id="tbl_orderList"  style=" background:#ddd; text-align:left;"></table>
+			<table id="tbl_orderList"></table>
 			<script id="temp_orderList" type="text/x-handlebars-template">
-				<tr class="title">
+				<tr class="title"  style="background:#fafafa;">
 					<td width=100>상품번호</td>
 					<td width=400>상품명</td>
 					<td width=100>단가</td>
@@ -94,13 +94,13 @@ Handlebars.registerHelper("nf", function(price){
     return price.toString().replace(regexp, ",");
 });
 Handlebars.registerHelper("d_success", function(order_status){
-	var order_status="";
+	var status="";
 	if(order_status==1) {
-		order_status="배송완료";
+		status="배송완료";
 		}else{
-		order_status="배송전"; 
+		status="배송전"; 
 		}
-	return order_status;
+	return status;
 });
 </script>
 <script>

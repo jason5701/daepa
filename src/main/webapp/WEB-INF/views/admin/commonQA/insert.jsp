@@ -23,7 +23,9 @@
 		</tr>
 		<tr>
 			<td>내용</td>
-			<td><input type="text" class="admin_text" name="commonQA_contents" placeholder="자주하는질문  내용을 입력하세요."/></td>
+			<td>
+			<textarea name="product_detail" class="admin_text" style="width:350px; height:200px; resize: none;" placeholder="내용을 입력하세요.">${vo.product_detail}</textarea>
+			</td>
 		</tr>
 	</table>
 	<button class="btn_admin" style="float:right; margin-bottom:10px;" id="btn_write" id="btn_write">입력</button>

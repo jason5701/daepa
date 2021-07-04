@@ -37,10 +37,9 @@ public class OrderController {
 	CartService cart_service;
 	
 
-	@RequestMapping("update_orderstatus")
-	public void update_orderstatus(String order_number,OrderVO ordervo){
-		String order_status = ordervo.getOrder_status();
-		ordervo.setOrder_status(order_status);
+	@RequestMapping(value="update_orderstatus", method=RequestMethod.POST)
+	public void update_orderstatus(OrderVO ordervo) throws Exception{
+		purchase_dao.update_orderstatus(ordervo); 
 	}
 	
 	
@@ -101,7 +100,7 @@ public class OrderController {
 		PageMaker pm=new PageMaker();
 		cri.setPerPageNum(5);
 		pm.setCri(cri);
-		pm.setTotalCount(120);
+		pm.setTotalCount(purchase_dao.total_Orders_Admin(cri));
 		map.put("admin_list", purchase_dao.admin_order_list(cri));
 		map.put("pm", pm);
 		map.put("cri", cri);

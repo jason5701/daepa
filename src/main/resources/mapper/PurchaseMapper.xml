@@ -10,8 +10,10 @@
 	</select>
 	<select id="total_Orders" resultType="int">
 		select count(*) from tbl_orders where user_id=#{user_id}
+	</select>	
+	<select id="total_Orders_Admin" resultType="int">
+		select count(*) from tbl_orders
 	</select>
-	
 	<select id="orderList" resultType="com.example.domain.PurchaseVO">
 		select *,product_price * purchase_qtt purchase_sum from orderList where user_id=#{user_id} and order_number=#{order_number}
 	</select>

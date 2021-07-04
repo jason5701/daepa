@@ -1,15 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <style>
        .page_section{width:810px;float:right;}
       table{width: 100%;border-collapse: collapse;border-bottom:solid 1px;}
       td{border:solid 1px rgb(200, 200, 200) solid;padding: 10px;text-align: center;}
-      .row:hover{background: rgb(200, 200, 200);color: white;}
+      .row:hover{cursor:pointer;}
       .row{border-top:solid 1px rgb(200, 200, 200);}
       .title{border-top:2px solid;text-align: center;}
-      #pagination{text-align: center;}
-      #pagination a{text-decoration:none; color:black}
-      #pagination .active{color:red}
+      #pagination{text-align: center; margin-top:10px;}
+      #pagination a{text-decoration:none; color:#123478;}
+      #pagination .active{color:#ccc}
       #review_insert{text-align:right;}
       #total{display:none;}
    </style>
@@ -30,7 +30,7 @@
    </div>
    <table id="tbl"></table>
    <script id="temp" type="text/x-handlebars-template">
-      <tr class="title">
+      <tr class="title" style="background:#fafafa;">
          <td width=50>번호</td>
          <td width=100>상품이름</td>
          <td width=100>제목</td>
@@ -80,9 +80,9 @@
             if(data.pm.prev) str +="<a href='" + prev + "'>◀</a>";
             for(var i=data.pm.startPage;i<=data.pm.endPage; i++){
                if(i==page){
-                  str += "[<a class='active' href='" + i + "'>" + i + "</a>] ";
+                  str += "<a class='active' href='" + i + "'>&nbsp&nbsp" + i + "&nbsp&nbsp</a> ";
                }else{
-                  str += "[<a href='" + i + "'>" + i + "</a>] ";
+                  str += "<a href='" + i + "'>&nbsp&nbsp" + i + "&nbsp&nbsp</a> ";
                }   
             }
             if(data.pm.next) str +="<a href='" + next + "'>▶</a>";

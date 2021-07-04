@@ -7,7 +7,6 @@
 		<div class="inner_snb">
 			<ul class="list_menu">
 				<li class="on"><a href="/mypage/all">주문내역</a></li>
-				<li class="on"><a href="/mypage/myFavorite">찜 목록</a></li>
 				<li class="on"><a href="/mypage/myReview">상품 후기</a></li>
 				<li class="on"><a href="/mypage/myQnA">상품 문의</a></li>
 				<li class="on"><a href="/mypage/myInfo">개인정보수정</a></li>

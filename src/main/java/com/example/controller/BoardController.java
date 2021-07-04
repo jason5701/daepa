@@ -24,10 +24,14 @@ import com.example.domain.ReviewVO;
 import com.example.persistence.BoardDAO;
 import com.example.persistence.BoardQADAO;
 import com.example.persistence.CommonQADAO;
+import com.example.persistence.MeterialDAO;
 import com.example.persistence.NoticeDAO;
+import com.example.persistence.ProductDAO;
 import com.example.persistence.SuggestionDAO;
 import com.example.service.BoardService;
+import com.example.service.MeterialService;
 import com.example.service.NoticeService;
+import com.example.service.ProductService;
 import com.example.service.SuggestionService;
 
 @Controller
@@ -100,167 +104,182 @@ public class BoardController {
 	    map.put("cri", cri);
 		return map;
 	}
-	
-	
-	
-	
-	
-	
-	
+		
 	
 	@RequestMapping("product_review_delete")
-	public String product_review_delete(int review_number) throws Exception{
-		ReviewVO vo=review_dao.product_review_read(review_number);
-		if(vo.getReview_image()!=null){
-			new File(path + "/" + vo.getReview_image()).delete();
-		}
-		review_dao.product_review_delete(review_number);
-		return "redirect:/meals";
-	}
-	
-	@RequestMapping("product_review_list.json")
-	@ResponseBody
-	public HashMap<String, Object> product_review_list(Criteria cri) throws Exception{
-		HashMap<String, Object> map=new HashMap<String, Object>();
-		cri.setPerPageNum(4);
-		map.put("list", review_dao.product_review_list(cri));
-		
-		PageMaker pm=new PageMaker();
-		pm.setCri(cri);
-		pm.setTotalCount(review_dao.product_totalCount(cri));
-		
-		map.put("cri", cri);
-		map.put("pm", pm);
-		return map;
-	}
-	
-	@RequestMapping("product_review_insert")
-	public String product_review_insert(Model model, String product_id)throws Exception{		
-		String lastNumber=review_dao.lastNumber();
-		int last_review_number=Integer.parseInt(lastNumber.substring(1)) + 11;
-		model.addAttribute("review_number",last_review_number);	
-		model.addAttribute("product_id", product_id);
-		return "/detail/review/pinsert";
-	}
-	
-	@RequestMapping(value="product_review_insert", method=RequestMethod.POST)
-	public String product_review_insert(ReviewVO vo,MultipartHttpServletRequest multi) throws Exception{
-		//파일업로드
-		MultipartFile file=multi.getFile("file");
-		if(!file.isEmpty()){
-			String image=System.currentTimeMillis()+"_"+file.getOriginalFilename();
-			file.transferTo(new File(path + "/" + image));
-			vo.setReview_image(image);
-		}
-		review_dao.product_review_insert(vo);
-		return "redirect:/meals";
-	}
-	
-	@RequestMapping(value="product_review_update", method=RequestMethod.POST)
-	public String product_review_update(ReviewVO vo,MultipartHttpServletRequest multi) throws Exception{
-		System.out.println(vo.toString());
-		ReviewVO oldVO=review_dao.product_review_read(vo.getReview_number());
-		
-		//대표 이미지 파일업로드
-		MultipartFile file=multi.getFile("file");
-		if(!file.isEmpty()){
-			String image=System.currentTimeMillis()+"_"+file.getOriginalFilename();
-			file.transferTo(new File(path + "/" + image));
-			vo.setReview_image(image);
-			
-			//예전이미지가 존재한다면 삭제
-			if(oldVO.getReview_image()!=null){
-				new File(path + "/" + oldVO.getReview_image()).delete();
-			}
-		}else{
-			vo.setReview_image(oldVO.getReview_image());
-		}
-		review_dao.product_review_update(vo);
-		return "redirect:/meals";
-	}
-	
-	@RequestMapping("product_review_read")
-	public String product_review_read(Model model, int review_number) throws Exception{
-		model.addAttribute("vo", review_service.product_review_read(review_number));
-		return "/detail/review/pread";
-	}
-	
-	@RequestMapping("meterial_review_delete")
-	public String meterial_review_delete(int review_number) throws Exception{
-		ReviewVO vo=review_dao.meterial_review_read(review_number);
-		if(vo.getReview_image()!=null){
-			new File(path + "/" + vo.getReview_image()).delete();
-		}
-		review_dao.product_review_delete(review_number);
-		return "redirect:/veges";
-	}
-	
-	@RequestMapping("meterial_review_list.json")
-	@ResponseBody
-	public HashMap<String, Object> meterial_review_list(Criteria cri) throws Exception{
-		HashMap<String, Object> map=new HashMap<String, Object>();
-		cri.setPerPageNum(4);
-		map.put("list", review_dao.meterial_review_list(cri));
-		
-		PageMaker pm=new PageMaker();
-		pm.setCri(cri);
-		pm.setTotalCount(review_dao.meterial_totalCount(cri));
-		
-		map.put("cri", cri);
-		map.put("pm", pm);
-		return map;
-	}
-	
-	@RequestMapping("meterial_review_insert")
-	public String meterial_review_insert(Model model, String meterial_id)throws Exception{
-		String lastNumber=review_dao.lastNumber();
-		int last_review_number=Integer.parseInt(lastNumber.substring(1)) + 11;
-		model.addAttribute("review_number",last_review_number);
-		model.addAttribute("meterial_id", meterial_id);
-		return "/detail/review/minsert";
-	}
-	
-	@RequestMapping(value="meterial_review_insert", method=RequestMethod.POST)
-	public String meterial_review_insert(ReviewVO vo,MultipartHttpServletRequest multi) throws Exception{
-		//파일업로드
-		MultipartFile file=multi.getFile("file");
-		if(!file.isEmpty()){
-			String image=System.currentTimeMillis()+"_"+file.getOriginalFilename();
-			file.transferTo(new File(path + "/" + image));
-			vo.setReview_image(image);
-		}
-		review_dao.meterial_review_insert(vo);		
-		return "redirect:/veges";
-	}
-	
-	@RequestMapping(value="meterial_review_update", method=RequestMethod.POST)
-	public String meterial_review_update(ReviewVO vo,MultipartHttpServletRequest multi) throws Exception{
-		System.out.println(vo.toString());
-		ReviewVO oldVO=review_dao.meterial_review_read(vo.getReview_number());
-		
-		//대표 이미지 파일업로드
-		MultipartFile file=multi.getFile("file");
-		if(!file.isEmpty()){
-			String image=System.currentTimeMillis()+"_"+file.getOriginalFilename();
-			file.transferTo(new File(path + "/" + image));
-			vo.setReview_image(image);
-			
-			//예전이미지가 존재한다면 삭제
-			if(oldVO.getReview_image()!=null){
-				new File(path + "/" + oldVO.getReview_image()).delete();
-			}
-		}else{
-			vo.setReview_image(oldVO.getReview_image());
-		}
-		review_dao.meterial_review_update(vo);
-		return "redirect:/veges";
-	}
-	
-	@RequestMapping("meterial_review_read")
-	public String meterial_review_read(Model model, int review_number) throws Exception{
-		model.addAttribute("vo", review_service.meterial_review_read(review_number));
-		return "/detail/review/mread";
-	}
+	   public String product_review_delete(int review_number) throws Exception{
+	      ReviewVO vo=review_dao.product_review_read(review_number);
+	      if(vo.getReview_image()!=null){
+	         new File(path + "/" + vo.getReview_image()).delete();
+	      }
+	      review_dao.product_review_delete(review_number);
+	      return "redirect:/meal_detail?product_id=" + vo.getProduct_id();
+	   }
+	   
+	   @RequestMapping("product_review_list.json")
+	   @ResponseBody
+	   public HashMap<String, Object> product_review_list(Criteria cri) throws Exception{
+	      HashMap<String, Object> map=new HashMap<String, Object>();
+	      cri.setPerPageNum(4);
+	      map.put("list", review_dao.product_review_list(cri));
+	      
+	      PageMaker pm=new PageMaker();
+	      pm.setCri(cri);
+	      pm.setTotalCount(review_dao.product_totalCount(cri));
+	      
+	      map.put("cri", cri);
+	      map.put("pm", pm);
+	      return map;
+	   }
+	   
+	   @Autowired
+	   ProductDAO product_dao;
+	   
+	   @Autowired
+	   ProductService product_service;
+	   
+	   @RequestMapping("product_review_insert")
+	   public String product_review_insert(Model model, String product_id)throws Exception{
+	      model.addAttribute("pageName", "product/detail/meal_detail/meal_detail.jsp");
+	      model.addAttribute("product_review", "review/pinsert.jsp");
+	      model.addAttribute("product_div", "meal_read_div.jsp");
+	      model.addAttribute("vo", product_service.read(product_id));
+	      model.addAttribute("vo", product_dao.read(product_id));
+	      String lastNumber=review_dao.lastNumber();
+	      int last_review_number=Integer.parseInt(lastNumber.substring(1)) + 11;
+	      model.addAttribute("review_number",last_review_number);   
+	      model.addAttribute("product_id", product_id);
+	      return "/index";
+	   }
+	   
+	   @RequestMapping(value="product_review_insert", method=RequestMethod.POST)
+	   public String product_review_insert(ReviewVO vo,MultipartHttpServletRequest multi) throws Exception{
+	      //파일업로드
+	      MultipartFile file=multi.getFile("file");
+	      if(!file.isEmpty()){
+	         String image=System.currentTimeMillis()+"_"+file.getOriginalFilename();
+	         file.transferTo(new File(path + "/" + image));
+	         vo.setReview_image(image);
+	      }
+	      review_dao.product_review_insert(vo);
+	      return "redirect:/meal_detail?product_id=" + vo.getProduct_id();
+	   }
+	   
+	   @RequestMapping(value="product_review_update", method=RequestMethod.POST)
+	   public String product_review_update(ReviewVO vo,MultipartHttpServletRequest multi) throws Exception{
+	      System.out.println(vo.toString());
+	      ReviewVO oldVO=review_dao.product_review_read(vo.getReview_number());
+	      
+	      //대표 이미지 파일업로드
+	      MultipartFile file=multi.getFile("file");
+	      if(!file.isEmpty()){
+	         String image=System.currentTimeMillis()+"_"+file.getOriginalFilename();
+	         file.transferTo(new File(path + "/" + image));
+	         vo.setReview_image(image);
+	         
+	         //예전이미지가 존재한다면 삭제
+	         if(oldVO.getReview_image()!=null){
+	            new File(path + "/" + oldVO.getReview_image()).delete();
+	         }
+	      }else{
+	         vo.setReview_image(oldVO.getReview_image());
+	      }
+	      review_dao.product_review_update(vo);
+	      return "redirect:/meal_detail?product_id=" + vo.getProduct_id();
+	   }
+	   
+	   @RequestMapping("product_review_read")
+	   public String product_review_read(Model model, int review_number) throws Exception{
+	      model.addAttribute("vo", review_service.product_review_read(review_number));
+	      return "/detail/review/pread";
+	   }
+	   
+	   @RequestMapping("meterial_review_delete")
+	   public String meterial_review_delete(int review_number) throws Exception{
+	      ReviewVO vo=review_dao.meterial_review_read(review_number);
+	      if(vo.getReview_image()!=null){
+	         new File(path + "/" + vo.getReview_image()).delete();
+	      }
+	      review_dao.product_review_delete(review_number);
+	      return "redirect:/vege_detail?meterial_id=" + vo.getMeterial_id();
+	   }
+	   
+	   @RequestMapping("meterial_review_list.json")
+	   @ResponseBody
+	   public HashMap<String, Object> meterial_review_list(Criteria cri) throws Exception{
+	      HashMap<String, Object> map=new HashMap<String, Object>();
+	      cri.setPerPageNum(4);
+	      map.put("list", review_dao.meterial_review_list(cri));
+	      
+	      PageMaker pm=new PageMaker();
+	      pm.setCri(cri);
+	      pm.setTotalCount(review_dao.meterial_totalCount(cri));
+	      
+	      map.put("cri", cri);
+	      map.put("pm", pm);
+	      return map;
+	   }
+	   
+	   @Autowired
+	   MeterialDAO meterial_dao;
+	   
+	   @Autowired
+	   MeterialService meterial_service;
+	   
+	   @RequestMapping("meterial_review_insert")
+	   public String meterial_review_insert(Model model, String meterial_id)throws Exception{
+	      model.addAttribute("pageName", "product/detail/vege_detail/vege_detail.jsp");
+	      model.addAttribute("meterial_review", "review/minsert.jsp");
+	      model.addAttribute("product_div", "vege_read_div.jsp");
+	      model.addAttribute("vo", meterial_service.read(meterial_id));
+	      String lastNumber=review_dao.lastNumber();
+	      int last_review_number=Integer.parseInt(lastNumber.substring(1)) + 11;
+	      model.addAttribute("review_number",last_review_number);
+	      model.addAttribute("meterial_id", meterial_id);
+	      return "/index";
+	   }
+	   
+	   @RequestMapping(value="meterial_review_insert", method=RequestMethod.POST)
+	   public String meterial_review_insert(ReviewVO vo,MultipartHttpServletRequest multi) throws Exception{
+	      //파일업로드
+	      MultipartFile file=multi.getFile("file");
+	      if(!file.isEmpty()){
+	         String image=System.currentTimeMillis()+"_"+file.getOriginalFilename();
+	         file.transferTo(new File(path + "/" + image));
+	         vo.setReview_image(image);
+	      }
+	      review_dao.meterial_review_insert(vo);      
+	      return "redirect:/vege_detail?meterial_id=" + vo.getMeterial_id();
+	   }
+	   
+	   @RequestMapping(value="meterial_review_update", method=RequestMethod.POST)
+	   public String meterial_review_update(ReviewVO vo,MultipartHttpServletRequest multi) throws Exception{
+	      System.out.println(vo.toString());
+	      ReviewVO oldVO=review_dao.meterial_review_read(vo.getReview_number());
+	      
+	      //대표 이미지 파일업로드
+	      MultipartFile file=multi.getFile("file");
+	      if(!file.isEmpty()){
+	         String image=System.currentTimeMillis()+"_"+file.getOriginalFilename();
+	         file.transferTo(new File(path + "/" + image));
+	         vo.setReview_image(image);
+	         
+	         //예전이미지가 존재한다면 삭제
+	         if(oldVO.getReview_image()!=null){
+	            new File(path + "/" + oldVO.getReview_image()).delete();
+	         }
+	      }else{
+	         vo.setReview_image(oldVO.getReview_image());
+	      }
+	      review_dao.meterial_review_update(vo);
+	      return "redirect:/vege_detail?meterial_id=" + vo.getMeterial_id();
+	   }
+	   
+	   @RequestMapping("meterial_review_read")
+	   public String meterial_review_read(Model model, int review_number) throws Exception{
+	      model.addAttribute("vo", review_service.meterial_review_read(review_number));
+	      return "/detail/review/mread";
+	   }
 	
 	@RequestMapping("user_review_delete")
 	public String user_review_delete(int review_number) throws Exception{
@@ -411,7 +430,7 @@ public class BoardController {
 		map.put("list", commonQA_dao.admin_list(cri));
 		PageMaker pm=new PageMaker();
 		pm.setCri(cri);
-		pm.setTotalCount(230);
+		pm.setTotalCount(commonQA_dao.totalCount(cri));
 		map.put("cri", cri);
 		map.put("pm", pm);
 		return map;
