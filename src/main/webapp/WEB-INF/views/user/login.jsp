@@ -15,6 +15,9 @@
 				</span>
 					<input type="submit" class="login_button" style="margin-top:10px;" value="로그인"/>		
 					<input type="button" class="login_button2" value="회원가입"/>
+					<a href="https://kauth.kakao.com/oauth/authorize?client_id=2287364253d35e52c6009b9ed1c6a7b3
+    						&redirect_uri=http://localhost:8085/user/login
+    						&response_type=code">카카오 로그인</a>
 			</form>
 		</div>
 <script>		

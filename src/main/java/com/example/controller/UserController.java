@@ -42,8 +42,13 @@ public class UserController {
 	BCryptPasswordEncoder passEncoder;
 	
 	@RequestMapping("login")
-	public String login(@RequestParam(value = "code", required = false) String code,Model model)throws Exception{
+	public String login(Model model) throws Exception{
 		model.addAttribute("pageName","user/login.jsp");
+		return "/index";
+	}
+	
+	@RequestMapping("Kakaologin")
+	public String Kakaologin(@RequestParam(value = "code", required = false) String code,Model model)throws Exception{		
 		System.out.println("#########" + code);
 		return "/index";
 	}

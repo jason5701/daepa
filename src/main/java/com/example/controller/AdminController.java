@@ -73,18 +73,18 @@ public class AdminController {
 	
 	@RequestMapping(value="login", method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String,Object> admin_login(String admin_id,String admin_password,HttpSession session,boolean chkLogin,HttpServletResponse response)throws Exception{
+	public Map<String,Object> admin_login(AdminVO admin_vo,String admin_id,String admin_password,HttpSession session,boolean chkLogin,HttpServletResponse response)throws Exception{
 		Map<String,Object> map=new HashMap<>();
+		session.setAttribute("id", admin_vo.getAdmin_id());
 		int result=0;
-		AdminVO admin_vo=admin_dao.admin_login(admin_id);
+		admin_vo=admin_dao.admin_login(admin_id);
 		if(admin_vo!=null){
 			if(admin_vo.getAdmin_password().equals(admin_password)){
-				result=1;
-				
+				result=1;				
 			}if(chkLogin){
 				Cookie cookie=new Cookie("admin_id",admin_vo.getAdmin_id());
 				cookie.setPath("/admin/main");
-				cookie.setMaxAge(60*60*24*3);
+				cookie.setMaxAge(60*60*24*7);
 				response.addCookie(cookie);
 			}
 			session.setAttribute("admin_id", admin_vo.getAdmin_id());
