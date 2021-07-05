@@ -98,8 +98,6 @@ public class OrderController {
 		//purchase_dao.purchase_insert(vo);
 		String product_id=vo.getProduct_id();
 		product_service.updateProduct_selling(vo, product_id);	
-		System.out.println(product_id);
-		System.out.println(vo.toString());
 	}
 	
 	@RequestMapping("admin_list.json")
