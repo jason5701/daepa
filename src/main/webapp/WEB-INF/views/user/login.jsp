@@ -28,11 +28,11 @@
 		var user_id = $(frm.user_id).val();
 		var user_password = $(frm.user_password).val();
 		if (user_id == "") {
-			alert("아이디를 입력하세요");
+			alert("아이디를 입력하세요.");
 			$(frm.user_id).focus();
 			return;
 		} else if (user_password == "") {
-			alert("비밀번호를 입력하세요");
+			alert("비밀번호를 입력하세요.");
 			$(frm.user_password).focus();
 			return;
 		}
