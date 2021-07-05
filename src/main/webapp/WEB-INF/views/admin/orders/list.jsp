@@ -61,9 +61,9 @@ Handlebars.registerHelper("d_success", function(order_status){
 	return order_status;
 });
 Handlebars.registerHelper("pm", function(order_payment){
-	var order_payment="";
-	if(order_payment==1) order_payment="카드"; else order_payment="현금"; 
-	return order_payment;
+	var payment="";
+	if(order_payment==1) payment="카드"; else payment="현금"; 
+	return payment;
 });
 </script>
 <script>
