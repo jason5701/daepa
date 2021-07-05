@@ -70,10 +70,9 @@ Handlebars.registerHelper("pm", function(order_payment){
 	var page=1;
 	var order_number=$("#tbl .tr_row").attr("order_number");
 	getOrder_list();	
+	$(".div_orderList").hide();
 	
-	$(".div_orderList").hide();	
-	
-	$("#tbl").on("click",".tr_row",function(){		
+	$("#tbl").on("click",".tr_row",function(){	
 		$(".div_orderList").show();
 		var order_number = $(this).attr("order_number");
 		purchaseList(order_number);

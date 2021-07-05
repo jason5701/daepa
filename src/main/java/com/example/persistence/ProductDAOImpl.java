@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.example.domain.Criteria;
 import com.example.domain.MeterialAndProductVO;
 import com.example.domain.ProductVO;
+import com.example.domain.PurchaseVO;
 
 @Repository
 public class ProductDAOImpl implements ProductDAO{
@@ -77,6 +78,8 @@ public class ProductDAOImpl implements ProductDAO{
 	public String getProduct_id() throws Exception {
 		return session.selectOne(namespace+".getProduct_id");
 	}
+	
+	@Override
 	public void updateProduct_click(String product_id) throws Exception {
 		session.update(namespace+".updateProduct_click", product_id);
 	}
@@ -84,6 +87,11 @@ public class ProductDAOImpl implements ProductDAO{
 	@Override
 	public List<MeterialAndProductVO> meterial_list(String product_id) throws Exception {
 		return session.selectList(namespace+".meterial_list", product_id);
+	}
+
+	@Override
+	public void updateProduct_selling(PurchaseVO vo, String product_id) throws Exception {
+		session.update(namespace+".updateProduct_selling", vo);
 	}
 }
 

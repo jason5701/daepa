@@ -3,7 +3,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
@@ -14,13 +13,14 @@
 		.row:hover{cursor:pointer;}
 		.row{border-top:solid 1px rgb(200, 200, 200);}
 		.title{border-top:2px solid;text-align: center;}
-		#pagination{text-align: center; margin-top:10px;}
+		#pagination{text-align: center; margin-top:20px;}
 		#pagination a{text-decoration:none; color:#123478;}
 		#pagination .active{color:#ccc}
 		#review_insert{text-align:right;}
-		.tit{font-size:28px; float:left;}
+		.tit{font-size:28px; float:left; margin-top:22px; margin-bottom:20px; }
 		.titSub{font-size:12px;}
 		#total{display:none;}
+		#searchType{margin-top:35px; }
 	</style>
 </head>
 <body>
@@ -69,6 +69,7 @@
 	</div>
 
 </body>
+
 <script>
    var page=1;
    getList();

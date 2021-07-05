@@ -8,7 +8,7 @@
 </head>
 <div id="cs_menu">
 <div id="snb" class="snb_cc">
-	<h2>대파고객센터</h2>
+	<h2 class="tit_snb">대파고객센터</h2>
 	<div class="inner_snb">
 		<ul class="list_menu">
 			<li class="on">

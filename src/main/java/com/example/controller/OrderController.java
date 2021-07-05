@@ -22,6 +22,8 @@ import com.example.domain.UserVO;
 import com.example.persistence.PurchaseDAO;
 import com.example.persistence.UserDAO;
 import com.example.service.CartService;
+import com.example.service.OrderService;
+import com.example.service.ProductService;
 
 @Controller
 @RequestMapping("/order/")
@@ -36,6 +38,8 @@ public class OrderController {
 	@Autowired
 	CartService cart_service;
 	
+	@Autowired
+	ProductService product_service;
 
 	@RequestMapping(value="update_orderstatus", method=RequestMethod.POST)
 	public void update_orderstatus(OrderVO ordervo) throws Exception{
@@ -90,7 +94,9 @@ public class OrderController {
 	@ResponseBody
 	public void purchase_insert(PurchaseVO vo, HttpSession session) throws Exception{
 		UserVO user=(UserVO)session.getAttribute("user_info");		
-		purchase_dao.purchase_insert(vo);
+		//purchase_dao.purchase_insert(vo);
+		String product_id=vo.getProduct_id();
+		product_service.updateProduct_selling(vo, product_id);	
 	}
 	
 	@RequestMapping("admin_list.json")

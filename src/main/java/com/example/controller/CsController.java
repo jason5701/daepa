@@ -24,6 +24,7 @@ public class CsController {
 	public String cs_notice(Model model) throws Exception {
 		model.addAttribute("pageName", "cs/cs_service.jsp");
 		model.addAttribute("leftMenu", "cs_menu.jsp");
+
 		/*20210701 윤선 수정사항*/
 		model.addAttribute("rightContent", "detail/notice/notice_list.jsp");
 		return "/index";
@@ -34,7 +35,6 @@ public class CsController {
 		model.addAttribute("pageName", "cs/cs_service.jsp");
 		model.addAttribute("leftMenu", "cs_menu.jsp");
 		model.addAttribute("rightContent", "commonQA/list.jsp");
-
 		return "/index";
 	}
 	
