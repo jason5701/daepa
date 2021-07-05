@@ -58,6 +58,12 @@ public class BoardController {
 	@Autowired
 	BoardService review_service;
 	
+	@Autowired
+	ProductDAO product_dao;
+   
+	@Autowired
+	ProductService product_service;
+
 	/*20210701 윤선 수정사항*/
 	@RequestMapping("notice/list.json")
 	@ResponseBody
@@ -107,16 +113,16 @@ public class BoardController {
 	}
 		
 ////////////////////////20210702윤선이 수정수정 !!!
-@RequestMapping("user_boardQA_list.json") //jsp에 있는, ajax으로 url 연결하여 출력. ==> 크롤링과 동일하게 생각하면 됨
+@RequestMapping("user_boardQA_list.json") // jsp에 있는, ajax으로 url 연결하여 출력.// ==> 크롤링과 동일하게 생각하면 됨
 @ResponseBody
-public HashMap<String, Object> user_boardQA_list(Criteria cri) throws Exception{
-HashMap<String, Object> map=new HashMap<>();
-cri.setPerPageNum(3);
-map.put("list", boardQA_dao.user_boardQA_list(cri));  
+public HashMap<String, Object> user_boardQA_list(Criteria cri) throws Exception {
+HashMap<String, Object> map = new HashMap<>();
+cri.setPerPageNum(5);
+map.put("list", boardQA_dao.user_boardQA_list(cri));
 
-PageMaker pm=new PageMaker();
+PageMaker pm = new PageMaker();
 pm.setCri(cri);
-pm.setTotalCount(boardQA_dao.totalCount(cri));
+pm.setTotalCount(boardQA_dao.user_totalCount(cri));
 
 map.put("pm", pm);
 map.put("cri", cri);
@@ -163,6 +169,7 @@ boardQA_dao.product_boardQA_update(vo);
 return "redirect:/meal_detail?product_id=" + vo.getProduct_id();
 }
 
+
 	
 	
 	@RequestMapping("product_review_delete")
@@ -191,11 +198,7 @@ return "redirect:/meal_detail?product_id=" + vo.getProduct_id();
 	      return map;
 	   }
 	   
-	   @Autowired
-	   ProductDAO product_dao;
-	   
-	   @Autowired
-	   ProductService product_service;
+	 
 	   
 	   @RequestMapping("product_review_insert")
 	   public String product_review_insert(Model model, String product_id)throws Exception{
