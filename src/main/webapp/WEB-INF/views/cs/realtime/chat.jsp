@@ -53,7 +53,7 @@
    });
 
    //웹소켓정의
-   var sock=new SockJS("http://localhost:8088/echo");
+   var sock=new SockJS("http://localhost:8085/echo");
    sock.onmessage=onMessage;
    sock.onclose=onClose;
    
