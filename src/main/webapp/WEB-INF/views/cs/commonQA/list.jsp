@@ -63,7 +63,7 @@
 	<div id="pagination"></div>
 	<br/>
 	<div style="float:right;">
-		<input type="text" id="keyword" class="text_style" value="${commonQA_title}" placeholder="검색어"/>
+		<input type="text" id="commonQA_keyword" class="text_style" placeholder="검색어"/>
 		<input type="button" id="btnSearch" class="btn_style" value="검색"/>
 		<span id="total"></span>
 	</div>
@@ -71,9 +71,10 @@
 </body>
 <script>
    var page=1;
+   var commonQA_keyword="";
    getList();
    
-   $("#keyword").on("keydown",function(e){
+   $("#commonQA_keyword").on("keydown",function(e){
       if(e.keyCode==13){
          $("#btnSearch").click();
       }
@@ -81,6 +82,7 @@
    
    $("#btnSearch").on("click",function(){
       page=1;
+      commonQA_keyword=$("#commonQA_keyword").val();
       getList();
    });
    
@@ -92,12 +94,11 @@
    
    function getList(){
       var searchType = $("#searchType").val();
-       var keyword = $("#keyword").val();
       $.ajax({
          type:"get",
          url:"/board/commonQA_list.json",
          dataType:"json",
-         data:{"page":page,"searchType":searchType,"keyword":keyword},
+         data:{"page":page,"searchType":searchType,"keyword":commonQA_keyword},
          success:function(data){
             var temp = Handlebars.compile($("#temp").html());
             $("#tbl").html(temp(data));

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.BoardQAMapper">	
+ 	<!-- 20210701 윤선 수정사항 -->
+ 	<select id="product_boardQA_list" resultType="com.example.domain.BoardQAVO">
+ 		select * from tbl_boardqa 
+ 		where product_id=#{searchType}
+ 		order by boardQA_number desc
+ 		limit #{pageStart}, #{perPageNum}
+ 	</select>
+ 	<!-- 20210701 윤선 수정사항 -->
+ 	<select id="product_boardQA_read" resultType="com.example.domain.BoardQAVO">
+ 		select tbl_boardqa.*, tbl_product.*
+ 		from tbl_boardqa
+ 		left join tbl_product on tbl_boardqa.product_id=tbl_product.product_id
+ 		where boardQA_number=#{boardQA_number}
+ 	</select>
+ 	<!-- 20210701 윤선 수정사항 -->
+ 	<select id="totalCount" resultType="int">
+      select count(*) from tbl_boardQA where product_id=#{searchType}
+   	</select>
+   	
+   	<!-- 20210701 윤선 수정사항 -->
+   	<insert id="product_boardQA_insert">
+   		insert into tbl_boardqa(product_id,boardQA_title,boardQA_contents,boardQA_writer)
+   		values(#{product_id},#{boardQA_title},#{boardQA_contents},#{boardQA_writer})
+   	</insert>
+   	
+    <!-- 20210701 윤선 수정사항 -->
+   	<delete id="product_boardQA_delete">
+   		delete from tbl_boardQA where boardQA_nummer=#{boardQA_nummer}
+   	</delete>
+   	
+   	<!-- 20210701 윤선 수정사항 -->
+   	<update id="product_boardQA_update">
+   		update tbl_boardqa set answer_contents=#{answer_contents}, boardQA_click  = 1 , answer_write_date = now()
+		where boardQA_number=#{boardQA_number}
+   	</update>
+   	
+   	<!-- 20210701 윤선 수정사항 -->
+   	<select id="user_boardQA_list" resultType="com.example.domain.BoardQAVO">
+ 		select * from boardQA_product_view 
+ 		where boardQA_writer=#{searchType}
+ 		order by boardQA_number desc
+ 		limit #{pageStart}, #{perPageNum}
+ 	</select>
+ 	
+ 	<!-- 20210701 윤선 수정사항 -->
+ 	<select id="user_boardQA_read" resultType="com.example.domain.BoardQAVO">
+ 		select tbl_boardqa.*, tbl_product.*
+ 		from tbl_boardqa
+ 		left join tbl_product on tbl_boardqa.product_id=tbl_product.product_id
+ 		where boardQA_number=#{boardQA_number}
+ 	</select>
+   	
+   	<!-- 20210701 윤선 수정사항 -->
+   	<delete id="user_boardQA_delete">
+   		delete from tbl_boardQA where boardQA_nummer=#{boardQA_nummer}
+   	</delete>
+   	
+   	<!-- 20210701 윤선 수정사항 -->
+   	<update id="user_boardQA_update">
+   		update tbl_boardqa set answer_contents=#{answer_contents}, boardQA_click  = 1 , answer_write_date = now()
+		where boardQA_number=#{boardQA_number}
+   	</update>
+   	
+   	<!-- 20210701 윤선 수정사항 -->
+   	<select id="lastNumber" resultType="String">
+		select max(review_number) from tbl_review
+	</select>
+</mapper>

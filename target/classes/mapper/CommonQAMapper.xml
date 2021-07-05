@@ -33,7 +33,13 @@
 		limit #{pageStart}, #{perPageNum}
 	</select>
 	 <select id="totalCount" resultType="int">
-		select count(*) from tbl_commonQA		
+		select count(*) from tbl_commonQA
+		<if test="searchType=='선택'">
+			where commonQA_title like concat('%',#{keyword},'%')
+		</if>
+		<if test="searchType!='선택'">
+			where commonQA_title like concat('%',#{searchType},'%') and commonQA_title like concat('%',#{keyword},'%')
+		</if>
 	</select>
 	<select id="commonQA_read" resultType="com.example.domain.CommonQAVO">
 		select * from tbl_commonQA 

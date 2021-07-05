@@ -351,10 +351,10 @@ public class BoardController {
 		return map;
 	}
 	
-	@RequestMapping("commonQA_list")
+	/*@RequestMapping("commonQA_list")
 	public String commonQA_list(){
 		return "/cs/commonQA/list";
-	}
+	}*/
 	
 	@RequestMapping("commonQA_read")
 	public String commonQA_read(Model model, int commonQA_number) throws Exception{
