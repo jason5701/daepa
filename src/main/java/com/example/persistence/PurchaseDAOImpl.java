@@ -43,7 +43,6 @@ public class PurchaseDAOImpl implements PurchaseDAO{
 	}
 
 	@Override
-
 	public void order_insert(OrderVO vo) throws Exception {
 		session.insert(namespace+".order_insert", vo);
 	}
@@ -72,6 +71,5 @@ public class PurchaseDAOImpl implements PurchaseDAO{
 	public void purchase_insert(PurchaseVO vo) throws Exception {
 		session.insert(namespace+".purchase_insert", vo);
 	}
-
 
 }

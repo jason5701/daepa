@@ -6,13 +6,19 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.domain.ProductVO;
+import com.example.domain.PurchaseVO;
 import com.example.persistence.ProductDAO;
+import com.example.persistence.PurchaseDAO;
 
 @Service
 public class ProductServiceImpl implements ProductService{
+	
 	@Autowired
 	ProductDAO product_dao;
-
+	
+	@Autowired
+	PurchaseDAO purchase_dao;
+	
 	@Transactional
 	@Override
 	public void update(ProductVO vo) throws Exception {
@@ -33,5 +39,13 @@ public class ProductServiceImpl implements ProductService{
 		ProductVO vo=product_dao.read(product_id);
 		product_dao.updateProduct_click(product_id);
 		return vo;
+	}
+
+	@Transactional
+	@Override
+	public void updateProduct_selling(PurchaseVO vo, String product_id) throws Exception {
+		purchase_dao.purchase_insert(vo);
+		product_id=vo.getProduct_id();
+		product_dao.updateProduct_selling(vo, product_id);
 	}
 }

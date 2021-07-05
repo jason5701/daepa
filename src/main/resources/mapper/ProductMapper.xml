@@ -89,4 +89,10 @@
 		select * from recipe_list
 		where product_id=#{product_id}
 	</select>
+	
+	<update id="updateProduct_selling">
+		update tbl_product set product_selling=product_selling+1
+		where product_id=#{product_id}
+	</update>
+	
 </mapper>

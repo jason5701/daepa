@@ -34,4 +34,22 @@ public class ChartController {
 		}
 		return click_data;
 	}
+	
+	@RequestMapping("product_sell.json")
+	@ResponseBody
+	public List<List<Object>> product_sell_json() throws Exception{
+		List<List<Object>> sell_data=new ArrayList<>();
+		List<Object> products=new ArrayList<>();
+		products.add("상품명");
+		products.add("상품판매수");
+		sell_data.add(products);
+		
+		for(HashMap<String,Object> map:chart_dao.product_selling()){
+			products=new ArrayList<>();
+			products.add(map.get("product_name"));
+			products.add(map.get("product_selling"));
+			sell_data.add(products);
+		}
+		return sell_data;
+	}
 }

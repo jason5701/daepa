@@ -24,7 +24,7 @@ public class CsController {
 	public String cs_notice(Model model) throws Exception {
 		model.addAttribute("pageName", "cs/cs_service.jsp");
 		model.addAttribute("leftMenu", "cs_menu.jsp");
-		//model.addAttribute("rightContent", "commonQA/list.jsp"); 공지사항.jsp추가
+		model.addAttribute("rightContent", "detail/notice/notice_list.jsp");
 		return "/index";
 	}
 	
@@ -33,11 +33,6 @@ public class CsController {
 		model.addAttribute("pageName", "cs/cs_service.jsp");
 		model.addAttribute("leftMenu", "cs_menu.jsp");
 		model.addAttribute("rightContent", "commonQA/list.jsp");
-
-		/*20210701 윤선 수정사항*/
-		model.addAttribute("rightContent", "detail/notice/notice_list.jsp");
-		//model.addAttribute("rightContent", "realtime/chat.jsp");
-
 		return "/index";
 	}
 	
@@ -45,7 +40,7 @@ public class CsController {
 	public String cs_realtime(Model model) throws Exception {
 		model.addAttribute("pageName", "cs/cs_service.jsp");
 		model.addAttribute("leftMenu", "cs_menu.jsp");
-		//model.addAttribute("rightContent", "commonQA/list.jsp"); 공구채팅.jsp추가
+		model.addAttribute("rightContent", "realtime/chat.jsp");
 		return "/index";
 	}
 	

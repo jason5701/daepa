@@ -45,7 +45,7 @@
 			</tr>
 			<tr>
 				 <td colspan="4" style="border-top:1px solid #EAEAEA; text-align:right; padding:20px 10px 20px 0px" >
-				 	<input type="button" id="btnList" value="목록이동" onClick="location.href='/cs_service'" style="width:150px; height:50px; background-color:#5112AB; border:1px solid #5112AB; cursor:pointer; color:#ffffff; border-radius:6px 6px 6px 6px;"/>
+				 	<input type="button" id="btnList" value="목록이동" onClick="location.href='/cs/notice'" style="width:150px; height:50px; background-color:#5112AB; border:1px solid #5112AB; cursor:pointer; color:#ffffff; border-radius:6px 6px 6px 6px;"/>
 				 </td>
 			</tr>
 			<tr>

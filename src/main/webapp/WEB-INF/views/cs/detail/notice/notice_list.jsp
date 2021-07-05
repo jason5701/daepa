@@ -4,20 +4,22 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 	<style>
-		table{width:100%;border-collapse: collapse;border-bottom:solid 1px; font-size:13px;}
+		table{width:100%;border-collapse:collapse; border-bottom:solid 1px; font-size:13px;}
 		td{border:solid 1px rgb(200, 200, 200) solid;padding: 10px;text-align: center;}
 		.row:hover{background: rgb(200, 200, 200);color: white;}
 		.row{border-top:solid 1px rgb(200, 200, 200);}
 		.title{border-top:2px solid;text-align: center;}
-		#pagination{text-align: center;}
-		#pagination a{text-decoration:none; color:black}
-		#pagination .active{color:red}
+		#pagination{text-align: center; margin-top:10px;}
+		#pagination a{text-decoration:none; color:#123478;}
+		#pagination .active{color:#ccc}
 		#review_insert{text-align:right;}
 		.tit{font-size:28px; float:left;}
 		.titSub{font-size:12px;}
 		#total{display:none;}
+		#notice{margin-top:22px; }
+		#notice h2{margin-bottom:20px;}
 	</style>
-<div>
+<div id="notice">
 	<h2 class="tit">공지사항</h2>
 	<table id="tbl"></table>
 	<script id="temp" type="text/x-handlebars-template">
@@ -66,9 +68,9 @@
 		            if(data.pm.prev) str +="<a href='" + prev + "'>◀</a>";
 		            for(var i=data.pm.startPage;i<=data.pm.endPage; i++){
 		               if(i==page){
-		                  str += "[<a class='active' href='" + i + "'>" + i + "</a>] ";
+		                  str += "<a class='active' href='" + i + "'>&nbsp&nbsp" + i + "&nbsp&nbsp</a> ";
 		               }else{
-		                  str += "[<a href='" + i + "'>" + i + "</a>] ";
+		                  str += "<a href='" + i + "'>&nbsp&nbsp" + i + "&nbsp&nbsp</a> ";
 		               }   
 		            }
 		            if(data.pm.next) str +="<a href='" + next + "'>▶</a>";

@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-
-<mapper namespace="com.example.mapper.PurchaseMapper">	
-
-
+<mapper namespace="com.example.mapper.PurchaseMapper">
+	
 	<select id="orders" resultType="com.example.domain.OrderVO">
 		select * from tbl_orders where user_id=#{user_id} 
 	 	order by order_register_date desc limit #{cri.pageStart}, #{cri.perPageNum}
@@ -18,8 +16,8 @@
 	</select>
 
 	<insert id="order_insert">
-		insert into tbl_orders(order_name, order_address, order_email, order_mobile, user_id)
-		values(#{order_name}, #{order_address}, #{order_email}, #{order_mobile}, #{user_id})
+		insert into tbl_orders(order_name, order_address, order_email, order_mobile, user_id, order_payment)
+		values(#{order_name}, #{order_address}, #{order_email}, #{order_mobile}, #{user_id}, #{order_payment})
 	</insert>
 	
 	<select id="max_order_number" resultType="int">
@@ -42,4 +40,5 @@
 	<update id="update_orderstatus">
 		update tbl_orders set order_status=1 where order_number=#{order_number};
 	</update>
+	
 </mapper>
