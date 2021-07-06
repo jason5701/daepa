@@ -1,0 +1,98 @@
+@CHARSET "UTF-8";
+
+#order_form{width:1000px; margin:0 auto; margin-bottom:60px;}
+#order_form h2{margin-top:40px; margin-bottom:30px; }
+
+#carttbl{margin:0 auto; border-collapse:collapse; margin-bottom:50px; }
+
+#carttbl th{padding:15px; border-top:1px black solid; 
+			border-bottom:1px black solid; background:#fafafa;}
+#carttbl td{padding:10px; border-bottom:1px black solid; 
+			font-size:10pt;}
+
+#carttbl .product_price{text-align:center; }
+#carttbl .cart_product_qtt{text-align:center; }
+#carttbl .product_price_sum{text-align:center; }
+
+#total{font-size:11pt; width:1000px; margin-top:70px; margin-bottom:70px;}
+
+#frm{font-size:11pt;}
+
+#user_name, #user_mobile, #user_email{
+	font-size:10pt; 
+	width: 200px;
+	padding: .4em;
+	margin: 5px;
+	background: white;
+	border: 1px solid #ccc;
+    border-radius: 3px;
+	color: -internal-light-dark(black, white);
+	background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+}
+
+input[type="button"]{
+	width: 100px;
+	height: 30px;
+	border: 1px solid #123478;
+	background: #123478;
+	border-radius: 5px 5px 5px;
+	color: white;
+}
+
+input:focus {outline:none;}
+#sample4_postcode, #sample4_jibunAddress, #sample4_extraAddress{
+	font-size:10pt; 
+	width: 200px;
+	padding: .4em;
+	margin: 5px;
+	background: white;
+	border: 1px solid #ccc;
+    border-radius: 3px;
+	color: -internal-light-dark(black, white);
+	background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+}
+#sample4_roadAddress, #sample4_detailAddress{
+	font-size:10pt; 
+	width: 200px;
+	padding: .4em;
+	margin-left:57px; 
+	background: white;
+	border: 1px solid #ccc;
+    border-radius: 3px;
+	color: -internal-light-dark(black, white);
+	background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+}
+
+#total input[type="text"]{
+	font-size:10pt; 
+	text-align:right;
+	width: 90px;
+	margin: 5px;
+	background: white;
+	border: 1px solid #ccc;
+    border-radius: 3px;
+	color: -internal-light-dark(black, white);
+	background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+}
+
+#total div{margin-top:5px; }
+#bank{ 
+	text-align:center;
+	width: 215px;
+    padding: .5em .5em;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    background: url('/resources/image/index/arrow.jpg') no-repeat 95% 50%;
+    border-radius: 0px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+#bank option{text-align:center; }
+
+input[type="radio"]{
+	margin-right:5px;
+}
+label{margin-right:15px; }
+#orderbtn{margin-top:50px; text-align:center;}
+#orderbtn input[type="button"]{margin-right:20px; height: 50px; }

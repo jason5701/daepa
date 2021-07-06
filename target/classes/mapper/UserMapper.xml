@@ -17,4 +17,10 @@
  	<select id="idChk" resultType="int"> 
 		select count(*) from tbl_users where user_id = #{user_id}
 	</select>
+	
+	<update id="point_update">
+ 		update tbl_users 
+ 		set user_point=#{user_point}
+ 		where user_id=#{user_id}
+ 	</update>
 </mapper>

@@ -46,7 +46,6 @@ public class OrderController {
 		purchase_dao.update_orderstatus(ordervo); 
 	}
 	
-	
 	//주문서 입력
 	@RequestMapping("form")
 	public String order_form(Model model, HttpSession session) throws Exception{
@@ -75,6 +74,14 @@ public class OrderController {
 			return "redirect:/user/login";
 		}
 		return "/index";
+	}
+	
+	//적립금사용
+	@RequestMapping("point_update")
+	public void point_update(UserVO vo, HttpSession session, Model model) throws Exception{
+		UserVO user=(UserVO)session.getAttribute("user_info");
+		user.setUser_point(vo.getUser_point());
+		user_dao.point_update(user);
 	}
 	
 	//주문자정보 추가

@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <link rel="stylesheet" href="/resources/css/mypage.css"/>
+
 <!-- 마이페이지 head -->
 <div id="content">
 	<div class="page_aticle">
@@ -35,7 +38,7 @@
 									<img src="/resources/image/mypage/arrow_right_gray_56_56.png"/>
 								</div>
 								<div class="spacer"></div>
-								<p class="info">${user_info.user_point}원</p>						
+								<p class="info"><fmt:formatNumber pattern="#,###" value="${user_info.user_point}" />원</p>						
 							</a>
 							<a class="link_wrap">
 								<div class="link_title">쿠폰

@@ -12,11 +12,19 @@
 			</a>
 			<div class="all_name">{{product_name}}</div>
 			<div class="all_detail">{{product_detail}}</div>
-			<div class="all_price">{{product_price}}원</div>
+			<div class="all_price">{{nf product_price}}원</div>
 		</div>
 		{{/each}}
 		</script>
 </div>
+
+<script>
+	Handlebars.registerHelper("nf", function(product_price){
+	    var regexp = /\B(?=(\d{3})+(?!\d))/g; 
+	    return product_price.toString().replace(regexp, ",");
+	});
+</script>
+
 <script>
 	var page=1;
 

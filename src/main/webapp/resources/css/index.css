@@ -88,8 +88,8 @@ hr{width:100%; margin:0px auto; display:block; border:black 0 none;
 #allCategory{width:150px; height:40px; float:left; }
 #allCategory a{text-decoration:none; font-size:11pt; color:black; }
 #searchBox{float:right; margin-right:70px; width:213px; height:40px; }
-#searchBox input{padding:5px; border:0; border-bottom:2px solid black; }
-#searchBox input:focus{outline:none;}
+#searchBox #keyword{padding:5px; border:0; border-bottom:2px solid black; }
+#searchBox #keyword:focus{outline:none;}
 .searchIcon{float:right; width:24px; height:24px; cursor:pointer;
       	    background:url("../image/index/search.png") no-repeat; }
 #menu{float:right; }

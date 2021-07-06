@@ -12,4 +12,5 @@ public interface UserDAO {
 	public void register(UserVO vo) throws Exception;
 	public void update(UserVO vo) throws Exception;
 	public int idChk(UserVO vo) throws Exception;
+	public void point_update(UserVO vo) throws Exception;
 }
