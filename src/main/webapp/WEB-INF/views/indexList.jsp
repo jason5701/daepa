@@ -95,7 +95,7 @@
 <script>
 
 //md추천 목록 
-var orderBy="product_detail desc";
+var orderBy="product_click desc";
 getmain_list();
 
 $("#list_category").on("click", ".menu", function(){
