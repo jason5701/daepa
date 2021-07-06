@@ -42,6 +42,16 @@ public class FavoriteServiceImpl implements FavoriteService{
 		
 	}
 
+	@Override
+	public int product_favorite_count(String product_id, String user_id) throws Exception {
+		return favorite_dao.product_favorite_count(product_id, user_id);
+	}
+
+	@Override
+	public int meterial_favorite_count(String product_id, String user_id) throws Exception {
+		return favorite_dao.meterial_favorite_count(product_id, user_id);
+	}
+
 
 
 }

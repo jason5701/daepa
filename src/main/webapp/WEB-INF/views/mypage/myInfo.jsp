@@ -4,7 +4,7 @@
      <link rel="stylesheet" href="/resources/css/user.css"/>
 <div class="page_section">
 	<div class="head_aticle">
-		<h2 class="tit">개인 정보 수정</h2>		
+		<h2 class="tit" style="text-align:left;">개인 정보 수정</h2>		
 	</div>	
 	<div class="myinfo_PW">	
 	<form name="frm">

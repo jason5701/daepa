@@ -136,23 +136,23 @@ model.addAttribute("vo", boardQA_dao.product_boardQA_read(boardQA_number));
 return "/product/detail/meal_detail/productQA/product_boardQA_read";
 }
 
-///insert
+/// insert
 @RequestMapping("product_boardQA_insert")
-public String product_boardQA_insert(Model model, String product_id)throws Exception{
-String lastNumber=boardQA_dao.lastNumber();
-int boardQA_number_1=Integer.parseInt(lastNumber.substring(1)) + 11;
-model.addAttribute("boardQA_number",boardQA_number_1);
-model.addAttribute("product_id", product_id);
-model.addAttribute("aa", product_dao.read(product_id));
-return "/product/detail/meal_detail/productQA/product_boardQA_insert";
+public String product_boardQA_insert(Model model, String product_id) throws Exception {
+   String lastNumber = boardQA_dao.lastNumber();
+   int boardQA_number_1 = Integer.parseInt(lastNumber.substring(1)) + 11;
+   model.addAttribute("boardQA_number", boardQA_number_1);
+   model.addAttribute("product_id", product_id);
+   model.addAttribute("aa", product_dao.read(product_id));
+   return "/product/detail/meal_detail/productQA/product_boardQA_insert";
 }
 
-@RequestMapping(value="product_boardQA_insert", method=RequestMethod.POST)
-public String product_boardQA_insert(BoardQAVO vo) throws Exception{
-boardQA_dao.product_boardQA_insert(vo);		
-return "redirect:/meal_detail?product_id=" + vo.getProduct_id();
+@RequestMapping(value = "product_boardQA_insert", method = RequestMethod.POST)
+public String product_boardQA_insert(BoardQAVO vo) throws Exception {
+   boardQA_dao.product_boardQA_insert(vo);
+   return "redirect:/meal_detail?product_id=" + vo.getProduct_id();
 }
-//(/insert)
+// (/insert)
 
 ///update (get)
 @RequestMapping(value="product_boardQA_update", method=RequestMethod.GET)
@@ -169,7 +169,14 @@ boardQA_dao.product_boardQA_update(vo);
 return "redirect:/meal_detail?product_id=" + vo.getProduct_id();
 }
 
-
+//delete
+@RequestMapping("product_boardQA_delete")
+public String product_boardQA_delete(int boardQA_number) throws Exception{
+//ProductVO vo=product_dao.read(product_id);
+BoardQAVO vo=boardQA_dao.product_boardQA_read(boardQA_number);   
+   boardQA_dao.product_boardQA_delete(boardQA_number);
+   return "redirect:/meal_detail?product_id=" + vo.getProduct_id();
+}
 	
 	
 	@RequestMapping("product_review_delete")

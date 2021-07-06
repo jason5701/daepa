@@ -6,6 +6,7 @@
 	<img src="/displayFile?fullName=${vo.meterial_image}" width=400 height=400 />
 </div>
 <div id="product_detail">
+	<div class="meterial_id" style="display:none; ">${vo.meterial_id}</div>
 	<div class="product_name">${vo.meterial_name}</div>
 	<div class="product_detail">${vo.meterial_description}</div><br>
 	<div class="product_price"><fmt:formatNumber value="${vo.meterial_price}" pattern="#,###,###"/>원</div><hr>
@@ -49,6 +50,30 @@
 	</div>
 </div>
 <script>
+
+//장바구니 담기
+$(".btnSave").click(function(){
+	var meterial_id = $(".meterial_id").html();
+	$.ajax({
+		url : "/favorite/meterial_insert",
+		type : "post",
+		data : {"meterial_id":meterial_id},
+		success : function(result){
+			if(result == 1){
+				if(!confirm(meterial_name+"을(를) 즐겨찾기 목록에 추가할까요?")) return;
+				if(!confirm("즐겨찾기에  추가되었습니다. 즐겨찾기로 이동할까요?")) return;
+				location.href="favorite/list";
+			}else if(result == 2){
+				if(!confirm(meterial_name+"은(는) 이미 목록에있습니다.")) return;
+			}else{
+				alert("로그인된 회원만 사용할 수 있습니다.");
+				location.href="user/login"
+			}
+			
+		}
+	});
+});	
+
 	var meterial_price="${vo.meterial_price}";
 	//수량업다운 스크립트
 	$(function(){

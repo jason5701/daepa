@@ -15,14 +15,24 @@
 	<insert id="product_favorite_insert">
 		insert into tbl_favorite(user_id, product_id)
 		values(#{user_id}, #{product_id})
-		where user_id=#{user_id}
+		
 	</insert>
 	
 	<insert id="meterial_favorite_insert">
 		insert into tbl_favorite(user_id, meterial_id)
 		values(#{user_id}, #{meterial_id})
-		where user_id=#{user_id}
+		
 	</insert>
+	
+	<select id="product_favorite_count" resultType="int">
+		select count(*) from tbl_favorite
+		where user_id=#{user_id} and product_id=#{product_id}
+	</select>
+	
+	<select id="meterial_favorite_count" resultType="int">
+		select count(*) from tbl_favorite
+		where user_id=#{user_id} and meterial_id=#{meterial_id}
+	</select>
 	
 	<delete id="favorite_delete">
 		delete from tbl_favorite where favorite_number=#{favorite_number}

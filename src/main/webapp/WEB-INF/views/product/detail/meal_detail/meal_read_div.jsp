@@ -53,6 +53,31 @@
 
 var product_price="${vo.product_price}";
 
+//장바구니 담기
+$(".btnSave").click(function(){
+	var product_id = $(".product_id").html();
+	$.ajax({
+		url : "/favorite/product_insert",
+		type : "post",
+		data : {"product_id":product_id},
+		success : function(result){
+			
+			if(result == 1){
+				if(!confirm(product_name+"을(를) 즐겨찾기 목록에 추가할까요?")) return;
+				if(!confirm("즐겨찾기에  추가되었습니다. 즐겨찾기로 이동할까요?")) return;
+				location.href="favorite/list";
+			}else if(result == 2){
+				if(!confirm(product_name+"은(는) 이미 목록에있습니다.")) return;
+			}else{
+				alert("로그인된 회원만 사용할 수 있습니다.");
+				location.href="user/login"
+			}
+			
+		}
+	});
+});	
+	
+
 //카트담기
 $(".btnCart").click(function(){
 var product_qtt = $("#product_qtt").html();
@@ -73,8 +98,8 @@ var product_name = $(".product_name").html();
 				if(!confirm("장바구니에 추가되었습니다. 장바구니로 이동할까요?")) return;
 				location.href="cart/list";
 			}else{
-				if(!confirm("로그인된 회원만 사용할 수 있습니다. \n로그인 화면으로 이동할까요?")) return;
-				location.href="user/login";
+				alert("로그인된 회원만 사용할 수 있습니다.");
+				location.href="user/login"
 			}
 		}
 	});

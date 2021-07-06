@@ -4,10 +4,10 @@
 
 
 <style>
-       .page_section{width:810px;float:right;}
-      table{width:90%;border-collapse: collapse;border-bottom:solid 1px;}
+      .page_section{width:820px;float:right;}
+      table{width:100%;border-collapse: collapse;border-bottom:solid 1px;}
       td{border:solid 1px rgb(200, 200, 200) solid;padding: 10px;text-align: center;}
-      .row:hover{background: rgb(200, 200, 200);color: white;}
+      .row:hover{cursor:pointer;}
       .row{border-top:solid 1px rgb(200, 200, 200); font-size:13px;}
       .title{background: #FAFAFA; border-top:2px solid;text-align: center; font-size:13px;}
       #pagination{text-align: center; font-size:12pt; font-weight:bold; }
@@ -58,8 +58,9 @@
             return status;
          });
       </script>
-   <br/><br/>   
+   <br/>  
    <div id="pagination"></div>
+   <br/> 
    </div>   
 </div>
 

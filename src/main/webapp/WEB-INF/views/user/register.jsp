@@ -143,7 +143,7 @@
 			<!-- 성별 입력 -->
 			<tr>
 				<th>성별</th>
-				<td>
+				<td  style="padding-top:5px;">
 					<input type="radio" name="user_sex" value="0" checked>선택안함
 					<input type="radio" name="user_sex" value="1">여자
 					<input type="radio" name="user_sex" value="2">남자				
@@ -153,11 +153,11 @@
 			<tr class="birth">
 				<th>생년월일</th>	
 				<td>
-					<div class="div_birthday">	
+					<div class="div_birthday"  style="margin-left:5px;">	
 						<input type="text" name="user_birthday_year" id="user_birthday_year" pattern="[0-9]*" value="" label="생년월일" size="4" maxlength="4" placeholder="YYYY">
-						<span class="bar"></span>
+						<span class="bar">/</span>
 						<input type="text" name="user_birthday_month" id="user_birthday_month" pattern="[0-9]*" value="" label="생년월일" size="2" maxlength="2" placeholder="MM">
-						<span class="bar"></span>
+						<span class="bar">/</span>
 						<input type="text" name="user_birthday_day" id="user_birthday_day" pattern="[0-9]*" value="" label="생년월일" size="2" maxlength="2" placeholder="DD">
 					</div>	
 					<p class="txt_guide" style="display: none;">

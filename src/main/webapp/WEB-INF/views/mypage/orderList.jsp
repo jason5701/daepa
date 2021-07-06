@@ -1,33 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <link rel="stylesheet" href="/resources/css/mypage.css"/>
-    <style>
-    table {width: 70%; border-top: 1px solid #444444; margin:10px auto; text-align:center; border-collapse: collapse;}
-	tr, td {border-bottom: 1px solid #444444;padding: 10px;}  
-	.head_aticle{margin-top:20px;}
-	.tit{text-align:left; margin-left:10px;}
-	.head_aticle .tit_sub {
-    padding-left: 11px;
-    padding-bottom: 30px;
-    font-size: 14px;
-    color: #999;
-    text-align:left;
-    line-height: 20px;
-    letter-spacing: -.3px;
-    vertical-align: 3px;
-	} 
-	.search_date{
+   <style>
+      .page_section{width:820px;float:right;}
+      table{width:100%;border-collapse: collapse;border-bottom:solid 1px;}
+      td{border:solid 1px rgb(200, 200, 200) solid;padding: 10px;text-align: center;}
+      .row:hover{cursor:pointer;}
+      .row{border-top:solid 1px rgb(200, 200, 200); font-size:13px;}
+      .title{background: #FAFAFA; border-top:2px solid;  text-align: center; font-size:13px;}
+      #pagination{text-align: center; font-size:12pt; font-weight:bold; }
+     #pagination a{text-decoration:none; color:#123478;}
+     #pagination .active{color:#ccc;}
+     #product_boardQA_insert{text-align:right;}
+      #review_insert{text-align:right;}
+      .tit{font-size:25px;}
+      .titSub{font-size:12px;}
+      #total{display:none;}
+      .search_date{
 	  	position: relative;
 	    z-index: 1;
 	    float: right;
 	    padding-right:300px;    
 	} 
-    </style>
+   </style>
+	
+    
     <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
 <div class="mypage_Content_Right">
 		<div class="head_aticle">
-			<h2 class="tit">주문내역
+			<h2 class="tit"  style="text-align:left;">주문내역
 				<span class="tit_sub">지난 3년간의 주문 내역 조회가 가능합니다</span>
 			</h2>
 			<div class="search_date">
@@ -44,7 +45,7 @@
 	<div class="board-container">
 		<table id="tbl_orders"></table>
 		<script id="temp_orders" type="text/x-handlebars-template">
-			<tr class="title"  style="background:#fafafa; border-bottom: 3px solid #444444;">
+			<tr class="title">
 				<td width=100>주문번호</td>
 				<td width=100>주문일자</td>
 				<td width=100>주문자</td>
@@ -61,6 +62,7 @@
 			</tr>			
 			{{/each}}
 		</script>	
+		   <br/>
 			<div id="pagination"></div>
 			<br>
 		<div class="div_orderList">

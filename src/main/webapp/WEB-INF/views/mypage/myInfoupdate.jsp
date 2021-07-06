@@ -4,7 +4,7 @@
      <link rel="stylesheet" href="/resources/css/user.css"/>
 <div class="page_section">
 	<div class="head_aticle">
-		<h2 class="tit">개인 정보 수정</h2>		
+		<h2 class="tit" style="text-align:left;">개인 정보 수정</h2>		
 	</div>	
 	<br>
 	<!-- 회원가입 폼 -->
@@ -46,28 +46,19 @@
 			<tr>
 				<th>휴대폰</th>
 				<td><input type="text" class="register_text" name="user_mobile"	value="${user_info.user_mobile}"></td>
-			</tr>
+			</tr>	
 			
-			<!-- 성별 입력 -->
-			<tr>
-				<th>성별</th>
-				<td>
-					<input type="radio" id="user_sex" name="user_sex" value="0">선택안함
-					<input type="radio" id="user_sex" name="user_sex" value="1">여자
-					<input type="radio" id="user_sex" name="user_sex" value="2">남자				
-				</td>
-			</tr>
 			<!-- 생년월일 입력 -->
 			<tr class="birth">
 				<th>생년월일</th>	
 				<td>
-					<div class="div_birthday">	
-						<input type="text" name="user_birthday_year" id="birth_year" pattern="[0-9]*" value="${user_info.user_birthday_year}" label="생년월일" size="4" maxlength="4" placeholder="YYYY">
-						<span class="bar"></span>
-						<input type="text" name="user_birthday_month" id="birth_month" pattern="[0-9]*" value="${user_info.user_birthday_month}" label="생년월일" size="2" maxlength="2" placeholder="MM">
-						<span class="bar"></span>
-						<input type="text" name="user_birthday_day" id="birth_day" pattern="[0-9]*" value="${user_info.user_birthday_day}" label="생년월일" size="2" maxlength="2" placeholder="DD">
-					</div>	
+					<div class="div_birthday" style="margin-left:5px;">	
+						<input type="text" name="user_birthday_year" id="user_birthday_year" pattern="[0-9]*" value="" label="생년월일" size="4" maxlength="4" placeholder="YYYY">
+						<span class="bar">/</span>
+						<input type="text" name="user_birthday_month" id="user_birthday_month" pattern="[0-9]*" value="" label="생년월일" size="2" maxlength="2" placeholder="MM">
+						<span class="bar">/</span>
+						<input type="text" name="user_birthday_day" id="user_birthday_day" pattern="[0-9]*" value="" label="생년월일" size="2" maxlength="2" placeholder="DD">
+					</div>		
 					<p class="txt_guide" style="display: none;">
 						<span class="txt"></span>
 					</p>	
