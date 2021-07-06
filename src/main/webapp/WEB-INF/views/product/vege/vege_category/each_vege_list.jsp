@@ -12,11 +12,18 @@
 			</a>
 			<div class="all_name">{{meterial_name}}</div>
 			<div class="all_detail">{{meterial_description}}</div>
-			<div class="all_price">{{meterial_price}}원</div>
+			<div class="all_price">{{nf meterial_price}}원</div>
 		</div>
 		{{/each}}
 	</script>
 </div>
+
+<script>
+	Handlebars.registerHelper("nf", function(meterial_price){
+	    var regexp = /\B(?=(\d{3})+(?!\d))/g; 
+	    return meterial_price.toString().replace(regexp, ",");
+	});
+</script>
 <script>
 	var page=1;
 	var searchType="${searchType}";

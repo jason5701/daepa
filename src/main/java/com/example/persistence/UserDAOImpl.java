@@ -46,4 +46,9 @@ public class UserDAOImpl implements UserDAO{
 		int result=session.selectOne(namespace+".idChk",vo);
 		return result;
 	}
+
+	@Override
+	public void point_update(UserVO vo) throws Exception {
+		session.update(namespace+".point_update", vo);
+	}
 }

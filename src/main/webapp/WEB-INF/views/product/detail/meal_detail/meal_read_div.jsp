@@ -73,7 +73,8 @@ var product_name = $(".product_name").html();
 				if(!confirm("장바구니에 추가되었습니다. 장바구니로 이동할까요?")) return;
 				location.href="cart/list";
 			}else{
-				alert("로그인된 회원만 사용할 수 있습니다.");
+				if(!confirm("로그인된 회원만 사용할 수 있습니다. \n로그인 화면으로 이동할까요?")) return;
+				location.href="user/login";
 			}
 		}
 	});
