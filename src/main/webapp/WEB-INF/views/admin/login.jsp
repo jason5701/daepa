@@ -9,7 +9,7 @@
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	</head>
 	<body>
-		<h2>로그인</h2>
+		<h2>관리자 로그인</h2>
 		<div class="div_Login">
 			<form name="frm">
 				<div>

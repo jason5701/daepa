@@ -410,7 +410,7 @@ a{
 .board-container{
 	float: right;
     width: 820px;
-    height: 500px;
+    height:100%;
 }
 
 #tbl_orderList, #tbl_orders{

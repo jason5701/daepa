@@ -18,11 +18,6 @@
    <div id="container">
       <div id="header">
          <div id="userMenu">
-            <div class="menuItem">
-            	<c:if test="${user_info.user_id==null}">
-			    	 <a href="/admin/login">관리자</a>    
-			    </c:if>			  
-			</div>
 			<div class="menuItem">
 			   <a href="/cs/notice">고객센터</a>
 			</div>
@@ -36,7 +31,8 @@
 			    	<a href="/user/login">로그인</a>
 			    </c:if>
 			    <c:if test="${user_info.user_id!=null}">
-			        <span>${user_info.user_name}님 </span>			    
+			        <span id="user_name">🙋‍♀️ ${user_info.user_name}님 ,
+			        안녕하세요!</span>			    
 			    	<a href="/user/logout">로그아웃</a>
 			    </c:if>
 			</div>
