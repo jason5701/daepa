@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="/resources/css/user.css"/>
 <div class="page_section_info">
-	<h2 class="tit">개인 정보 수정</h2>
+	<h2 class="tit" >개인 정보 수정</h2>
 	<div class="myinfo_PW">	
 	<form name="frm">
 		<table class="regtbl_register2">

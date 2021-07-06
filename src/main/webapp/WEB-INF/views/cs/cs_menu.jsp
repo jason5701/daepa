@@ -18,7 +18,7 @@
 				<a href="#none" onclick="location.href='/cs/commonQA'">자주하는질문</a>
 			</li>
 			<li class="on">
-				<a href="#none" onclick="location.href='/cs/realtime'">1:1채팅</a>
+				<a href="#none" onclick="location.href='/cs/realtime'">공구채팅</a>
 			</li>
 		</ul>
 	</div>

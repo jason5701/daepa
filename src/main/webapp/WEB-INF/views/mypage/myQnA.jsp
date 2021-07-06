@@ -5,11 +5,15 @@
       table{width: 100%;border-collapse: collapse;border-bottom:solid 1px;}
       td{border:solid 1px rgb(200, 200, 200) solid;padding: 10px;text-align: center;}
       .row:hover{background: rgb(200, 200, 200);color: white;}
-      .row{border-top:solid 1px rgb(200, 200, 200);}
-      .title{border-top:2px solid;text-align: center;}
-      #pagination{text-align: center;}
-      #pagination a{text-decoration:none; color:black}
-      #pagination .active{color:red}
+      .row{border-top:solid 1px rgb(200, 200, 200); font-size:13px;}
+      .title{background: #FAFAFA; border-top:2px solid;text-align: center; font-size:13px;}
+      #pagination{text-align: center; font-size:12pt; font-weight:bold; }
+     #pagination a{text-decoration:none; color:#123478;}
+     #pagination .active{color:#ccc;}
+     #product_boardQA_insert{text-align:right;}
+      #review_insert{text-align:right;}
+      .tit{font-size:25px;}
+      .titSub{font-size:12px;}
       #total{display:none;}
    </style>
 <div class="page_section">
@@ -56,43 +60,43 @@
 </div>
 
 <script>
-	var user_id="${user_info.user_id}";
-	var page=1;
-	getBoardQA_list();
-	function getBoardQA_list(){
-		$.ajax({
-			type:"get",
-			url:"/board/user_boardQA_list.json",
-			dataType:"json",
-			data:{"page":page,"searchType":user_id},
-			success:function(data){
-				console.log(data);
-				//alert(".............."+user_id);
-				var temp = Handlebars.compile($("#temp1").html());
-				$("#tbl1").html(temp(data));
-				$("#total").html("검색수:" + data.pm.totalCount);
-				//페이징목록출력
-				var str="";
-				var prev=data.pm.startPage-1;
-				var next=data.pm.endPage+1;
+   var user_id="${user_info.user_id}";
+   var page1=1;
+   getBoardQA_list();
+   function getBoardQA_list(){
+      $.ajax({
+         type:"get",
+         url:"/board/user_boardQA_list.json",
+         dataType:"json",
+         data:{"page":page1,"searchType":user_id},
+         success:function(data){
+            console.log(data);
+            //alert(".............."+user_id);
+            var temp = Handlebars.compile($("#temp1").html());
+            $("#tbl1").html(temp(data));
+            $("#total").html("검색수:" + data.pm.totalCount);
+            //페이징목록출력
+            var str="";
+            var prev=data.pm.startPage-1;
+            var next=data.pm.endPage+1;
             
-				if(data.pm.prev) str +="<a href='" + prev + "'>◀</a>";
-				for(var i=data.pm.startPage;i<=data.pm.endPage; i++){
-					if(i==page){
-					   str += "<a class='active' href='" + i + "'>&nbsp&nbsp" + i + "&nbsp&nbsp</a> ";
-					}else{
-					   str += "<a href='" + i + "'>&nbsp&nbsp" + i + "&nbsp&nbsp</a> ";
-					}   
-				}
-				if(data.pm.next) str +="<a href='" + next + "'>▶</a>";
-				$("#pagination").html(str);
-         	}
-		});
-	};
+            if(data.pm.prev) str +="<a href='" + prev + "'>◀</a>";
+            for(var i=data.pm.startPage;i<=data.pm.endPage; i++){
+               if(i==page1){
+                  str += "<a class='active' href='" + i + "'>&nbsp&nbsp" + i + "&nbsp&nbsp</a> ";
+               }else{
+                  str += "<a href='" + i + "'>&nbsp&nbsp" + i + "&nbsp&nbsp</a> ";
+               }   
+            }
+            if(data.pm.next) str +="<a href='" + next + "'>▶</a>";
+            $("#pagination").html(str);
+            }
+      });
+   };
    
-	$("#pagination").on("click","a",function(e){
-		e.preventDefault();
-		page1 = $(this).attr("href");
-		getBoardQA_list();
-	});
+   $("#pagination").on("click","a",function(e){
+      e.preventDefault();
+      page1 = $(this).attr("href");
+      getBoardQA_list();
+   });
 </script>

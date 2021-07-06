@@ -49,6 +49,9 @@
 			<interceptor>
 				<mapping path="/board/product_review_insert"/>
 				<mapping path="/board/product_review_read"/>
+				<mapping path="/board/meterial_review_insert"/>
+				<mapping path="/board/meterial_review_read"/>
+				<mapping path="/cs/realtime"/>
 				<mapping path="/board/product_boardQA_insert"/>
 				<mapping path="/mypage/**"/>
 				<beans:ref bean="AuthInterceptor"/>

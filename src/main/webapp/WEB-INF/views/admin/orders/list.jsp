@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <h2>주문 내역</h2>
+<div id="div_orders">
 <table id="tbl"></table>		
 <script id="temp" type="text/x-handlebars-template">
 		<tr class="title" style="background:#fafafa;">
@@ -11,7 +12,7 @@
 			<td width=100>주소</td>
 			<td width=50>전화번호</td>
 			<td width=20>결제수단</td>
-			<td width=30>배송상태</td>
+			<td width=50>배송상태</td>
 		</tr>
 	{{#each admin_list}}
 		<tr class="tr_row" order_number="{{order_number}}">
@@ -33,6 +34,7 @@
 			<table id="tbl_purchase_List"  style="text-align:center;"></table>
 			<script id="temp_purchase_List" type="text/x-handlebars-template">
 				<tr class="title" style="background:#fafafa;">
+					<td width=50>주문번호</td>
 					<td width=100>상품번호</td>
 					<td width=400>상품명</td>
 					<td width=100>단가</td>
@@ -41,6 +43,7 @@
 				</tr>
 				{{#each purchase_List}}
 				<tr class="row">
+					<td>{{order_number}}</td>
 					<td>{{product_id}}</td>				
 					<td>{{product_name}}</td>
 					<td>{{product_price}}원</td>
@@ -50,6 +53,7 @@
 				{{/each}}		
 			</script>
 		</div>
+</div>
 <script>
 Handlebars.registerHelper("nf", function(price){
     var regexp = /\B(?=(\d{3})+(?!\d))/g; 
@@ -76,15 +80,16 @@ Handlebars.registerHelper("pm", function(order_payment){
 		$(".div_orderList").show();
 		var order_number = $(this).attr("order_number");
 		purchaseList(order_number);
-		$("#btnSend").on("click",function(){
+		$("#btnSend").on("click",function(){	
 			alert("주문번호 : " + order_number + "을 배송 처리하시겠습니까?");
 			$.ajax({
 				type:"post",
 				url:"/order/update_orderstatus",
 				data:{"order_number":order_number},
-				success:function(){					
-				}
-			})
+				success:function(){	
+					$("#div_orders").load(location.href+"#div_orders");
+				}				
+			});			
 		});
 	});
 	
