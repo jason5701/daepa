@@ -14,58 +14,59 @@
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <title>REVIEW 등록</title>
    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+   <style>
+      .btn_style { width: 120px; height: 50px; padding: .5em; border: 1px solid #123478; background: #123478; border-radius: 5px 5px 5px; color: white; font-weight:bold; margin-left: 10px;}
+   </style>
 </head>
 <body>
+<div style="width:610px; height:800px; background-color: #FFFFFF; border: 1px solid #D5D5D5; border-radius:10px 10px 10px 10px;  padding:10px; margin:0px auto;">
+   <h2 style="color:#123478;"> 상품 후기작성</h2>
+   <hr style="border: 0.25px solid; width:600px; margin: 0 auto; background-color:#D5D5D5; color:#D5D5D5;" />
+   <br/>
    <form name="frm" enctype="multipart/form-data">
       <input type="hidden" value="${review_number}" name="review_number"/>
       <table>
          <tr>
-            <td>상품번호</td>
-            <td><input type="text" name="product_id" class="text_style" value="${product_id}"></td>
+            <td width=100 style="Font-weight:bold;">상품번호</td>
+            <td style="border-bottom:1px solid;"><input type="text" style="border:none;" name="product_id" value="${product_id}"></td>
          </tr>
          <tr>
-            <td>작성자</td>
-            <td>
+            <td width=100 style="Font-weight:bold;">작성자</td>
+            <td style="border-bottom:1px solid;">
                <input type="hidden" name="review_writer" value="${user_info.user_id}">
-               <input type="text" class="text_style" value="${user_info.user_name}" readonly>
+               <input type="text" style="border:none;" class="text_style" value="${user_info.user_name}" readonly>
             </td>
          </tr>
          <tr>
-            <td>작성일</td>
-            <td><input type="text" class="text_style" value="<%= sf.format(nowTime)%>" readonly/></td>
+            <td width=100 style="Font-weight:bold;">작성일</td>
+            <td style="border-bottom:1px solid;"><input type="text" style="border:none;" class="text_style" value="<%= sf.format(nowTime)%>" readonly/></td>
+         </tr>
+      </table>
+      <br/>
+      <hr style="border: 0.25px solid; width:600px; margin: 0 auto; background-color:#D5D5D5; color:#D5D5D5;" />
+     <table style="padding:10px" width=600>
+         <tr>
+            <td style="Font-weight:bold;" width=100>후기이미지</td>
+            <td style=" width:80; padding:10px 30px 30px 30px;">
+               <img id="image" src="http://placehold.it/150x120" width=150/>
+                  <input type="file" name="file" style="display:none;"/>
+            </td>
          </tr>
          <tr>
-            <td>제목</td>
+            <td style="Font-weight:bold;" width=100>제목</td>
             <td><input type="text" name="review_title" class="text_style" placeholder="후기 제목을 입력하세요."/></td>
          </tr>      
          <tr>
-            <td>내용</td>
-            <td><textarea rows="10" cols="50" class="text_style" name="review_contents" style="width:500px; height:200px; resize: none;" placeholder="후기 내용을 입력하세요."/></textarea></td>
-         </tr>
-           <tr>
-              <td>후기이미지</td>
-            <td>
-               <img id="image" src="http://placehold.it/150x120" width=150/>
-               <input type="file" name="file" style="display:none;"/>
-               <!--<div id="upload">
-                  <input type="file" id="file" accept="image/*" style="display:none;"/>
-               </div>
-               <div id="uploaded">
-                  <ul id="uploadFiles"></ul>
-                  <script id="temp" type="text/x-handlebars-template">
-                     <li>
-                        <img src="/displayFile?fullName={{fullName}}" width=50/>
-                        <input type="text" name="files" value="{{fullName}}"/>
-                        <input class="del" type="button" value="삭제" fullName={{fullName}}/>
-                     </li>
-                  </script>
-               </div>-->
-            </td>
-         </tr>    
+            <td style="Font-weight:bold;" width=100>내용</td>
+            <td width=400><textarea rows="10" cols="50" class="text_style" name="review_contents" style="border:1px solid #A6A6A6;" resize: none;" placeholder="후기 내용을 입력하세요."/></textarea></td>
+         </tr>   
       </table>
-      <input type="submit" class="btn_style" value="리뷰등록"/>
-      <input type="reset" class="btn_style" value="취소/목록이동" onClick="location.href='/meal_detail?product_id=${product_id}'"/>
+      <div style="padding:20px; text-align:center; ">
+         <input type="reset" value="취소/목록이동" style="width: 120px; height: 50px; background-color:#ffffff; border:1px solid #D5D5D5; cursor:pointer; border-radius:6px 6px 6px 6px; color:#8C8C8C; Font-weight:bold;" onClick="location.href='/meal_detail?product_id=${product_id}'"/>
+         <input type="submit" class="btn_style" value="리뷰등록"/>
+      </div>
    </form>
+</div>
 </body>
 <script>
    /*var product_id="${product_id}";   

@@ -45,7 +45,7 @@ public class UploadController {
       FileCopyUtils.copy(file.getBytes(), target);
    }
    
-// 파일업로드 Ajax
+   	// 파일업로드 Ajax
 	@ResponseBody
 	@RequestMapping(value = "/uploadFile", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
 	public String uploadAjaxPost(MultipartFile file,String add_path) throws Exception {

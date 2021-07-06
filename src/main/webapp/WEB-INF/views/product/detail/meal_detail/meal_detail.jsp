@@ -55,7 +55,7 @@
   <p>
     <a onclick="fnMove('1')">상품설명</a>
     <a onclick="fnMove('2')">상세정보</a>
-    <a onclick="fnMove('3')">고객후기</a>
+    <a onclick="fnMove('3')">상품후기</a>
     <a onclick="fnMove('4')">상품문의</a>
   </p>
 </div>
@@ -64,9 +64,9 @@
 	<script id="tempFiles" type="text/x-handlebars-template">
 		<img src="/displayFile?fullName=detail/{{fullName}}" width=900px/>
 	</script>
-	<div id="detailContent2" >상세정보</div>
-	<div id="detailContent3" >고객후기<jsp:include page="${product_review}"></jsp:include></div>
-	<div id="detailContent4" >상품문의<jsp:include page="${product_boardQA_list}"></jsp:include></div>
+	<div id="detailContent2" ></div>
+	<div id="detailContent3" ><jsp:include page="${product_review}"></jsp:include></div>
+	<div id="detailContent4" ><jsp:include page="${product_boardQA_list}"></jsp:include></div>
 </div>
 
 <script>
@@ -110,7 +110,7 @@ var size="4";
 		var offset = $("#detailContent" + seq).offset();
 		$('html, body').animate({scrollTop : offset.top}, 400);
 	}
-	//첨부 상세설명이미지
+	//첨부 상세설명이미지1
 	getAttach();
 	function getAttach(){
 		$.ajax({

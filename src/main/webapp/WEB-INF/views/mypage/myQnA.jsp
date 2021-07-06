@@ -1,13 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script> 
-
-
+<link rel="stylesheet" href="/resources/css/mypage.css"/>
 <style>
-      .page_section{width:820px;float:right;}
-      table{width:100%;border-collapse: collapse;border-bottom:solid 1px;}
+       .page_section{width:810px; height:600px; float:right;}
+      table{width: 100%;border-collapse: collapse;border-bottom:solid 1px;}
       td{border:solid 1px rgb(200, 200, 200) solid;padding: 10px;text-align: center;}
-      .row:hover{cursor:pointer;}
+      .row:hover{background: rgb(200, 200, 200);color: white;}
       .row{border-top:solid 1px rgb(200, 200, 200); font-size:13px;}
       .title{background: #FAFAFA; border-top:2px solid;text-align: center; font-size:13px;}
       #pagination{text-align: center; font-size:12pt; font-weight:bold; }
@@ -20,14 +17,13 @@
       #total{display:none;}
    </style>
 <div class="page_section">
-   <div class="head_aticle">
+   <div class="head_aticle_qna">
       <br/>
-      <h2 class="tit" style="text-align:left;">상품문의<br>
+      <h2 class="tit">상품문의
          <span class="tit_sub_qna">
-            · 배송관련, 주문(취소/교환/환불)관련 문의 및 요청사항은 마이대파 내 1:1문의에 남겨주세요.
+         배송관련, 주문(취소/교환/환불)관련 문의 및 요청사항은 마이페이지 내 1:1문의에 남겨주세요.
          </span>
       </h2>
-      <span id="total"></span>
       <br/><br/>   
       <table id="tbl1"></table>
       <script id="temp1" type="text/x-handlebars-template">
@@ -58,9 +54,8 @@
             return status;
          });
       </script>
-   <br/>  
+   <br/><br/>   
    <div id="pagination"></div>
-   <br/> 
    </div>   
 </div>
 

@@ -1,24 +1,22 @@
  <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   <style>
-      .page_section{width:820px;float:right;}
-      table{width:100%;border-collapse: collapse;border-bottom:solid 1px;}
+<link rel="stylesheet" href="/resources/css/mypage.css"/>
+    <style>
+       .page_section{width:810px; height:600px; float:right; margin-top:20px; }
+      table{width: 100%;border-collapse: collapse;border-bottom:solid 1px;}
       td{border:solid 1px rgb(200, 200, 200) solid;padding: 10px;text-align: center;}
       .row:hover{cursor:pointer;}
-      .row{border-top:solid 1px rgb(200, 200, 200); font-size:13px;}
-      .title{background: #FAFAFA; border-top:2px solid;text-align: center; font-size:13px;}
-      #pagination{text-align: center; font-size:12pt; font-weight:bold; }
-     #pagination a{text-decoration:none; color:#123478;}
-     #pagination .active{color:#ccc;}
-     #product_boardQA_insert{text-align:right;}
+      .row{border-top:solid 1px rgb(200, 200, 200);}
+      .title{border-top:2px solid;text-align: center;}
+      #pagination{text-align: center; margin-top:10px;}
+      #pagination a{text-decoration:none; color:#123478;}
+      #pagination .active{color:#ccc}
       #review_insert{text-align:right;}
-      .tit{font-size:25px;}
-      .titSub{font-size:12px;}
       #total{display:none;}
    </style>
 <div class="page_section">
-   <div class="head_aticle">
-      <h2 class="tit" style="text-align:left;">상품 후기
+   <div class="head_aticle_review">
+      <h2 class="tit">상품 후기
          <span class="tit_sub">즐겨찾기로 등록한 상품목록입니다</span>
       </h2>            
    </div>   
@@ -52,9 +50,7 @@
       <tr>
       {{/each}}
    </script>
-      <br/>
    <div id="pagination"></div>
-   <br/>  
 <script>
    var user_id="${user_info.user_id}";
    var page=1;

@@ -40,7 +40,6 @@
 		</dd>
 	</dl><hr>
 	<div id="groupBtn">
-		<button class="btnAlarm">재입고알림</button>
 		<button class="btnSave">늘 사는 것</button>
 		<button class="btnCart">장바구니 담기</button>
 	</div>

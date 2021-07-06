@@ -8,8 +8,17 @@
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <title>REVIEW 정보</title>
    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+   <style>
+      table{width: 100%;border-collapse: collapse;border-top:1px solid; border-bottom:1px solid;border-color:#BDBDBD;}
+      td{border:solid 1px rgb(200, 200, 200) solid;padding: 20px;}
+      #review_insert{text-align:right;}
+      #total{display:none;}
+        .btn_style { width: 120px; height: 50px; padding: .5em; border: 1px solid #123478; background: #123478; border-radius: 5px 5px 5px; color: white; font-weight:bold; margin-left: 10px;}
+   </style>
 </head>
 <body>
+<div style="margin:0px auto; border:1px solid; border-radius:10px 10px 10px 10px; width:800px; border-color:#BDBDBD;">
+   <h2 style="text-align:center;"> '${vo.product_name}' 상품 후기</h2>
 	<form name="frm" enctype="multipart/form-data">
 		<input type="hidden" value="${vo.review_number}" name="review_number"/>
 		<input type="hidden" value="${user_id}" name="user_id"/>
@@ -27,14 +36,10 @@
 				<td><fmt:formatDate value="${vo.review_modify_date}" pattern="yyyy-MM-dd"/></td>
 				<td>조회수</td>
 				<td>${vo.review_click}</td>
-			</tr>
-			<tr>
-				<td>${vo.product_name}</td>
-				<td>${vo.meterial_name}</td>
-			</tr>
-			
+			</tr>		
 	       <tr>
-         		<td>
+         		<td style="Font-weight:bold;" width=100>후기이미지</td>
+	            <td style=" width:80; padding:10px 30px 30px 30px;">
                 	<c:if test="${vo.review_image==null}">
                 		<img id="image" src="http://placehold.it/300x250" width=300/>
                		</c:if>
@@ -43,8 +48,6 @@
                		</c:if>
                		<input type="file" name="file" style="display:none;"/>
             	</td>
-        	</tr>
-        	<tr>
 	            <td>
 	               <input type="button" id="btnImage" value="첨부이미지" style="display:none;"/>
 	            </td>
@@ -63,15 +66,19 @@
 	            </td>
          	</tr>	
 			<tr>
+				<td style="Font-weight:bold;" width=100>후기내용</td>
 				<td>
 					<textarea rows="10" cols="50" name="review_contents">${vo.review_contents}</textarea>
 				</td>
 			</tr>
 		</table>
-		<input type="submit" value="수정">
-		<input type="button" value="취소/목록이동" onClick="location.href='/mypage/myReview'">
-		<input type="button" value="삭제" id="btnDelete">
+		<div style="text-align:right; padding:20px 10px 20px 0px">
+			<input type="submit" class="btn_style" value="수정">
+			<input type="button" class="btn_style" value="취소/목록이동" onClick="location.href='/mypage/myReview'">
+			<input type="button" class="btn_style" value="삭제" id="btnDelete">
+		</div>
 	</form>
+</div>
 </body>
 <script>
    $("#btnDelete").on("click", function(){
