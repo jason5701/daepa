@@ -57,8 +57,14 @@
             <tr>
                 <td colspan="4" style="border-bottom:1px solid #FAFAFA;"></td>
             </tr>
+            <!-- 수정수정수정수정수정수정수정수정수정수정수정수정수정수정수정수정수정수정수정수정수정수정수정수정수정수정 -->
             <tr>
-               <td colspan="4" style="text-align:left"> <span> 💬  ${vo.boardQA_contents}</span><br/><br/> <span>📢 ${vo.answer_contents}</span></td>      
+               <c:if test="${vo.answer_contents==null}">
+                        <td colspan="4" style="text-align:left"> <span> 💬  ${vo.boardQA_contents}</span><br/><br/> <span style="font-weight:bold; ">📢 <MARQUEE direction="right" scrolledelay="5000" width="100px">답변대기</MARQUEE></span></td>      
+                  </c:if>
+                  <c:if test="${vo.answer_contents!=null}">
+                        <td colspan="4" style="text-align:left"> <span> 💬  ${vo.boardQA_contents}</span><br/><br/> <span><b>📢 ${vo.answer_contents}</b></span></td>      
+                  </c:if>      
             </tr>
             <tr>
                <c:if test="${vo.boardQA_writer == user_info.user_id}">
@@ -74,7 +80,6 @@
                </c:if>
             </tr>
             <tr>
-            
          </tr>
          </table>   
       </form>
@@ -97,6 +102,7 @@
    <c:if test="${user_info.user_id=='daepa'}">
       <div style="text-align:center;">
          <input type="button" class="btn_style" value="문의답변작성" onClick="location.href='/board/product_boardQA_update?boardQA_number=${vo.boardQA_number} & product_id=${vo.product_id}'"/>
+         <input type="button" class="btn_style" value="삭제" id="btnDelete">
       </div>
    </c:if>   
    <c:if test="${user_info.user_id!='daepa' || user_info.user_id==null}">

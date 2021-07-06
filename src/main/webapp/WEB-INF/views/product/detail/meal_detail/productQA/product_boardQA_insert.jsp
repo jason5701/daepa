@@ -51,7 +51,7 @@
       <div style="float:right; margin-right:50px;  color:#aaa; font-size:12px;" id="counter">(0 / 최대 500자)</div>
       <br/>
       <div style="padding:20px; text-align:center; ">
-         <input type="button" value="등록취소" style="width: 120px; height: 50px; background-color:#ffffff; border:1px solid #D5D5D5; cursor:pointer; border-radius:6px 6px 6px 6px; color:#8C8C8C; Font-weight:bold;" onClick="location.href='/meal_detail?product_id=${vo.product_id}'">
+         <input type="button" value="등록취소" style="width: 120px; height: 50px; background-color:#ffffff; border:1px solid #D5D5D5; cursor:pointer; border-radius:6px 6px 6px 6px; color:#8C8C8C; Font-weight:bold;" onClick="location.href='/meal_detail?product_id=${aa.product_id}'">
          <input type="submit" class="btn_style" value="등록">
       </div>
    </form>

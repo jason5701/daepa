@@ -198,7 +198,13 @@ return "redirect:/meal_detail?product_id=" + vo.getProduct_id();
 	      return map;
 	   }
 	   
-	 
+	   @RequestMapping("product_boardQA_delete")
+	      public String product_boardQA_delete(int boardQA_number) throws Exception{
+	      //ProductVO vo=product_dao.read(product_id);
+	      BoardQAVO vo=boardQA_dao.product_boardQA_read(boardQA_number);   
+	         boardQA_dao.product_boardQA_delete(boardQA_number);
+	         return "redirect:/meal_detail?product_id=" + vo.getProduct_id();
+	      }
 	   
 		@RequestMapping("product_review_insert")
 		public String product_review_insert(Model model, String product_id)throws Exception{

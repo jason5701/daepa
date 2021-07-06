@@ -41,7 +41,7 @@
   <p>
     <a onclick="fnMove('1')">상품설명</a>
     <a onclick="fnMove('2')">상세정보</a>
-    <a onclick="fnMove('3')">고객후기</a>
+    <a onclick="fnMove('3')">상품후기</a>
     <a onclick="fnMove('4')">상품문의</a>
   </p>
 </div>
