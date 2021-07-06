@@ -31,12 +31,12 @@
    <table id="tbl"></table>
    <script id="temp" type="text/x-handlebars-template">
       <tr class="title" style="background:#fafafa;">
-         <td width=50>번호</td>
-         <td width=100>상품이름</td>
+         <td width=30>번호</td>
+         <td width=200>상품이름</td>
          <td width=100>제목</td>
-           <td width=50>작성자</td>
-            <td width=100>작성일</td>
-         <td width=50>조회</td>         
+         <td width=50>작성자</td>
+         <td width=200>작성일</td>
+         <td width=30>조회</td>         
       </tr>
       {{#each list}}
       <tr class="row" onClick="location.href='/board/user_review_read?review_number={{review_number}}'">  

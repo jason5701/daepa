@@ -55,7 +55,7 @@
            </tr>
          <tr class="c_row" style="display:none" commonQA_number={{commonQA_number}}>
                  <td></td>
-            <td><textarea rows="10" cols="100" style="border:none;">{{commonQA_contents}}</textarea></td>
+            <td><textarea rows="10" cols="100" style="border:none;" readonly>{{commonQA_contents}}</textarea></td>
             </tr>
          {{/each}}
       </script>
