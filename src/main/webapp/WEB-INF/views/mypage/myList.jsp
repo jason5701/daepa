@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<head>
+<style>
+.aticle_type2{
+	margin-top:20px;
+}
+</style>
+</head>
 <!-- 마이페이지 content -->
 <div class="aticle_type2">
 	<div id="snb" class="snb_my">

@@ -20,9 +20,6 @@
 			<li class="on">
 				<a href="#none" onclick="location.href='/cs/realtime'">1:1채팅</a>
 			</li>
-			<li class="on">
-				<a href="#none" onclick="location.href='/cs/suggestion'">제안</a>
-			</li>
 		</ul>
 	</div>
 	</div>

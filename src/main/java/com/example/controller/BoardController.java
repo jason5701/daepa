@@ -197,19 +197,19 @@ return "redirect:/meal_detail?product_id=" + vo.getProduct_id();
 	   @Autowired
 	   ProductService product_service;
 	   
-	   @RequestMapping("product_review_insert")
-	   public String product_review_insert(Model model, String product_id)throws Exception{
-	      model.addAttribute("pageName", "product/detail/meal_detail/meal_detail.jsp");
-	      model.addAttribute("product_review", "review/pinsert.jsp");
-	      model.addAttribute("product_div", "meal_read_div.jsp");
-	      model.addAttribute("vo", product_service.read(product_id));
-	      model.addAttribute("vo", product_dao.read(product_id));
-	      String lastNumber=review_dao.lastNumber();
-	      int last_review_number=Integer.parseInt(lastNumber.substring(1)) + 11;
-	      model.addAttribute("review_number",last_review_number);   
-	      model.addAttribute("product_id", product_id);
-	      return "/index";
-	   }
+		@RequestMapping("product_review_insert")
+		public String product_review_insert(Model model, String product_id)throws Exception{
+			/*model.addAttribute("pageName", "product/detail/meal_detail/meal_detail.jsp");
+			model.addAttribute("product_review", "review/pinsert.jsp");
+			model.addAttribute("product_div", "meal_read_div.jsp");
+			model.addAttribute("vo", product_service.read(product_id));
+			model.addAttribute("vo", product_dao.read(product_id));*/
+			String lastNumber=review_dao.lastNumber();
+			int last_review_number=Integer.parseInt(lastNumber.substring(1)) + 11;
+			model.addAttribute("review_number",last_review_number);   
+			model.addAttribute("product_id", product_id);
+			return "/product/detail/meal_detail/review/pinsert";
+		}
 	   
 	   @RequestMapping(value="product_review_insert", method=RequestMethod.POST)
 	   public String product_review_insert(ReviewVO vo,MultipartHttpServletRequest multi) throws Exception{
@@ -286,17 +286,17 @@ return "redirect:/meal_detail?product_id=" + vo.getProduct_id();
 	   MeterialService meterial_service;
 	   
 	   @RequestMapping("meterial_review_insert")
-	   public String meterial_review_insert(Model model, String meterial_id)throws Exception{
-	      model.addAttribute("pageName", "product/detail/vege_detail/vege_detail.jsp");
-	      model.addAttribute("meterial_review", "review/minsert.jsp");
-	      model.addAttribute("product_div", "vege_read_div.jsp");
-	      model.addAttribute("vo", meterial_service.read(meterial_id));
-	      String lastNumber=review_dao.lastNumber();
-	      int last_review_number=Integer.parseInt(lastNumber.substring(1)) + 11;
-	      model.addAttribute("review_number",last_review_number);
-	      model.addAttribute("meterial_id", meterial_id);
-	      return "/index";
-	   }
+       public String meterial_review_insert(Model model, String meterial_id)throws Exception{
+		 /*model.addAttribute("pageName", "product/detail/vege_detail/vege_detail.jsp");
+         model.addAttribute("meterial_review", "review/minsert.jsp");
+         model.addAttribute("product_div", "vege_read_div.jsp");
+         model.addAttribute("vo", meterial_service.read(meterial_id));*/
+         String lastNumber=review_dao.lastNumber();
+         int last_review_number=Integer.parseInt(lastNumber.substring(1)) + 11;
+         model.addAttribute("review_number",last_review_number);
+         model.addAttribute("meterial_id", meterial_id);
+         return "/product/detail/vege_detail/review/minsert";
+       }
 	   
 	   @RequestMapping(value="meterial_review_insert", method=RequestMethod.POST)
 	   public String meterial_review_insert(ReviewVO vo,MultipartHttpServletRequest multi) throws Exception{

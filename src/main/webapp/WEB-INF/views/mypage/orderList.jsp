@@ -2,26 +2,32 @@
     pageEncoding="UTF-8"%>
     <link rel="stylesheet" href="/resources/css/mypage.css"/>
     <style>
-    table {width: 70%; border-top: 1px solid #444444; margin:10px auto; text-align:center; border-collapse: collapse;}
+    table {width: 70%; border-top: 2px solid black; margin:10px auto; text-align:center; border-collapse: collapse;}
 	tr, td {border-bottom: 1px solid #444444;padding: 10px;}  
 	.head_aticle{margin-top:20px;}
 	.tit{text-align:left; margin-left:10px;}
 	.head_aticle .tit_sub {
-    padding-left: 11px;
-    padding-bottom: 30px;
-    font-size: 14px;
-    color: #999;
-    text-align:left;
-    line-height: 20px;
-    letter-spacing: -.3px;
-    vertical-align: 3px;
+	    padding-left: 11px;
+	    font-size: 14px;
+	    color: #999;
+	    text-align:left;
+	    line-height: 20px;
+	    letter-spacing: -.3px;
+	    vertical-align: 3px;
 	} 
 	.search_date{
 	  	position: relative;
 	    z-index: 1;
 	    float: right;
-	    padding-right:300px;    
+	    padding-right:180px;    
 	} 
+	.mypage_Content_Right .head_aticle{
+		width:700px;
+		height:50px;
+		float:left;
+		margin-top:35px;
+		margin-left:30px;
+	}
     </style>
     <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
@@ -29,7 +35,7 @@
 		<div class="head_aticle">
 			<h2 class="tit">주문내역
 				<span class="tit_sub">지난 3년간의 주문 내역 조회가 가능합니다</span>
-			</h2>
+			</h2>	
 			<div class="search_date">
 				<h3 class="screen_out">기간선택</h3>
 				<span id="total_Orders"></span>
@@ -39,8 +45,9 @@
 					<option value="2020">2020년</option>
 					<option value="2019">2019년</option>
 				</select>				
-			</div>	
-	</div>
+			</div>
+		</div>
+			
 	<div class="board-container">
 		<table id="tbl_orders"></table>
 		<script id="temp_orders" type="text/x-handlebars-template">

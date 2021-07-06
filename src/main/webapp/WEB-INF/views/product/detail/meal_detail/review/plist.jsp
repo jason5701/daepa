@@ -59,7 +59,7 @@
       {{/each}}
    </script>
    <div id="review_insert">
-      <button class="btn_style" onClick="location.href='/board/product_review_insert?product_id=${vo.product_id}'">후기쓰기</button>
+      <button class="btn_style" onClick="location.href='/board/product_review_insert?product_id=${vo.product_id}'">상품후기작성</button>
    </div>
    <div id="pagination"></div>
 </body>

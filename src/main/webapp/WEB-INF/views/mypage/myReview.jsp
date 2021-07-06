@@ -1,7 +1,8 @@
  <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="/resources/css/mypage.css"/>
     <style>
-       .page_section{width:810px;float:right;}
+       .page_section{width:810px; height:600px; float:right; margin-top:20px; }
       table{width: 100%;border-collapse: collapse;border-bottom:solid 1px;}
       td{border:solid 1px rgb(200, 200, 200) solid;padding: 10px;text-align: center;}
       .row:hover{cursor:pointer;}
@@ -14,7 +15,7 @@
       #total{display:none;}
    </style>
 <div class="page_section">
-   <div class="head_aticle">
+   <div class="head_aticle_review">
       <h2 class="tit">상품 후기
          <span class="tit_sub">즐겨찾기로 등록한 상품목록입니다</span>
       </h2>            

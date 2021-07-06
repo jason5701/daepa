@@ -7,7 +7,7 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.5/sockjs.min.js"></script>
    <link rel="stylesheet" href="/resources/css/chat.css"/>
-   <title>채팅</title>
+   <title>채팅</title>  
 </head>
 <body>
    <div class="chat_wrap">

@@ -3,15 +3,19 @@
  margin: 0px; 
  padding: 0px;
 }
+.chat_wrap{
+	height:500px;
+}
 .chat_wrap .header{
  font-size: 14px; 
  padding: 15px 0px; 
- background: #F18C7E; 
+ background: #123478; 
  color: white; 
  text-align: center;
+ margin-top:33px; 
 }
 .chat_wrap #chat{
- padding-bottom: 80px; 
+ padding-bottom: 350px; 
  width: 100%;
 }
 .chat_wrap #chat .left{
@@ -42,16 +46,15 @@
  font-size: 10px;
 }
 .chat_wrap .input-div{
- position: fixed;
  bottom: 0px;
  width: 100%;
  background-color: #FFF;
  text-align: center;
- border-top: 1px solid #F18C7E;
+ border-top: 1px solid #123478;
 }
 #txtMessage {
- width: 100%;
- height: 80px;
- border: none;
- padding: 5px;
+	width: 100%;
+	height: 80px;
+	border: none;
+	padding: 5px;
 }

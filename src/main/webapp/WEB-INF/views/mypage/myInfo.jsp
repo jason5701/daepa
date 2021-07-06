@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-     <link rel="stylesheet" href="/resources/css/mypage.css"/>
-     <link rel="stylesheet" href="/resources/css/user.css"/>
-<div class="page_section">
-	<div class="head_aticle">
-		<h2 class="tit">개인 정보 수정</h2>		
-	</div>	
+<link rel="stylesheet" href="/resources/css/user.css"/>
+<div class="page_section_info">
+	<h2 class="tit">개인 정보 수정</h2>
 	<div class="myinfo_PW">	
 	<form name="frm">
 		<table class="regtbl_register2">

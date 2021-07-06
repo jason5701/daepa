@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="/resources/css/mypage.css"/>
 <style>
-       .page_section{width:810px;float:right;}
+       .page_section{width:810px; height:600px; float:right;}
       table{width: 100%;border-collapse: collapse;border-bottom:solid 1px;}
       td{border:solid 1px rgb(200, 200, 200) solid;padding: 10px;text-align: center;}
       .row:hover{background: rgb(200, 200, 200);color: white;}
@@ -12,11 +13,11 @@
       #total{display:none;}
    </style>
 <div class="page_section">
-	<div class="head_aticle">
+	<div class="head_aticle_qna">
 		<br/>
-		<h2 class="tit">상품문의<br>
+		<h2 class="tit">상품문의
 			<span class="tit_sub_qna">
-				· 배송관련, 주문(취소/교환/환불)관련 문의 및 요청사항은 마이대파 내 1:1문의에 남겨주세요.
+			배송관련, 주문(취소/교환/환불)관련 문의 및 요청사항은 마이페이지 내 1:1문의에 남겨주세요.
 			</span>
 		</h2>
 		<br/><br/>	
