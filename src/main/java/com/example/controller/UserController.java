@@ -18,9 +18,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.util.WebUtils;
 
+import com.example.domain.AdminVO;
 import com.example.domain.Criteria;
 import com.example.domain.PageMaker;
 import com.example.domain.UserVO;
+import com.example.persistence.AdminDAO;
 import com.example.persistence.GroupSalesDAO;
 import com.example.persistence.UserDAO;
 import com.example.service.UserService;
@@ -37,6 +39,9 @@ public class UserController {
 	
 	@Autowired
 	GroupSalesDAO group_dao;
+	
+	@Autowired
+	AdminDAO admin_dao;
 	
 	@Autowired
 	BCryptPasswordEncoder passEncoder;

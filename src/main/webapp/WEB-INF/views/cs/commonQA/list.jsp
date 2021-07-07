@@ -18,30 +18,28 @@
       #pagination a{text-decoration:none; color:#123478;}
       #pagination .active{color:#ccc}
       #review_insert{text-align:right;}
-      .tit{font-size:28px; float:left;}
-      .titSub{font-size:12px;}
+      .tit{font-size:25px; float:left; margin-top:25px; margin-bottom:20px; color:#123478; }
+      .titSub{font-size:12px; color:gray; }
       #total{display:none;}
    </style>
 </head>
 <body>
-	<div>
-	   <h2 class="tit">
-	      자주하는질문
-	      <span class="titSub">고객님들께서 가장 자주하시는 질문을 모두 모았습니다.</span>
-	   </h2>
-	   <div id="condition">
-	      <div>
-	         <select id="searchType" style="float:right;">
-	            <option value="회원문의">회원문의</option>
-	            <option value="주문/결제">주문/결제</option>
-	            <option value="취소">취소/교환/반품</option>
-	            <option value="배송문의">배송문의</option>
-	            <option value="쿠폰">쿠폰/적립금</option>
-	            <option value="서비스">서비스 이용 및 기타</option>
-	            <option value="선택" selected>전체</option>
-	         </select>
-	      </div>
-	   </div>
+   <h2 class="tit">
+      자주하는질문
+      <span class="titSub">고객님들께서 가장 자주하시는 질문을 모두 모았습니다.</span>
+   </h2>
+   <div id="condition">
+      <div>
+         <select id="searchType" style="float:right; margin-top:25px;">
+            <option value="회원문의">회원문의</option>
+            <option value="주문/결제">주문/결제</option>
+            <option value="취소">취소/교환/반품</option>
+            <option value="배송문의">배송문의</option>
+            <option value="쿠폰">쿠폰/적립금</option>
+            <option value="서비스">서비스 이용 및 기타</option>
+            <option value="선택" selected>전체</option>
+         </select>
+      </div>
    </div>
    <div id="list">
       <table id="tbl" class="table"></table>

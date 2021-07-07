@@ -17,7 +17,13 @@
 <body>
    <div id="container">
       <div id="header">
+         <c:if test="${user_info.user_id==null}">
          <div id="userMenu">
+         	<div class="menuItem">
+            	<c:if test="${user_info.user_id==null}">
+			    	 <a href="/admin/login">관리자</a>    
+			    </c:if>			  
+			</div>
 			<div class="menuItem">
 			   <a href="/cs/notice">고객센터</a>
 			</div>
@@ -42,6 +48,40 @@
 			    </c:if>  			              
 			</div>
          </div>
+         </c:if>
+         <c:if test="${user_info.user_id!=null}">
+         <div id="userMenu">
+         	<div class="menuItem">
+            	<c:if test="${user_info.user_id==null}">
+			    	 <a href="/admin/login">관리자</a>    
+			    </c:if>			  
+			</div>
+			<div class="menuItem">
+			   <a href="/cs/notice">고객센터</a>
+			</div>
+			<div class="menuItem">   
+			     <c:if test="${user_info.user_id!=null}">
+                    <a href="/mypage/all">마이페이지</a>
+                 </c:if>
+			</div>   
+			<div class="menuItem">
+				<c:if test="${user_info.user_id==null}">
+			    	<a href="/user/login">로그인</a>
+			    </c:if>
+			    <c:if test="${user_info.user_id!=null}">
+			        <span id="user_name">🙋‍♀️ ${user_info.user_name}님 ,
+			        안녕하세요!</span>			    
+			    	<a href="/user/logout">로그아웃</a>
+			    </c:if>
+			</div>
+			<div class="menuItem">    
+				<c:if test="${user_info.user_id==null}">
+			    	<a href="/user/register">회원가입</a>    
+			    </c:if>  			              
+			</div>
+         </div>
+         </c:if>
+         
          <a href="/index"><img src="/resources/image/index/Dlogo.jpg" /></a>
          <div id="category">
             <div id="allCategory">
@@ -82,7 +122,7 @@
             </div>
             <div id="menu">
                <span class="menuCart" onClick="location.href='/cart/list'"></span>
-               <span class="menuFavo"></span>
+               <span class="menuFavo" onClick="location.href='/favorite/list'"></span>
             </div>
             <div id="searchBox">
                <input type="text" size=20 placeholder="검색" id="keyword" style="font-weight:bold;"/>
@@ -103,7 +143,7 @@
                <h1>1588-5588</h1>
                <p>운영시간 : 오전 9시 - 오후 6시</p>
                <p>대파의 고객센터는 365일 운영됩니다🙂</p><br/>
-               <button>1:1 문의하기</button>
+               <a href="mailto:help@daepa.com"><button>1:1 문의하기</button></a>
                <p>📧 24시간 접수가 가능합니다.</p>
                <p>운영시간 내 순차적으로 답변드리겠습니다.</p>
             </div>

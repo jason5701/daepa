@@ -4,7 +4,7 @@
  padding: 0px;
 }
 .chat_wrap{
-	height:500px;
+ height:100%;
 }
 .chat_wrap .header{
  font-size: 14px; 
@@ -17,6 +17,15 @@
 .chat_wrap #chat{
  padding-bottom: 350px; 
  width: 100%;
+ overflow-x: auto;
+}
+
+.chat_wrap #chat::-webkit-scrollbar{
+ background-color:#fafafa;
+}
+
+.chat_wrap #chat::-webkit-scrollbar-thumb{
+ background-color:#123478;
 }
 .chat_wrap #chat .left{
  text-align: left;
@@ -26,6 +35,7 @@
 }
 .chat_wrap #chat{
  font-size: 12px;
+ height:100px;
 }
 .chat_wrap #chat .sender{
  margin: 10px 25px 0px 10px;
@@ -45,16 +55,9 @@
  margin: 5px 20px 10px 10px;
  font-size: 10px;
 }
-.chat_wrap .input-div{
- bottom: 0px;
- width: 100%;
- background-color: #FFF;
- text-align: center;
- border-top: 1px solid #123478;
-}
-#txtMessage {
-	width: 100%;
-	height: 80px;
-	border: none;
-	padding: 5px;
+#txtMessage{
+ width:100%;
+ height:80px;
+ border-top:1px solid black;
+ padding:10px;
 }

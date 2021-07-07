@@ -9,9 +9,9 @@
       .title{background: #FAFAFA; border-top:2px solid;text-align: center; font-size:15px;}
 </style>
 <div id="favorite">
-<h2>찜 목 록</h2><br/>
+<br/><h2>찜목록</h2><br/><br/>
    <c:if test="${productflist.size() == 0 && meterialflist.size() == 0}">
-      <h3>찜목록에 담긴 상품이 없어요.</h3>         
+      <h3>찜목록에 담긴 상품이 없어요 😥</h3><br/>
    </c:if>
    
    <c:if test="${productflist.size() > 0}">
@@ -67,7 +67,7 @@
 //product 목록에서 각 삭제버튼 클릭 시
 $("#productftbl").on("click", ".delete_btn", function(){
    var favorite_number=$(this).attr("data-favoriteNum");
-   if(!confirm("해당 상품을 장바구니에서 삭제할까요?")) return;
+   if(!confirm("해당 상품을 찜목록에서 삭제할까요?")) return;
    $.ajax({
       type:"post",
       url:"/favorite/delete",
@@ -81,7 +81,7 @@ $("#productftbl").on("click", ".delete_btn", function(){
 //meterial 목록에서 각 삭제버튼 클릭 시
 $("#meterialftbl").on("click", ".delete_btn", function(){
    var favorite_number=$(this).attr("data-favoriteNum");
-   if(!confirm("해당 상품을 장바구니에서 삭제할까요?")) return;
+   if(!confirm("해당 상품을 찜목록에서 삭제할까요?")) return;
    $.ajax({
       type:"post",
       url:"/favorite/delete",

@@ -80,7 +80,7 @@ public class AdminController {
 		admin_vo=admin_dao.admin_login(admin_id);
 		if(admin_vo!=null){
 			if(admin_vo.getAdmin_password().equals(admin_password)){
-				result=1;				
+				result=1;
 			}if(chkLogin){
 				Cookie cookie=new Cookie("admin_id",admin_vo.getAdmin_id());
 				cookie.setPath("/admin/main");

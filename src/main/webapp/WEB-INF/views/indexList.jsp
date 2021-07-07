@@ -98,9 +98,16 @@ Handlebars.registerHelper("nf", function(price){
 </div>
 
 <script>
+	Handlebars.registerHelper("nf", function(product_price){
+	    var regexp = /\B(?=(\d{3})+(?!\d))/g; 
+	    return product_price.toString().replace(regexp, ",");
+	});
+</script>
+
+<script>
 
 //md추천 목록 
-var orderBy="product_detail desc";
+var orderBy="product_click desc";
 getmain_list();
 
 $("#list_category").on("click", ".menu", function(){

@@ -4,7 +4,9 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
    <style>
+
       table{width:100%;border-collapse: collapse;border-bottom:solid 1px;font-weight:bold;}
+     #notice_list{margin-top:25px;}
       td{border:solid 1px rgb(200, 200, 200) solid;padding: 10px;text-align: center;}
       .row:hover{cursor:pointer;}
       .row{border-top:solid 1px rgb(200, 200, 200); font-size:13px;}
@@ -18,8 +20,8 @@
       .titSub{font-size:12px;}
       #total{display:none;}
    </style>
-<div>
-   <h2 class="tit" style="text-align:left;">공지사항</h2><br/>
+<div id="notice_list">
+   <h2 class="tit" style="text-align:left; color:#123478;">공지사항</h2><br/>
    <table id="tbl"></table>
    <script id="temp" type="text/x-handlebars-template">
       <tr class="title">
