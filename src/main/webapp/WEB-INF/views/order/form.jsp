@@ -28,13 +28,12 @@
 		    </tr>
 		</c:forEach>
 	</table><br/>
-	
 	<form name="frm" id="frm">
 	<span style="font-size:17pt; font-weight:bold; color:#123478;">주문자 정보</span>  
 	<hr style="border-bottom:1px solid #eaeaea;"/><br/>
-		주문자 : <input type="text" id="user_name" value="${userinfo.user_name}"/><br/>
-		휴대폰 : <input type="text" id="user_mobile" value="${userinfo.user_mobile}"/><br/>
-		이메일 : <input type="text" id="user_email" value="${userinfo.user_email}"/><br/>
+		주문자 : <input type="text" id="user_name" value="${user_info.user_name}"/><br/>
+		휴대폰 : <input type="text" id="user_mobile" value="${user_info.user_mobile}"/><br/>
+		이메일 : <input type="text" id="user_email" value="${user_info.user_email}"/><br/>
 		
 		주&nbsp&nbsp&nbsp소 : <span class="ico"></span>
 		<input type="text" id="sample4_postcode" class="register_text" name="user_post" onclick="sample4_execDaumPostcode()" value="${userinfo.user_post}">
@@ -287,7 +286,7 @@ $("#btnKakao").click(function(){
 	        }
 	    });
 		
-		order_name=$("#user_name").val();
+		order_name="${user_info.user_name}";
 		order_mobile=$("#user_mobile").val();
 		order_email=$("#user_email").val();
 		order_address=$("#sample4_roadAddress").val()+" "+$("#sample4_detailAddress").val();

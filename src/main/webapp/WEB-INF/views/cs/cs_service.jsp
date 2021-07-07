@@ -9,7 +9,7 @@
 
 <div id="cs_service">
 	<jsp:include page="${leftMenu}" />
-	<div id="rightContent">
+	<div id="rightContent" style="height:100%">
 		<jsp:include page="${rightContent}" />
 	</div>
 </div>

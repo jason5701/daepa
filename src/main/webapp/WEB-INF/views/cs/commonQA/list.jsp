@@ -9,7 +9,7 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
    <title>자주하는질문 목록</title>
    <style>
-      table{width:100%;border-collapse: collapse;border-bottom:solid 1px; font-size:13px;}
+      table{width:100%;border-collapse: collapse;border-bottom:solid 1px; font-size:13px; }
       td{border:solid 1px rgb(200, 200, 200) solid;padding: 10px;text-align: center;}
       .row:hover{cursor:pointer;}
       .row{border-top:solid 1px rgb(200, 200, 200);}
@@ -18,8 +18,8 @@
       #pagination a{text-decoration:none; color:#123478;}
       #pagination .active{color:#ccc}
       #review_insert{text-align:right;}
-      .tit{font-size:28px; float:left;}
-      .titSub{font-size:12px;}
+      .tit{font-size:25px; float:left; margin-top:25px; margin-bottom:20px; color:#123478; }
+      .titSub{font-size:12px; color:gray; }
       #total{display:none;}
    </style>
 </head>
@@ -30,7 +30,7 @@
    </h2>
    <div id="condition">
       <div>
-         <select id="searchType" style="float:right;">
+         <select id="searchType" style="float:right; margin-top:25px;">
             <option value="회원문의">회원문의</option>
             <option value="주문/결제">주문/결제</option>
             <option value="취소">취소/교환/반품</option>

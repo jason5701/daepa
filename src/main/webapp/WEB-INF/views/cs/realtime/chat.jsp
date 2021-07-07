@@ -30,9 +30,7 @@
             }
          });
       </script>
-      <div class="input-div">
-         <textarea id="txtMessage" placeholder="Press Enter for send message."></textarea>
-      </div>
+      <textarea id="txtMessage" placeholder="Press Enter for send message."></textarea>
    </div>   
 </body>
 <script>
@@ -49,9 +47,12 @@
          //서버로메시지보냄
          sock.send(uid + "|" + message);
          $("#txtMessage").val("");
+         
+         $("#chat").scrollTop($("#chat")[0].scrollHeight);
       }
    });
-
+   
+	
    //웹소켓정의
    var sock=new SockJS("http://localhost:8088/echo");
    sock.onmessage=onMessage;
