@@ -9,9 +9,9 @@
 }
 
 #tbl_purchase_List{width:820px; text-align:center;}
-table{width: 100%; border-top: 1px solid #444444; margin-top:20px; margin-bottom:20px; text-align:center; border-collapse: collapse;}
-tr,td{border-bottom: 1px solid #444444;  padding: 10px;}
 
+table {width: 100%; border-top: 2px solid black; margin:10px auto; text-align:center; font-weight:bold; border-collapse: collapse;}
+   tr, td {border-bottom: 1px solid #444444;padding: 10px;}  
 .tbl_read td {border-bottom: 1px solid #444444; text-align:left; padding: 10px;}
 
 .page_aticle.aticle_type2 {

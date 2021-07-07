@@ -69,12 +69,17 @@
 				</div>
 			</a>
 			<div class="product_name">{{product_name}}</div>
-			<div class="product_price">{{product_price}}원</div>
+			<div class="product_price">{{nf product_price}}원</div>
 		</div>
 		{{/each}}
 	</script>
 </div>
-
+<script>
+Handlebars.registerHelper("nf", function(price){
+    var regexp = /\B(?=(\d{3})+(?!\d))/g; 
+    return price.toString().replace(regexp, ",");
+});
+</script>
 <div id="snsBox">
 	<h2>📸 SNS 고객후기 📸</h2>
 	<div class="slide_wrapper">

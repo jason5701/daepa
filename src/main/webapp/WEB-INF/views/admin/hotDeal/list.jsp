@@ -39,7 +39,6 @@
 	$("#tbl").on("click",".tr_row",function(){
 		$(this).next().toggle();
 		var hotdeal_number=$(this).attr("hotdeal_number");
-		alert(hotdeal_number);
 	});
 	function getHotdeal_detail(){
 		$.ajax({

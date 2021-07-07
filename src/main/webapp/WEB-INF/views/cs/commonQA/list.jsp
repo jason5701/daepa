@@ -9,11 +9,11 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
    <title>자주하는질문 목록</title>
    <style>
-      table{width:100%;border-collapse: collapse;border-bottom:solid 1px; font-size:13px;}
-      td{border:solid 1px rgb(200, 200, 200) solid;padding: 10px;text-align: center;}
+      table{width:100%; margin-top:10px; border-collapse: collapse;border-bottom:solid 1px; font-weight:bold;}
+      td{border:solid 1px rgb(200, 200, 200) solid;padding: 10px; text-align: center; font-size:13px;}
       .row:hover{cursor:pointer;}
       .row{border-top:solid 1px rgb(200, 200, 200);}
-      .title{border-top:2px solid;text-align: center;}
+      .title{border-top:2px solid; text-align: center; background:#fafafa; font-size:15pt;}
       #pagination{text-align: center; margin-top:10px;}
       #pagination a{text-decoration:none; color:#123478;}
       #pagination .active{color:#ccc}
@@ -24,27 +24,29 @@
    </style>
 </head>
 <body>
-   <h2 class="tit">
-      자주하는질문
-      <span class="titSub">고객님들께서 가장 자주하시는 질문을 모두 모았습니다.</span>
-   </h2>
-   <div id="condition">
-      <div>
-         <select id="searchType" style="float:right;">
-            <option value="회원문의">회원문의</option>
-            <option value="주문/결제">주문/결제</option>
-            <option value="취소">취소/교환/반품</option>
-            <option value="배송문의">배송문의</option>
-            <option value="쿠폰">쿠폰/적립금</option>
-            <option value="서비스">서비스 이용 및 기타</option>
-            <option value="선택" selected>전체</option>
-         </select>
-      </div>
+	<div>
+	   <h2 class="tit">
+	      자주하는질문
+	      <span class="titSub">고객님들께서 가장 자주하시는 질문을 모두 모았습니다.</span>
+	   </h2>
+	   <div id="condition">
+	      <div>
+	         <select id="searchType" style="float:right;">
+	            <option value="회원문의">회원문의</option>
+	            <option value="주문/결제">주문/결제</option>
+	            <option value="취소">취소/교환/반품</option>
+	            <option value="배송문의">배송문의</option>
+	            <option value="쿠폰">쿠폰/적립금</option>
+	            <option value="서비스">서비스 이용 및 기타</option>
+	            <option value="선택" selected>전체</option>
+	         </select>
+	      </div>
+	   </div>
    </div>
    <div id="list">
       <table id="tbl" class="table"></table>
       <script id="temp" type="text/x-handlebars-template">
-         <tr class="title" style="background:#fafafa;">
+         <tr class="title">
             <td width=200>번호</td>
             <td width=800>제목</td>   
          </tr>

@@ -49,7 +49,7 @@
                   <li>
                      <div style="overflow:hidden; padding-left:15px; width:140px;  margin-left:10px; ">
                         <img src="/resources/image/index/menu.png" style="margin-top:13px; float:left; "/>
-                        <span style="float:left; margin-left:10px; ">전체 카테고리</span>
+                        <span style="float:left; margin-left:10px; font-weight:bold; ">전체 카테고리</span>
                      </div>
                         <ul class="all_sub">
                             <li><a href="/meals">1인밀키트/완제품</a>
@@ -85,7 +85,7 @@
                <span class="menuFavo"></span>
             </div>
             <div id="searchBox">
-               <input type="text" size=20 placeholder="검색" id="keyword"/>
+               <input type="text" size=20 placeholder="검색" id="keyword" style="font-weight:bold;"/>
                <span class="searchIcon" ></span>
             </div>
          </div>

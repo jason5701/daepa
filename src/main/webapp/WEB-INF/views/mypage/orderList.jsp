@@ -2,10 +2,13 @@
     pageEncoding="UTF-8"%>
     <link rel="stylesheet" href="/resources/css/mypage.css"/>
     <style>
-    table {width: 70%; border-top: 2px solid black; margin:10px auto; text-align:center; border-collapse: collapse;}
+    table {width: 70%; border-top: 2px solid black; margin:10px auto; text-align:center; font-weight:bold; border-collapse: collapse;}
    tr, td {border-bottom: 1px solid #444444;padding: 10px;}  
    .head_aticle{margin-top:20px;}
    .tit{text-align:left; margin-left:10px;}
+    #pagination{text-align: center; margin-top:10px;}
+    #pagination a{text-decoration:none; color:#123478;font-weight:bold;}
+    #pagination .active{color:#ccc}
    .head_aticle .tit_sub {
        padding-left: 11px;
        font-size: 14px;
@@ -51,15 +54,15 @@
    <div class="board-container">
       <table id="tbl_orders"></table>
       <script id="temp_orders" type="text/x-handlebars-template">
-         <tr class="title"  style="background:#fafafa; border-bottom: 3px solid #444444;">
+         <tr class="title"  style="background:#fafafa;font-weight:bold; border-bottom: 3px solid #444444;">
             <td width=100>주문번호</td>
             <td width=100>주문일자</td>
             <td width=100>주문자</td>
-               <td width=400>주소</td>
+            <td width=400>주소</td>
             <td width=100>상태</td>         
          </tr>
          {{#each orders}}
-         <tr class="tr_row" order_number="{{order_number}}">>
+         <tr class="tr_row" order_number="{{order_number}}" style="font-weight:bold;">
             <td>{{order_number}}</td>            
             <td>{{order_register_date}}</td>
             <td>{{order_name}}</td>
@@ -75,7 +78,7 @@
          <h2>주문 목록</h2>
          <table id="tbl_orderList"></table>
          <script id="temp_orderList" type="text/x-handlebars-template">
-            <tr class="title"  style="background:#fafafa;">
+            <tr class="title"  style="background:#fafafa; font-weight:bold;">
                <td width=100>상품번호</td>
                <td width=400>상품명</td>
                <td width=100>단가</td>
@@ -83,7 +86,7 @@
                <td width=100>금액</td>         
             </tr>
             {{#each orderList}}
-            <tr class="row">
+            <tr class="row"  style="font-weight:bold;">
                <td>{{product_id}}</td>            
                <td>{{product_name}}</td>
                <td>{{product_price}}</td>
@@ -137,13 +140,18 @@ Handlebars.registerHelper("d_success", function(order_status){
             $("#total_Orders").html("주문 건 수: " + data.pm.totalCount + "건");
             //페이징목록출력
             var str="";
-            for(var i=data.pm.startPage; i<=data.pm.endPage; i++){
-               if(page==i){
-                  str+="<a style='color:gray;' href=' "+i+" '>"+i +" </a>";
+            var prev=data.pm.startPage-1;
+            var next=data.pm.endPage+1;
+            
+            if(data.pm.prev) str +="<a href='" + prev + "'>◀</a>";
+            for(var i=data.pm.startPage;i<=data.pm.endPage; i++){
+               if(i==page){
+                  str += "<a class='active' href='" + i + "'>&nbsp&nbsp" + i + "&nbsp&nbsp</a> ";
                }else{
-                  str+="<a href=' "+i+" '>"+i +" </a>";
-               }
+                  str += "<a href='" + i + "'>&nbsp&nbsp" + i + "&nbsp&nbsp</a> ";
+               }   
             }
+            if(data.pm.next) str +="<a href='" + next + "'>▶</a>";
             $("#pagination").html(str);
             }
          });            

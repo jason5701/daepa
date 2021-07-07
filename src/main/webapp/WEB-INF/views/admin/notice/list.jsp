@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<style>
+ #pagination{text-align: center; margin-top:10px;}
+ #pagination a{text-decoration:none; color:#123478;font-weight:bold;}
+ #pagination .active{color:#ccc}
+</style>
 <div class="head_aticle">
 	<h2 class="tit">공지사항</h2>
 	<div>
@@ -24,7 +29,7 @@
 	</div>
 	<table id="tbl"></table>
 	<script id="temp" type="text/x-handlebars-template">
-		<tr style="background:#fafafa;">
+		<tr style="background:#fafafa; font-weight:bold;">
 			<td>번호</td>
 			<td>제목</td>
 			<td>작성자</td>
@@ -32,7 +37,7 @@
 			<td>조회수</td>
 		</tr>
 		{{#each list}}
-			<tr onClick="location.href='/board/admin_notice_read?notice_number={{notice_number}}'">
+			<tr onClick="location.href='/board/admin_notice_read?notice_number={{notice_number}}'" style="font-weight:bold;">
 				<td>{{notice_number}}</td>
 				<td>{{notice_title}}</td>
 				<th>{{notice_writer}}</th>

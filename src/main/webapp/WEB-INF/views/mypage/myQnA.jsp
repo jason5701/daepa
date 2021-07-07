@@ -2,11 +2,11 @@
 <link rel="stylesheet" href="/resources/css/mypage.css"/>
 <style>
        .page_section{width:810px; height:600px; float:right;}
-      table{width: 100%;border-collapse: collapse;border-bottom:solid 1px;}
+      table{width: 100%;border-collapse: collapse;border-bottom:solid 1px; font-size:15px;font-weight:bold;}
       td{border:solid 1px rgb(200, 200, 200) solid;padding: 10px;text-align: center;}
-      .row:hover{background: rgb(200, 200, 200);color: white;}
-      .row{border-top:solid 1px rgb(200, 200, 200); font-size:13px;}
-      .title{background: #FAFAFA; border-top:2px solid;text-align: center; font-size:13px;}
+     .row:hover{cursor:pointer;}
+      .row{border-top:solid 1px rgb(200, 200, 200); }
+      .title{background: #FAFAFA; border-top:2px solid;text-align: center; font-size:15px;}
       #pagination{text-align: center; font-size:12pt; font-weight:bold; }
      #pagination a{text-decoration:none; color:#123478;}
      #pagination .active{color:#ccc;}

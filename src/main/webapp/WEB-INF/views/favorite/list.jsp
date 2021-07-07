@@ -3,19 +3,30 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<style>
+	  table{width: 100%;border-collapse: collapse;border-bottom:solid 1px;}
+      tr,td{border-bottom:1px #ccc solid;padding: 10px;text-align: center;}
+      .title{background: #FAFAFA; border-top:2px solid;text-align: center; font-size:15px;}
+</style>
 <div id="favorite">
-<h2>찜목록</h2><br/>
+<h2>찜 목 록</h2><br/>
    <c:if test="${productflist.size() == 0 && meterialflist.size() == 0}">
       <h3>찜목록에 담긴 상품이 없어요.</h3>         
    </c:if>
    
    <c:if test="${productflist.size() > 0}">
    <div id="favorite">
-      <div class="chkBox">
-         <input type="checkbox" name="chkAll" id="chkAll" /><label for="chkAll">모두 선택</label> 
-         <button type="button" class="selectDelete_btn">선택 삭제</button> 
+      <div class="chkBox">         
+         <button type="button" class="selectDelete_btn">선 택 삭 제</button> 
       </div><br/>
       <table id="productftbl">
+       	<tr class="title">
+       		<td><input type="checkbox" name="chkAll" id="chkAll" style="margin-right:5px;" /><label for="chkAll"></label></td>
+       		<td>상품이미지</td>
+       		<td>상품이름</td>
+       		<td>단가</td>
+       		<td>삭제</td>       		
+       	</tr>
          <c:forEach items="${productflist}" var="productflist">
          <tr class="row">
             <td class="product_id" style="display:none;">${productflist.product_id}</td>

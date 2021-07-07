@@ -22,9 +22,9 @@
 	<script id="tempblogs" type="text/x-handlebars-template">
 		{{#each documents}}
 		<div style="float:left; width:220px; margin-left:5px;">
-			<div class="thumb"><a href="{{url}}"><img src="{{thumbnail}}"></a></div>
+			<div class="thumb"><a href="{{url}}"><img src="{{thumbnail}}" style="width:220px; float:left; height:150px;"></a></div>
 			<br>
-			<div class="title">{{{title}}}</div>
+			<div class="title" style="width:220px; float:left; font-size:9pt; margin-top:5px;">{{{title}}}</div>
 		</div>
 		{{/each}}
 	</script>
@@ -41,12 +41,13 @@
 				<a href="/vege_detail?meterial_id={{meterial_id}}">
 					<img src="/displayFile?fullName={{meterial_image}}" width=150 height=150 />
 					<span class="items_name">{{meterial_name}}</span><br>
-					<span class="items_price">{{meterial_price}}원</span>
+					<span class="items_price">{{nf meterial_price}}원</span>
 				</a>
 			</li>
 		{{/each}}
 	</ul>
 	</script>
+	
 	</div>
 </div>
 
@@ -68,7 +69,12 @@
 	<div id="detailContent3" ><jsp:include page="${product_review}"></jsp:include></div>
 	<div id="detailContent4" ><jsp:include page="${product_boardQA_list}"></jsp:include></div>
 </div>
-
+<script>
+	Handlebars.registerHelper("nf", function(price){
+	    var regexp = /\B(?=(\d{3})+(?!\d))/g; 
+	    return price.toString().replace(regexp, ",");
+	});
+</script>
 <script>
 var product_id="${vo.product_id}";
 var product_name="${vo.product_name}";

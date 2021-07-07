@@ -6,6 +6,7 @@ ul, li{list-style:none; }
 select { width: 130px;
          padding: .5em .5em;
          border: 1px solid #ccc;
+         font-weight:bold;
          font-family: inherit;
          background: url('/resources/image/index/arrow.jpg') no-repeat 95% 50%;
          border-radius: 0px;
@@ -26,6 +27,30 @@ select::-ms-expand {display: none;}
 	font-weight:bold;
 	margin-left: 10px;
 }
+.selectDelete_btn {
+	width: 120px;
+	height: 40px;
+	padding: .4em;
+	border: 1px solid #123478;
+	background: #123478;
+	border-radius: 5px 5px 5px;
+	color: white;
+	font-weight:bold;
+	margin-left: 10px;
+}
+
+.delete_btn{
+	width: 70px;
+	height: 40px;
+	padding: .4em;
+	border: 1px solid #123478;
+	background: #123478;
+	border-radius: 5px 5px 5px;
+	color: white;
+	font-weight:bold;
+	margin-left: 10px;
+}
+
 .text_style {
 	width: 350px;
 	height: 40px;
@@ -87,7 +112,7 @@ hr{width:100%; margin:0px auto; display:block; border:black 0 none;
 #userMenu a:active{color:black; }
 #userMenu .menuItem{float:right; }
 .menuItem .userID{margin-left:20px; font-size:9pt; background:#364967; color:white;}
-#userMenu .menuItem a{margin-left:20px;}
+#userMenu .menuItem a{margin-left:20px; font-weight:bold;}
 #category{width:1000px; height:40px; overflow:hidden; margin-top:30px;
 		  margin-bottom:10px; }
 
@@ -268,8 +293,8 @@ label.right{
 #product{width:240px; float:left; margin-left:6px; margin-right:6px; 
 		 font-size:10pt; margin-top:10px; }
 #product .product_image{width:240px; height:240px; margin-bottom:13px; }
-#product .product_name{width:230px; font-size:12pt; margin-bottom:3px; }
-#product .product_price{width:230px; padding:5px; margin-bottom:10px; text-align:right; }
+#product .product_name{width:230px; font-size:12pt; margin-bottom:3px; font-weight:bold; }
+#product .product_price{width:230px; padding:5px; margin-bottom:10px; text-align:right; font-weight:bold;  }
 
 .list_category {
     width: 1000px;
@@ -289,6 +314,7 @@ label.right{
     padding: 9px 18px 0 19px;
     border: 1px solid #f7f7f7;
     border-radius: 20px;
+    font-weight:bold;
     background-color: white;
     font-size: 13px;
     line-height: 18px;
@@ -334,6 +360,15 @@ label.right{
 }
 .prev{margin-right:20px; cursor:pointer; }
 .next{margin-left:20px; cursor:pointer; }
+
+input[type="checkbox"]{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin-top:10px;
+	border: 2px solid #364967;
+	cursor: pointer;
+}
 
 /* 푸터  */
 #footer{width:1000px; margin:0px auto; margin-top:30px; margin-bottom:20px;}

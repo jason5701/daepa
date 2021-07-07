@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="/resources/css/admin_main.css"/>
 <style>
 #div_content{width: 100%; margin:0px auto;}
-table {width: 100%; border-top: 1px solid #444444; border-collapse: collapse;}
+table {width: 100%; border-top: 1px solid #444444; border-collapse: collapse; font-weight:bold;}
 tr, td {border-bottom: 1px solid #444444;padding: 10px;}
 </style>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -44,8 +44,7 @@ tr, td {border-bottom: 1px solid #444444;padding: 10px;}
 			</tr>
 		{{/each}}
 	</script>
-	<div id="pagination"></div>
-	
+	<div id="pagination"></div>	
 </div>
 <script>
 	var page=1;

@@ -18,10 +18,10 @@
 <div id="blogs"></div>
 	<script id="tempblogs" type="text/x-handlebars-template">
 		{{#each documents}}
-		<div style="float:left; width:220px; margin-left:20px;">
-			<div class="thumb"><a href="{{url}}"><img src="{{thumbnail}}"></a></div>
+		<div style="float:left; width:220px; margin-left:5px;">
+			<div class="thumb"><a href="{{url}}"><img src="{{thumbnail}}" style="width:220px; float:left; height:150px;"></a></div>
 			<br>
-			<div class="title">{{{title}}}</div>
+			<div class="title" style="width:220px; float:left; height:170px; font-size:10pt margin-top:5px">{{{title}}}</div>
 		</div>
 		{{/each}}
 	</script>

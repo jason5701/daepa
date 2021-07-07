@@ -42,8 +42,9 @@ public class OrderController {
 	ProductService product_service;
 
 	@RequestMapping(value="update_orderstatus", method=RequestMethod.POST)
-	public void update_orderstatus(OrderVO ordervo) throws Exception{
+	public String update_orderstatus(OrderVO ordervo) throws Exception{		
 		purchase_dao.update_orderstatus(ordervo); 
+		return "redirect:/admin/orders";
 	}
 	
 	//주문서 입력

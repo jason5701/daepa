@@ -3,13 +3,13 @@
 <link rel="stylesheet" href="/resources/css/mypage.css"/>
     <style>
        .page_section{width:810px; height:600px; float:right; margin-top:20px; }
-      table{width: 100%;border-collapse: collapse;border-bottom:solid 1px;}
+      table{width: 100%;border-collapse: collapse;border-bottom:solid 1px;  font-weight:bold;}
       td{border:solid 1px rgb(200, 200, 200) solid;padding: 10px;text-align: center;}
       .row:hover{cursor:pointer;}
       .row{border-top:solid 1px rgb(200, 200, 200);}
       .title{border-top:2px solid;text-align: center;}
       #pagination{text-align: center; margin-top:10px;}
-      #pagination a{text-decoration:none; color:#123478;}
+      #pagination a{text-decoration:none; color:#123478;font-weight:bold;}
       #pagination .active{color:#ccc}
       #review_insert{text-align:right;}
       #total{display:none;}

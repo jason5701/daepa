@@ -180,12 +180,12 @@ public class AdminController {
 	}
 	
 	//관리자-채팅
-	@RequestMapping("chat")
-	public String chat(Model model){
-		model.addAttribute("pageName", "admin/main.jsp");
-		model.addAttribute("rightPage", "cs/cs_service.jsp");
-		return "/index";
-	}
+	   @RequestMapping("chat")
+	   public String chat(Model model){
+	      model.addAttribute("pageName", "admin/main.jsp");
+	      model.addAttribute("rightPage", "realtime/chat.jsp");
+	      return "/index";
+	   }
 
 	
 }

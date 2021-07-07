@@ -24,6 +24,7 @@
 }
 .all_price{
 	width:320px; 
+	font-weight:bold;
 	font-size:11pt; 
 	margin-bottom:6px;
 	text-align:right; 
@@ -33,8 +34,9 @@
 	width:320px;  
 	height:20px;
 	font-size:9pt; 
+	font-weight:bold; 
 	margin-bottom:6px;
-	text-align:left; 
+	text-align:center; 
 	text-overflow: ellipsis;
 	color:#123478;
 }
@@ -48,10 +50,15 @@
 }
 #allCategoryList .categoryList li a{
 	color:black;
+	font-weight:bold;
+	padding:3px;	
+	margin-bottom:2px;
+	border-radius:3px;
+	font-size:12pt;
 	text-decoration:none;
 }
 #allCategoryList .categoryList li a:hover{
-	background:#364967; 
+	background:#123478; 
 	color:white; 
 	text-decoration:none;
 }

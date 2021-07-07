@@ -4,11 +4,11 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
    <style>
-      table{width:100%;border-collapse: collapse;border-bottom:solid 1px;}
+      table{width:100%;border-collapse: collapse;border-bottom:solid 1px;font-weight:bold;}
       td{border:solid 1px rgb(200, 200, 200) solid;padding: 10px;text-align: center;}
-      .row:hover{background: rgb(200, 200, 200);color: white;}
+      .row:hover{cursor:pointer;}
       .row{border-top:solid 1px rgb(200, 200, 200); font-size:13px;}
-      .title{background: #FAFAFA; border-top:2px solid;text-align: center; font-size:13px;}
+      .title{background: #FAFAFA; border-top:2px solid;text-align: center; font-size:15px;}
       #pagination{text-align: center; font-size:12pt; font-weight:bold; }
      #pagination a{text-decoration:none; color:#123478;}
      #pagination .active{color:#ccc;}
@@ -24,7 +24,7 @@
    <script id="temp" type="text/x-handlebars-template">
       <tr class="title">
          <td>번호</td>
-         <td width=400>제목</td>
+         <td width=250>제목</td>
          <td>작성자</td>
          <td>작성일</td>
          <td>조회수</td>

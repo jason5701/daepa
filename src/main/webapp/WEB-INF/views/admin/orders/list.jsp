@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <style>
+ table {width: 100%; border-top: 2px solid black; margin:10px auto; text-align:center; font-weight:bold; border-collapse: collapse;}
+   tr, td {border-bottom: 1px solid #444444;padding: 10px;}  
+ #pagination{text-align: center; margin-top:10px;}
+ #pagination a{text-decoration:none; color:#123478;font-weight:bold;}
+ #pagination .active{color:#ccc}
+</style>
 <h2>주문 내역</h2>
 <div id="div_orders">
 <table id="tbl"></table>		
@@ -15,7 +22,7 @@
 			<td width=50>배송상태</td>
 		</tr>
 	{{#each admin_list}}
-		<tr class="tr_row" order_number="{{order_number}}">
+		<tr class="tr_row" order_number="{{order_number}}"  order_status="{{order_status}}">
 			<td>{{order_number}}</td>
 			<td>{{user_id}}</td>
 			<td>{{order_name}}</td>
@@ -30,7 +37,7 @@
 <div id="pagination"></div>
 	<div class="div_orderList">
 			<hr/>
-			<h2 style="margin:10px auto; padding-left:10px;">주문 목록<button id="btnSend" class="btn_admin" style="float:right; margin-left:20px;">배송</button></h2>
+			<h3 style="margin:10px auto; padding-left:10px;">주문 목록<button id="btnSend" class="btn_admin" style="float:right; margin-left:20px;">배송</button></h3>
 			<table id="tbl_purchase_List"  style="text-align:center;"></table>
 			<script id="temp_purchase_List" type="text/x-handlebars-template">
 				<tr class="title" style="background:#fafafa;">
@@ -79,18 +86,25 @@ Handlebars.registerHelper("pm", function(order_payment){
 	$("#tbl").on("click",".tr_row",function(){	
 		$(".div_orderList").show();
 		var order_number = $(this).attr("order_number");
-		purchaseList(order_number);
+		var order_status = $(this).attr("order_status");
+		purchaseList(order_number);		
 		$("#btnSend").on("click",function(){	
-			alert("주문번호 : " + order_number + "을 배송 처리하시겠습니까?");
-			$.ajax({
-				type:"post",
-				url:"/order/update_orderstatus",
-				data:{"order_number":order_number},
-				success:function(){	
-					$("#div_orders").load(location.href+"#div_orders");
-				}				
-			});			
-		});
+				alert("주문번호 : " + order_number + "을 배송 처리하시겠습니까?");
+				if(order_status==1){
+					alert("이미 배송이 완료된 주문건 입니다.");
+					return;
+				}else if(order_status==0){
+						$.ajax({
+							type:"post",
+							url:"/order/update_orderstatus",
+							data:{"order_number":order_number,"page":page},
+							success:function(){	
+								alert("배송처리 완료하였습니다.");
+								location.href="/admin/orders"
+						}				
+				});	
+			}
+		});		
 	});
 	
 	function getOrder_list(){

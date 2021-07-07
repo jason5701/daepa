@@ -111,9 +111,13 @@ h1, h2, h3, h4{text-align:center; }
 	background:white;
 	margin-left:1px;
 }
-.meterials a, a:visited, a:active, a:hover{
+.meterials a, a:visited, a:active{
 	text-decoration:none; 
 	color:black;
+}
+a:hover{
+	text-decoration:none; 
+	color:#ccc;
 }
 .meterials img{
 	border:1px solid black;
