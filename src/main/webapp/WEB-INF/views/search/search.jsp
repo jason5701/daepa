@@ -20,7 +20,7 @@
 </c:if>
 <c:if test="${count > 0}">
 	<h2>"<%=keyword%>" 검색결과</h2>
-	<span>총 ${count}건이 검색되었습니다.</span>
+	<span style="font-weight:bold;">총 ${count} 건이 검색 되었습니다.</span><br><br>
 	<div id="all_plist"></div>
 		<script id="ptemp" type="text/x-handlebars-template">
 		{{#each plist}}
@@ -31,7 +31,7 @@
 				</div>
 			</a>
 			<div class="all_name">{{product_name}}</div>
-			<div class="all_price">{{product_price}}원</div>
+			<div class="all_price">{{nf product_price}}원</div>
 		</div>
 		{{/each}}
 		</script>
@@ -46,12 +46,18 @@
 				</div>
 			</a>
 			<div class="all_name">{{meterial_name}}</div>
-			<div class="all_price">{{meterial_price}}원</div>
+			<div class="all_price">{{nf meterial_price}}원</div>
 		</div>
 		{{/each}}
 		</script>
 </c:if>
 </div>
+<script>
+Handlebars.registerHelper("nf", function(price){
+    var regexp = /\B(?=(\d{3})+(?!\d))/g; 
+    return price.toString().replace(regexp, ",");
+});
+</script>
 <script>
 var keyword="<%=keyword%>";
 

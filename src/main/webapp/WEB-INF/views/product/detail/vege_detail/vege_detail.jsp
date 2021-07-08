@@ -7,6 +7,9 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 </head>
+<style>
+   .title{width:180px; white-space: nowrap; text-overflow:ellipsis; overflow:hidden;}
+</style>
 <div id="detail">
 	<div>
 		<jsp:include page="${product_div}"></jsp:include>

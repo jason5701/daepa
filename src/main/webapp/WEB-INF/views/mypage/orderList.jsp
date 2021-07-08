@@ -138,21 +138,20 @@ Handlebars.registerHelper("d_success", function(order_status){
             var temp = Handlebars.compile($("#temp_orders").html());
             $("#tbl_orders").html(temp(data));   
             $("#total_Orders").html("주문 건 수: " + data.pm.totalCount + "건");
-            //페이징목록출력
             var str="";
             var prev=data.pm.startPage-1;
-            var next=data.pm.endPage+1;
-            
+            var next=data.pm.endPage+1;            
+
             if(data.pm.prev) str +="<a href='" + prev + "'>◀</a>";
             for(var i=data.pm.startPage;i<=data.pm.endPage; i++){
                if(i==page){
                   str += "<a class='active' href='" + i + "'>&nbsp&nbsp" + i + "&nbsp&nbsp</a> ";
                }else{
-                  str += "<a href='" + i + "'>&nbsp&nbsp" + i + "&nbsp&nbsp</a> ";
+                     str += "<a href='" + i + "'>&nbsp&nbsp" + i + "&nbsp&nbsp</a> ";
                }   
             }
             if(data.pm.next) str +="<a href='" + next + "'>▶</a>";
-            $("#pagination").html(str);
+			$("#pagination").html(str);
             }
          });            
    }

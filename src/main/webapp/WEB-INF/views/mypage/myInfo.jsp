@@ -39,7 +39,7 @@ $(frm).on("submit", function(e) {
 			url : "/user/login",
 			data : {"user_id" : user_id,"user_password" : user_password},
 			success : function(data) {
-				alert("비번확인!");
+				alert("비밀번호 확인");
 				console.log(data);
 				if(data.result==1){
 					location.href="/mypage/myInfoupdate";

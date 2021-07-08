@@ -6,6 +6,9 @@
 	table {width: 100%; border-top: 1px solid #444444; border-collapse: collapse;}
 	tr, td {border-bottom: 1px solid #444444;padding: 10px;}
 	#total{display:none;}
+	#pagination{text-align: center; margin-top:10px;}
+ #pagination a{text-decoration:none; color:#123478; font-weight:bold;}
+ #pagination .active{color:#ccc}
 </style>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <h2>자주하는질문</h2>

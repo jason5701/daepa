@@ -79,9 +79,9 @@
 				if(data.pm.prev) str+="<a href='"+prev+"'>◀</a>";
 				for(var i=data.pm.startPage; i<=data.pm.endPage; i++){
 					if(i==page){
-						str+="<a style='color:#ccc;' href='"+i+"'>"+i+"&nbsp&nbsp</a>"
+						str+="<a style='color:#ccc;' href='"+i+"'>&nbsp&nbsp"+i+"&nbsp&nbsp</a>"
 					}else{
-						str+="<a href='"+i+"'>"+i+"&nbsp&nbsp</a>"
+						str+="<a href='"+i+"'>&nbsp&nbsp"+i+"&nbsp&nbsp</a>"
 					}
 				}
 				if(data.pm.next) str+="<a href='"+next+"'>▶</a>";

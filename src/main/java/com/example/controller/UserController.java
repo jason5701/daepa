@@ -60,7 +60,8 @@ public class UserController {
 		
 	@RequestMapping(value="login",method=RequestMethod.POST)
 	@ResponseBody
-	public HashMap<String,Object> loginPost(UserVO user_info,String user_password,HttpSession session,boolean chkLogin,HttpServletResponse response)throws Exception{
+	public HashMap<String,Object> loginPost(UserVO user_info,String user_password,
+			HttpSession session,boolean chkLogin,HttpServletResponse response)throws Exception{
 		  HashMap<String,Object> map = new HashMap<String,Object>();
 		  session.setAttribute("id", user_info.getUser_id());
 		  int result = 0; //아이디가 없는 경우

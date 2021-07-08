@@ -50,6 +50,7 @@
 #allCategoryList .categoryList li a{
 	color:black;
 	font-weight:bold;
+	cursor:pointer;
 	padding:3px;	
 	margin-bottom:2px;
 	border-radius:3px;

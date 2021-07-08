@@ -4,7 +4,9 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script type="text/javascript" src="https://dapi.kakao.com/v2/search/blog?query=고기"></script>
-
+<style>
+   .title{width:180px; white-space: nowrap; text-overflow:ellipsis; overflow:hidden;}
+</style>
 <head>
 	<link rel="stylesheet" href="/resources/css/detail.css" />
 	<link rel="preconnect" href="https://fonts.gstatic.com">

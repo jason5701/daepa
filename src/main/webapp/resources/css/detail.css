@@ -10,12 +10,13 @@ h1, h2, h3, h4{text-align:center; }
 #product_detail hr{margin-bottom:15px; margin-top:20px; 
 				   color: #666; border:0px; border-top:1px dotted #666; }
 
-#product_detail .product_name{font-size:17pt; margin-bottom:5px; margin-top:30px; }
-#product_detail .product_detail{font-size:9pt; margin-bottom:10px; }
-#product_detail .product_price{font-size:17pt; }
+#product_detail .product_name{font-size:17pt; margin-bottom:5px; margin-top:30px; font-weight:bold;}
+#product_detail .product_detail{font-size:9pt; margin-bottom:10px; font-weight:bold;}
+#product_detail .product_price{font-size:17pt; font-weight:bold;}
 
 .tit{
     float: left;
+    font-weight:bold;
     width: 150px;
     font-size: 14px;
     color: #666;
@@ -24,10 +25,12 @@ h1, h2, h3, h4{text-align:center; }
 }
 .desc{
 	font-size: 14px;
+	font-weight:bold;
 	margin-bottom:10px;
 }
 #product_qtt{
 	margin-left:5px; 
+	font-weight:bold;
 	margin-right:5px; 
 	vertical-align: top; 
 	font-size:12pt;
@@ -37,11 +40,11 @@ h1, h2, h3, h4{text-align:center; }
 }
 
 #groupBtn{width:500px; float:right; margin-bottom:30px; text-align:right;}
-#groupBtn button{padding:10px; background:white; border:1px solid black; }
+#groupBtn button{padding:10px; background:white; border:1px solid black; font-weight:bold; }
 #groupBtn .btnAlarm{width:120px; margin-right:5px; }
 #groupBtn .btnSave{width:120px; margin-right:5px; }
 #groupBtn .btnCart{width:200px; }
-#price{text-align:right; }
+#price{text-align:right; font-weight:bold;}
 
 /* 메뉴바 스크롤 */
 .detailMenu{
@@ -124,9 +127,11 @@ a:hover{
 }
 .meterials .items_name{
 	width: 165px;
+	font-weight:bold;
 	font-size:10pt;
 }
 .meterials .items_price{
 	width: 165px;
+	font-weight:bold;
 	font-size:10pt;
 }

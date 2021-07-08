@@ -115,21 +115,23 @@ Handlebars.registerHelper("pm", function(order_payment){
 			data:{"page":page},
 			success:function(data){
 				var temp=Handlebars.compile($("#temp").html());
-				$("#tbl").html(temp(data));
-				
+				$("#tbl").html(temp(data));				
 				var str="";
-				for(var i=data.pm.startPage; i<=data.pm.endPage; i++){
-					if(page==i){
-						str+="<a style='color:#ccc;' href='"+i+"'>"+i+"&nbsp&nbsp</a>";
-					}else{
-						str+="<a href='"+i+"'>"+i+" &nbsp&nbsp</a>";
-					}
-				}
+	               var prev=data.pm.startPage-1;
+	               var next=data.pm.endPage+1;  
+	               if(data.pm.prev) str +="<a href='" + prev + "'>◀</a>";
+	               for(var i=data.pm.startPage;i<=data.pm.endPage; i++){
+	                  if(i==page){
+	                     str += "<a class='active' href='" + i + "'>&nbsp&nbsp" + i + "&nbsp&nbsp</a> ";
+	                  }else{
+	                        str += "<a href='" + i + "'>&nbsp&nbsp" + i + "&nbsp&nbsp</a> ";
+	                  }   
+	               }
+	               if(data.pm.next) str +="<a href='" + next + "'>▶</a>";
 				$("#pagination").html(str);
 			}
 		});
-	}
-	
+	}	
 	function purchaseList(order_number){		
 		$.ajax({			
 			type:"get",
