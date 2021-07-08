@@ -233,10 +233,18 @@ label.right{
 	background-repeat:no-repeat;
 }
 
-[id="slide01"]:checked ~ .slideList .slideItem {transform:translateX(0); animation:slide01 20s infinite;}
-[id="slide02"]:checked ~ .slideList .slideItem {transform:translateX(-100%); animation:slide02 20s infinite;}
-[id="slide03"]:checked ~ .slideList .slideItem {transform:translateX(-200%); animation:slide03 20s infinite;}
-[id="slide04"]:checked ~ .slideList .slideItem {transform:translateX(-300%); animation:slide03 20s infinite;}
+[id="slide01"]:checked ~ .slideList .slideItem {
+	transform:translateX(0); animation:slide01 20s infinite;
+}
+[id="slide02"]:checked ~ .slideList .slideItem {
+	transform:translateX(-100%); animation:slide02 20s infinite;
+}
+[id="slide03"]:checked ~ .slideList .slideItem {
+	transform:translateX(-200%); animation:slide03 20s infinite;
+}
+[id="slide04"]:checked ~ .slideList .slideItem {
+	transform:translateX(-300%); animation:slide03 20s infinite;
+}
 
 @keyframes slide01 {
 	0% {left:0%}

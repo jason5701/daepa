@@ -75,7 +75,7 @@
          <br>
       <div class="div_orderList">
          <hr/>
-         <h2>주문 목록</h2>
+         <h2 style="margin-top:30px; margin-bottom:20px;">주문 목록</h2>
          <table id="tbl_orderList"></table>
          <script id="temp_orderList" type="text/x-handlebars-template">
             <tr class="title"  style="background:#fafafa; font-weight:bold;">
