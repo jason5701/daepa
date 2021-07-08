@@ -61,7 +61,7 @@
       }*/
       $(this).next().toggle();
    });
-   $("#keyword").on("keydown",function(e){
+   $(".admin_text").on("keydown",function(e){
       if(e.keyCode==13) {
          $("#btn_search").click();
       }
@@ -73,7 +73,7 @@
    
    function getNotice(){
       var type=$("#type").val();
-      var keyword=$("#keyword").val();
+      var keyword=$(".admin_text").val();
       //alert("111");
       $.ajax({
          type:"get",

@@ -17,7 +17,7 @@
       #pagination_1{text-align: center; font-size:12pt; font-weight:bold; }
       #pagination_1 a{text-decoration:none; color:#123478;}
       #pagination_1 .active{color:#ccc;}
-      #product_boardQA_insert{text-align:right;}
+      #product_boardQA_insert{text-align:right; margin-top:10px;}
       #total{display:none;}
    </style>
 </head>
