@@ -19,6 +19,7 @@
       #pagination .active{color:#ccc;}
       #review_insert{text-align:right;}
       #total{display:none;}
+      #review_insert{margin-top:10px;}
    </style>
 </head>
 <body>

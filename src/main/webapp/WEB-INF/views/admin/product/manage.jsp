@@ -72,7 +72,7 @@
 	$("#main_meterial").on("change",function(){
 		getProduct_list();
 	});
-	$("#keyword").on("keydown",function(e){
+	$(".admin_text").on("keydown",function(e){
 		if(e.keyCode==13) {
 			$("#btn_search").click();
 		}
@@ -83,7 +83,7 @@
 	});
 	getProduct_list();
 	function getProduct_list(){
-		var keyword=$("#keyword").val();
+		var keyword=$(".admin_text").val();
 		var type=$("#main_meterial").val();
 		$.ajax({
 			type:"get",

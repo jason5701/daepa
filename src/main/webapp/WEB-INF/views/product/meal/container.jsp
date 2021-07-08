@@ -9,7 +9,7 @@
 </head>
 
 <div id="allCategoryList">
-	<h2>1인 밀키트</h2>
+	<h2>1인 밀키트 / 완제품</h2>
 	<ul id="category_list" class="categoryList">
 		<c:forEach items="${type}" var="vo">
 			<li>

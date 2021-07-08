@@ -15,10 +15,11 @@
 
 <div id="all_list">
 <c:if test="${count == 0}">
-	<h2>"<%=keyword%>" 검색결과</h2>
-	<h2 style="color:red; ">검색결과가 없습니다.</h2>
+	<h3>"<%=keyword%>" 검색결과</h3>
+	<h3 style="color:red; margin-top:50px;">검색결과가 없습니다.</h3>
 </c:if>
 <c:if test="${count > 0}">
+
 	<h2>"<%=keyword%>" 검색결과</h2>
 	<span style="font-weight:bold;">총 ${count} 건이 검색 되었습니다.</span><br><br>
 	<div id="all_plist"></div>

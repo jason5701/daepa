@@ -31,7 +31,7 @@
 	<form name="frm" id="frm">
 	<span style="font-size:17pt; font-weight:bold; color:#123478;">주문자 정보</span>  
 	<hr style="border-bottom:1px solid #eaeaea;"/><br/>
-		주문자 : <input type="text" id="user_name" value="${user_info.user_name}"/><br/>
+		주문자 : <input type="text" id="user_name1" value="${user_info.user_name}"/><br/>
 		휴대폰 : <input type="text" id="user_mobile" value="${user_info.user_mobile}"/><br/>
 		이메일 : <input type="text" id="user_email" value="${user_info.user_email}"/><br/>
 		
@@ -146,6 +146,12 @@
 $("#bank").hide();
 var user_id="${user_info.user_id}";
 
+$("#point").on("keydown",function(e){
+	if(e.keyCode==13) {
+		$("#point_o").click();
+	}
+});
+
 $("#point_o").on("click", function(){
 	var expoint=${userinfo.user_point}; //기존 적립금
 	var point=$("#point").val(); //사용 적립금
@@ -228,7 +234,7 @@ $("#btnKakao").click(function(){
 			        }
 			    });
 	           
-				var order_name=$("#user_name").val();
+				var order_name=$("#user_name1").val();
 				var order_mobile=$("#user_mobile").val();
 				var order_email=$("#user_email").val();
 				var order_address=$("#sample4_roadAddress").val()+" "+$("#sample4_detailAddress").val();
