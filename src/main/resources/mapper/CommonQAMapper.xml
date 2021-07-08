@@ -11,6 +11,15 @@
       </if>
       order by commonQA_number desc limit #{pageStart}, #{perPageNum}
    </select>
+   <select id="admin_totalCount" resultType="int">
+      select count(*) from tbl_commonQA
+      <if test="searchType=='commonQA_title'">
+         where commonQA_title like concat('%',#{keyword},'%')
+      </if>
+      <if test="searchType=='commonQA_contents'">
+         where commonQA_contents like concat('%',#{keyword},'%')
+      </if>
+   </select>
    <select id="admin_read" resultType="com.example.domain.CommonQAVO">
       select * from tbl_commonQA where commonQA_number=#{commonQA_number}
    </select>
@@ -32,7 +41,7 @@
       order by commonQA_number desc 
       limit #{pageStart}, #{perPageNum}
    </select>
-    <select id="totalCount" resultType="int">
+   <select id="totalCount" resultType="int">
       select count(*) from tbl_commonQA
       <if test="searchType=='선택'">
          where commonQA_title like concat('%',#{keyword},'%')

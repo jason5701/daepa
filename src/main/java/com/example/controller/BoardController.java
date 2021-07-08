@@ -493,34 +493,34 @@ BoardQAVO vo=boardQA_dao.product_boardQA_read(boardQA_number);
 	CommonQADAO commonQA_dao;
 	
 	@RequestMapping("admin_commonQA.json")
-	@ResponseBody
-	public HashMap<String,Object> admin_commonQAList(Criteria cri)throws Exception{
-		HashMap<String,Object> map=new HashMap<String,Object>();
-		map.put("list", commonQA_dao.admin_list(cri));
-		PageMaker pm=new PageMaker();
-		pm.setCri(cri);
-		pm.setTotalCount(commonQA_dao.totalCount(cri));
-		map.put("cri", cri);
-		map.put("pm", pm);
-		return map;
-	}
-	
-	@RequestMapping(value="admin_commonQA_insert")
-	public String admin_commonQA_insert(Model model)throws Exception{
-		model.addAttribute("pageName", "admin/main.jsp");
-		model.addAttribute("rightPage", "commonQA/insert.jsp");
-		int code=(commonQA_dao.admin_commonQA_code()+1);
-		model.addAttribute("code",code);
-		return "/index";
-	}
-	
-	@RequestMapping(value="admin_commonQA_insert",method=RequestMethod.POST)
-	public String admin_commonQA_insert_post(CommonQAVO vo)throws Exception{
-		System.out.println("자주하는질문 insert 확인!!!!!!!!"+vo.toString());
-		
-		commonQA_dao.admin_insert(vo);
-		return "redirect:/admin/commonQA";
-	}
+   @ResponseBody
+   public HashMap<String,Object> admin_commonQAList(Criteria cri)throws Exception{
+      HashMap<String,Object> map=new HashMap<String,Object>();
+      map.put("list", commonQA_dao.admin_list(cri));
+      PageMaker pm=new PageMaker();
+      pm.setCri(cri);
+      pm.setTotalCount(commonQA_dao.admin_totalCount(cri));
+      map.put("cri", cri);
+      map.put("pm", pm);
+      return map;
+   }
+   
+   @RequestMapping(value="admin_commonQA_insert")
+   public String admin_commonQA_insert(Model model)throws Exception{
+      model.addAttribute("pageName", "admin/main.jsp");
+      model.addAttribute("rightPage", "commonQA/insert.jsp");
+      int code=(commonQA_dao.admin_commonQA_code()+1);
+      model.addAttribute("code",code);
+      return "/index";
+   }
+   
+   @RequestMapping(value="admin_commonQA_insert",method=RequestMethod.POST)
+   public String admin_commonQA_insert_post(CommonQAVO vo)throws Exception{
+      System.out.println("자주하는질문 insert 확인!!!!!!!!"+vo.toString());
+      
+      commonQA_dao.admin_insert(vo);
+      return "redirect:/admin/commonQA";
+   }
 	
 	@Autowired
 	SuggestionDAO suggestion_dao;

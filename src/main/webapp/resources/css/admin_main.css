@@ -118,8 +118,7 @@ select::-ms-expand {display: none;}
 	width: 150px;
 	height: 40px;
 	padding: .4em;
-	margin: 5px;
-	font-weight: 600;
+	margin: 5px;	
 	background: white;
 	 border: 1px solid #ccc;
     border-radius: 3px;
@@ -156,10 +155,11 @@ select::-ms-expand {display: none;}
 	width: 120px;
 	height: 40px;
 	padding: .4em;
-	border: 1px solid #364967;
+	font-weight:bold;
+	border: 1px solid #123478;
 	background: white;
 	border-radius: 5px 5px 5px;
-	color: #364967;
+	color: #123478;
 	margin-left:10px;
 }
 
