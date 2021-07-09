@@ -24,7 +24,6 @@ select::-ms-expand {display: none;}
 	background: #123478;
 	border-radius: 5px 5px 5px;
 	color: white;
-	font-weight:bold;
 	margin-left: 10px;
 }
 .selectDelete_btn {

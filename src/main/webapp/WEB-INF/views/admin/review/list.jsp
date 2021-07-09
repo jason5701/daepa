@@ -19,15 +19,10 @@
       #pagination .active{color:#ccc;}
       #review_insert{text-align:right;}
       #total{display:none;}
-      #review_insert{margin-top:10px;}
    </style>
 </head>
 <body>
-   <h2>PRODUCT REVIEW</h2>
-   <ul>
-      <li>상품에 대한 문의를 남기는 공간입니다. 해당 게시판의 성격과 다른 글은 사전동의 없이 담당 게시판으로 이동될 수 있습니다.</li>
-      <li>배송관련, 주문(취소/교환/환불)관련 문의 및 요청사항은 마이대파 내 1:1 문의에 남겨주세요.</li>
-   </ul>
+   <h2>고객후기목록</h2>
    <br/>   
    <div class="div_container">
       <div class="div_checkbox">
@@ -49,7 +44,7 @@
          <td width=50>조회</td>         
       </tr>
       {{#each list}}
-      <tr class="row" onClick="location.href='/board/product_review_read?review_number={{review_number}}'">  
+      <tr class="row" onClick="location.href='/admin/review/read?review_number={{review_number}}'">  
          <td class="review_number">{{review_number}}</td>
          <td>{{product_id}}</td>
          <td>{{review_title}}</td>
@@ -59,28 +54,24 @@
         </tr>
       {{/each}}
    </script>
-   <div id="review_insert">
-      <button class="btn_style" onClick="location.href='/board/product_review_insert?product_id=${vo.product_id}'">상품후기</button>
-   </div>
    <div id="pagination"></div>
 </body>
 <script>
-   var product_id="${vo.product_id}";
    var page=1;
-   getProduct_review_list();
+   getAdmin_review_list();
    
    $("#orderBy").on("change", function(){
       page=1;
-      getProduct_review_list();
+      getAdmin_review_list();
    });
    
-   function getProduct_review_list(){
+   function getAdmin_review_list(){
       var orderBy=$("#orderBy").val();
       $.ajax({
          type:"get",
-         url:"/board/product_review_list.json",
+         url:"/board/admin_review_list.json",
          dataType:"json",
-         data:{"page":page,"orderBy":orderBy,"searchType":product_id},
+         data:{"page":page,"orderBy":orderBy},
          success:function(data){
             console.log(data);
             var temp = Handlebars.compile($("#temp").html());
@@ -108,7 +99,7 @@
    $("#pagination").on("click","a",function(e){
       e.preventDefault();
       page = $(this).attr("href");
-      getProduct_review_list();
+      getAdmin_review_list();
    });
 </script>
 </html>

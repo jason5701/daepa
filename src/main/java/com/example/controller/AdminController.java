@@ -23,6 +23,7 @@ import com.example.domain.ProductVO;
 import com.example.persistence.AdminDAO;
 import com.example.persistence.MeterialDAO;
 import com.example.persistence.ProductDAO;
+import com.example.service.BoardService;
 
 @Controller
 @RequestMapping("/admin/")
@@ -42,6 +43,8 @@ public class AdminController {
 	@Autowired
 	BCryptPasswordEncoder passEncoder;
 	
+	@Autowired
+	BoardService review_service;
 	
 	@RequestMapping("main")
 	public String admin(Model model){
@@ -49,6 +52,22 @@ public class AdminController {
 		model.addAttribute("rightPage", "notice/list.jsp");
 		return "/index";
 	}
+	//관리자고객후기목록
+	@RequestMapping("review")
+	public String review(Model model){
+		model.addAttribute("pageName", "admin/main.jsp");
+		model.addAttribute("rightPage", "review/list.jsp");
+		return "/index";
+	}
+   
+	//관리자고객후기정보
+	@RequestMapping("review/read")
+	public String read(Model model,int review_number) throws Exception{
+		model.addAttribute("pageName", "admin/main.jsp");
+		model.addAttribute("vo", review_service.admin_review_read(review_number));
+		model.addAttribute("rightPage", "review/read.jsp");
+		return "/index";
+	}	
 	
 	@RequestMapping("commonQA")
 	public String commonQA(Model model){

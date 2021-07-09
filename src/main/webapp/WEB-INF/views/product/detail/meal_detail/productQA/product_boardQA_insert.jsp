@@ -7,20 +7,51 @@
    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
    
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-   <title>상품문의 인서트페이지</title>
-   <style>
-      .btn_style { width: 120px; height: 50px; padding: .5em; border: 1px solid #123478; background: #123478; border-radius: 5px 5px 5px; color: white; font-weight:bold; margin-left: 10px;}
+   <title>PRODUCT Q/A</title>
+      <style>
+ 	*{font-family: 'Noto Sans KR', sans-serif; font-weight:bold;}
+    .btn_style { width: 120px; height: 50px; padding: .5em; border: 1px solid #123478; background: #123478; border-radius: 5px 5px 5px; color: white; font-weight:bold; margin-left: 10px;}
+   	table{width: 95%;border-collapse: collapse;font-weight:bold;}
+    tr,td{border:solid 1px #ccc solid;padding: 10px;text-align: center;}
+    .text_style,#text_style {
+	width: 350px;
+	height: 40px;
+	padding: .4em;
+	margin: 5px;
+	font-weight: 600;
+	background: white;
+	 border: 1px solid #ccc;
+    border-radius: 3px;
+	font-size: 12pt;
+	color: -internal-light-dark(black, white);
+	background-color: -internal-light-dark(rgb(255, 255, 255),
+		rgb(59, 59, 59));
+	} 
+	.text_style2 {
+		width: 350px;
+		height: 20px;
+		padding: .2em;
+		margin: 5px;
+		font-weight: 600;
+		background: white;
+		 border: 1px solid #ccc;
+	    border-radius: 3px;
+		font-size: 12pt;
+		color: -internal-light-dark(black, white);
+		background-color: -internal-light-dark(rgb(255, 255, 255),
+			rgb(59, 59, 59));
+	} 
    </style>
 </head>
 <body>
-<div style="width:510px; height:800px; background-color: #FFFFFF; border: 1px solid #D5D5D5; border-radius:10px 10px 10px 10px;  padding:10px; margin:0px auto;">
-   <h2> 상품 문의하기</h2>
+<div style="width:610px; height:900px; background-color: #FFFFFF; border: 1px solid #D5D5D5; border-radius:10px 10px 10px 10px;  padding:10px; margin:0px auto;">
+   <h2 style="color:#123478; text-align:center; ">상품 문의</h2>
    <hr style="border: 0.25px solid; width:500px; margin: 0 auto; background-color:#D5D5D5; color:#D5D5D5;" />
    <br/>
    
    <table>
       <tr>
-         <td style=" width:80;">${product_id}</td> 
+         <td style=" width:80; display:none;">${product_id}</td> 
          <td style=" width:80; padding:0px 30px 0px 30px;">
                 <img id="image" src="/displayFile?fullName=${aa.product_image}" width=120/>
                   <input type="file" name="file" style="display:none;"/>
@@ -39,12 +70,12 @@
          </tr>
          <tr>
             <td class="title" style="text-align:center;" width=100>제목</td>
-            <td width=100><input type="text" style="border:1px solid #A6A6A6;" name="boardQA_title" size=45 placeholder="제목을입력해주세요"/></td>
+            <td width=100><input type="text"  class="text_style" name="boardQA_title" size=45 placeholder="제목을입력해주세요"/></td>
          </tr>
          <tr>
             <td class="title" style="text-align:center;" width=100>내용</td>
             <td width=400>
-               <textarea rows="10" cols="50"  class="boardQA_contents" name="boardQA_contents" style="border:1px solid #A6A6A6;" placeholder="문의 내용을 입력해주세요                                            ㆍ배송관련, 주문(취소/교환/환불)관련문의 및 요청사항은  1:1 채팅문의를 이용해주세요"></textarea>
+               <textarea style="width:350px; height:200px; resize: none;"  class="boardQA_contents" name="boardQA_contents"  id="text_style" placeholder="문의 내용을 입력해주세요                                            ㆍ배송관련, 주문(취소/교환/환불)관련문의 및 요청사항은  1:1 채팅문의를 이용해주세요"></textarea>
             </td>
          </tr>
       </table>
@@ -58,8 +89,7 @@
 </div>   
 </body>
 <script>
-   var product_name="${vo.product_name}";
-   
+   var product_name="${vo.product_name}";   
 
    //글자수 실시간 카운팅
    $(frm.boardQA_contents).keyup(function (e){

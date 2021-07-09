@@ -127,5 +127,25 @@ public class BoardDAOImpl implements BoardDAO{
 	public ReviewVO user_review_read(int review_number) throws Exception {
 		return session.selectOne(namespace + ".user_review_read", review_number);
 	}
+	
+	@Override
+	public List<ReviewVO> admin_review_list(Criteria cri) throws Exception {
+		return session.selectList(namespace + ".admin_review_list", cri);
+	}
 
+	@Override
+	public void admin_review_delete(int review_number) throws Exception {
+		session.delete(namespace + ".admin_review_delete", review_number);
+      
+	}
+
+	@Override
+	public int admin_totalCount(Criteria cri) throws Exception {
+		return session.selectOne(namespace + ".admin_totalCount", cri);
+	}
+	
+	@Override
+	public ReviewVO admin_review_read(int review_number) throws Exception {
+		return session.selectOne(namespace + ".admin_review_read", review_number);
+	}
 }

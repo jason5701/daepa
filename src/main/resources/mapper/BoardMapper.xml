@@ -90,6 +90,26 @@
  	<select id="user_totalCount" resultType="int">
 		select count(*) from tbl_review where review_writer=#{searchType}
 	</select>
+	   
+   <select id="admin_review_list" resultType="com.example.domain.ReviewVO">
+       select * from pname_review
+       order by ${orderBy}
+      limit #{pageStart}, #{perPageNum}
+    </select>
+    
+    <delete id="admin_review_delete">
+       delete from tbl_review
+       where review_number=#{review_number}
+    </delete>
+    
+    <select id="admin_totalCount" resultType="int">
+      select count(*) from pname_review
+   </select>
+   
+   <select id="admin_review_read" resultType="com.example.domain.ReviewVO">
+       select * from pname_review
+       where review_number=#{review_number}
+    </select>
 	
  	<update id="updateReview_click">
  		update tbl_review set review_click=review_click+1

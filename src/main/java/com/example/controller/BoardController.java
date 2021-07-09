@@ -550,4 +550,29 @@ BoardQAVO vo=boardQA_dao.product_boardQA_read(boardQA_number);
 		model.addAttribute("vo", suggestion_service.read_confirm(suggestion_number));
 		return "/index";
 	}
+	@RequestMapping("admin_review_delete")
+	public String admin_review_delete(int review_number) throws Exception{
+		ReviewVO vo=review_dao.admin_review_read(review_number);
+		if(vo.getReview_image()!=null){
+			new File(path + "/" + vo.getReview_image()).delete();
+		}
+         	review_dao.product_review_delete(review_number);
+         	return "redirect:/admin/review";
+      	}
+	      
+	@RequestMapping("admin_review_list.json")
+	@ResponseBody
+	public HashMap<String, Object> admin_review_list(Criteria cri) throws Exception{
+		HashMap<String, Object> map=new HashMap<String, Object>();
+		cri.setPerPageNum(5);
+		map.put("list", review_dao.admin_review_list(cri));
+	         
+		PageMaker pm=new PageMaker();
+		pm.setCri(cri);
+		pm.setTotalCount(review_dao.admin_totalCount(cri));
+	         
+		map.put("cri", cri);
+		map.put("pm", pm);
+		return map;
+	}	
 }

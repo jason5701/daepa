@@ -28,6 +28,11 @@ public interface BoardDAO {
 	public void user_review_update(ReviewVO vo) throws Exception;
 	public int user_totalCount(Criteria cri)throws Exception;
 	public ReviewVO user_review_read(int review_number) throws Exception;
+
+	public List<ReviewVO> admin_review_list(Criteria cri) throws Exception;
+	public void admin_review_delete (int review_number) throws Exception;
+	public int admin_totalCount(Criteria cri)throws Exception;
+	public ReviewVO admin_review_read(int review_number) throws Exception;	
 	
 	public void updateReview_click(int review_number)throws Exception;
 	public String lastNumber()throws Exception;

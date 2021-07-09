@@ -81,7 +81,7 @@
 		<!-- 회원수정 버튼 -->
 	<div class="divButton">
 		<input type="submit" id="btnUpdate" class="register_button"  value="회원수정">
-		<input type="reset" class="register_button2" value="취소">
+		<input type="reset" class="register_button2" value="취소" onClick="location.href='/mypage/myInfo'">
 	</div>
 </div>
 <script>

@@ -15,31 +15,62 @@
    <title>REVIEW 등록</title>
    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
    <style>
-      .btn_style { width: 120px; height: 50px; padding: .5em; border: 1px solid #123478; background: #123478; border-radius: 5px 5px 5px; color: white; font-weight:bold; margin-left: 10px;}
+ 	*{font-family: 'Noto Sans KR', sans-serif; font-weight:bold;}
+    .btn_style { width: 120px; height: 50px; padding: .5em; border: 1px solid #123478; background: #123478; border-radius: 5px 5px 5px; color: white; font-weight:bold; margin-left: 10px;}
+   	table{width: 95%;border-collapse: collapse;font-weight:bold;}
+    tr,td{border:solid 1px #ccc solid;padding: 10px;text-align: center;}
+    .text_style {
+	width: 350px;
+	height: 40px;
+	padding: .4em;
+	margin: 5px;
+	font-weight: 600;
+	background: white;
+	 border: 1px solid #ccc;
+    border-radius: 3px;
+	font-size: 12pt;
+	color: -internal-light-dark(black, white);
+	background-color: -internal-light-dark(rgb(255, 255, 255),
+		rgb(59, 59, 59));
+} 
+.text_style2 {
+	width: 350px;
+	height: 20px;
+	padding: .2em;
+	margin: 5px;
+	font-weight: 600;
+	background: white;
+	 border: 1px solid #ccc;
+    border-radius: 3px;
+	font-size: 12pt;
+	color: -internal-light-dark(black, white);
+	background-color: -internal-light-dark(rgb(255, 255, 255),
+		rgb(59, 59, 59));
+} 
    </style>
 </head>
 <body>
-<div style="width:610px; height:800px; background-color: #FFFFFF; border: 1px solid #D5D5D5; border-radius:10px 10px 10px 10px;  padding:10px; margin:0px auto;">
-   <h2 style="color:#123478;"> 상품 후기작성</h2>
-   <hr style="border: 0.25px solid; width:600px; margin: 0 auto; background-color:#D5D5D5; color:#D5D5D5;" />
+<div style="width:610px; height:900px; background-color: #FFFFFF; border: 1px solid #D5D5D5; border-radius:10px 10px 10px 10px;  padding:10px; margin:0px auto;">
+   <h2 style="color:#123478; text-align:center; "> 상품 후기</h2>
+   <hr style="border: 0.25px solid; text-align:center; width:600px; margin: 0 auto; background-color:#D5D5D5; color:#D5D5D5;" />
    <br/>
    <form name="frm" enctype="multipart/form-data">
       <input type="hidden" value="${review_number}" name="review_number"/>
-      <table>
+      <table style="text-align:center; margin: 0 auto; ">
          <tr>
             <td width=100 style="Font-weight:bold;">상품번호</td>
-            <td style="border-bottom:1px solid;"><input type="text" style="border:none;" name="product_id" value="${product_id}"></td>
+            <td style="border-bottom:1px solid #ccc; text-align: left;"><input type="text" style="border:none;" class="text_style2" name="product_id" value="${product_id}"></td>
          </tr>
          <tr>
             <td width=100 style="Font-weight:bold;">작성자</td>
-            <td style="border-bottom:1px solid;">
+            <td style="border-bottom:1px solid #ccc; text-align: left;">
                <input type="hidden" name="review_writer" value="${user_info.user_id}">
-               <input type="text" style="border:none;" class="text_style" value="${user_info.user_name}" readonly>
+               <input type="text" style="border:none;" class="text_style2" value="${user_info.user_name}" readonly>
             </td>
          </tr>
          <tr>
             <td width=100 style="Font-weight:bold;">작성일</td>
-            <td style="border-bottom:1px solid;"><input type="text" style="border:none;" class="text_style" value="<%= sf.format(nowTime)%>" readonly/></td>
+            <td style="border-bottom:1px solid #ccc; text-align: left;"><input type="text" style="border:none;" class="text_style2" value="<%= sf.format(nowTime)%>" readonly/></td>
          </tr>
       </table>
       <br/>
@@ -58,7 +89,7 @@
          </tr>      
          <tr>
             <td style="Font-weight:bold;" width=100>내용</td>
-            <td width=400><textarea rows="10" cols="50" class="text_style" name="review_contents" style="border:1px solid #A6A6A6;" resize: none;" placeholder="후기 내용을 입력하세요."/></textarea></td>
+            <td width=400><textarea style="width:350px; height:200px; resize: none;" class="text_style" name="review_contents"  placeholder="후기 내용을 입력하세요."/></textarea></td>
          </tr>   
       </table>
       <div style="padding:20px; text-align:center; ">
