@@ -143,7 +143,6 @@
     position: relative;
 }
 #notice_main{
-	border-bottom:1px solid #f7f7f7;
 }
 #content{
 	min-width:1050px;
@@ -152,7 +151,6 @@
 }
 
 .page_aticle.aticle_type2 {
-    padding-top: 85px;
 }
 .page_aticle{
 	width:1050px;

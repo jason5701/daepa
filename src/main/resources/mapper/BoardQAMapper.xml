@@ -8,6 +8,13 @@
        order by boardQA_number desc
        limit #{pageStart}, #{perPageNum}
     </select>
+    
+    <select id="admin_boardQA_list" resultType="com.example.domain.BoardQAVO">
+       select * from tbl_boardqa 
+       order by boardQA_number desc
+       limit #{pageStart}, #{perPageNum}
+    </select>
+    
     <!-- 20210701 윤선 수정사항 -->
     <select id="product_boardQA_read" resultType="com.example.domain.BoardQAVO">
        select tbl_boardqa.*, tbl_product.*
@@ -15,9 +22,21 @@
        left join tbl_product on tbl_boardqa.product_id=tbl_product.product_id
        where boardQA_number=#{boardQA_number}
     </select>
+    
+    <select id="admin_boardQA_read" resultType="com.example.domain.BoardQAVO">
+       select tbl_boardqa.*, tbl_product.*
+       from tbl_boardqa
+       left join tbl_product on tbl_boardqa.product_id=tbl_product.product_id
+       where boardQA_number=#{boardQA_number}
+    </select>
+    
     <!-- 20210701 윤선 수정사항 -->
     <select id="totalCount" resultType="int">
       select count(*) from tbl_boardQA where product_id=#{searchType}
+      </select>
+      
+      <select id="admin_totalCount" resultType="int">
+      select count(*) from tbl_boardQA
       </select>
       
       <!-- 20210701 윤선 수정사항 -->

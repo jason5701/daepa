@@ -18,19 +18,21 @@
 	</div>
 </div>
 <!-- 블로그 API  -->
+<div id="blog_api">
 <h2>▮ POPULAR BLOG RECIPE </h2>
 <div class="slide_wrapper">
 <div id="blogs"></div>
 	<script id="tempblogs" type="text/x-handlebars-template">
 		{{#each documents}}
-		<div style="float:left; width:220px; margin-left:5px;">
-			<div class="thumb"><a href="{{url}}"><img src="{{thumbnail}}" style="width:220px; float:left; height:150px;"></a></div>
+		<div style="float:left; width:180px; margin:10px;">
+			<div class="thumb"><a href="{{url}}"><img src="{{thumbnail}}" style="width:180px; float:left; height:150px;"></a></div>
 			<br>
-			<div class="title" style="width:220px; float:left; font-size:9pt; margin-top:5px;">{{{title}}}</div>
+			<div class="title" style="width:180px; float:left; font-size:9pt; margin-top:5px;">{{{title}}}</div>
 		</div>
 		{{/each}}
 	</script>
 	</div>
+</div>
 <!-- 레시피재료 -->
 <div id="recipeItems">
 <h2>▮ RECIPE ITEMS</h2>
@@ -49,15 +51,14 @@
 		{{/each}}
 	</ul>
 	</script>
-	
 	</div>
 </div>
 
 <!-- 디테일 메뉴탭 -->
 <div class="detailMenu">
   <p>
-    <a onclick="fnMove('3')">상품후기</a>
     <a onclick="fnMove('1')">상품설명</a>
+    <a onclick="fnMove('3')">상품후기</a>
     <a onclick="fnMove('4')">상품문의</a>
   </p>
 </div>
@@ -78,7 +79,7 @@
 <script>
 var product_id="${vo.product_id}";
 var product_name="${vo.product_name}";
-var size="4";
+var size="5";
 	//연관재료불러오기
 	getMeterial_list();
 	function getMeterial_list(){

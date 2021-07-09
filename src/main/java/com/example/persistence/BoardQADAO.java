@@ -21,4 +21,8 @@ public interface BoardQADAO {
    public void product_boardQA_insert(BoardQAVO vo)throws Exception;
    public int user_totalCount(Criteria cri) throws Exception;
    public String lastNumber()throws Exception;
+   
+   public List<BoardQAVO> admin_boardQA_list(Criteria cri) throws Exception;
+   public BoardQAVO admin_boardQA_read(int boardQA_number) throws Exception;
+   public int admin_totalCount(Criteria cri) throws Exception;
 }

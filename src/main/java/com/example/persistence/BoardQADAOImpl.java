@@ -73,4 +73,19 @@ public class BoardQADAOImpl implements BoardQADAO{
    public int user_totalCount(Criteria cri) throws Exception {
       return session.selectOne(namespace+ ".user_totalCount", cri);
    }
+
+	@Override
+	public List<BoardQAVO> admin_boardQA_list(Criteria cri) throws Exception {
+		return session.selectList(namespace + ".admin_boardQA_list", cri);
+	}
+
+	@Override
+	public int admin_totalCount(Criteria cri) throws Exception {
+		return session.selectOne(namespace + ".admin_totalCount",cri);
+	}
+
+	@Override
+	public BoardQAVO admin_boardQA_read(int boardQA_number) throws Exception {
+		return session.selectOne(namespace + ".admin_boardQA_read", boardQA_number);
+	}
 }

@@ -1,6 +1,5 @@
 @CHARSET "UTF-8";
 #notice_main{
-	border-bottom:1px solid #f7f7f7;
 }
 #content{
 	min-width:1050px;
@@ -15,7 +14,6 @@ table {width: 100%; border-top: 2px solid black; margin:10px auto; text-align:ce
 .tbl_read td {border-bottom: 1px solid #444444; text-align:left; padding: 10px;}
 
 .page_aticle.aticle_type2 {
-    padding-top: 85px;
 }
 .page_aticle{
 	width:1050px;
@@ -40,6 +38,7 @@ table {width: 100%; border-top: 2px solid black; margin:10px auto; text-align:ce
 #snb {
     float: left;
     width: 200px;
+    margin-bottom:50px;
 }
 #snb .tit_snb {
     padding: 8px 0 33px 1px;

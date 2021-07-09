@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<h2>공지사항</h2>
+<br/><h2>공지사항</h2><br/>
 <form name="frm">
 	<input type="hidden" name="notice_number" value="${vo.notice_number}"/>
 	<table>
@@ -24,7 +24,7 @@
 		<tr>
 			<td colspan=4><textarea name="notice_contents"  class="admin_text" style="width:500px; height:200px; resize: none;">${vo.notice_contents}</textarea></td>
 		</tr>
-	</table>
+	</table><br/>
 	<div style="margin:10px auto; text-align:center">
 		<button id="btn_modify" class="btn_admin" >수정</button><button id="btn_delete" class="btn_admin">삭제</button><input type="button" id="btn_list"  class="btn_admin" value="목록">
 	</div>

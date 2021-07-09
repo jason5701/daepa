@@ -11,7 +11,8 @@
  #pagination .active{color:#ccc}
 </style>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<h2>자주하는질문</h2>
+
+<br/><h2>자주하는질문</h2><br/>
    <div class="div_container" >
       <div class="div_checkbox" style="float:left;">
          <select id="type">
@@ -30,39 +31,55 @@
    </span>
    </div>
 <div id="div_content">
-   <table id="tbl"></table>
-   <script id="temp" type="text/x-handlebars-template">
-      <tr style="background:#fafafa;">
-         <td>번호</td>
-         <td>작성자</td>
-         <td>제목</td>
-      </tr>
-      {{#each list}}
-         <tr class="tr_row">
-            <td>{{commonQA_number}}</td>
-            <th>{{commonQA_writer}}</th>
+   <table id="tbl" class="table"></table>
+      <script id="temp" type="text/x-handlebars-template">
+         <tr class="title">
+            <td width=200>번호</td>
+            <td width=800>제목</td>   
+         </tr>
+         {{#each list}}
+           <tr class="row">  
+            <td class="commonQA_number">{{commonQA_number}}</td>
             <td>{{commonQA_title}}</td>
-         </tr>
-         <tr class="row" style="display:none;">
-            <td style="text-align:left" colspan=3>{{commonQA_contents}}</td>
-         </tr>
-      {{/each}}
-   </script>
+           </tr>
+         <tr class="c_row" style="display:none" commonQA_number={{commonQA_number}}>
+                 <td></td>
+            <td><textarea rows="10" cols="100" style="border:none;" readonly>{{commonQA_contents}}</textarea></td>
+            </tr>
+         {{/each}}
+      </script>
    <div id="pagination"></div>
    <span id="total"></span>
 </div>
 <script>
    var page=1;
    getNotice();
-   $("#tbl").on("click",".tr_row",function(){
-      /*if($("#tbl .row").css("display")=="none"){
+   /*$("#tbl").on("click",".tr_row",function(){
+      if($("#tbl .row").css("display")=="none"){
          $(this).next().show();
          $(this).next().css("display:block;");
       }else if($("#tbl .row").css("display")!="none"){
          $(this).next().hide();
          $(this).next().css("display:none;");
-      }*/
+      }
       $(this).next().toggle();
+   });*/
+   //클릭시 하단에 tr 글 출력
+   $(".table").on("click",".row",function(){
+        var tr = $(this);
+       var no = tr.find(".commonQA_number").html();
+      $(".c_row").each(function(){
+         var commonQA_number = $(this).attr("commonQA_number");
+         if(no==commonQA_number){
+            if($(this).css("display")=="none"){
+               $(this).show();
+            }else{
+               $(this).hide();
+            }
+         }else{
+            $(this).hide();
+         }
+      });
    });
    $(".admin_text").on("keydown",function(e){
       if(e.keyCode==13) {

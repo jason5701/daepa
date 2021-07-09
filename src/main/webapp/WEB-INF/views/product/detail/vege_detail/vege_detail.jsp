@@ -16,6 +16,7 @@
 	</div>
 </div>
 <!-- 블로그 API  -->
+<div id="blog_api">
 <h2>▮ POPULAR BLOG RECIPE </h2>
 <div class="slide_wrapper">
 <div id="blogs"></div>
@@ -29,6 +30,7 @@
 		{{/each}}
 	</script>
 	</div>
+</div>
 <!-- 레시피재료 -->
 <div id="recipeItems">
 <h2>▮ ${vo.meterial_name} 재료로 만들 수 있는 요리가 있어요👨‍🍳</h2>
@@ -41,7 +43,7 @@
 				<a href="/meal_detail?product_id={{product_id}}">
 					<img src="/displayFile?fullName={{product_image}}" width=150 height=150 />
 					<span class="items_name">{{product_name}}</span><br>
-					<span class="items_price">{{product_price}}원</span>
+					<span class="items_price">{{nf product_price}}원</span>
 				</a>
 			</li>
 		{{/each}}
@@ -53,8 +55,8 @@
 <!-- 디테일 메뉴탭 -->
 <div class="detailMenu">
   <p>
-    <a onclick="fnMove('3')">고객후기</a>
     <a onclick="fnMove('1')">상품설명</a>
+    <a onclick="fnMove('3')">고객후기</a>
     <a onclick="fnMove('4')">상품문의</a>
   </p>
 </div>
@@ -66,7 +68,12 @@
 	<div id="detailContent3" ><jsp:include page="${meterial_review}"></jsp:include></div>
 	<div id="detailContent4" ></div>
 </div>
-
+<script>
+	Handlebars.registerHelper("nf", function(price){
+	    var regexp = /\B(?=(\d{3})+(?!\d))/g; 
+	    return price.toString().replace(regexp, ",");
+	});
+</script>
 <script>
 	var meterial_id="${vo.meterial_id}";
 	var meterial_name="${vo.meterial_name}";

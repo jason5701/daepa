@@ -17,7 +17,8 @@
 #carttbl .sum span{background:#fafafa;}
 #carttbl .row{}
 
-.chkBox{padding-left:6px; font-size:10pt;}
+.chkBox{padding-left:6px;}
+.chkBox label{font-size:12pt; margin-bottom:10px;}
 
 .sum{text-align:right;;}
 .sum span{border-bottom:1px black solid}

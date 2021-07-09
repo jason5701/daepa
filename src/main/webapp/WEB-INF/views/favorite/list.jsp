@@ -4,14 +4,15 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <style>
+	  #favorite{width:1000px; margin:0 auto; margin-bottom:70px;}
 	  table{width: 100%;border-collapse: collapse;border-bottom:solid 1px;}
       tr,td{border-bottom:1px #ccc solid;padding: 10px;text-align: center;}
       .title{background: #FAFAFA; border-top:2px solid;text-align: center; font-size:15px;}
 </style>
 <div id="favorite">
-<br/><h2>찜목록</h2><br/><br/>
+<br/><h2>찜목록</h2><br/>
    <c:if test="${productflist.size() == 0 && meterialflist.size() == 0}">
-      <h3>찜목록에 담긴 상품이 없어요 😥</h3><br/>
+      <br/><h3>찜목록에 담긴 상품이 없어요 😥</h3><br/>
    </c:if>
    
    <c:if test="${productflist.size() > 0}">

@@ -11,7 +11,7 @@
 </head>
 <body>
    <div class="chat_wrap">
-      <div class="header">채 팅 방</div>
+      <div class="header">대파인들의 공구채팅🥬</div>
       <div id="chat"></div>
       <script id="temp" type="text/x-handlebars-template">
           <div class="{{printLeftRight sender}}">

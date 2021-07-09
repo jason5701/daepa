@@ -24,6 +24,12 @@
 							<a href="#none" onclick="location.href='/admin/orders'">주문내역</a>
 						</li>
 						<li class="on">
+							<a href="#none" onclick="location.href='/admin/boardQA'">고객문의목록</a>
+						</li>
+						<li class="on">
+							<a href="#none" onclick="location.href='#'">고객후기목록</a>
+						</li>
+						<li class="on">
 							<a href="#none" onclick="location.href='/admin/chat'">공구채팅</a>
 						</li>
 						<li class="on">
