@@ -6,8 +6,9 @@
  #pagination a{text-decoration:none; color:#123478;font-weight:bold;}
  #pagination .active{color:#ccc}
 </style>
+<br/>
 <div class="head_aticle">
-	<h2 class="tit">공지사항</h2>
+	<h2 class="tit">공지사항</h2><br/>
 	<div>
 		<div class="div_container" style="float:left;">
 			<div class="div_checkbox">

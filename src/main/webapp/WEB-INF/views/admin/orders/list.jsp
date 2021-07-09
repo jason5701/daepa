@@ -7,14 +7,15 @@
  #pagination a{text-decoration:none; color:#123478;font-weight:bold;}
  #pagination .active{color:#ccc}
 </style>
-<h2>주문 내역</h2>
+<br/>
+<h2>주문 내역</h2><br/>
 <div id="div_orders">
 <table id="tbl"></table>		
 <script id="temp" type="text/x-handlebars-template">
 		<tr class="title" style="background:#fafafa;">
-			<td width=20>주문번호</td>
-			<td width=50>회원아이디</td>
-			<td width=30>주문인</td>
+			<td width=40>주문NO.</td>
+			<td width=50>아이디</td>
+			<td width=40>주문인</td>
 			<td width=80>주문날짜</td>
 			<td width=100>주소</td>
 			<td width=50>전화번호</td>

@@ -6,6 +6,7 @@ import java.io.File;
 import java.util.HashMap;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,7 @@ import com.example.domain.Criteria;
 import com.example.domain.NoticeVO;
 import com.example.domain.PageMaker;
 import com.example.domain.ReviewVO;
+import com.example.domain.UserVO;
 import com.example.persistence.BoardDAO;
 import com.example.persistence.BoardQADAO;
 import com.example.persistence.CommonQADAO;
@@ -435,7 +437,7 @@ BoardQAVO vo=boardQA_dao.product_boardQA_read(boardQA_number);
 	@ResponseBody
 	public HashMap<String,Object> admin_noticeList(Criteria cri)throws Exception{
 		HashMap<String,Object> map=new HashMap<String,Object>();
-		cri.setPerPageNum(3);
+		cri.setPerPageNum(5);
 		map.put("list", notice_dao.admin_list(cri));
 		PageMaker pm=new PageMaker();
 		pm.setCri(cri);

@@ -190,6 +190,7 @@ $(".searchIcon").on("click", function(){
 	}else{
 		location.href="/search/list?keyword="+keyword;
 	}
+	$("#keyword").val("");
 });
 
 //스크롤 업다운 버튼 스크립트

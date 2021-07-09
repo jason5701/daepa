@@ -7,10 +7,11 @@
 <%
 	SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
 %>
-<h2>쿠폰리스트</h2>
+<br/><br/>
+<h2>쿠폰리스트</h2><br/>
 <div>
 	<button class="btn_admin" onClick="location.href='/coupon/admin_insert'">쿠폰발행</button>
-</div>
+</div><br/>
 <div>
 	<c:forEach items="${list}" var="vo">
 		<div class="coupon_box" style="float:left; margin-left:20px;">

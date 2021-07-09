@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
-<h2>상품관리</h2>
+<br/><h2>상품관리</h2><br/>
 <div>
 	<div style="float:left;">
 		<select id="main_meterial" >

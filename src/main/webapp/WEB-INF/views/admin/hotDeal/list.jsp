@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<h2>핫딜</h2>
+<br/><br/><h2>핫딜</h2><br/>
 <table id="tbl"></table>
 <script id="temp" type="text/x-handlebars-template">
 	<tr style="background:#fafafa;">

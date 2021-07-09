@@ -14,7 +14,7 @@
    <c:if test="${cartList.size() > 0}">
    <h2>장바구니</h2><br/>
    <div class="chkBox">
-      <input type="checkbox" name="chkAll" id="chkAll" /><label for="chkAll"> 모두 선택</label> 
+      <input type="checkbox" name="chkAll" id="chkAll" /><label for="chkAll">모두 선택</label> 
       <button type="button" class="selectDelete_btn">선택 삭제</button> 
    </div><br/>
    <div id="cart1">

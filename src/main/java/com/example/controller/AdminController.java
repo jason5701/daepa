@@ -18,9 +18,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.util.WebUtils;
 
 import com.example.domain.AdminVO;
+import com.example.domain.BoardQAVO;
+import com.example.domain.Criteria;
 import com.example.domain.MeterialVO;
+import com.example.domain.PageMaker;
 import com.example.domain.ProductVO;
 import com.example.persistence.AdminDAO;
+import com.example.persistence.BoardQADAO;
 import com.example.persistence.MeterialDAO;
 import com.example.persistence.ProductDAO;
 import com.example.service.BoardService;
@@ -39,6 +43,9 @@ public class AdminController {
 	
 	@Autowired
 	MeterialDAO meterial_dao;
+	
+	@Autowired
+	BoardQADAO boardQA_dao;
 
 	@Autowired
 	BCryptPasswordEncoder passEncoder;
@@ -74,7 +81,64 @@ public class AdminController {
 		model.addAttribute("pageName", "admin/main.jsp");
 		model.addAttribute("rightPage", "commonQA/list.jsp");
 		return "/index";
-	}	
+	}
+	
+	@RequestMapping("boardQA")
+	public String boardQA(Model model){
+		model.addAttribute("pageName", "admin/main.jsp");
+		model.addAttribute("rightPage", "boardQA/list.jsp");
+		return "/index";
+	}
+	
+	@RequestMapping("admin_boardQA_update")
+	public String admin_boardQA_update(Model model, BoardQAVO vo) throws Exception{
+		boardQA_dao.product_boardQA_update(vo);
+		model.addAttribute("vo", boardQA_dao.product_boardQA_read(vo.getBoardQA_number()));
+		model.addAttribute("pageName", "admin/main.jsp");
+		model.addAttribute("rightPage", "boardQA/read.jsp");
+		return "/index";
+	}
+	
+	@RequestMapping("boardQA/reply")
+	public String reply(Model model, BoardQAVO vo) throws Exception{
+		model.addAttribute("pageName", "admin/main.jsp");
+		model.addAttribute("vo", boardQA_dao.admin_boardQA_read(vo.getBoardQA_number()));
+		model.addAttribute("rightPage", "boardQA/reply.jsp");
+		return "/index";
+	}
+	
+	@RequestMapping("boardQA/read")
+	public String read(Model model, int boardQA_number) throws Exception{
+		model.addAttribute("pageName", "admin/main.jsp");
+		model.addAttribute("vo", boardQA_dao.admin_boardQA_read(boardQA_number));
+		model.addAttribute("rightPage", "boardQA/read.jsp");
+		return "/index";
+	}
+	
+	@RequestMapping("admin_boardQA_delete")
+	public String admin_boardQA_delete(Model model, int boardQA_number) throws Exception{
+	   BoardQAVO vo=boardQA_dao.product_boardQA_read(boardQA_number);   
+	   boardQA_dao.product_boardQA_delete(boardQA_number); 
+	   model.addAttribute("pageName", "admin/main.jsp");
+	   model.addAttribute("rightPage", "boardQA/list.jsp");
+	   return "/index";
+	}
+	
+	@RequestMapping("product_boardQA_list.json") //jsp에 있는, ajax으로 url 연결하여 출력. ==> 크롤링과 동일하게 생각하면 됨
+	@ResponseBody
+	public HashMap<String, Object> product_boardQA_list(Criteria cri) throws Exception{
+		HashMap<String, Object> map=new HashMap<>();
+		cri.setPerPageNum(5);
+		map.put("list", boardQA_dao.admin_boardQA_list(cri));  
+		
+		PageMaker pm=new PageMaker();
+		pm.setCri(cri);
+	    pm.setTotalCount(boardQA_dao.admin_totalCount(cri));
+	    
+	    map.put("pm", pm);
+	    map.put("cri", cri);
+		return map;
+	}
 	
 	//관리자-주문내역 모든 user
 	@RequestMapping("orders")

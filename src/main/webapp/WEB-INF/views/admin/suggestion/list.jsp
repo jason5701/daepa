@@ -9,7 +9,7 @@
  #pagination a{text-decoration:none; color:#123478; font-weight:bold;}
  #pagination .active{color:#ccc}
 </style>
-<h2>제 안</h2>
+<br/><br/><h2>제안</h2>
 <div>
 	<span id="total"></span>
 </div>

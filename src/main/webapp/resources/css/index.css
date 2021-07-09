@@ -294,7 +294,7 @@ label.right{
 #main{width:100%; margin:0px auto; margin-top:20px; margin-bottom:20px; }
 
 /* MD추천 */
-#monthly{width:1020px; margin:0px auto; margin-top:40px; text-align:center; 
+#monthly{width:1020px; margin:0px auto; margin-top:70px; text-align:center; 
 		 overflow:hidden; padding-top:20px; padding-bottom:20px; }
 #monthly h2{color:black; margin-top:10px; margin-bottom:10px; }
 #product{width:240px; float:left; margin-left:6px; margin-right:6px; 
@@ -335,7 +335,7 @@ label.right{
 .list_category .menu:hover{color:black; font-weight:bold; background:#f7f7f7; }
 
 /* 인스타그램 후기 */
-#snsBox{width:1000px; margin:0px auto; margin-top:40px; margin-bottom:40px; 
+#snsBox{width:1000px; margin:0px auto; margin-top:70px; margin-bottom:100px; 
 		text-align:center;}
 #snsBox h2{color:black; margin-bottom:30px; }
 .slide_wrapper{

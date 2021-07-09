@@ -65,7 +65,7 @@
       <table style="padding:10px" width=500 >
          <tr>
             <td><input type="hidden" name="product_id" value="${product_id}"/></td>
-            <td><input type="hidden" name="boardQA_writer" value="yoonsun"/></td>
+            <td><input type="hidden" name="boardQA_writer" value="${user_info.user_id}"/></td>
             <!--<td><input type="hidden" value="1992-07-19" readonly/></td> -->
          </tr>
          <tr>
@@ -89,7 +89,8 @@
 </div>   
 </body>
 <script>
-   var product_name="${vo.product_name}";   
+
+   var product_name="${vo.product_name}";
 
    //글자수 실시간 카운팅
    $(frm.boardQA_contents).keyup(function (e){
