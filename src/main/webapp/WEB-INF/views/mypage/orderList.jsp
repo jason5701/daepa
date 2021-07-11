@@ -122,7 +122,7 @@ Handlebars.registerHelper("d_success", function(order_status){
    
    $(".div_orderList").hide();
    
-   $("#tbl_orders").on("click",".tr_row",function(){      
+   $("#tbl_orders").on("click",".tr_row",function(){ 
       $(".div_orderList").show();
       var order_number = $(this).attr("order_number");
       purchaseList(order_number);

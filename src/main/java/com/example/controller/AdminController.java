@@ -69,7 +69,7 @@ public class AdminController {
    
 	//관리자고객후기정보
 	@RequestMapping("review/read")
-	public String read(Model model,int review_number) throws Exception{
+	public String review_read(Model model,int review_number) throws Exception{
 		model.addAttribute("pageName", "admin/main.jsp");
 		model.addAttribute("vo", review_service.admin_review_read(review_number));
 		model.addAttribute("rightPage", "review/read.jsp");
