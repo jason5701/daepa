@@ -71,7 +71,7 @@ public class BoardController {
 	@ResponseBody
 	public HashMap<String, Object> list_json(Criteria cri) throws Exception{
 		HashMap<String, Object> map=new HashMap<>();
-		cri.setPerPageNum(3);
+		cri.setPerPageNum(5);
 		map.put("notice_hashmap", notice_dao.list(cri));
 		PageMaker pm=new PageMaker();
 		pm.setCri(cri);
@@ -102,7 +102,7 @@ public class BoardController {
 	@ResponseBody
 	public HashMap<String, Object> product_boardQA_list(Criteria cri) throws Exception{
 		HashMap<String, Object> map=new HashMap<>();
-		cri.setPerPageNum(3);
+		cri.setPerPageNum(5);
 		map.put("list", boardQA_dao.product_boardQA_list(cri));  
 		
 		PageMaker pm=new PageMaker();

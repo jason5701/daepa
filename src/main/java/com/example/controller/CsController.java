@@ -21,6 +21,10 @@ public class CsController {
 	@Autowired
 	NoticeDAO notice_dao;
 	
+<<<<<<< HEAD
+=======
+	/*20210701 윤선 수정사항*/
+>>>>>>> 45d07884ade5ad8578f58c6b15859f0b8d2efcff
 	@Autowired
 	NoticeService notice_service;
 	
@@ -44,7 +48,11 @@ public class CsController {
 	      
 	      return "/index";
 	   }
+<<<<<<< HEAD
 
+=======
+	  
+>>>>>>> 45d07884ade5ad8578f58c6b15859f0b8d2efcff
 	
 	@RequestMapping("commonQA") //자주하는질문
 	public String cs_commonqa(Model model) throws Exception {
