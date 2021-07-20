@@ -210,7 +210,7 @@
 	    });
 	    $("#check_all").prop("checked", is_checked);
 	});
-	//비밀번호 확인 버튼 누를때
+	//비밀번호 확인 버튼 누를때 ..
 	$("#pwChk").on("click",function(e){
 		e.preventDefault();
 		if($(frm.user_password).val()==""){
