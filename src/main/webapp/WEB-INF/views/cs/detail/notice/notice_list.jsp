@@ -32,7 +32,7 @@
          <td>Á¶È¸¼ö</td>
       </tr>
       {{#each notice_hashmap}}
-         <tr class="row" onClick="location.href='/board/notice/read?notice_number={{notice_number}}'" style="cursor:pointer;">
+         <tr class="row" onClick="location.href='/cs/notice/read?notice_number={{notice_number}}'" style="cursor:pointer;">
             <td>{{notice_number}}</td>
             <td>{{notice_title}}</td>
             <td>{{notice_writer}}</td>
